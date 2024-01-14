@@ -1,0 +1,30 @@
+/* parallax.css */
+
+/* Parallax Effect */
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 400px; /* Adjust this height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Customize the parallax sections as needed */
+#hero {
+    background-image: url('path/to/your/hero-image.jpg');
+}
+
+#projects {
+    background-image: url('path/to/your/projects-image.jpg');
+}
+
+#contact {
+    background-image: url('path/to/your/contact-image.jpg');
+}
