@@ -1,10 +1,10 @@
 # Skunkworks.github.io
 
-Welcome to the Skunk Works project page. This site is dedicated to showcasing our latest innovations and experimental projects in software development.
+Welcome to the Skunkworks project page. This site is dedicated to showcasing our latest innovations and experimental projects in software development.
 
 ## About
 
-Skunk Works is a term traditionally used to describe a group within an organization given a high degree of autonomy and unhampered by bureaucracy, tasked with working on advanced or secret projects. Here, we apply the same principle to software development, creating cutting-edge applications and tools.
+Skunkworks is a term traditionally used to describe a group within an organization given a high degree of autonomy and unhampered by bureaucracy, tasked with working on advanced or secret projects. Here, we apply the same principle to software development, creating cutting-edge applications and tools.
 
 ## Projects
 
