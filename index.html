@@ -6,6 +6,7 @@
     <title>Welcome to Skunkworks EdTech</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
       /* Additional styles to ensure that icons and input fields are centered vertically */
       .icon {
@@ -15,6 +16,10 @@
       }
       .search-input {
         height: 44px; /* This height ensures vertical centering of the input field */
+      }
+      /* Styles for the card layout */
+      .card-container {
+        padding: 4rem 0;
       }
     </style>
 </head>
@@ -29,9 +34,38 @@
         <a href="contact.html" class="text-gray-700 font-medium">Contact</a>
         <a href="onboarding.html" class="text-gray-700 font-medium">Onboarding</a>
     </nav>
-    <main class="flex flex-col justify-center items-center h-screen space-y-6">
-        <!-- The content of the main section is omitted as we're focusing on the layout -->
+    
+    <!-- Main content with cards -->
+    <main class="card-container">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-center space-x-4">
+          <!-- Card 1 -->
+          <div class="rounded-lg shadow-lg bg-white max-w-sm">
+            <img class="rounded-t-lg" src="https://placehold.co/200x200" alt="Placeholder image representing Earth from space" />
+            <div class="p-6">
+              <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Give me a weird fact and hypothesize what it reveals about the world</h5>
+            </div>
+          </div>
+          
+          <!-- Card 2 -->
+          <div class="rounded-lg shadow-lg bg-white max-w-sm">
+            <img class="rounded-t-lg" src="https://placehold.co/200x200" alt="Placeholder image representing a futuristic cityscape" />
+            <div class="p-6">
+              <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">What's the most popular true crime show streaming right now?</h5>
+            </div>
+          </div>
+          
+          <!-- Card 3 -->
+          <div class="rounded-lg shadow-lg bg-white max-w-sm">
+            <img class="rounded-t-lg" src="https://placehold.co/200x200" alt="Placeholder image representing a 3D heart with musical notes" />
+            <div class="p-6">
+              <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Compose a love song that doubles as a proposal</h5>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
+    
     <footer class="text-center mb-6">
         <p class="text-gray-600">© 2024 Skunkworks EdTech. All rights reserved.</p>
     </footer>
