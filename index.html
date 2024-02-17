@@ -1,67 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Add this in the <head> section of your HTML files -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Add this in the <head> section of your HTML files -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700&display=swap">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Skunkworks EdTech</title>
-    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+      /* Additional styles to ensure that icons and input fields are centered vertically */
+      .icon {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .search-input {
+        height: 44px; /* This height ensures vertical centering of the input field */
+      }
+    </style>
 </head>
-<body>
-    <header>
-        <h1>Welcome to Skunkworks EdTech</h1>
+<body class="bg-gray-200 font-roboto">
+    <header class="text-center mt-6">
+        <h1 class="text-4xl font-opensans">Welcome to Skunkworks EdTech</h1>
     </header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="course-catalog.html">Course Catalog</a></li>
-            <li><a href="about-us.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="onboarding.html">Onboarding</a></li>
-            <!-- Add more links to other pages as needed -->
-        </ul>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="index.html">Skunkworks EdTech</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="about-us.html">About Us</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="course-catalog.html">Course Catalog</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="contact.html">Contact</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="onboarding.html">Onboarding</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
-    <main>
-        <section>
-            <h2>Our Mission</h2>
-            <p>At Skunkworks EdTech, our mission is to revolutionize the landscape of educational technology...</p>
-            <!-- Content truncated for brevity -->
-        </section>
-        <section>
-            <h2>About This Catalog</h2>
-            <p>This catalog is designed as your comprehensive guide to the exciting and diverse range...</p>
-            <!-- Content truncated for brevity -->
-        </section>
-        <!-- You can include more sections from your homepage content here -->
+    <nav class="flex justify-center space-x-4 mt-4">
+        <a href="index.html" class="text-gray-700 font-medium">Home</a>
+        <a href="course-catalog.html" class="text-gray-700 font-medium">Course Catalog</a>
+        <a href="about-us.html" class="text-gray-700 font-medium">About Us</a>
+        <a href="contact.html" class="text-gray-700 font-medium">Contact</a>
+        <a href="onboarding.html" class="text-gray-700 font-medium">Onboarding</a>
+    </nav>
+    <main class="flex flex-col justify-center items-center h-screen space-y-6">
+        <!-- The content of the main section is omitted as we're focusing on the layout -->
     </main>
-    <footer>
-        <p>© 2024 Skunkworks EdTech. All rights reserved.</p>
+    <footer class="text-center mb-6">
+        <p class="text-gray-600">© 2024 Skunkworks EdTech. All rights reserved.</p>
     </footer>
 </body>
 </html>
