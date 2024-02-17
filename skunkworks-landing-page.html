@@ -4,47 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Skunkworks EdTech</title>
-    <link rel="stylesheet" href="css/styles.css"> <!-- Link to your main CSS file -->
-    <link rel="stylesheet" href="css/parallax.css"> <!-- Link to your parallax effect CSS file -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+      /* Additional styles to ensure that icons and input fields are centered vertically */
+      .icon {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .search-input {
+        height: 44px; /* This height ensures vertical centering of the input field */
+      }
+    </style>
 </head>
-<body>
-    <header>
-        <h1>Welcome to Skunkworks EdTech</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="course-catalog.html">Course Catalog</a></li>
-                <li><a href="about-us.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="onboarding.html">Onboarding</a></li>
-            </ul>
-        </nav>
+<body class="bg-gray-200 font-roboto">
+    <header class="text-center mt-6">
+        <h1 class="text-4xl font-opensans">Welcome to Skunkworks EdTech</h1>
     </header>
-
-    <main>
-        <section id="hero" class="parallax">
-            <div class="hero-content">
-                <h1>Welcome to Skunkworks EdTech</h1>
-                <p>Your gateway to innovative projects and developer resources.</p>
-                <a href="#projects" class="btn">Explore Projects</a>
-            </div>
-        </section>
-
-        <section id="about">
-            <div class="container">
-                <h2>About Skunkworks EdTech</h2>
-                <p>Skunkworks EdTech is a dynamic technology organization committed to pushing boundaries and fostering innovation in the education technology space. We specialize in creating world-class educational content and courses for leading technology partners.</p>
-            </div>
-        </section>
-
-        <!-- Add more sections or content as needed -->
+    <nav class="flex justify-center space-x-4 mt-4">
+        <a href="index.html" class="text-gray-700 font-medium">Home</a>
+        <a href="course-catalog.html" class="text-gray-700 font-medium">Course Catalog</a>
+        <a href="about-us.html" class="text-gray-700 font-medium">About Us</a>
+        <a href="contact.html" class="text-gray-700 font-medium">Contact</a>
+        <a href="onboarding.html" class="text-gray-700 font-medium">Onboarding</a>
+    </nav>
+    <main class="flex flex-col justify-center items-center h-screen space-y-6">
+        <!-- The content of the main section is omitted as we're focusing on the layout -->
     </main>
-
-    <footer>
-        <p>&copy; 2024 Skunkworks EdTech. All rights reserved.</p>
+    <footer class="text-center mb-6">
+        <p class="text-gray-600">© 2024 Skunkworks EdTech. All rights reserved.</p>
     </footer>
-
-    <!-- JavaScript for parallax effect -->
-    <script src="js/parallax.js"></script>
 </body>
 </html>
