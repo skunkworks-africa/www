@@ -8,24 +8,22 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <style>
-        /* Custom styles for colors and fonts if necessary */
-        .header-blue {
-            background-color: #0f62fe; /* Assuming Skunkworks blue is similar to IBM blue */
-        }
-
-        .bg-light-blue {
-            background-color: #e0f2fe; /* A lighter shade of blue */
-        }
-        
-        .border-custom {
-            border: 3px solid #0f62fe; /* Border color */
-        }
+        /* Custom styles */
+        .header-blue { background-color: #0f62fe; }
+        .bg-light-blue { background-color: #e0f2fe; }
+        .border-custom { border: 3px solid #0f62fe; }
     </style>
 </head>
 
 <body class="font-roboto bg-light-blue text-gray-900">
     <header class="header-blue text-white text-center p-10">
-        <h1 class="text-4xl font-bold">Welcome to the Skunkworks Education</h1>
+        <nav class="flex justify-center space-x-4">
+            <a href="index.html" class="text-white hover:underline">Home</a>
+            <a href="about-us.html" class="text-white hover:underline">About Us</a>
+            <a href="course-catalog.html" class="text-white hover:underline">Course Catalog</a>
+            <a href="contact.html" class="text-white hover:underline">Contact</a>
+        </nav>
+        <h1 class="text-4xl font-bold">Welcome to Skunkworks Education</h1>
         <p class="mt-4 text-xl">Course Information Pages</p>
     </header>
 
@@ -33,11 +31,9 @@
         <div class="bg-white p-6 border-custom rounded">
             <h2 class="text-2xl font-bold mb-2">Skunkworks Courses</h2>
             <p class="mb-4">Abstracts and corrections documents for active courses</p>
-            <a href="#courses" class="text-blue-700 hover:text-blue-800">View Courses</a>
+            <a href="course-catalog.html" class="text-blue-700 hover:text-blue-800">View Courses</a>
         </div>
-
-        <!-- Repeat this block for other sections like badges, catalog, etc. -->
-        <!-- Remember to replace # with actual links to your content -->
+        <!-- Additional content blocks here -->
     </div>
 
     <footer class="text-center p-4 text-white header-blue">
