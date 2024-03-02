@@ -7,51 +7,98 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <style>
-        @media (max-width: 768px) {
-            #navbar {
-                display: none;
-            }
-            #navbar:checked + .mobile-navbar {
-                display: block;
-            }
-        }
         .header-blue { background-color: #0f62fe; }
         .bg-light-blue { background-color: #e0f2fe; }
         .border-custom { border: 3px solid #0f62fe; }
         .contact-info a, .onboarding-info a { color: #0f62fe; }
         .contact-info a:hover, .onboarding-info a:hover { text-decoration: underline; }
+
+        /* Footer Navbar */
+        .footer-navbar {
+            width: 100%;
+            background-color: #0f62fe;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .footer-navbar a {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+        }
+        .footer-navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Dropdown Content (hidden by default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+
+        /* Show the dropdown menu */
+        .footer-navbar:hover .dropdown-content {
+            display: block;
+        }
+
     </style>
 </head>
-<body class="font-roboto bg-light-blue text-gray-900">
+<body class="font-roboto bg-light-blue text-gray-900 relative pb-20">
     <header class="header-blue text-white text-center p-10">
-        <!-- Responsive Nav Toggle -->
-        <input type="checkbox" id="navbar" class="hidden">
-        <label for="navbar" class="cursor-pointer md:hidden block"><i class="fas fa-bars"></i></label>
-
-        <nav class="flex justify-center space-x-4 mb-4">
-            <!-- Full-width Nav for larger screens -->
-            <div class="hidden md:flex space-x-4">
-                <a href="index.html">Home</a>
-                <a href="about-us.html">About Us</a>
-                <a href="course-catalog.html">Course Catalog</a>
-                <a href="contact.html">Contact</a>
-                <a href="onboarding.html">Onboarding</a>
-            </div>
-            <!-- Mobile-friendly Dropdown Nav -->
-            <div class="mobile-navbar md:hidden bg-white text-black rounded-lg p-4">
-                <a href="index.html" class="block mb-2">Home</a>
-                <a href="about-us.html" class="block mb-2">About Us</a>
-                <a href="course-catalog.html" class="block mb-2">Course Catalog</a>
-                <a href="contact.html" class="block mb-2">Contact</a>
-                <a href="onboarding.html" class="block mb-2">Onboarding</a>
-            </div>
-        </nav>
         <h1 class="text-4xl font-bold">Contact Skunkworks</h1>
     </header>
 
-    <!-- Content -->
+    <div class="container mx-auto p-8">
+        <div class="bg-white p-6 border-custom rounded mb-4 contact-info">
+            <p>Email us at: <a href="mailto:info@skunkworks.africa">info@skunkworks.africa</a></p>
+            <p>Visit our website: <a href="http://www.skunkworka.africa" target="_blank">www.skunkworka.africa</a></p>
+            
+            <h3 class="text-xl font-bold mt-4">Connect with us:</h3>
+            <p>LinkedIn: <a href="https://www.linkedin.com/company/skunkworksza" target="_blank">Skunkworksza LinkedIn</a></p>
+            <p>Facebook: <a href="https://www.facebook.com/skunkworksza" target="_blank">Skunkworksza Facebook</a></p>
+            <p>Twitter: <a href="https://twitter.com/skunkworksza" target="_blank">Skunkworksza Twitter</a></p>
+            <p>Stack Overflow: <a href="https://stackoverflow.com/company/skunkworksza" target="_blank">Skunkworksza Stack Overflow</a></p>
+        </div>
 
-    <footer class="text-center p-4 text-white header-blue">
+        <div class="bg-white p-6 border-custom rounded mb-4 onboarding-info">
+            <h2 class="text-2xl font-bold mb-4">Interested in Joining Skunkworks?</h2>
+            <p>If you're looking to become an instructor, member, or customer, we'd love to have you on board. Start your onboarding process today!</p>
+            <a href="onboarding.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block mt-4">Begin Onboarding</a>
+        </div>
+    </div>
+
+    <!-- Footer Navbar with Dropdown Menu -->
+    <div class="footer-navbar">
+        Menu
+        <div class="dropdown-content">
+            <a href="index.html">Home</a>
+            <a href="about-us.html">About Us</a>
+            <a href="course-catalog.html">Course Catalog</a>
+            <a href="contact.html">Contact</a>
+            <a href="onboarding.html">Onboarding</a>
+        </div>
+    </div>
+
+    <footer class="text-center p-4 text-white">
         <p>&copy; 2024 Skunkworks. All rights reserved.</p>
     </footer>
 </body>
