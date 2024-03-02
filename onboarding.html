@@ -50,40 +50,45 @@
     </header>
 
     <div class="container mx-auto p-8">
-        <section class="bg-white p-6 border-custom rounded mb-4">
-            <h2 class="text-2xl font-bold mb-4">Welcome to the Team</h2>
-            <p>We're thrilled to have you join the Skunkworks family! Our mission is to innovate and lead in the intersection of technology and education. Your journey with us starts here.</p>
-        </section>
+        <form action="your-server-endpoint" method="POST" enctype="multipart/form-data">
+            <div class="bg-white p-6 border-custom rounded mb-4">
+                <h2 class="text-2xl font-bold mb-4">Personal Information</h2>
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" class="mb-2 block" required>
 
-        <section class="bg-white p-6 border-custom rounded mb-4">
-            <h2 class="text-2xl font-bold mb-4">Personal Information</h2>
-            <p>We value your privacy and security. Please provide your basic information to help us create your profile.</p>
-            <!-- Personal information form fields go here -->
-        </section>
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" class="mb-2 block" required>
 
-        <section class="bg-white p-6 border-custom rounded mb-4">
-            <h2 class="text-2xl font-bold mb-4">Skills Assessment</h2>
-            <p>Understanding your unique skills and expertise helps us match you with the right opportunities and projects.</p>
-            <!-- Skills assessment form fields go here -->
-        </section>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" class="mb-2 block">
+            </div>
 
-        <section class="bg-white p-6 border-custom rounded mb-4">
-            <h2 class="text-2xl font-bold mb-4">Professional Experience</h2>
-            <p>Your past experiences are valuable to us. Share your work history and any notable projects you've been part of.</p>
-            <!-- Professional experience form fields go here -->
-        </section>
+            <div class="bg-white p-6 border-custom rounded mb-4">
+                <h2 class="text-2xl font-bold mb-4">Skills Assessment</h2>
+                <textarea id="skills" name="skills" rows="4" placeholder="Describe your skills and proficiency levels." class="mb-2 block w-full"></textarea>
+            </div>
 
-        <section class="bg-white p-6 border-custom rounded">
-            <h2 class="text-2xl font-bold mb-4">Document Upload</h2>
-            <p>Please upload your resume and any other relevant documents. We accept PDF formats for security reasons.</p>
-            <!-- Document upload form fields go here -->
-        </section>
+            <div class="bg-white p-6 border-custom rounded mb-4">
+                <h2 class="text-2xl font-bold mb-4">Professional Experience</h2>
+                <textarea id="experience" name="experience" rows="4" placeholder="Briefly outline your professional experience." class="mb-2 block w-full"></textarea>
+            </div>
 
-        <section class="bg-white p-6 border-custom rounded mt-4 mb-4">
-            <h2 class="text-2xl font-bold mb-4">Agreements and Policies</h2>
-            <p>Review and agree to Skunkworks' policies, terms of service, and privacy agreements to proceed.</p>
-            <!-- Agreements checkboxes and submission button go here -->
-        </section>
+            <div class="bg-white p-6 border-custom rounded mb-4">
+                <h2 class="text-2xl font-bold mb-4">Document Upload</h2>
+                <label for="resume">Upload Resume (PDF only):</label>
+                <input type="file" id="resume" name="resume" accept=".pdf" class="mb-2 block">
+            </div>
+
+            <div class="bg-white p-6 border-custom rounded mb-4">
+                <h2 class="text-2xl font-bold mb-4">Agreements and Policies</h2>
+                <input type="checkbox" id="agreement" name="agreement" required>
+                <label for="agreement">I agree to the <a href="terms-and-conditions.pdf" target="_blank">Terms and Conditions</a>.</label>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit Onboarding Form</button>
+            </div>
+        </form>
     </div>
 
     <footer class="text-center p-4 text-white header-blue">
