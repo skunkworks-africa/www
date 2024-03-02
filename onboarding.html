@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onboarding - Skunkworks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        .header-blue { background-color: #0f62fe; }
+        .bg-light-blue { background-color: #e0f2fe; }
+        .border-custom { border: 3px solid #0f62fe; }
+        nav a { 
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover { background-color: #0336a6; }
+    </style>
+</head>
+<body class="font-roboto bg-light-blue text-gray-900">
+    <header class="header-blue text-white text-center p-10">
+        <nav class="flex justify-center space-x-4 mb-4">
+            <a href="index.html">Home</a>
+            <a href="about-us.html">About Us</a>
+            <a href="course-catalog.html">Course Catalog</a>
+            <a href="contact.html">Contact</a>
+            <a href="onboarding.html">Onboarding</a>
+        </nav>
+        <h1 class="text-4xl font-bold">Onboarding</h1>
+        <p class="mt-2">Join the Skunkworks community</p>
+    </header>
+
+    <div class="container mx-auto p-8">
+        <div class="bg-white p-6 border-custom rounded mb-4">
+            <h2 class="text-2xl font-bold mb-4">Registration Form</h2>
+            <form action="https://formspree.io/f/myyrjvwa" method="POST" enctype="multipart/form-data">
+                <!-- Personal Information -->
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Full Name:</label>
+                    <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                    <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+
+                <!-- Technical Skills Matrix -->
+                <div class="mb-4">
+                    <label for="skills" class="block text-gray-700 text-sm font-bold mb-2">Technical Skills Matrix:</label>
+                    <textarea id="skills" name="skills" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="List your technical skills and proficiency levels..."></textarea>
+                </div>
+
+                <!-- Work History -->
+                <div class="mb-4">
+                    <label for="work-history" class="block text-gray-700 text-sm font-bold mb-2">Work History:</label>
+                    <textarea id="work-history" name="work-history" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Briefly describe your recent work history..."></textarea>
+                </div>
+
+                <!-- Resume Upload -->
+                <div class="mb-4">
+                    <label for="resume" class="block text-gray-700 text-sm font-bold mb-2">Upload Resume (PDF only):</label>
+                    <input type="file" id="resume" name="resume" accept=".pdf" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                </div>
+
+                <!-- Online Profiles -->
+                <div class="mb-4">
+                    <label for="github" class="block text-gray-700 text-sm font-bold mb-2">GitHub Profile:</label>
+                    <input type="url" id="github" name="github" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="https://github.com/yourusername">
+                </div>
+
+                <!-- Repeat for LinkedIn, Credly, Website, Stack Overflow, Upwork -->
+                <!-- Add more fields as necessary for other profiles -->
+
+                <div class="flex items-center justify-between">
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="text-center p-4 text-white header-blue">
+        <p>&copy; 2024 Skunkworks. All rights reserved.</p>
+    </footer>
+</body>
+</html>
