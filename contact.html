@@ -10,46 +10,34 @@
         .header-blue { background-color: #0f62fe; }
         .bg-light-blue { background-color: #e0f2fe; }
         .border-custom { border: 3px solid #0f62fe; }
-        /* Additional styles for navigation menu */
-        nav a { 
-            text-decoration: none;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-        }
-        nav a:hover, nav a:focus {
-            background-color: #0353a4; /* Darker blue on hover/focus */
-        }
+        .contact-info a, .onboarding-info a { color: #0f62fe; }
+        .contact-info a:hover, .onboarding-info a:hover { text-decoration: underline; }
     </style>
 </head>
 <body class="font-roboto bg-light-blue text-gray-900">
     <header class="header-blue text-white text-center p-10">
-        <!-- Navigation Menu -->
-        <nav class="flex justify-center space-x-4 mb-4">
-            <a href="index.html">Home</a>
-            <a href="about-us.html">About Us</a>
-            <a href="course-catalog.html">Course Catalog</a>
-            <a href="contact.html">Contact</a>
-            <a href="onboarding.html">Onboarding</a> <!-- Link to onboarding page -->
-        </nav>
         <h1 class="text-4xl font-bold">Contact Skunkworks</h1>
     </header>
 
     <div class="container mx-auto p-8">
-        <!-- Existing contact form -->
-        <!-- ... -->
-
-        <!-- Onboarding Section -->
-        <div class="bg-white p-6 border-custom rounded mt-8">
-            <h2 class="text-2xl font-bold mb-4">Join Skunkworks</h2>
-            <p class="mb-4">
-                Are you an instructor, member, or customer looking to join the Skunkworks community? Our onboarding process is simple and straightforward. Click the button below to start your journey with us!
-            </p>
-            <a href="onboarding.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline inline-block">Start Onboarding</a>
+        <div class="bg-white p-6 border-custom rounded mb-4 contact-info">
+            <h2 class="text-2xl font-bold mb-4">Get in Touch</h2>
+            <p>Email us at: <a href="mailto:info@skunkworks.africa">info@skunkworks.africa</a></p>
+            <p>Visit our website: <a href="http://www.skunkworka.africa" target="_blank">www.skunkworka.africa</a></p>
+            
+            <h3 class="text-xl font-bold mt-4">Connect with us:</h3>
+            <p>LinkedIn: <a href="https://www.linkedin.com/company/skunkworksza" target="_blank">Skunkworksza LinkedIn</a></p>
+            <p>Facebook: <a href="https://www.facebook.com/skunkworksza" target="_blank">Skunkworksza Facebook</a></p>
+            <p>Twitter: <a href="https://twitter.com/skunkworksza" target="_blank">Skunkworksza Twitter</a></p>
+            <p>Stack Overflow: <a href="https://stackoverflow.com/company/skunkworksza" target="_blank">Skunkworksza Stack Overflow</a></p>
         </div>
 
-        <!-- Additional contact details section -->
-        <!-- ... -->
+        <!-- Onboarding Section -->
+        <div class="bg-white p-6 border-custom rounded mb-4 onboarding-info">
+            <h2 class="text-2xl font-bold mb-4">Interested in Joining Skunkworks?</h2>
+            <p>If you're looking to become an instructor, member, or customer, we'd love to have you on board. Start your onboarding process today!</p>
+            <a href="onboarding.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block mt-4">Begin Onboarding</a>
+        </div>
     </div>
 
     <footer class="text-center p-4 text-white header-blue">
