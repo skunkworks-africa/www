@@ -6,23 +6,29 @@
     <title>Course Catalog</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-    <style>
-        .header-blue { background-color: #0f62fe; }
-        .bg-light-blue { background-color: #e0f2fe; }
-        .category-box {
-            background-color: white;
-            border: 2px solid #0f62fe;
-            border-radius: 0.5rem;
-            text-align: center;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            transition: transform 0.3s ease-in-out;
-        }
-        .category-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+<style>
+    .header-blue { background-color: #0f62fe; }
+    .bg-light-blue { background-color: #e0f2fe; }
+    .category-box {
+        background-color: white;
+        border: 2px solid #0f62fe;
+        border-radius: 0.5rem;
+        text-align: center;
+        padding: 2rem; /* Increased from 1rem to 2rem for more internal spacing */
+        margin-bottom: 1rem;
+        transition: transform 0.3s ease-in-out;
+    }
+    .category-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Adjusting the grid gap for more spacing between boxes */
+    .grid {
+        grid-gap: 2rem; /* Increased from 1rem to 2rem for more space between the boxes */
+    }
+</style>
+
 </head>
 <body class="font-roboto bg-light-blue text-gray-900">
 
