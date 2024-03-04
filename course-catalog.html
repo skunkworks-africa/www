@@ -4,31 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Catalog</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-<style>
-    .header-blue { background-color: #0f62fe; }
-    .bg-light-blue { background-color: #e0f2fe; }
-    .category-box {
-        background-color: white;
-        border: 2px solid #0f62fe;
-        border-radius: 0.5rem;
-        text-align: center;
-        padding: 2rem; /* Increased from 1rem to 2rem for more internal spacing */
-        margin-bottom: 1rem;
-        transition: transform 0.3s ease-in-out;
-    }
-    .category-box:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Adjusting the grid gap for more spacing between boxes */
-    .grid {
-        grid-gap: 2rem; /* Increased from 1rem to 2rem for more space between the boxes */
-    }
-</style>
-
+    <style>
+        /* CSS styles as provided, including your updates for padding and grid gap */
+        .header-blue { background-color: #0f62fe; }
+        .bg-light-blue { background-color: #e0f2fe; }
+        .category-box {
+            background-color: white;
+            border: 2px solid #0f62fe;
+            border-radius: 0.5rem;
+            text-align: center;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease-in-out;
+        }
+        .category-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2rem;
+        }
+        .grid {
+            display: grid;
+            grid-gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+    </style>
 </head>
 <body class="font-roboto bg-light-blue text-gray-900">
 
@@ -40,103 +44,123 @@
             <a href="contact.html" class="text-white hover:underline">Contact</a>
         </nav>
         <h1 class="text-4xl font-bold">Course Catalog</h1>
-    </header>
+<header class="header-blue text-white text-center p-10 mb-8">
+---
+<div class="container mx-auto p-6">
+    ---
+    <div class="grid">
+        <!-- Adobe Category -->
+        <a href="adobe.html" class="category-box">
+            <h2 class="text-xl font-semibold">Adobe</h2>
+        </a>
 
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
-            <!-- Category Box for Adobe -->
-            <a href="adobe.html" class="category-box">
-                <h2 class="text-xl font-semibold">Adobe</h2>
-            </a>
-            <!-- Category Box for AI -->
-            <a href="ai.html" class="category-box">
-                <h2 class="text-xl font-semibold">AI</h2>
-            </a>
-       <!-- Category Box for Checkpoint -->
-<a href="checkpoint.html" class="category-box">
-    <h2 class="text-xl font-semibold">Checkpoint</h2>
-</a>
-<!-- Category Box for Cloud -->
-<a href="cloud.html" class="category-box">
-    <h2 class="text-xl font-semibold">Cloud</h2>
-</a>
-<!-- Category Box for Data Analytics and Business Intelligence -->
-<a href="data-analytics-and-business-intelligence.html" class="category-box">
-    <h2 class="text-xl font-semibold">Data Analytics and Business Intelligence</h2>
-</a>
-<!-- Category Box for DevOps & Agile -->
-<a href="devops-agile.html" class="category-box">
-    <h2 class="text-xl font-semibold">DevOps & Agile</h2>
-</a>
-<!-- Category Box for Drools -->
-<a href="drools.html" class="category-box">
-    <h2 class="text-xl font-semibold">Drools</h2>
-</a>
-<!-- Category Box for GitHub -->
-<a href="github.html" class="category-box">
-    <h2 class="text-xl font-semibold">GitHub</h2>
-</a>
-<!-- Category Box for Google -->
-<a href="google.html" class="category-box">
-    <h2 class="text-xl font-semibold">Google</h2>
-</a>
-<!-- Category Box for IBM -->
-<a href="ibm.html" class="category-box">
-    <h2 class="text-xl font-semibold">IBM</h2>
-</a>
-<!-- Category Box for ISO -->
-<a href="iso.html" class="category-box">
-    <h2 class="text-xl font-semibold">ISO</h2>
-</a>
-<!-- Category Box for Mainframe -->
-<a href="mainframe.html" class="category-box">
-    <h2 class="text-xl font-semibold">Mainframe</h2>
-</a>
-<!-- Category Box for Microsoft -->
-<a href="microsoft.html" class="category-box">
-    <h2 class="text-xl font-semibold">Microsoft</h2>
-</a>
-<!-- Category Box for Middleware -->
-<a href="middleware.html" class="category-box">
-    <h2 class="text-xl font-semibold">Middleware</h2>
-</a>
-<!-- Category Box for Networking and Communication -->
-<a href="networking-and-communication.html" class="category-box">
-    <h2 class="text-xl font-semibold">Networking and Communication</h2>
-</a>
-<!-- Category Box for Occupational Skills -->
-<a href="occupational-skills.html" class="category-box">
-    <h2 class="text-xl font-semibold">Occupational Skills</h2>
-</a>
-<!-- Category Box for Soft Skills, SAFe, IT Management, ITIL -->
-<a href="soft-skills-safe-it-management-itil.html" class="category-box">
-    <h2 class="text-xl font-semibold">Soft Skills, SAFe, IT Management, ITIL</h2>
-</a>
-<!-- Category Box for Project Management (i.e. PMI) -->
-<a href="project-management-pmi.html" class="category-box">
-    <h2 class="text-xl font-semibold">Project Management (PMI)</h2>
-</a>
-<!-- Category Box for SAP -->
-<a href="sap.html" class="category-box">
-    <h2 class="text-xl font-semibold">SAP</h2>
-</a>
-<!-- Category Box for Security -->
-<a href="security.html" class="category-box">
-    <h2 class="text-xl font-semibold">Security</h2>
-</a>
-<!-- Category Box for Storage -->
-<a href="storage.html" class="category-box">
-    <h2 class="text-xl font-semibold">Storage</h2>
-</a>
-<!-- Category Box for Whatsapp -->
-<a href="whatsapp.html" class="category-box">
-    <h2 class="text-xl font-semibold">Whatsapp</h2>
-</a>
-            <a href="whatsapp.html" class="category-box">
-                <h2 class="text-xl font-semibold">Whatsapp</h2>
-            </a>
-        </div>
+        <!-- AI Category -->
+        <a href="ai.html" class="category-box">
+            <h2 class="text-xl font-semibold">AI</h2>
+        </a>
+
+        <!-- Checkpoint Category -->
+        <a href="checkpoint.html" class="category-box">
+            <h2 class="text-xl font-semibold">Checkpoint</h2>
+        </a>
+
+        <!-- Cloud Category -->
+        <a href="cloud.html" class="category-box">
+            <h2 class="text-xl font-semibold">Cloud</h2>
+        </a>
+
+        <!-- Data Analytics and Business Intelligence Category -->
+        <a href="data-analytics-and-business-intelligence.html" class="category-box">
+            <h2 class="text-xl font-semibold">Data Analytics & BI</h2>
+        </a>
+
+        <!-- DevOps & Agile Category -->
+        <a href="devops-agile.html" class="category-box">
+            <h2 class="text-xl font-semibold">DevOps & Agile</h2>
+        </a>
+
+        <!-- Drools Category -->
+        <a href="drools.html" class="category-box">
+            <h2 class="text-xl font-semibold">Drools</h2>
+        </a>
+
+        <!-- GitHub Category -->
+        <a href="github.html" class="category-box">
+            <h2 class="text-xl font-semibold">GitHub</h2>
+        </a>
+
+        <!-- Google Category -->
+        <a href="google.html" class="category-box">
+            <h2 class="text-xl font-semibold">Google</h2>
+        </a>
+
+        <!-- IBM Category -->
+        <a href="ibm.html" class="category-box">
+            <h2 class="text-xl font-semibold">IBM</h2>
+        </a>
+
+        <!-- ISO Category -->
+        <a href="iso.html" class="category-box">
+            <h2 class="text-xl font-semibold">ISO</h2>
+        </a>
+
+        <!-- Mainframe Category -->
+        <a href="mainframe.html" class="category-box">
+            <h2 class="text-xl font-semibold">Mainframe</h2>
+        </a>
+
+        <!-- Microsoft Category -->
+        <a href="microsoft.html" class="category-box">
+            <h2 class="text-xl font-semibold">Microsoft</h2>
+        </a>
+
+        <!-- Middleware Category -->
+        <a href="middleware.html" class="category-box">
+            <h2 class="text-xl font-semibold">Middleware</h2>
+        </a>
+
+        <!-- Networking and Communication Category -->
+        <a href="networking-and-communication.html" class="category-box">
+            <h2 class="text-xl font-semibold">Networking & Communication</h2>
+        </a>
+
+        <!-- Occupational Skills Category -->
+        <a href="occupational-skills.html" class="category-box">
+            <h2 class="text-xl font-semibold">Occupational Skills</h2>
+        </a>
+
+        <!-- Soft Skills, SAFe, IT Management, ITIL Category -->
+        <a href="soft-skills-safe-it-management-itil.html" class="category-box">
+            <h2 class="text-xl font-semibold">Soft Skills & Management</h2>
+        </a>
+
+        <!-- Project Management (PMI) Category -->
+        <a href="project-management-pmi.html" class="category-box">
+            <h2 class="text-xl font-semibold">Project Management (PMI)</h2>
+        </a>
+
+        <!-- SAP Category -->
+        <a href="sap.html" class="category-box">
+            <h2 class="text-xl font-semibold">SAP</h2>
+        </a>
+
+        <!-- Security Category -->
+        <a href="security.html" class="category-box">
+            <h2 class="text-xl font-semibold">Security</h2>
+        </a>
+
+        <!-- Storage Category -->
+        <a href="storage.html" class="category-box">
+            <h2 class="text-xl font-semibold">Storage</h2>
+        </a>
+
+        <!-- WhatsApp Category -->
+        <a href="whatsapp.html" class="category-box">
+            <h2 class="text-xl font-semibold">WhatsApp</h2>
+        </a>
     </div>
+</div>
+
 
     <footer class="text-center p-4 text-white header-blue">
         <p>&copy; 2024 Skunkworks Education. All rights reserved.</p>
