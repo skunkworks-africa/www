@@ -3,59 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Skunkworks</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>About Us - Skunkworks Academy</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <style>
         .header-blue { background-color: #0f62fe; }
         .bg-light-blue { background-color: #e0f2fe; }
-        .border-custom { border: 3px solid #0f62fe; }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2rem;
+        }
+        .text-center { text-align: center; }
+        .text-white { color: white; }
+        .mb-4 { margin-bottom: 1rem; }
+        .p-4 { padding: 1rem; }
+        .p-10 { padding: 2.5rem; }
+        .hover\:underline:hover { text-decoration: underline; }
     </style>
 </head>
-
 <body class="font-roboto bg-light-blue text-gray-900">
+
     <header class="header-blue text-white text-center p-10">
-        <nav class="flex justify-center space-x-4">
+        <nav class="flex justify-center space-x-4 mb-4">
             <a href="index.html" class="text-white hover:underline">Home</a>
             <a href="about-us.html" class="text-white hover:underline">About Us</a>
             <a href="course-catalog.html" class="text-white hover:underline">Course Catalog</a>
             <a href="contact.html" class="text-white hover:underline">Contact</a>
         </nav>
-        <h1 class="text-4xl font-bold">About Skunkworks</h1>
+        <h1 class="text-4xl font-bold">About Us</h1>
     </header>
 
     <div class="container mx-auto p-8">
-        <div class="bg-white p-6 border-custom rounded mb-4">
-            <h2 class="text-2xl font-bold mb-2">Skunkworks EdTech - Microsoft Repository</h2>
-            <p class="mb-4">
-                Welcome to the Skunkworks EdTech Microsoft Repository, a hub of innovation and learning. As proud Microsoft business partners, we at Skunkworksza are dedicated to leveraging the power of technology to revolutionize education. This public repository serves as a cornerstone for our mission, offering a diverse range of educational scripts, tools, and resources.
-            </p>
-            <a href="https://github.com/skunkworksza/skunkworks.github.io" class="text-blue-700 hover:text-blue-800">Explore our GitHub Repository</a>
-        </div>
+        <section class="mb-8">
+            <h2 class="text-3xl font-bold mb-4">Our Mission</h2>
+            <p>Skunkworks Academy is dedicated to empowering students and professionals by providing top-notch education in technology and innovation. We strive to bridge the gap between theoretical knowledge and practical application.</p>
+        </section>
 
-        <div class="bg-white p-6 border-custom rounded mb-4">
-            <h2 class="text-2xl font-bold mb-2">Our Mission</h2>
-            <p class="mb-4">
-                Our mission is to empower educators, students, and tech enthusiasts by providing them with powerful tools and comprehensive learning materials. We focus on scripting, automation, and innovative tech solutions to make learning more accessible, engaging, and effective.
-            </p>
-        </div>
+        <section class="mb-8">
+            <h2 class="text-3xl font-bold mb-4">Our Vision</h2>
+            <p>We envision a world where anyone, anywhere, has the tools and opportunities to pursue their dreams in technology and make a significant impact on the future.</p>
+        </section>
 
-        <div class="bg-white p-6 border-custom rounded mb-4">
-            <h2 class="text-2xl font-bold mb-2">Recent Projects</h2>
-            <ul class="list-disc pl-5 mb-4">
-                <li><a href="https://github.com/Pero-s-Academy" class="text-blue-700 hover:text-blue-800">Pedro's Academy on GitHub</a></li>
-                <li><a href="https://www.linkedin.com/newsletters/skunkworks-insights-7104248104035479553" class="text-blue-700 hover:text-blue-800">Skunkworks Insights - Newsletter</a></li>
-                <li><a href="https://blog.skunkworks.africa/" class="text-blue-700 hover:text-blue-800">Skunkworks Insights - Blog</a></li>
+        <section>
+            <h2 class="text-3xl font-bold mb-4">Our Values</h2>
+            <ul>
+                <li><strong>Innovation:</strong> We encourage creativity and out-of-the-box thinking.</li>
+                <li><strong>Excellence:</strong> We commit to the highest standards in all our courses and services.</li>
+                <li><strong>Inclusivity:</strong> We believe in the power of diversity and strive to create an inclusive learning environment.</li>
             </ul>
-            <a href="contact.html" class="bg-blue-700 text-white rounded-full px-4 py-2">Get Involved</a>
-        </div>
-
-        <!-- Additional content can be added here -->
-
+        </section>
     </div>
 
     <footer class="text-center p-4 text-white header-blue">
-        <p>&copy; 2024 Skunkworks. All rights reserved.</p>
+        <p>&copy; 2024 Skunkworks Education. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
