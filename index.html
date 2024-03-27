@@ -3,68 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skunkworks</title>
+    <title>Skunkworks Academy LMS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-    <style>
-        .header-blue { background-color: #0f62fe; }
-        .bg-light-blue { background-color: #e0f2fe; }
-        .border-custom { border: 3px solid #0f62fe; }
-        .dropdown { position: relative; display: inline-block; }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-            padding: 12px 16px;
-            z-index: 1;
-        }
-        .dropdown:hover .dropdown-content { display: block; }
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-        .dropdown-content a:hover { background-color: #ddd; }
-    </style>
 </head>
-<body class="font-roboto bg-light-blue text-gray-900">
-    <header class="header-blue text-white text-center p-10">
-        <div class="dropdown">
-            <span>Menu</span>
-            <div class="dropdown-content">
-                <a href="index.html">Home</a>
-                <a href="about-us.html">About Us</a>
-                <a href="course-catalog.html">Course Catalog</a>
-                <a href="contact.html">Contact</a>
-                <a href="onboarding.html">Onboarding</a>
+<body class="font-roboto flex flex-col min-h-screen bg-light-blue text-gray-900">
+    <!-- Menu Bar -->
+    <header class="bg-blue-800 text-white p-4">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-bold">Skunkworks Academy</a>
+            <div class="space-x-4">
+                <a href="#home" class="hover:text-blue-200">Home</a>
+                <a href="#about" class="hover:text-blue-200">About</a>
+                <a href="#courses" class="hover:text-blue-200">Courses</a>
+                <a href="#contact" class="hover:text-blue-200">Contact</a>
             </div>
-        </div>
-        <h1 class="text-4xl font-bold">Welcome to Skunkworks</h1>
+        </nav>
     </header>
 
-    <div class="container mx-auto p-8">
-        <div class="bg-white p-6 border-custom rounded mb-4">
-            <h2 class="text-2xl font-bold mb-4">What We Do</h2>
-            <p>Skunkworks specializes in bridging the gap between technology and education. Our team provides cutting-edge educational and technical consulting and implementation services designed to empower educators, students, and organizations in the tech industry.</p>
+    <!-- Body: Search/Chat/Query Prompt -->
+    <main class="flex-grow container mx-auto flex items-center justify-center p-4">
+        <div class="w-full max-w-md">
+            <input type="text" placeholder="Search courses, ask a question..." class="w-full p-4 rounded border border-gray-300 focus:border-blue-500 focus:outline-none" autofocus>
         </div>
+    </main>
 
-        <div class="bg-white p-6 border-custom rounded mb-4">
-            <h2 class="text-2xl font-bold mb-4">Educational Services</h2>
-            <p>We offer a wide range of educational services, from curriculum development to online course creation, tailored to meet the evolving needs of the educational sector. Our expertise lies in creating engaging, impactful learning experiences that drive success.</p>
-        </div>
-
-        <div class="bg-white p-6 border-custom rounded">
-            <h2 class="text-2xl font-bold mb-4">Technical Consulting & Implementation</h2>
-            <p>Our technical consulting services are focused on implementing innovative solutions that enhance efficiency and productivity. We work closely with organizations to understand their technical challenges and provide customized, actionable solutions.</p>
-        </div>
-    </div>
-
-    <footer class="text-center p-4 text-white header-blue">
-        <p>&copy; 2024 Skunkworks. All rights reserved.</p>
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white p-4 text-center">
+        <p>© 2024 Skunkworks Academy. All rights reserved.</p>
     </footer>
 </body>
 </html>
