@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Catalog</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        .header-blue { background-color: #0f62fe; }
+        .bg-light-blue { background-color: #e0f2fe; }
+        .category-box {
+            background-color: white;
+            border: 2px solid #0f62fe;
+            border-radius: 0.5rem;
+            text-align: center;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease-in-out;
+        }
+        .category-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2rem;
+        }
+        .grid {
+            display: grid;
+            grid-gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+        .text-center { text-align: center; }
+        .text-white { color: white; }
+        .mb-4 { margin-bottom: 1rem; }
+        .p-4 { padding: 1rem; }
+        .p-10 { padding: 2.5rem; }
+        .hover\:underline:hover { text-decoration: underline; }
+    </style>
+</head>
+<body class="font-roboto flex flex-col min-h-screen bg-light-blue text-gray-900">
+    <!-- Menu Bar -->
+    <header class="bg-blue-800 text-white p-4">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-bold">Skunkworks Academy</a>
+            <div class="space-x-4">
+                <nav class="flex justify-center space-x-4">
+                    <a href="index.html" class="text-white hover:underline">Home</a>
+                    <a href="about-us.html" class="text-white hover:underline">About Us</a>
+                    <a href="course-catalog.html" class="text-white hover:underline">Course Catalog</a>
+                    <a href="contact.html" class="text-white hover:underline">Contact</a>
+                    <a href="onboarding.html" class="text-white hover:underline">Onboarding</a>
+                </nav>
+                
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mx-auto p-8">
+
+    <div class="grid">
+        <!-- Adobe Category -->
+        <a href="adobe.html" class="category-box">
+            <h2 class="text-xl font-semibold">Adobe</h2>
+        </a>
+
+        <!-- AI Category -->
+        <a href="ai.html" class="category-box">
+            <h2 class="text-xl font-semibold">AI</h2>
+        </a>
+
+        <!-- Checkpoint Category -->
+        <a href="checkpoint.html" class="category-box">
+            <h2 class="text-xl font-semibold">Checkpoint</h2>
+        </a>
+
+        <!-- Cloud Category -->
+        <a href="cloud.html" class="category-box">
+            <h2 class="text-xl font-semibold">Cloud</h2>
+        </a>
+
+        <!-- Data Analytics and Business Intelligence Category -->
+        <a href="data-analytics-and-business-intelligence.html" class="category-box">
+            <h2 class="text-xl font-semibold">Data Analytics & BI</h2>
+        </a>
+
+        <!-- DevOps & Agile Category -->
+        <a href="devops-agile.html" class="category-box">
+            <h2 class="text-xl font-semibold">DevOps & Agile</h2>
+        </a>
+
+        <!-- Drools Category -->
+        <a href="drools.html" class="category-box">
+            <h2 class="text-xl font-semibold">Drools</h2>
+        </a>
+
+        <!-- GitHub Category -->
+        <a href="github.html" class="category-box">
+            <h2 class="text-xl font-semibold">GitHub</h2>
+        </a>
+
+        <!-- Google Category -->
+        <a href="google.html" class="category-box">
+            <h2 class="text-xl font-semibold">Google</h2>
+        </a>
+
+        <!-- IBM Category -->
+        <a href="ibm.html" class="category-box">
+            <h2 class="text-xl font-semibold">IBM</h2>
+        </a>
+
+        <!-- ISO Category -->
+        <a href="iso.html" class="category-box">
+            <h2 class="text-xl font-semibold">ISO</h2>
+        </a>
+
+        <!-- Mainframe Category -->
+        <a href="mainframe.html" class="category-box">
+            <h2 class="text-xl font-semibold">Mainframe</h2>
+        </a>
+
+        <!-- Microsoft Category -->
+        <a href="microsoft.html" class="category-box">
+            <h2 class="text-xl font-semibold">Microsoft</h2>
+        </a>
+
+        <!-- Middleware Category -->
+        <a href="middleware.html" class="category-box">
+            <h2 class="text-xl font-semibold">Middleware</h2>
+        </a>
+
+        <!-- Networking and Communication Category -->
+        <a href="networking-and-communication.html" class="category-box">
+            <h2 class="text-xl font-semibold">Networking & Communication</h2>
+        </a>
+
+        <!-- Occupational Skills Category -->
+        <a href="occupational-skills.html" class="category-box">
+            <h2 class="text-xl font-semibold">Occupational Skills</h2>
+        </a>
+
+        <!-- Soft Skills, SAFe, IT Management, ITIL Category -->
+        <a href="soft-skills-safe-it-management-itil.html" class="category-box">
+            <h2 class="text-xl font-semibold">Soft Skills & Management</h2>
+        </a>
+
+        <!-- Project Management (PMI) Category -->
+        <a href="project-management-pmi.html" class="category-box">
+            <h2 class="text-xl font-semibold">Project Management (PMI)</h2>
+        </a>
+
+        <!-- SAP Category -->
+        <a href="sap.html" class="category-box">
+            <h2 class="text-xl font-semibold">SAP</h2>
+        </a>
+
+        <!-- Security Category -->
+        <a href="security.html" class="category-box">
+            <h2 class="text-xl font-semibold">Security</h2>
+        </a>
+
+        <!-- Storage Category -->
+        <a href="storage.html" class="category-box">
+            <h2 class="text-xl font-semibold">Storage</h2>
+        </a>
+
+        <!-- WhatsApp Category -->
+        <a href="whatsapp.html" class="category-box">
+            <h2 class="text-xl font-semibold">WhatsApp</h2>
+        </a>
+    </div>
+</div>
+
+
+    <footer class="text-center p-4 text-white header-blue">
+        <p>&copy; 2024 Skunkworks Education. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
