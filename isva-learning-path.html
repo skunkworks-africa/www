@@ -7,6 +7,7 @@
 <style>
   body {
     font-family: Arial, sans-serif;
+    height: 100; /* full height for html body*/
     margin: 0;
     padding: 0;
     background: #f0f0f0;
@@ -44,11 +45,13 @@
     cursor: pointer;
   }
   .container {
-    margin-top: 140px; /* Adjusted to give space for logo */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    margin-top: 120px; /* Adjust based on the navbar's height */
+    padding-bottom: 60px; /* Adjust based on the footer's height */
+    flex-grow: 1;
   }
   .badge {
     flex: 1 1 200px; /* Grow to fill available space, don’t shrink, base width 200px */
