@@ -9,7 +9,7 @@ We are excited to see you progressing along the learning path toward becoming an
 - **Duration:** 5 days (10 hours total)
 - **Delivery Method:** Virtual Instructor-Led Training (VILT)
 - **Target Audience:** System Administrators, Consultants, and System Users working on the Maximo Application Suite (MAS)
-- **Price:** $700 (Includes a $200 IBM exam voucher)
+- **Price:** $950 (Includes a $200 IBM exam voucher)
 
 ## Key Features
 
