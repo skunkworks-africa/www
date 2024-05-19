@@ -1,0 +1,29 @@
+/* Sidebar CSS */
+
+#sidebar {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #0f62fe;
+    color: #ffffff;
+    overflow-x: hidden;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%);
+}
+
+#sidebar.open {
+    transform: translateX(0);
+}
+
+#sidebar a {
+    padding: 1rem 2rem;
+    text-decoration: none;
+    color: #ffffff;
+    display: block;
+}
+
+#sidebar a:hover {
+    background-color: #0043ce;
+}
