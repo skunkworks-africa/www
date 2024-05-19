@@ -103,7 +103,7 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: Cache build outputs
-        uses: actions/cache@v4
+        uses: actions/cache@v4.0.2
         with:
           path: _site
           key: ${{ runner.os }}-build-${{ hashFiles('**/Gemfile.lock') }}
