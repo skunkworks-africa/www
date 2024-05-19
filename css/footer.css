@@ -1,0 +1,12 @@
+/* Footer CSS */
+
+.bx--footer {
+    background-color: #0f62fe;
+    color: #ffffff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.bx--footer p {
+    margin: 0;
+}
