@@ -1,6 +1,5 @@
 8. **`docs/faq.md`** - Frequently Asked Questions.
 
-```markdown
 # Frequently Asked Questions (FAQ)
 
 ## How do I install Skunkworks Academy?
