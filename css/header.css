@@ -1,0 +1,31 @@
+/* Header CSS */
+
+.bx--header {
+    background-color: #0f62fe;
+    padding: 1rem;
+}
+
+.bx--header__name {
+    font-size: 1.5rem;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.bx--header__menu-bar {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.bx--header__menu-item {
+    margin: 0 1rem;
+}
+
+.bx--header__menu-link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.bx--header__menu-link:hover {
+    text-decoration: underline;
+}
