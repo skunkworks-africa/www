@@ -1,0 +1,35 @@
+{
+  "dependencies": {
+    "carbon-components": "^10.58.12",
+    "carbon-components-react": "^8.57.0"
+  },
+  "devDependencies": {
+    "jekyll": "^3.0.0-beta1"
+  },
+  "name": "skunkworks-academy",
+  "version": "1.0.0",
+  "description": "Skunkworks Academy Jekyll site",
+  "main": "scripts.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skunkworksza/skunkworks-academy.git"
+  },
+  "keywords": [
+    "jekyll",
+    "skunkworks",
+    "academy",
+    "education"
+  ],
+  "author": "Raydo Matthee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/skunkworksza/skunkworks-academy/issues"
+  },
+  "homepage": "https://github.com/skunkworksza/skunkworks-academy#readme"
+}

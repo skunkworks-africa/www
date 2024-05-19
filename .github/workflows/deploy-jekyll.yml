@@ -9,27 +9,17 @@ permissions:
   contents: read
   pages: write
   id-token: write
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
-
-on:
-  push:
-    branches: ["main"]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Cache Node.js modules
@@ -46,7 +36,7 @@ jobs:
           node-version: '16.x'
           cache: 'npm'
 
-      - name: Install dependencies
+      - name: Install Node.js dependencies
         run: npm install
 
       - name: Cache Ruby gems
@@ -56,6 +46,9 @@ jobs:
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
+
+      - name: Install Ruby dependencies
+        run: bundle install --path vendor/bundle
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -68,6 +61,7 @@ jobs:
 
       # Optional: Setup Java JDK
       - name: Setup Java
+        if: ${{ false }}
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
@@ -75,18 +69,21 @@ jobs:
 
       # Optional: Setup Go environment
       - name: Setup Go
+        if: ${{ false }}
         uses: actions/setup-go@v3
         with:
           go-version: '1.16'
 
       # Optional: Setup .NET environment
       - name: Setup .NET Core
+        if: ${{ false }}
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: '3.1.x'
 
       # Optional: Greet new contributors
       - name: Greet new contributors
+        if: ${{ false }}
         uses: actions/first-interaction@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
@@ -94,104 +91,22 @@ jobs:
           pr-message: 'Thanks for submitting this pull request!'
 
   deploy:
+    runs-on: ubuntu-latest
+    needs: build-and-deploy
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Cache
-        uses: actions/cache@v4.0.2
+      - name: Cache build outputs
+        uses: actions/cache@v4
         with:
-          path: path/to/cache
-          key: ${{ runner.os }}-build-${{ hashFiles('**/lockfiles') }}
-          restore-keys: |
-            ${{ runner.os }}-build-
-          upload-chunk-size: 4000000
-          enableCrossOsArchive: false
-          fail-on-cache-miss: false
-          lookup-only: false
-          save-always: false
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v4.0.2
-        with:
-          node-version: '16.x'
-          cache: 'npm'
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-
-      # Optional: Setup Java JDK
-      - name: Setup Java
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'adopt'
-          java-version: '11'
-
-      # Optional: Setup Go environment
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: '1.16'
-
-      # Optional: Setup .NET environment
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v2
-        with:
-          dotnet-version: '3.1.x'
-
-      # Optional: Greet new contributors
-      - name: Greet new contributors
-        uses: actions/first-interaction@v1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          issue-message: 'Thanks for opening this issue!'
-          pr-message: 'Thanks for submitting this pull request!'
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
-      - name: Cache
-        uses: actions/cache@v4.0.2
-        with:
-          path: path/to/cache
-          key: ${{ runner.os }}-build-${{ hashFiles('**/lockfiles') }}
+          path: _site
+          key: ${{ runner.os }}-build-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-build-
           upload-chunk-size: 4000000
