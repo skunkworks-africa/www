@@ -6,11 +6,12 @@ Retrieve a list of courses.
 
 ### Request
 
-```sh
+``` sh
 curl -X GET https://api.skunkworks.africa/v1/courses -H "Authorization: Bearer YOUR_API_KEY"
-Response
-json
-Copy code
+```
+
+### Response
+``` json Copy code
 [
   {
     "id": 1,
@@ -23,21 +24,27 @@ Copy code
     "description": "Description of Course 2"
   }
 ]
-POST /courses
-Create a new course.
+```
+### POST /courses
 
-Request
-sh
-Copy code
+*_Create a new course._*
+
+#### Request
+
+``` sh Copy code
 curl -X POST https://api.skunkworks.africa/v1/courses -H "Authorization: Bearer YOUR_API_KEY" -d '{
   "name": "New Course",
   "description": "Description of the new course"
 }'
-Response
-json
-Copy code
+```
+
+#### Response
+
+``` json Copy code
 {
   "id": 3,
   "name": "New Course",
   "description": "Description of the new course"
 }
+```
+
