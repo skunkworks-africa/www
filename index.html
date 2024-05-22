@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
     <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sidebar.css">
     <style>
         /* Additional styles for sidebar */
         #sidebar {
@@ -57,8 +61,15 @@
                 <li class="bx--header__menu-item">
                     <a class="bx--header__menu-item" href="contact.html">Contact</a>
                 </li>
-                <li class="bx--header__menu-item">
-                    <a class="bx--header__menu-item" href="docs/index.html">Documentation</a>
+                <li class="bx--header__menu-item dropdown">
+                    <a class="bx--header__menu-item" href="docs/index.md">Documentation</a>
+                    <div class="dropdown-content">
+                        <a href="docs/api/">API</a>
+                        <a href="docs/setup/">Setup</a>
+                        <a href="docs/usage/">Usage</a>
+                        <a href="docs/faq.md">FAQ</a>
+                        <a href="docs/index.md">Index</a>
+                    </div>
                 </li>
             </ul>
         </nav>
