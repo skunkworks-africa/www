@@ -7,18 +7,15 @@ body, html {
     color: #FFFFFF; /* White Text */
     overflow-x: hidden;
 }
-
 .section {
     padding: 20px;
     border-top: 2px solid #2563EB; /* Light Blue Border */
     text-align: center;
 }
-
 .section h1 {
     margin-bottom: 20px;
     color: #60A5FA; /* Light Blue */
 }
-
 .welcome-section {
     background: url('https://source.unsplash.com/random/1600x900') no-repeat center center/cover;
     padding: 50px 20px;
@@ -26,7 +23,6 @@ body, html {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     position: relative;
 }
-
 .welcome-section::before {
     content: '';
     position: absolute;
@@ -37,33 +33,27 @@ body, html {
     background: rgba(0, 0, 0, 0.5);
     z-index: 0;
 }
-
 .welcome-section-content {
     position: relative;
     z-index: 1;
 }
-
 .welcome-section h1 {
     font-size: 2.5rem;
     animation: fadeInDown 1s ease-out;
 }
-
 .welcome-section p {
     font-size: 1.2rem;
     margin: 10px 0;
     animation: fadeInUp 1s ease-out;
 }
-
 .welcome-section a {
     color: #FFDD57; /* Highlight color */
     text-decoration: underline;
     transition: color 0.3s ease;
 }
-
 .welcome-section a:hover {
     color: #FFB800;
 }
-
 @keyframes fadeInDown {
     from {
         opacity: 0;
@@ -74,7 +64,6 @@ body, html {
         transform: translateY(0);
     }
 }
-
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -85,14 +74,12 @@ body, html {
         transform: translateY(0);
     }
 }
-
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 10px;
     padding: 10px;
 }
-
 .grid-container div {
     border: 1px solid #2563EB; /* Light Blue Border */
     padding: 20px;
@@ -101,12 +88,10 @@ body, html {
     border-radius: 5px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .grid-container div:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(37, 99, 235, 0.5); /* Light Blue Shadow */
 }
-
 .statistics {
     display: flex;
     flex-wrap: wrap;
@@ -116,7 +101,6 @@ body, html {
     border-bottom: 2px solid #2563EB; /* Light Blue Border */
     background-color: #0F62FE; /* $interactive-01 */
 }
-
 .statistics p {
     font-size: 1.5rem; /* $heading-03 */
     font-weight: 600; /* $heading-compact-01 */
@@ -129,42 +113,34 @@ body, html {
     flex: 1 1 calc(33.333% - 40px);
     text-align: center;
 }
-
 .statistics p:hover {
     transform: scale(1.1);
     box-shadow: 0 10px 20px rgba(0, 43, 255, 0.5); /* Custom shadow */
     color: #0043CE; /* $interactive-04 */
     border-bottom: 2px solid #0043CE; /* $interactive-04 */
 }
-
 @media (max-width: 768px) {
     .welcome-section h1 {
         font-size: 2rem;
     }
-
     .welcome-section p {
         font-size: 1rem;
     }
-
     .statistics p {
         flex: 1 1 100%;
         margin: 10px 0;
     }
-
     .grid-container div {
         padding: 10px;
     }
 }
-
 @media (max-width: 480px) {
     .welcome-section h1 {
         font-size: 1.5rem;
     }
-
     .welcome-section p {
         font-size: 0.9rem;
     }
-
     .statistics p {
         padding: 10px;
     }
