@@ -15,16 +15,45 @@
         }
 
         .container {
-            max-width: 800px;
-            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header, footer {
+            background: #0056b3;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .content {
+            display: flex;
+            flex: 1;
+        }
+
+        .sidebar-left,
+        .sidebar-right {
+            background: #e9ecef;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content {
+            flex: 1;
             padding: 20px;
             background: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+        }
+
+        .logo {
+            max-width: 200px;
+            margin: 0 auto 20px;
+            display: block;
         }
 
         h1 {
-            text-align: center;
             color: #0056b3;
         }
 
@@ -60,8 +89,68 @@
             font-weight: bold;
         }
 
+        .calendar {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #0056b3;
+            color: white;
+        }
+
+        .credly-signup {
+            margin-top: 20px;
+            background: #f8f9fa;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        .credly-signup h3 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar-left,
+            .sidebar-right {
+                width: 150px;
+            }
+
+            .logo {
+                max-width: 150px;
+            }
+
+            .content {
+                flex-direction: column;
+            }
+
+            .sidebar-left,
+            .sidebar-right {
+                width: 100%;
+            }
+        }
+
         @media (max-width: 600px) {
-            .container {
+            .sidebar-left,
+            .sidebar-right {
+                display: none;
+            }
+
+            .main-content {
                 padding: 10px;
             }
         }
@@ -70,17 +159,59 @@
 
 <body>
     <div class="container">
-        <h1>Certification Roadmap for Miguel Nascimento</h1>
-        <div class="certification">
-            <h2><a href="https://www.facebook.com/business/learn/certification/exams/100-101-exam">100-101: Meta Certified Digital Marketing Associate Exam</a></h2>
-            <p><span class="deadline">Deadline:</span> 20th June 2024</p>
-            <p><span class="duration">Estimated Duration:</span> 2-6 hours to complete</p>
+        <header>
+            <img src="https://github.com/skunkworksza/www/blob/main/logo_trans_200%C3%971200px.png?raw=true" alt="Company Logo" class="logo">
+        </header>
+        <div class="content">
+            <nav class="sidebar-left">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#cert1">Meta Certified Digital Marketing Associate</a></li>
+                    <li><a href="#cert2">Certified in Cybersecurity</a></li>
+                </ul>
+            </nav>
+            <main class="main-content">
+                <h1>Certification Roadmap for Miguel Nascimento</h1>
+                <div class="certification" id="cert1">
+                    <h2><a href="https://www.facebook.com/business/learn/certification/exams/100-101-exam">100-101: Meta Certified Digital Marketing Associate Exam</a></h2>
+                    <p><span class="deadline">Deadline:</span> 20th June 2024</p>
+                    <p><span class="duration">Estimated Duration:</span> 2-6 hours to complete</p>
+                </div>
+                <div class="certification" id="cert2">
+                    <h2><a href="https://www.isc2.org/certifications/cc">Certified in Cybersecurity Certification</a></h2>
+                    <p><span class="deadline">Deadline:</span> 20th June 2024</p>
+                    <p><span class="duration">Estimated Duration:</span> 3-8 hours to complete</p>
+                </div>
+                <div class="calendar">
+                    <h2>Certification Deadlines</h2>
+                    <table>
+                        <tr>
+                            <th>Certification</th>
+                            <th>Deadline</th>
+                        </tr>
+                        <tr>
+                            <td>Meta Certified Digital Marketing Associate Exam</td>
+                            <td>20th June 2024</td>
+                        </tr>
+                        <tr>
+                            <td>Certified in Cybersecurity Certification</td>
+                            <td>20th June 2024</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="credly-signup">
+                    <h3>Credly.com Signup</h3>
+                    <p>Don't forget to sign up on <a href="https://www.credly.com">Credly.com</a> to showcase your certifications and connect with other professionals.</p>
+                </div>
+            </main>
+            <aside class="sidebar-right">
+                <h3>Certification Info</h3>
+                <p>This section provides additional details and updates about the certifications listed in the roadmap.</p>
+            </aside>
         </div>
-        <div class="certification">
-            <h2><a href="https://www.isc2.org/certifications/cc">Certified in Cybersecurity Certification</a></h2>
-            <p><span class="deadline">Deadline:</span> 20th June 2024</p>
-            <p><span class="duration">Estimated Duration:</span> 3-8 hours to complete</p>
-        </div>
+        <footer>
+            <p>&copy; 2024 Skunkworks (Pty) Ltd. All rights reserved.</p>
+        </footer>
     </div>
 </body>
 
