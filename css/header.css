@@ -1,31 +1,22 @@
-/* Header CSS */
-
-.bx--header {
-    background-color: #0f62fe;
-    padding: 1rem;
+/* header.css */
+header {
+    background: #1E3A8A; /* Medium Blue */
+    padding: 10px 20px;
+    text-align: center;
 }
 
-.bx--header__name {
-    font-size: 1.5rem;
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.bx--header__menu-bar {
-    display: flex;
-    list-style: none;
+nav ul {
+    list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
-.bx--header__menu-item {
-    margin: 0 1rem;
+nav ul li {
+    display: inline;
+    margin-right: 10px;
 }
 
-.bx--header__menu-link {
-    color: #ffffff;
+nav ul li a {
+    color: #FFFFFF; /* White Text */
     text-decoration: none;
-}
-
-.bx--header__menu-link:hover {
-    text-decoration: underline;
 }

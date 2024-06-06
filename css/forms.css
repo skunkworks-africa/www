@@ -1,36 +1,21 @@
-/* Forms CSS */
-
-.input-field {
+/* forms.css */
+input, textarea {
     width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border-radius: 0.375rem; /* 6px */
-    border: 1px solid #d1d5db;
-}
-
-.input-field:focus {
-    border-color: #0f62fe;
-    box-shadow: 0 0 0 1px #0f62fe;
-}
-
-.checkbox-custom {
-    margin-right: 0.5rem;
-}
-
-.checkbox-custom:checked {
-    background-color: #0f62fe;
-    border-color: #0f62fe;
-}
-
-.button-primary {
-    background-color: #0f62fe;
-    color: white;
-    padding: 0.5rem 1rem;
+    padding: 10px;
+    margin-top: 10px;
     border: none;
-    border-radius: 0.375rem; /* 6px */
-    cursor: pointer;
+    border-radius: 5px;
+    background-color: #2563EB; /* Light Blue */
+    color: #FFFFFF; /* White Text */
 }
 
-.button-primary:hover {
-    background-color: #0043ce;
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #3B82F6; /* Bright Blue */
+    color: #FFFFFF; /* White Text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
