@@ -4,139 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/@carbon/styles/css/styles.css">
-    <title>Statistics with IBM Carbon Design System</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'IBM Plex Sans', sans-serif;
-            background-color: #0A0A23; /* Dark Blue Background */
-            color: #FFFFFF; /* White Text */
-        }
-        header {
-            background: #1E3A8A; /* Medium Blue */
-            padding: 10px 20px;
-            text-align: center;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin-right: 10px;
-        }
-        nav ul li a {
-            color: #FFFFFF; /* White Text */
-            text-decoration: none;
-        }
-        .section {
-            padding: 20px;
-            border-top: 2px solid #2563EB; /* Light Blue Border */
-            text-align: center;
-        }
-        .section h1 {
-            margin-bottom: 20px;
-            color: #60A5FA; /* Light Blue */
-        }
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 10px;
-            padding: 10px;
-        }
-        .grid-container div {
-            border: 1px solid #2563EB; /* Light Blue Border */
-            padding: 20px;
-            background-color: #1E3A8A; /* Medium Blue Background */
-            color: #FFFFFF; /* White Text */
-            border-radius: 5px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .grid-container div:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.5); /* Light Blue Shadow */
-        }
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #2563EB; /* Light Blue */
-            color: #FFFFFF; /* White Text */
-        }
-        button {
-            width: 100%;
-            padding: 15px;
-            margin-top: 20px;
-            background-color: #3B82F6; /* Bright Blue */
-            color: #FFFFFF; /* White Text */
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #1E3A8A; /* Medium Blue */
-            color: #93C5FD; /* Light Blue Text */
-        }
-        .partners-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 10px;
-            padding: 20px;
-        }
-        .partners-list p {
-            border: 1px solid #2563EB; /* Light Blue Border */
-            padding: 20px;
-            background-color: #1E3A8A; /* Medium Blue Background */
-            color: #FFFFFF; /* White Text */
-            border-radius: 5px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: center;
-        }
-        .partners-list p:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.5); /* Light Blue Shadow */
-        }
-        .statistics {
-            display: flex;
-            justify-content: space-around;
-            padding: 20px;
-            background-color: #0F62FE; /* $interactive-01 */
-            border-top: 2px solid #0043CE; /* $interactive-04 */
-            border-bottom: 2px solid #0043CE; /* $interactive-04 */
-            text-align: center;
-        }
-        .statistics p {
-            font-size: 1.5rem; /* $heading-03 */
-            font-weight: 600; /* $heading-compact-01 */
-            margin: 0;
-            padding: 20px;
-            border-radius: 8px;
-            background-color: #F4F4F4; /* $ui-background */
-            color: #0F62FE; /* $interactive-01 */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            flex: 1;
-            margin: 0 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .statistics p:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 20px rgba(0, 43, 255, 0.5); /* Custom shadow */
-            color: #0043CE; /* $interactive-04 */
-            border-bottom: 2px solid #0043CE; /* $interactive-04 */
-        }
-    </style>
-    <link rel="stylesheet" href="footer.css">
-    <link rel="stylesheet" href="forms.css">
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/forms.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/sidebar.css">
     <title>Statistics with IBM Carbon Design System</title>
 </head>
 <body>
@@ -150,14 +22,16 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-  </header>
-    <section id="welcome" class="section">
-        <h1>Welcome to Skunkworks</h1>
-        <p>Innovative Technology, Education Solutions, and Placement Services for Tomorrow's Businesses.</p>
-        <p>Dear Visitor,</p>
-        <p>I'm Raydo Matthee, and I'm thrilled to welcome you to Skunkworks, where the intersection of education and technology is our passion and our purpose.</p>
-        <p>As the CEO of Skunkworks, I proudly wear multiple hats, overseeing all aspects of our business operations. From guiding our technological direction to managing financial planning and reporting, my mission is to provide a clear vision for our team, ensuring effective resource utilization, and keeping all our teams aligned with our mission.</p>
-        <p>Contact: <a href="mailto:info@skunkworks.africa">info@skunkworks.africa</a></p>
+    </header>
+    <section id="welcome" class="section welcome-section">
+        <div class="welcome-section-content">
+            <h1>Welcome to Skunkworks</h1>
+            <p>Innovative Technology, Education Solutions, and Placement Services for Tomorrow's Businesses.</p>
+            <p>Dear Visitor,</p>
+            <p>I'm Raydo Matthee, and I'm thrilled to welcome you to Skunkworks, where the intersection of education and technology is our passion and our purpose.</p>
+            <p>As the CEO of Skunkworks, I proudly wear multiple hats, overseeing all aspects of our business operations. From guiding our technological direction to managing financial planning and reporting, my mission is to provide a clear vision for our team, ensuring effective resource utilization, and keeping all our teams aligned with our mission.</p>
+            <p>Contact: <a href="mailto:info@skunkworks.africa">info@skunkworks.africa</a></p>
+        </div>
     </section>
     <section id="services" class="section">
         <h1>Custom Learning Solutions</h1>
@@ -169,16 +43,6 @@
             <div>
                 <h3>Course Development</h3>
                 <p>We provide custom eLearning courses to meet client objectives.</p>
-            </div>
-            <div>
-                <h3>Project Mentoring</h3>
-                <p>Guided support through training engagements with our Project Mentoring.</p>
-            </div>
-            <div>
-                <h3>Performance Support Tools</h3>
-                <p>We create custom job aids and guides to help employees apply new skills to real-world tasks.</p>
-            </div>
-            <div>
             </div>
             <div>
                 <h3>Project Mentoring</h3>
@@ -243,12 +107,6 @@
             <p>20 Strategic Partnerships</p>
             <p>+1000 Courses Offered</p>
         </div>
-        </div>
-        <div class="statistics">
-            <p>60 Instructors</p>
-            <p>20 Strategic Partnerships</p>
-            <p>+1000 Courses Offered</p>
-        </div>
     </section>
     <section id="about" class="section">
         <h1>About Us</h1>
@@ -270,4 +128,3 @@
     </footer>
 </body>
 </html>
-
