@@ -3,142 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skunkworks Academy</title>
-    <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
-    <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/forms.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="https://unpkg.com/@carbon/styles/css/styles.css">
+    <title>Statistics with IBM Carbon Design System</title>
     <style>
-        /* Additional styles for sidebar */
-        #sidebar {
-            transform: translateX(-100%);
-            transition: transform 0.3s ease-in-out;
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'IBM Plex Sans', sans-serif;
+            background-color: #0A0A23; /* Dark Blue Background */
+            color: #FFFFFF; /* White Text */
         }
-
-        #sidebar.open {
-            transform: translateX(0);
+        header {
+            background: #1E3A8A; /* Medium Blue */
+            padding: 10px 20px;
+            text-align: center;
         }
-
-        /* Dropdown menu style */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            padding: 12px 16px;
-            z-index: 1;
+        nav ul {
+            list-style-type: none;
+            padding: 0;
         }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        nav ul li a {
+            color: #FFFFFF; /* White Text */
+            text-decoration: none;
+        }
+        .section {
+            padding: 20px;
+            border-top: 2px solid #2563EB; /* Light Blue Border */
+            text-align: center;
+        }
+        .section h1 {
+            margin-bottom: 20px;
+            color: #60A5FA; /* Light Blue */
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            padding: 10px;
+        }
+        .grid-container div {
+            border: 1px solid #2563EB; /* Light Blue Border */
+            padding: 20px;
+            background-color: #1E3A8A; /* Medium Blue Background */
+            color: #FFFFFF; /* White Text */
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .grid-container div:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.5); /* Light Blue Shadow */
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2563EB; /* Light Blue */
+            color: #FFFFFF; /* White Text */
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: #3B82F6; /* Bright Blue */
+            color: #FFFFFF; /* White Text */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #1E3A8A; /* Medium Blue */
+            color: #93C5FD; /* Light Blue Text */
+        }
+        .partners-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+            padding: 20px;
+        }
+        .partners-list p {
+            border: 1px solid #2563EB; /* Light Blue Border */
+            padding: 20px;
+            background-color: #1E3A8A; /* Medium Blue Background */
+            color: #FFFFFF; /* White Text */
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        .partners-list p:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.5); /* Light Blue Shadow */
+        }
+        .statistics {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background-color: #0F62FE; /* $interactive-01 */
+            border-top: 2px solid #0043CE; /* $interactive-04 */
+            border-bottom: 2px solid #0043CE; /* $interactive-04 */
+            text-align: center;
+        }
+        .statistics p {
+            font-size: 1.5rem; /* $heading-03 */
+            font-weight: 600; /* $heading-compact-01 */
+            margin: 0;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #F4F4F4; /* $ui-background */
+            color: #0F62FE; /* $interactive-01 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex: 1;
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .statistics p:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 43, 255, 0.5); /* Custom shadow */
+            color: #0043CE; /* $interactive-04 */
+            border-bottom: 2px solid #0043CE; /* $interactive-04 */
         }
     </style>
 </head>
-<body class="font-roboto flex flex-col min-h-screen bg-light-blue text-gray-900">
-    <header class="bx--header">
-        <a class="bx--header__name" href="index.html">Skunkworks Academy</a>
-        <nav class="bx--header__nav">
-            <ul class="bx--header__menu-bar">
-                <li class="bx--header__menu-item dropdown">
-                    <a class="bx--header__menu-item" href="courses.html">Courses</a>
-                    <div class="dropdown-content">
-                        <a href="course1.html">Course 1</a>
-                        <a href="course2.html">Course 2</a>
-                        <a href="course3.html">Course 3</a>
-                    </div>
-                </li>
-                <li class="bx--header__menu-item">
-                    <a class="bx--header__menu-item" href="services.html">Services</a>
-                </li>
-                <li class="bx--header__menu-item">
-                    <a class="bx--header__menu-item" href="about.html">About</a>
-                </li>
-                <li class="bx--header__menu-item">
-                    <a class="bx--header__menu-item" href="contact.html">Contact</a>
-                </li>
-                <li class="bx--header__menu-item dropdown">
-                    <a class="bx--header__menu-item" href="docs/index.md">Documentation</a>
-                    <div class="dropdown-content">
-                        <a href="docs/api/">API</a>
-                        <a href="docs/setup/">Setup</a>
-                        <a href="docs/usage/">Usage</a>
-                        <a href="docs/faq.md">FAQ</a>
-                        <a href="docs/index.md">Index</a>
-                    </div>
-                </li>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#recruitment">Recruitment</a></li>
+                <li><a href="#partners">Partners</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <main class="bx--content">
-        <div class="bx--grid">
-            <div class="bx--row">
-                <div class="bx--col-lg-12 bx--col-md-8 text-center">
-                    <h1 class="bx--type-expressive-heading-04 mb-4">How can I help you today?</h1>
-                    <button class="bx--btn bx--btn--primary" onclick="explainService('learning-path')">Create your own learning path</button>
-                    <button class="bx--btn bx--btn--primary" onclick="explainService('search-course')">Search for a Course</button>
-                    <button class="bx--btn bx--btn--primary" onclick="explainService('professional-profile')">Create your professional profile</button>
-                    <button class="bx--btn bx--btn--primary" onclick="explainService('saas-architecture')">Create your SaaS Architectural Structure</button>
-                </div>
+    
+    <section id="welcome" class="section">
+        <h1>Welcome to Skunkworks</h1>
+        <p>Innovative Technology, Education Solutions, and Placement Services for Tomorrow's Businesses.</p>
+        <p>Dear Visitor,</p>
+        <p>I'm Raydo Matthee, and I'm thrilled to welcome you to Skunkworks, where the intersection of education and technology is our passion and our purpose.</p>
+        <p>As the CEO of Skunkworks, I proudly wear multiple hats, overseeing all aspects of our business operations. From guiding our technological direction to managing financial planning and reporting, my mission is to provide a clear vision for our team, ensuring effective resource utilization, and keeping all our teams aligned with our mission.</p>
+        <p>Contact: <a href="mailto:info@skunkworks.africa">info@skunkworks.africa</a></p>
+    </section>
+    <section id="services" class="section">
+        <h1>Custom Learning Solutions</h1>
+        <div class="grid-container">
+            <div>
+                <h3>Blended Learning</h3>
+                <p>Blended learning programs & personalized learning paths.</p>
             </div>
-            <div class="bx--row">
-                <div class="bx--col-lg-12 bx--col-md-8">
-                    <div id="chat-container" class="bg-white rounded-lg p-4 flex flex-col space-y-4">
-                        <!-- Chat messages will go here -->
-                    </div>
-                </div>
+            <div>
+                <h3>Course Development</h3>
+                <p>We provide custom eLearning courses to meet client objectives.</p>
             </div>
-            <div class="bx--row">
-                <div class="bx--col-lg-12 bx--col-md-8 flex items-center justify-center">
-                    <div class="w-full max-w-md">
-                        <input type="text" placeholder="Search courses, ask a question..." class="w-full p-4 rounded border border-gray-300 focus:border-blue-500 focus:outline-none" autofocus>
-                        <div class="mt-4 flex">
-                            <input type="text" id="chat-input" placeholder="Type your message..." class="border border-gray-300 p-2 rounded w-full" onkeydown="if(event.key === 'Enter'){ sendMessage(); }">
-                            <button onclick="sendMessage()" class="bx--btn bx--btn--primary ml-2">Send</button>
-                        </div>
-                    </div>
-                </div>
+            <div>
+                <h3>Project Mentoring</h3>
+                <p>Guided support through training engagements with our Project Mentoring.</p>
             </div>
-        </div>
-    </main>
-    <!-- Left Sidebar -->
-    <aside id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-blue-900 text-white p-4">
-        <p class="mb-4">Left Sidebar Content</p>
-        <button class="bx--btn bx--btn--secondary" onclick="toggleSidebar()">Close</button>
-    </aside>
-    <!-- Footer -->
-    <footer class="bx--footer">
-        <div class="bx--grid">
-            <div class="bx--row">
-                <div class="bx--col-lg-12 bx--col-md-8">
-                    <p class="bx--type-body-long-01">© 2024 Skunkworks Academy. All rights reserved.</p>
-                </div>
+            <div>
+                <h3>Performance Support Tools</h3>
+                <p>We create custom job aids and guides to help employees apply new skills to real-world tasks.</p>
+            </div>
+            <div>
+                <h3>Training Programs</h3>
+                <p>We offer training in soft skills, compliance, boot camps, and provide outsourcing services.</p>
+            </div>
+            <div>
+                <h3>LMS</h3>
+                <p>Custom LMS development and mgmt. for efficient content delivery, tracking, and reporting.</p>
             </div>
         </div>
+    </section>
+    <section id="technology" class="section">
+        <h1>Technology Solutions</h1>
+        <p>Our primary aim is to be a one-stop-shop for businesses looking to harness the power of technology and top-notch education.</p>
+        <div class="grid-container">
+            <div>
+                <h3>Software Development</h3>
+                <p>Our experienced developers design and develop custom software solutions. Our services include web and mobile app development, software development, and application modernization.</p>
+            </div>
+            <div>
+                <h3>Hardware and Software</h3>
+                <p>We provide hardware and software products from most of the major technology vendor giants, including servers, storage solutions, networking equipment, and software licenses.</p>
+            </div>
+            <div>
+                <h3>Managed Cloud Services</h3>
+                <p>Our cloud-based solutions cater to businesses of all sizes. We offer mixed cloud models, and manage cloud infrastructure, security, disaster recovery, and cloud migration services.</p>
+            </div>
+        </div>
+        <button>EMAIL US</button>
+    </section>
+    <section id="recruitment" class="section">
+        <h1>Placement & Recruitment</h1>
+        <p>This service involves the process of sourcing, attracting, and selecting qualified candidates to fill job vacancies within an organization. It includes activities like job posting, candidate screening, interviews, and making job offers to suitable candidates.</p>
+        <button>EMAIL US</button>
+    </section>
+    <section id="partners" class="section">
+        <h1>Our Partners</h1>
+        <div class="partners-list">
+            <p>Salesforce</p>
+            <p>Redhat</p>
+            <p>IBM</p>
+            <p>Microsoft</p>
+            <p>AWS</p>
+            <p>GitHub</p>
+            <p>SAP</p>
+            <p>Quantitative</p>
+            <p>CourseDot</p>
+            <p>CRS</p>
+            <p>Checkpoint</p>
+            <p>LearnQuest</p>
+        </div>
+        <div class="statistics">
+            <p>60 Instructors</p>
+            <p>20 Strategic Partnerships</p>
+            <p>+1000 Courses Offered</p>
+        </div>
+    </section>
+    <section id="about" class="section">
+        <h1>About Us</h1>
+        <p>Our team is dedicated to providing top-notch services, and our expertise spans various domains including education, technology, and business development.</p>
+        <p>Approach: We take a collaborative approach to every project, working closely with our clients to understand their needs and goals. We are committed to delivering solutions that meet or exceed our clients' expectations. Our team is responsive and accessible, and we pride ourselves on delivering exceptional customer service.</p>
+    </section>
+    <section id="contact" class="section">
+        <h1>Contact Us</h1>
+        <form action="#" method="post">
+            <input type="text" name="name" placeholder="Name">
+            <input type="email" name="email" placeholder="Email">
+            <input type="text" name="number" placeholder="Number">
+            <textarea name="message" placeholder="How Can We Help?"></textarea>
+            <button type="submit">CALL ME BACK</button>
+        </form>
+    </section>
+    <footer>
+        <p>© 2024 Skunkworks. All rights reserved.</p>
     </footer>
-    <script src="js/script.js"></script>
-    <script>
-        function explainService(service) {
-            alert(`This would lead to the ${service} service page or display an explanation about the service.`);
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chat-input');
-            if (input.value.trim() !== '') {
-                // Implement the logic to send the message
-                alert(`Sending message: ${input.value}`);
-                input.value = '';
-            }
-        }
-
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('open');
-        }
-    </script>
 </body>
 </html>
+
