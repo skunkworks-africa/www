@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/@carbon/styles/css/styles.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/forms.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/sidebar.css">
-    <title>Statistics with IBM Carbon Design System</title>
+    <title>Welcome to Skunkworks: Innovative Technology and Education Solutions</title>
     <style>
         /* General Styles */
         body {
@@ -108,10 +107,19 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#technology">Technology</a></li>
-                <li><a href="#recruitment">Recruitment</a></li>
-                <li><a href="#partners">Partners</a></li>
+                <li><a href="./AWS.html">AWS</a></li>
+                <li><a href="./CISCO.html">CISCO</a></li>
+                <li><a href="./GitHub.html">GitHub</a></li>
+                <li><a href="./Google.html">Google</a></li>
+                <li><a href="./HashiCorp.html">HashiCorp</a></li>
+                <li><a href="./IBM-Maximo-Manage-v8.x-Certified-Administrator-Preparation-and-Certification-Learning-Path.html">IBM Maximo</a></li>
+                <li><a href="./ibm-qradar.html">IBM QRadar</a></li>
+                <li><a href="./ibm-security-verify-access.html">IBM Security</a></li>
+                <li><a href="./Microsoft.html">Microsoft</a></li>
+                <li><a href="./Oracle.html">Oracle</a></li>
+                <li><a href="./Palo Alto.html">Palo Alto</a></li>
+                <li><a href="./RedHat.html">RedHat</a></li>
+                <li><a href="./SAP.html">SAP</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -219,33 +227,6 @@
     <footer>
         <p>© 2024 Skunkworks. All rights reserved.</p>
     </footer>
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            const formData = new FormData(this);
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                number: formData.get('number'),
-                message: formData.get('message')
-            };
-
-            fetch('https://github.skunkworks.africa/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert('Your message has been sent successfully!');
-            })
-            .catch(error => {
-                alert('There was an error sending your message.');
-            });
-        });
-    </script>
+    <script src="./js/formHandler.js"></script>
 </body>
 </html>
