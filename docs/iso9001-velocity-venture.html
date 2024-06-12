@@ -20,8 +20,7 @@
         header {
             background: #50b3a2;
             color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
+            padding: 15px 0;
             border-bottom: #e8491d 3px solid;
         }
         header a {
@@ -29,14 +28,31 @@
             text-decoration: none;
             text-transform: uppercase;
             font-size: 16px;
+            padding: 0 15px;
         }
         header ul {
             padding: 0;
             list-style: none;
+            display: flex;
+            justify-content: center;
         }
         header ul li {
-            display: inline;
-            padding: 0 20px 0 20px;
+            position: relative;
+        }
+        header ul li ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #50b3a2;
+            display: none;
+            flex-direction: column;
+        }
+        header ul li:hover ul {
+            display: flex;
+        }
+        header ul li ul li {
+            padding: 10px;
+            white-space: nowrap;
         }
         .main {
             padding: 30px 0;
@@ -68,17 +84,36 @@
             padding: 10px 0;
             margin-top: 20px;
         }
+        .audit-report {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .audit-report h2 {
+            color: #50b3a2;
+        }
+        .audit-report ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>ISO9001 Implementation</h1>
+            <h1>ISO9001 Implementation for Velocity Venture</h1>
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
+                <li>
+                    <a href="#">Doc's</a>
+                    <ul>
+                        <li><a href="iso9001-velocity-venture.html">ISO9001 Implementation for Velocity Venture</a></li>
+                        <li><a href="qms-4levels.html">Quality Management System Development for 4Levels</a></li>
+                        <li><a href="audit-course-monster.html">Internal Audit Report for Course Monster</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </header>
@@ -87,8 +122,61 @@
             <h1>ISO9001 Implementation for Velocity Venture</h1>
             <p>Successfully guided Velocity Venture through the ISO9001 certification process, resulting in enhanced quality control and operational efficiency.</p>
         </div>
+        <div class="audit-report">
+            <h2>Project Overview</h2>
+            <p>The ISO9001 implementation project for Velocity Venture involved a comprehensive approach to establish and maintain a robust Quality Management System (QMS) that meets ISO9001 standards. The project included the following phases:</p>
+            <ul>
+                <li>Initial Assessment and Gap Analysis</li>
+                <li>Development and Documentation of QMS</li>
+                <li>Training and Implementation</li>
+                <li>Internal Audits and Continuous Improvement</li>
+                <li>Final Certification Audit</li>
+            </ul>
+            <h2>Initial Assessment and Gap Analysis</h2>
+            <p>During the initial assessment, a detailed gap analysis was conducted to identify areas where Velocity Venture's existing processes did not meet ISO9001 requirements. Key findings included:</p>
+            <ul>
+                <li>Inconsistent documentation and record-keeping</li>
+                <li>Lack of standardized processes</li>
+                <li>Insufficient training and competency tracking</li>
+                <li>Gaps in customer feedback mechanisms</li>
+            </ul>
+            <h2>Development and Documentation of QMS</h2>
+            <p>Based on the gap analysis, a comprehensive Quality Management System was developed, incorporating the following elements:</p>
+            <ul>
+                <li><strong>Quality Policy and Objectives:</strong> Defined clear quality policy and objectives aligned with the company's strategic goals.</li>
+                <li><strong>Standard Operating Procedures (SOPs):</strong> Developed detailed SOPs for all critical processes to ensure consistency and compliance.</li>
+                <li><strong>Document Control:</strong> Implemented a document control system to manage and maintain all QMS documentation.</li>
+                <li><strong>Training Programs:</strong> Established comprehensive training programs to ensure all employees are knowledgeable and competent in their roles.</li>
+                <li><strong>Customer Feedback:</strong> Set up mechanisms to regularly collect and analyze customer feedback to drive improvements.</li>
+            </ul>
+            <h2>Training and Implementation</h2>
+            <p>Training sessions were conducted for all employees to ensure they understood their roles and responsibilities within the new QMS. The implementation phase included:</p>
+            <ul>
+                <li>Conducting workshops and training sessions</li>
+                <li>Disseminating SOPs and documentation</li>
+                <li>Setting up monitoring and measurement systems</li>
+                <li>Ensuring compliance through regular reviews and updates</li>
+            </ul>
+            <h2>Internal Audits and Continuous Improvement</h2>
+            <p>Regular internal audits were conducted to ensure ongoing compliance and identify areas for improvement. Key areas of focus included:</p>
+            <ul>
+                <li>Process adherence and effectiveness</li>
+                <li>Employee competency and training effectiveness</li>
+                <li>Customer satisfaction and feedback management</li>
+                <li>Document control and record-keeping</li>
+            </ul>
+            <p>Continuous improvement initiatives were implemented based on audit findings, ensuring that Velocity Venture's QMS remained effective and efficient.</p>
+            <h2>Final Certification Audit</h2>
+            <p>The final certification audit was conducted by an external auditor, resulting in successful ISO9001 certification with no major non-conformities. Key outcomes included:</p>
+            <ul>
+                <li>Enhanced process consistency and efficiency</li>
+                <li>Improved customer satisfaction and engagement</li>
+                <li>Higher levels of employee competency and morale</li>
+                <li>Better document control and compliance</li>
+            </ul>
+        </div>
         <div class="link">
-            <a href="https://www.example.com/iso9001-abc-manufacturing" target="_blank">View Project Details</a>
+            <a href="https://www.example.com/iso9001-velocity-venture" target="_blank">View Project Details</a>
         </div>
     </div>
     <footer>
