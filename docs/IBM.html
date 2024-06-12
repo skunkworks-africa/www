@@ -10,18 +10,116 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/sidebar.css">
     <title>IBM Training and Services | Skunkworks</title>
+    <style>
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #50b3a2;
+            color: #fff;
+            padding: 15px 0;
+            border-bottom: #e8491d 3px solid;
+        }
+        header nav {
+            display: flex;
+            justify-content: center;
+        }
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        header nav ul li {
+            position: relative;
+            margin: 0 15px;
+        }
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+            padding: 0 15px;
+        }
+        header nav ul li ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #50b3a2;
+            display: none;
+            flex-direction: column;
+            padding: 0;
+            list-style: none;
+            z-index: 1;
+        }
+        header nav ul li ul li {
+            padding: 10px;
+        }
+        header nav ul li:hover ul {
+            display: flex;
+        }
+        .section {
+            padding: 30px 0;
+        }
+        .welcome-section {
+            background: #e4f5f9;
+            text-align: center;
+            padding: 60px 0;
+        }
+        .welcome-section-content {
+            max-width: 600px;
+            margin: auto;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: auto;
+        }
+        form input, form textarea, form button {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form button {
+            background: #50b3a2;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        form button:hover {
+            background: #3e8e86;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="#training">Training</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#isv">ISV Offerings</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="#training">Training</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#isv">ISV Offerings</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <section id="welcome" class="section welcome-section">
         <div class="welcome-section-content">
@@ -30,94 +128,104 @@
         </div>
     </section>
     <section id="training" class="section">
-        <h1>IBM Training</h1>
-        <div class="grid-container">
-            <div>
-                <h3>IBM Cloud Training</h3>
-                <p>Master IBM Cloud for efficient cloud computing and management solutions.</p>
-            </div>
-            <div>
-                <h3>IBM Watson Training</h3>
-                <p>Leverage the power of IBM Watson for AI and data analytics.</p>
-            </div>
-            <div>
-                <h3>IBM Blockchain Training</h3>
-                <p>Understand and implement blockchain technology with IBM Blockchain training.</p>
-            </div>
-            <div>
-                <h3>IBM Security Training</h3>
-                <p>Enhance your skills in cybersecurity with IBM Security training programs.</p>
+        <div class="container">
+            <h1>IBM Training</h1>
+            <div class="grid-container">
+                <div>
+                    <h3>IBM Cloud Training</h3>
+                    <p>Master IBM Cloud for efficient cloud computing and management solutions.</p>
+                </div>
+                <div>
+                    <h3>IBM Watson Training</h3>
+                    <p>Leverage the power of IBM Watson for AI and data analytics.</p>
+                </div>
+                <div>
+                    <h3>IBM Blockchain Training</h3>
+                    <p>Understand and implement blockchain technology with IBM Blockchain training.</p>
+                </div>
+                <div>
+                    <h3>IBM Security Training</h3>
+                    <p>Enhance your skills in cybersecurity with IBM Security training programs.</p>
+                </div>
             </div>
         </div>
     </section>
     <section id="services" class="section">
-        <h1>IBM Services</h1>
-        <div class="grid-container">
-            <div>
-                <h3>Cloud Integration</h3>
-                <p>Integrate IBM Cloud with your existing systems for seamless operations.</p>
-            </div>
-            <div>
-                <h3>Managed Services</h3>
-                <p>Comprehensive managed services for IBM environments.</p>
-            </div>
-            <div>
-                <h3>Consulting</h3>
-                <p>Strategic consulting to maximize the value of your IBM investments.</p>
-            </div>
-            <div>
-                <h3>Support</h3>
-                <p>24/7 support for all your IBM products and solutions.</p>
+        <div class="container">
+            <h1>IBM Services</h1>
+            <div class="grid-container">
+                <div>
+                    <h3>Cloud Integration</h3>
+                    <p>Integrate IBM Cloud with your existing systems for seamless operations.</p>
+                </div>
+                <div>
+                    <h3>Managed Services</h3>
+                    <p>Comprehensive managed services for IBM environments.</p>
+                </div>
+                <div>
+                    <h3>Consulting</h3>
+                    <p>Strategic consulting to maximize the value of your IBM investments.</p>
+                </div>
+                <div>
+                    <h3>Support</h3>
+                    <p>24/7 support for all your IBM products and solutions.</p>
+                </div>
             </div>
         </div>
     </section>
     <section id="products" class="section">
-        <h1>IBM Products</h1>
-        <div class="grid-container">
-            <div>
-                <h3>IBM Cloud</h3>
-                <p>Robust cloud computing solutions from IBM.</p>
-            </div>
-            <div>
-                <h3>IBM Watson</h3>
-                <p>AI-powered solutions for smarter business decisions.</p>
-            </div>
-            <div>
-                <h3>IBM Blockchain</h3>
-                <p>Blockchain solutions for secure and transparent transactions.</p>
-            </div>
-            <div>
-                <h3>IBM Security</h3>
-                <p>Advanced security solutions to protect your business.</p>
+        <div class="container">
+            <h1>IBM Products</h1>
+            <div class="grid-container">
+                <div>
+                    <h3>IBM Cloud</h3>
+                    <p>Robust cloud computing solutions from IBM.</p>
+                </div>
+                <div>
+                    <h3>IBM Watson</h3>
+                    <p>AI-powered solutions for smarter business decisions.</p>
+                </div>
+                <div>
+                    <h3>IBM Blockchain</h3>
+                    <p>Blockchain solutions for secure and transparent transactions.</p>
+                </div>
+                <div>
+                    <h3>IBM Security</h3>
+                    <p>Advanced security solutions to protect your business.</p>
+                </div>
             </div>
         </div>
     </section>
     <section id="isv" class="section">
-        <h1>ISV Offerings</h1>
-        <div class="grid-container">
-            <div>
-                <h3>Custom Solutions</h3>
-                <p>Tailored software solutions built on IBM technologies.</p>
-            </div>
-            <div>
-                <h3>Integration Services</h3>
-                <p>Seamless integration of third-party applications with IBM products.</p>
-            </div>
-            <div>
-                <h3>Application Development</h3>
-                <p>Developing applications that leverage the power of IBM platforms.</p>
+        <div class="container">
+            <h1>ISV Offerings</h1>
+            <div class="grid-container">
+                <div>
+                    <h3>Custom Solutions</h3>
+                    <p>Tailored software solutions built on IBM technologies.</p>
+                </div>
+                <div>
+                    <h3>Integration Services</h3>
+                    <p>Seamless integration of third-party applications with IBM products.</p>
+                </div>
+                <div>
+                    <h3>Application Development</h3>
+                    <p>Developing applications that leverage the power of IBM platforms.</p>
+                </div>
             </div>
         </div>
     </section>
     <section id="contact" class="section">
-        <h1>Contact Us</h1>
-        <form action="#" method="post">
-            <input type="text" name="name" placeholder="Name">
-            <input type="email" name="email" placeholder="Email">
-            <input type="text" name="number" placeholder="Number">
-            <textarea name="message" placeholder="How Can We Help?"></textarea>
-            <button type="submit">CALL ME BACK</button>
-        </form>
+        <div class="container">
+            <h1>Contact Us</h1>
+            <form action="#" method="post">
+                <input type="text" name="name" placeholder="Name">
+                <input type="email" name="email" placeholder="Email">
+                <input type="text" name="number" placeholder="Number">
+                <textarea name="message" placeholder="How Can We Help?"></textarea>
+                <button type="submit">CALL ME BACK</button>
+            </form>
+        </div>
     </section>
     <footer>
         <p>© 2024 Skunkworks. All rights reserved.</p>
