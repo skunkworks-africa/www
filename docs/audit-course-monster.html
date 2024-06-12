@@ -35,9 +35,11 @@
             list-style: none;
             display: flex;
             justify-content: center;
+            position: relative;
         }
         header ul li {
             position: relative;
+            padding: 0 15px;
         }
         header ul li ul {
             position: absolute;
@@ -46,13 +48,39 @@
             background: #50b3a2;
             display: none;
             flex-direction: column;
-        }
-        header ul li:hover ul {
-            display: flex;
+            padding: 0;
+            list-style: none;
         }
         header ul li ul li {
             padding: 10px;
             white-space: nowrap;
+        }
+        header ul li ul li a {
+            padding: 0;
+        }
+        .dropdown-content {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #50b3a2;
+            padding: 0;
+            list-style: none;
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: #fff;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #e8491d;
+        }
+        .show {
+            display: flex;
         }
         .main {
             padding: 30px 0;
@@ -99,6 +127,22 @@
             margin-left: 20px;
         }
     </style>
+    <script>
+        function toggleDropdown() {
+            document.getElementById("docsDropdown").classList.toggle("show");
+        }
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -107,8 +151,8 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li>
-                    <a href="#">Doc's</a>
-                    <ul>
+                    <a href="#" class="dropbtn" onclick="toggleDropdown()">Doc's</a>
+                    <ul id="docsDropdown" class="dropdown-content">
                         <li><a href="iso9001-velocity-venture.html">ISO9001 Implementation for Velocity Venture</a></li>
                         <li><a href="qms-4levels.html">Quality Management System Development for 4Levels</a></li>
                         <li><a href="audit-course-monster.html">Internal Audit Report for Course Monster</a></li>
@@ -145,51 +189,4 @@
                         <li>Action Taken: A new document control system was implemented using a centralized digital platform, ensuring all documents are current and accessible.</li>
                     </ul>
                 </li>
-                <li><strong>Training Programs:</strong> 
-                    <ul>
-                        <li>Finding: Employee training records were incomplete, and some staff lacked awareness of key quality procedures.</li>
-                        <li>Recommendation: Develop comprehensive training programs and maintain detailed training records for all employees.</li>
-                        <li>Action Taken: Enhanced training programs were developed, focusing on key quality procedures, and a training management system was implemented to track training records.</li>
-                    </ul>
-                </li>
-                <li><strong>Customer Feedback:</strong> 
-                    <ul>
-                        <li>Finding: There was no systematic process for collecting and analyzing customer feedback.</li>
-                        <li>Recommendation: Establish a formal process for regularly collecting, analyzing, and acting on customer feedback.</li>
-                        <li>Action Taken: A customer feedback system was set up, including regular surveys and feedback forms, with results analyzed to drive continuous improvement.</li>
-                    </ul>
-                </li>
-                <li><strong>Process Standardization:</strong> 
-                    <ul>
-                        <li>Finding: Key processes were not standardized, leading to inconsistencies in service delivery.</li>
-                        <li>Recommendation: Standardize key processes to ensure consistency and efficiency.</li>
-                        <li>Action Taken: Standard operating procedures (SOPs) were developed and implemented for all key processes, ensuring uniformity and efficiency.</li>
-                    </ul>
-                </li>
-                <li><strong>Internal Communication:</strong> 
-                    <ul>
-                        <li>Finding: Internal communication channels were fragmented, leading to delays in information dissemination.</li>
-                        <li>Recommendation: Improve internal communication channels to ensure timely dissemination of important information.</li>
-                        <li>Action Taken: A new internal communication platform was implemented, facilitating better collaboration and information sharing among staff.</li>
-                    </ul>
-                </li>
-            </ul>
-            <h2>Results</h2>
-            <p>As a result of these improvements, Course Monster achieved seamless external certification and saw significant enhancements in their quality management system, leading to higher customer satisfaction and operational efficiency. Key outcomes included:</p>
-            <ul>
-                <li>Successful ISO9001 certification with no major non-conformities.</li>
-                <li>Increased process efficiency and consistency.</li>
-                <li>Improved employee competency and training compliance.</li>
-                <li>Higher levels of customer satisfaction and engagement.</li>
-                <li>Enhanced internal communication and collaboration.</li>
-            </ul>
-        </div>
-        <div class="link">
-            <a href="https://github.skunkworks.africa/docs/audit-course-monster.html" target="_blank">View Project Details</a>
-        </div>
-    </div>
-    <footer>
-        <p>© 2024 Raydo Matthee. All Rights Reserved.</p>
-    </footer>
-</body>
-</html>
+                <li><strong>Training
