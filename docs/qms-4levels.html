@@ -102,23 +102,42 @@
             list-style: disc;
             margin-left: 20px;
         }
+        .dropdown-content {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #50b3a2;
+            padding: 0;
+            list-style: none;
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: #fff;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #e8491d;
+        }
+        .show {
+            display: flex;
+        }
     </style>
     <script>
         function toggleDropdown() {
-            var dropdown = document.getElementById("docsDropdown");
-            if (dropdown.style.display === "flex") {
-                dropdown.style.display = "none";
-            } else {
-                dropdown.style.display = "flex";
-            }
+            document.getElementById("docsDropdown").classList.toggle("show");
         }
         window.onclick = function(event) {
             if (!event.target.matches('.dropbtn')) {
                 var dropdowns = document.getElementsByClassName("dropdown-content");
                 for (var i = 0; i < dropdowns.length; i++) {
                     var openDropdown = dropdowns[i];
-                    if (openDropdown.style.display === "flex") {
-                        openDropdown.style.display = "none";
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
                     }
                 }
             }
