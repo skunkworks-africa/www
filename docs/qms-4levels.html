@@ -35,9 +35,11 @@
             list-style: none;
             display: flex;
             justify-content: center;
+            position: relative;
         }
         header ul li {
             position: relative;
+            padding: 0 15px;
         }
         header ul li ul {
             position: absolute;
@@ -46,13 +48,15 @@
             background: #50b3a2;
             display: none;
             flex-direction: column;
-        }
-        header ul li:hover ul {
-            display: flex;
+            padding: 0;
+            list-style: none;
         }
         header ul li ul li {
             padding: 10px;
             white-space: nowrap;
+        }
+        header ul li ul li a {
+            padding: 0;
         }
         .main {
             padding: 30px 0;
@@ -99,6 +103,27 @@
             margin-left: 20px;
         }
     </style>
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("docsDropdown");
+            if (dropdown.style.display === "flex") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "flex";
+            }
+        }
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "flex") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -107,11 +132,11 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li>
-                    <a href="#">Doc's</a>
-                    <ul>
+                    <a href="#" class="dropbtn" onclick="toggleDropdown()">Doc's</a>
+                    <ul id="docsDropdown" class="dropdown-content">
                         <li><a href="https://github.skunkworks.africa/docs/iso9001-velocity-venture.html">ISO9001 Implementation for Velocity Venture</a></li>
                         <li><a href="https://github.skunkworks.africa/docs/qms-4levels.html">Quality Management System Development for 4Levels</a></li>
-                        <li><a href="https://github.skunkworks.africa/docs/audit-course-monster.htmlhttps://github.skunkworks.africa/docs/audit-course-monster.html">Internal Audit Report for Course Monster</a></li>
+                        <li><a href="https://github.skunkworks.africa/docs/audit-course-monster.html">Internal Audit Report for Course Monster</a></li>
                         <li><a href="IBM.html">IBM Documentation</a></li>
                         <li><a href="faq.md">FAQ</a></li>
                         <li><a href="index.md">Index</a></li>
