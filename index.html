@@ -16,6 +16,8 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            background-color: #121212;
+            color: #fff;
         }
         header {
             background-color: #333;
@@ -44,6 +46,7 @@
         .welcome-section {
             background-color: #f4f4f4;
             text-align: center;
+            color: #000;
         }
         .grid-container {
             display: grid;
@@ -80,24 +83,36 @@
         button:hover {
             background-color: #555;
         }
-        .partners-list, .statistics {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+        .partners-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 20px;
             text-align: center;
         }
-        .partners-list p, .statistics p {
-            flex: 1 1 100px;
-            margin: 10px;
+        .partner-item {
+            background-color: #1f1f1f;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .statistics {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .divider {
+            height: 2px;
+            background-color: #444;
+            margin: 20px 0;
         }
         .centered-container {
             max-width: 800px;
             margin: 0 auto;
-            background-color: #f4f4f4;
+            background-color: #333;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             border-radius: 8px;
             text-align: center;
+            color: #fff;
         }
         /* Mobile Styles */
         @media (max-width: 768px) {
@@ -110,8 +125,8 @@
             nav ul li {
                 margin: 10px 0;
             }
-            .partners-list, .statistics {
-                flex-direction: column;
+            .partners-list {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -204,15 +219,15 @@
             </div>
             <div>
                 <h3>Candidate Screening</h3>
-                <p>Reviewing and filtering applications to identify the best candidates.</p>
+                <p>Reviewing and filtering applications to identify the best matches.</p>
             </div>
             <div>
                 <h3>Interviews</h3>
-                <p>Conducting interviews to assess the qualifications and fit of candidates.</p>
+                <p>Conducting interviews to evaluate candidates' qualifications and fit.</p>
             </div>
             <div>
                 <h3>Job Offers</h3>
-                <p>Making job offers to suitable candidates and negotiating terms.</p>
+                <p>Making offers to selected candidates and negotiating terms.</p>
             </div>
         </div>
         <button onclick="location.href='mailto:info@skunkworks.africa'">EMAIL US</button>
@@ -220,19 +235,44 @@
     <section id="partners" class="section">
         <h1>Our Partners</h1>
         <div class="grid-container">
-            <p>Salesforce</p>
-            <p>Redhat</p>
-            <p>IBM</p>
-            <p>Microsoft</p>
-            <p>AWS</p>
-            <p>GitHub</p>
-            <p>SAP</p>
-            <p>Quantitative</p>
-            <p>CourseDot</p>
-            <p>CRS</p>
-            <p>Checkpoint</p>
-            <p>LearnQuest</p>
+            <div class="partner-item">
+                <p>Salesforce</p>
+            </div>
+            <div class="partner-item">
+                <p>Redhat</p>
+            </div>
+            <div class="partner-item">
+                <p>IBM</p>
+            </div>
+            <div class="partner-item">
+                <p>Microsoft</p>
+            </div>
+            <div class="partner-item">
+                <p>AWS</p>
+            </div>
+            <div class="partner-item">
+                <p>GitHub</p>
+            </div>
+            <div class="partner-item">
+                <p>SAP</p>
+            </div>
+            <div class="partner-item">
+                <p>Quantitative</p>
+            </div>
+            <div class="partner-item">
+                <p>CourseDot</p>
+            </div>
+            <div class="partner-item">
+                <p>CRS</p>
+            </div>
+            <div class="partner-item">
+                <p>Checkpoint</p>
+            </div>
+            <div class="partner-item">
+                <p>LearnQuest</p>
+            </div>
         </div>
+        <div class="divider"></div>
         <div class="statistics">
             <p>60 Instructors</p>
             <p>20 Strategic Partnerships</p>
