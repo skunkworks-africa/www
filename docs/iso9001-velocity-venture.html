@@ -35,6 +35,7 @@
             list-style: none;
             display: flex;
             justify-content: center;
+            position: relative;
         }
         header ul li {
             position: relative;
@@ -50,15 +51,36 @@
             padding: 0;
             list-style: none;
         }
-        header ul li:hover ul {
-            display: flex;
-        }
         header ul li ul li {
             padding: 10px;
             white-space: nowrap;
         }
         header ul li ul li a {
             padding: 0;
+        }
+        .dropdown-content {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #50b3a2;
+            padding: 0;
+            list-style: none;
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: #fff;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #e8491d;
+        }
+        .show {
+            display: flex;
         }
         .main {
             padding: 30px 0;
@@ -105,6 +127,22 @@
             margin-left: 20px;
         }
     </style>
+    <script>
+        function toggleDropdown() {
+            document.getElementById("docsDropdown").classList.toggle("show");
+        }
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -113,11 +151,11 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li>
-                    <a href="#">Doc's</a>
-                    <ul>
-                        <li><a href="iso9001-velocity-venture.html">ISO9001 Implementation for Velocity Venture</a></li>
-                        <li><a href="qms-4levels.html">Quality Management System Development for 4Levels</a></li>
-                        <li><a href="audit-course-monster.html">Internal Audit Report for Course Monster</a></li>
+                    <a href="#" class="dropbtn" onclick="toggleDropdown()">Doc's</a>
+                    <ul id="docsDropdown" class="dropdown-content">
+                        <li><a href="https://github.skunkworks.africa/docs/iso9001-velocity-venture.html">ISO9001 Implementation for Velocity Venture</a></li>
+                        <li><a href="https://github.skunkworks.africa/docs/qms-4levels.html">Quality Management System Development for 4Levels</a></li>
+                        <li><a href="https://github.skunkworks.africa/docs/audit-course-monster.html">Internal Audit Report for Course Monster</a></li>
                         <li><a href="IBM.html">IBM Documentation</a></li>
                         <li><a href="faq.md">FAQ</a></li>
                         <li><a href="index.md">Index</a></li>
