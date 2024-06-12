@@ -3,42 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adobe Courses - Skunkworks Education</title>
+    <link rel="stylesheet" href="https://unpkg.com/@carbon/styles/css/styles.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/forms.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/sidebar.css">
+    <title>Adobe Training and Services | Skunkworks</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .section {
+            padding: 20px;
+            margin: 10px 0;
+        }
+        .welcome-section {
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        form input, form textarea, form button {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 1em;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
 </head>
 <body>
-</head>
-<body class="font-roboto flex flex-col min-h-screen bg-light-blue text-gray-900">
-    <!-- Menu Bar -->
-    <header class="bg-blue-800 text-white p-4">
-        <nav class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-xl font-bold">Skunkworks Academy</a>
-            <div class="space-x-4">
-                <nav class="flex justify-center space-x-4">
-                    <a href="index.html" class="text-white hover:underline">Home</a>
-                    <a href="about-us.html" class="text-white hover:underline">About Us</a>
-                    <a href="course-catalog.html" class="text-white hover:underline">Course Catalog</a>
-                    <a href="contact.html" class="text-white hover:underline">Contact</a>
-                    <a href="onboarding.html" class="text-white hover:underline">Onboarding</a>
-                </nav>
-                
-            </div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#training">Training</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#isv">ISV Offerings</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
     </header>
-    <section>
-        <h2>About Adobe Courses</h2>
-        <p>Explore our comprehensive suite of Adobe courses designed to equip you with skills in digital media, web design, graphic design, and more. Dive into software like Photoshop, Illustrator, and InDesign to unleash your creativity and enhance your digital proficiency.</p>
+    <section id="welcome" class="section welcome-section">
+        <div class="welcome-section-content">
+            <h1>Adobe Solutions by Skunkworks</h1>
+            <p>Comprehensive Adobe training, services, and products to empower your business.</p>
+        </div>
     </section>
-    <section>
-        <h2>Course Offerings</h2>
-        <ul>
-            <li>Adobe Photoshop Essentials</li>
-            <li>Illustrator for Beginners</li>
-            <li>Advanced InDesign Techniques</li>
-            <!-- Add more courses as needed -->
-        </ul>
+    <section id="training" class="section">
+        <h1>Adobe Training</h1>
+        <div class="grid-container">
+            <div>
+                <h3>Adobe Photoshop Training</h3>
+                <p>Learn to create and edit stunning images with Adobe Photoshop.</p>
+            </div>
+            <div>
+                <h3>Adobe Illustrator Training</h3>
+                <p>Master vector graphic creation with Adobe Illustrator.</p>
+            </div>
+            <div>
+                <h3>Adobe InDesign Training</h3>
+                <p>Design professional layouts for print and digital media with Adobe InDesign.</p>
+            </div>
+            <div>
+                <h3>Adobe Premiere Pro Training</h3>
+                <p>Learn video editing and production with Adobe Premiere Pro.</p>
+            </div>
+        </div>
+    </section>
+    <section id="services" class="section">
+        <h1>Adobe Services</h1>
+        <div class="grid-container">
+            <div>
+                <h3>Creative Services</h3>
+                <p>Offering professional design and creative services using Adobe tools.</p>
+            </div>
+            <div>
+                <h3>Managed Services</h3>
+                <p>Comprehensive managed services for your Adobe environments.</p>
+            </div>
+            <div>
+                <h3>Consulting</h3>
+                <p>Strategic consulting to optimize your Adobe tools and workflows.</p>
+            </div>
+            <div>
+                <h3>Support</h3>
+                <p>24/7 support for all your Adobe products and services.</p>
+            </div>
+        </div>
+    </section>
+    <section id="products" class="section">
+        <h1>Adobe Products</h1>
+        <div class="grid-container">
+            <div>
+                <h3>Adobe Creative Cloud</h3>
+                <p>Access the full suite of Adobe creative tools with Creative Cloud.</p>
+            </div>
+            <div>
+                <h3>Adobe Document Cloud</h3>
+                <p>Manage and sign documents with Adobe Acrobat and Document Cloud.</p>
+            </div>
+            <div>
+                <h3>Adobe Experience Cloud</h3>
+                <p>Optimize customer experiences with Adobe Experience Cloud.</p>
+            </div>
+            <div>
+                <h3>Adobe Stock</h3>
+                <p>Access high-quality images, videos, and templates with Adobe Stock.</p>
+            </div>
+        </div>
+    </section>
+    <section id="isv" class="section">
+        <h1>ISV Offerings</h1>
+        <div class="grid-container">
+            <div>
+                <h3>Custom Solutions</h3>
+                <p>Tailored software solutions built on Adobe technologies.</p>
+            </div>
+            <div>
+                <h3>Integration Services</h3>
+                <p>Seamless integration of third-party applications with Adobe products.</p>
+            </div>
+            <div>
+                <h3>Application Development</h3>
+                <p>Developing applications that leverage the power of Adobe platforms.</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="section">
+        <h1>Contact Us</h1>
+        <form id="contactForm">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="number" placeholder="Number" required>
+            <textarea name="message" placeholder="How Can We Help?" required></textarea>
+            <button type="submit">CALL ME BACK</button>
+        </form>
     </section>
     <footer>
-        <p>© 2024 Skunkworks Education. All rights reserved.</p>
+        <p>© 2024 Skunkworks. All rights reserved.</p>
     </footer>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                number: formData.get('number'),
+                message: formData.get('message')
+            };
+
+            fetch('https://your-backend-url.com/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Your message has been sent successfully!');
+            })
+            .catch(error => {
+                alert('There was an error sending your message.');
+            });
+        });
+    </script>
 </body>
 </html>
