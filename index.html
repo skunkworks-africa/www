@@ -53,11 +53,15 @@
         form {
             display: flex;
             flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
         }
         form input, form textarea, form button {
             margin-bottom: 10px;
             padding: 10px;
             font-size: 1em;
+            width: 100%;
+            box-sizing: border-box;
         }
         footer {
             background-color: #333;
@@ -85,6 +89,15 @@
         .partners-list p, .statistics p {
             flex: 1 1 100px;
             margin: 10px;
+        }
+        .centered-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f4f4f4;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
         }
         /* Mobile Styles */
         @media (max-width: 768px) {
@@ -184,12 +197,29 @@
     </section>
     <section id="recruitment" class="section">
         <h1>Placement & Recruitment</h1>
-        <p>This service involves the process of sourcing, attracting, and selecting qualified candidates to fill job vacancies within an organization. It includes activities like job posting, candidate screening, interviews, and making job offers to suitable candidates.</p>
+        <div class="grid-container">
+            <div>
+                <h3>Job Posting</h3>
+                <p>Sourcing and advertising job openings to attract qualified candidates.</p>
+            </div>
+            <div>
+                <h3>Candidate Screening</h3>
+                <p>Reviewing and filtering applications to identify the best candidates.</p>
+            </div>
+            <div>
+                <h3>Interviews</h3>
+                <p>Conducting interviews to assess the qualifications and fit of candidates.</p>
+            </div>
+            <div>
+                <h3>Job Offers</h3>
+                <p>Making job offers to suitable candidates and negotiating terms.</p>
+            </div>
+        </div>
         <button onclick="location.href='mailto:info@skunkworks.africa'">EMAIL US</button>
     </section>
     <section id="partners" class="section">
         <h1>Our Partners</h1>
-        <div class="partners-list">
+        <div class="grid-container">
             <p>Salesforce</p>
             <p>Redhat</p>
             <p>IBM</p>
@@ -210,9 +240,11 @@
         </div>
     </section>
     <section id="about" class="section">
-        <h1>About Us</h1>
-        <p>Our team is dedicated to providing top-notch services, and our expertise spans various domains including education, technology, and business development.</p>
-        <p>Approach: We take a collaborative approach to every project, working closely with our clients to understand their needs and goals. We are committed to delivering solutions that meet or exceed our clients' expectations. Our team is responsive and accessible, and we pride ourselves on delivering exceptional customer service.</p>
+        <div class="centered-container">
+            <h1>About Us</h1>
+            <p>Our team is dedicated to providing top-notch services, and our expertise spans various domains including education, technology, and business development.</p>
+            <p>Approach: We take a collaborative approach to every project, working closely with our clients to understand their needs and goals. We are committed to delivering solutions that meet or exceed our clients' expectations. Our team is responsive and accessible, and we pride ourselves on delivering exceptional customer service.</p>
+        </div>
     </section>
     <section id="contact" class="section">
         <h1>Contact Us</h1>

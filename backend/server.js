@@ -1,46 +1,45 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
-const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 // Middleware
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors());
 
-// Endpoint to handle form submission
+// Serve static files from the 'public' directory
+app.use(express.static('public'));
+
+// Contact form endpoint
 app.post('/api/contact', (req, res) => {
     const { name, email, number, message } = req.body;
 
-    // Set up Nodemailer transporter
-    const transporter = nodemailer.createTransport({
-        service: 'Gmail', // Use your email service provider
+    // Configure your email transporter (using nodemailer for example)
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
         auth: {
-            user: 'your-email@gmail.com', // Replace with your email
-            pass: 'your-email-password' // Replace with your email password
+            user: 'your-email@gmail.com', // replace with your email
+            pass: 'your-email-password' // replace with your email password
         }
     });
 
-    // Email options
-    const mailOptions = {
-        from: email,
-        to: 'info@skunkworks.africa', // Replace with the recipient email
+    let mailOptions = {
+        from: 'your-email@gmail.com', // replace with your email
+        to: 'info@skunkworks.africa', // replace with the destination email
         subject: 'Contact Form Submission',
         text: `Name: ${name}\nEmail: ${email}\nNumber: ${number}\nMessage: ${message}`
     };
 
-    // Send email
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-            return res.status(500).json({ message: 'Error sending email', error });
+            return res.status(500).send('Error sending message');
         }
-        res.status(200).json({ message: 'Email sent successfully', info });
+        res.status(200).send('Message sent successfully');
     });
 });
 
-// Start server
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
