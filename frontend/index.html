@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/@carbon/styles/css/styles.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/forms.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/sidebar.css">
+    <title>Statistics with IBM Carbon Design System</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .section {
+            padding: 20px;
+            margin: 10px 0;
+        }
+        .welcome-section {
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        form input, form textarea, form button {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 1em;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        .partners-list, .statistics {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: center;
+        }
+        .partners-list p, .statistics p {
+            flex: 1 1 100px;
+            margin: 10px;
+        }
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            .partners-list, .statistics {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#recruitment">Recruitment</a></li>
+                <li><a href="#partners">Partners</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="welcome" class="section welcome-section">
+        <div class="welcome-section-content">
+            <h1>Welcome to Skunkworks</h1>
+            <p>Innovative Technology, Education Solutions, and Placement Services for Tomorrow's Businesses.</p>
+            <p>Dear Visitor,</p>
+            <p>I'm Raydo Matthee, and I'm thrilled to welcome you to Skunkworks, where the intersection of education and technology is our passion and our purpose.</p>
+            <p>As the CEO of Skunkworks, I proudly wear multiple hats, overseeing all aspects of our business operations. From guiding our technological direction to managing financial planning and reporting, my mission is to provide a clear vision for our team, ensuring effective resource utilization, and keeping all our teams aligned with our mission.</p>
+            <p>Contact: <a href="mailto:info@skunkworks.africa">info@skunkworks.africa</a></p>
+        </div>
+    </section>
+    <section id="services" class="section">
+        <h1>Custom Learning Solutions</h1>
+        <div class="grid-container">
+            <div>
+                <h3>Blended Learning</h3>
+                <p>Blended learning programs & personalized learning paths.</p>
+            </div>
+            <div>
+                <h3>Course Development</h3>
+                <p>We provide custom eLearning courses to meet client objectives.</p>
+            </div>
+            <div>
+                <h3>Project Mentoring</h3>
+                <p>Guided support through training engagements with our Project Mentoring.</p>
+            </div>
+            <div>
+                <h3>Performance Support Tools</h3>
+                <p>We create custom job aids and guides to help employees apply new skills to real-world tasks.</p>
+            </div>
+            <div>
+                <h3>Training Programs</h3>
+                <p>We offer training in soft skills, compliance, boot camps, and provide outsourcing services.</p>
+            </div>
+            <div>
+                <h3>LMS</h3>
+                <p>Custom LMS development and mgmt. for efficient content delivery, tracking, and reporting.</p>
+            </div>
+        </div>
+    </section>
+    <section id="technology" class="section">
+        <h1>Technology Solutions</h1>
+        <p>Our primary aim is to be a one-stop-shop for businesses looking to harness the power of technology and top-notch education.</p>
+        <div class="grid-container">
+            <div>
+                <h3>Software Development</h3>
+                <p>Our experienced developers design and develop custom software solutions. Our services include web and mobile app development, software development, and application modernization.</p>
+            </div>
+            <div>
+                <h3>Hardware and Software</h3>
+                <p>We provide hardware and software products from most of the major technology vendor giants, including servers, storage solutions, networking equipment, and software licenses.</p>
+            </div>
+            <div>
+                <h3>Managed Cloud Services</h3>
+                <p>Our cloud-based solutions cater to businesses of all sizes. We offer mixed cloud models, and manage cloud infrastructure, security, disaster recovery, and cloud migration services.</p>
+            </div>
+        </div>
+        <button onclick="location.href='mailto:info@skunkworks.africa'">EMAIL US</button>
+    </section>
+    <section id="recruitment" class="section">
+        <h1>Placement & Recruitment</h1>
+        <p>This service involves the process of sourcing, attracting, and selecting qualified candidates to fill job vacancies within an organization. It includes activities like job posting, candidate screening, interviews, and making job offers to suitable candidates.</p>
+        <button onclick="location.href='mailto:info@skunkworks.africa'">EMAIL US</button>
+    </section>
+    <section id="partners" class="section">
+        <h1>Our Partners</h1>
+        <div class="partners-list">
+            <p>Salesforce</p>
+            <p>Redhat</p>
+            <p>IBM</p>
+            <p>Microsoft</p>
+            <p>AWS</p>
+            <p>GitHub</p>
+            <p>SAP</p>
+            <p>Quantitative</p>
+            <p>CourseDot</p>
+            <p>CRS</p>
+            <p>Checkpoint</p>
+            <p>LearnQuest</p>
+        </div>
+        <div class="statistics">
+            <p>60 Instructors</p>
+            <p>20 Strategic Partnerships</p>
+            <p>+1000 Courses Offered</p>
+        </div>
+    </section>
+    <section id="about" class="section">
+        <h1>About Us</h1>
+        <p>Our team is dedicated to providing top-notch services, and our expertise spans various domains including education, technology, and business development.</p>
+        <p>Approach: We take a collaborative approach to every project, working closely with our clients to understand their needs and goals. We are committed to delivering solutions that meet or exceed our clients' expectations. Our team is responsive and accessible, and we pride ourselves on delivering exceptional customer service.</p>
+    </section>
+    <section id="contact" class="section">
+        <h1>Contact Us</h1>
+        <form id="contactForm">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="number" placeholder="Number" required>
+            <textarea name="message" placeholder="How Can We Help?" required></textarea>
+            <button type="submit">CALL ME BACK</button>
+        </form>
+    </section>
+    <footer>
+        <p>© 2024 Skunkworks. All rights reserved.</p>
+    </footer>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                number: formData.get('number'),
+                message: formData.get('message')
+            };
+
+            fetch('https://github.skunkworks.africa/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Your message has been sent successfully!');
+            })
+            .catch(error => {
+                alert('There was an error sending your message.');
+            });
+        });
+    </script>
+</body>
+</html>
