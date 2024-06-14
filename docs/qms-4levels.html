@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Management System Development for 4Levels</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #50b3a2;
+            color: #fff;
+            padding: 15px 0;
+            border-bottom: #e8491d 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+            padding: 0 15px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        header ul li {
+            position: relative;
+            padding: 0 15px;
+        }
+        header ul li ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #50b3a2;
+            display: none;
+            flex-direction: column;
+            padding: 0;
+            list-style: none;
+        }
+        header ul li ul li {
+            padding: 10px;
+            white-space: nowrap;
+        }
+        header ul li ul li a {
+            padding: 0;
+        }
+        .main {
+            padding: 30px 0;
+        }
+        .main h1 {
+            color: #50b3a2;
+            text-align: center;
+        }
+        .main p {
+            line-height: 1.6;
+        }
+        .link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .link a {
+            color: #e8491d;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .link a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+        .audit-report {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .audit-report h2 {
+            color: #50b3a2;
+        }
+        .audit-report ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+        .dropdown-content {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #50b3a2;
+            padding: 0;
+            list-style: none;
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: #fff;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #e8491d;
+        }
+        .show {
+            display: flex;
+        }
+    </style>
+    <script>
+        function toggleDropdown() {
+            document.getElementById("docsDropdown").classList.toggle("show");
+        }
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Quality Management System Development for 4Levels</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="#" class="dropbtn" onclick="toggleDropdown()">Doc's</a>
+                    <ul id="docsDropdown" class="dropdown-content">
+                        <li><a href="https://github.skunkworks.africa/docs/iso9001-velocity-venture.html">ISO9001 Implementation for Velocity Venture</a></li>
+                        <li><a href="https://github.skunkworks.africa/docs/qms-4levels.html">Quality Management System Development for 4Levels</a></li>
+                        <li><a href="https://github.skunkworks.africa/docs/audit-course-monster.html">Internal Audit Report for Course Monster</a></li>
+                        <li><a href="IBM.html">IBM Documentation</a></li>
+                        <li><a href="faq.md">FAQ</a></li>
+                        <li><a href="index.md">Index</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+        <div class="main">
+            <h1>Quality Management System Development for 4Levels</h1>
+            <p>Developed and implemented a robust Quality Management System (QMS) for 4Levels, leading to improved compliance and customer satisfaction.</p>
+        </div>
+        <div class="audit-report">
+            <h2>Project Overview</h2>
+            <p>The project involved developing and implementing a QMS that aligns with industry standards and enhances overall organizational efficiency. The project phases included:</p>
+            <ul>
+                <li>Initial Assessment and Gap Analysis</li>
+                <li>Development of Quality Management Documentation</li>
+                <li>Employee Training and Implementation</li>
+                <li>Continuous Monitoring and Improvement</li>
+            </ul>
+            <h2>Initial Assessment and Gap Analysis</h2>
+            <p>A detailed assessment was conducted to identify existing gaps in 4Levels' processes and systems. Key findings included:</p>
+            <ul>
+                <li>Inconsistent process documentation</li>
+                <li>Limited employee training on quality standards</li>
+                <li>Lack of systematic customer feedback collection</li>
+            </ul>
+            <h2>Development of Quality Management Documentation</h2>
+            <p>Comprehensive documentation was developed to support the QMS, including:</p>
+            <ul>
+                <li><strong>Quality Manual:</strong> Outlined the quality policy, objectives, and scope of the QMS.</li>
+                <li><strong>Standard Operating Procedures (SOPs):</strong> Detailed procedures for all critical processes to ensure consistency and compliance.</li>
+                <li><strong>Work Instructions:</strong> Provided step-by-step instructions for specific tasks to enhance clarity and precision.</li>
+                <li><strong>Records Management:</strong> Established a system for managing and maintaining quality records.</li>
+            </ul>
+            <h2>Employee Training and Implementation</h2>
+            <p>Training sessions were conducted to ensure all employees understood the QMS and their roles within it. The implementation phase included:</p>
+            <ul>
+                <li>Conducting workshops and training sessions</li>
+                <li>Disseminating SOPs and documentation</li>
+                <li>Setting up monitoring and measurement systems</li>
+                <li>Ensuring compliance through regular reviews and updates</li>
+            </ul>
+            <h2>Continuous Monitoring and Improvement</h2>
+            <p>To ensure the QMS remained effective, continuous monitoring and improvement initiatives were implemented. Key activities included:</p>
+            <ul>
+                <li>Regular internal audits to assess compliance and effectiveness</li>
+                <li>Review and analysis of customer feedback</li>
+                <li>Ongoing employee training and development</li>
+                <li>Implementation of corrective and preventive actions</li>
+            </ul>
+            <h2>Results</h2>
+            <p>As a result of the QMS implementation, 4Levels experienced significant improvements in process consistency, employee competency, and customer satisfaction. Key outcomes included:</p>
+            <ul>
+                <li>Improved compliance with industry standards</li>
+                <li>Higher levels of customer satisfaction and engagement</li>
+                <li>Enhanced employee understanding and adherence to quality processes</li>
+                <li>Better document control and record-keeping practices</li>
+            </ul>
+        </div>
+        <div class="link">
+            <a href="https://github.skunkworks.africa/docs/qms-4levels.html" target="_blank">View Project Details</a>
+        </div>
+    </div>
+    <footer>
+        <p>© 2024 Raydo Matthee. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

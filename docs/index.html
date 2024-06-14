@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Raydo Matthee</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #50b3a2;
+            color: #fff;
+            padding: 15px 0;
+            border-bottom: #e8491d 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+            padding: 0 15px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        header ul li {
+            position: relative;
+        }
+        header ul li ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #50b3a2;
+            display: none;
+            flex-direction: column;
+            padding: 0;
+            list-style: none;
+        }
+        header ul li ul li {
+            padding: 10px;
+            white-space: nowrap;
+        }
+        header ul li ul li a {
+            padding: 0;
+        }
+        .dropdown-content {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #50b3a2;
+            padding: 0;
+            list-style: none;
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: #fff;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #e8491d;
+        }
+        .show {
+            display: flex;
+        }
+        .main {
+            padding: 30px 0;
+        }
+        .main h1 {
+            color: #50b3a2;
+            text-align: center;
+        }
+        .main p {
+            line-height: 1.6;
+            text-align: center;
+        }
+        .link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .link a {
+            color: #e8491d;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .link a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function toggleDropdown() {
+            document.getElementById("docsDropdown").classList.toggle("show");
+        }
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Raydo Matthee</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="#" class="dropbtn" onclick="toggleDropdown()">Doc's</a>
+                    <ul id="docsDropdown" class="dropdown-content">
+                        <li><a href="doc/iso9001-velocity-venture.html">ISO9001 Implementation for Velocity Venture</a></li>
+                        <li><a href="doc/qms-4levels.html">Quality Management System Development for 4Levels</a></li>
+                        <li><a href="doc/audit-course-monster.html">Internal Audit Report for Course Monster</a></li>
+                        <li><a href="doc/IBM.html">IBM Documentation</a></li>
+                        <li><a href="doc/faq.md">FAQ</a></li>
+                        <li><a href="doc/index.md">Index</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+        <div class="main">
+            <h1>Welcome to My Professional Portfolio</h1>
+            <p>Hello! I'm Raydo Matthee, a seasoned Solutions Architect with extensive experience in quality management systems, strategic guidance, and IT solutions. Explore my work samples and projects to learn more about my expertise and accomplishments.</p>
+        </div>
+        <div class="link">
+            <a href="doc/iso9001-velocity-venture.html">View My ISO9001 Implementation Project</a>
+        </div>
+    </div>
+    <footer>
+        <p>© 2024 Raydo Matthee. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
