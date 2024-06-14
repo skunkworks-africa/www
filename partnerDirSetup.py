@@ -2,6 +2,7 @@ import os
 import shutil
 import requests
 from bs4 import BeautifulSoup
+from urllib.parse import urljoin
 
 # Define the base directory for partners
 base_dir = "partners"
@@ -122,23 +123,25 @@ def find_local_logo(partner_name):
 # Function to search the internet for a logo
 def search_internet_logo(partner_name):
     search_engines = [
-        f"https://www.bing.com/images/search?q={partner_name}+logo",
-        f"https://www.google.com/search?tbm=isch&q={partner_name}+logo",
-        f"https://en.wikipedia.org/wiki/{partner_name.replace(' ', '_')}",
-        f"https://github.com/search?q={partner_name}+logo"
+        ("bing", f"https://www.bing.com/images/search?q={partner_name}+logo"),
+        ("google", f"https://www.google.com/search?tbm=isch&q={partner_name}+logo"),
+        ("wikipedia", f"https://en.wikipedia.org/wiki/{partner_name.replace(' ', '_')}"),
+        ("github", f"https://github.com/search?q={partner_name}+logo")
     ]
 
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
     }
 
-    for search_url in search_engines:
+    for name, search_url in search_engines:
         response = requests.get(search_url, headers=headers)
         soup = BeautifulSoup(response.text, 'html.parser')
         images = soup.find_all('img')
 
         for img in images:
             img_url = img.get('src')
+            if not img_url.startswith('http'):
+                img_url = urljoin(search_url, img_url)
             if img_url and 'logo' in img_url.lower():
                 return img_url
 
