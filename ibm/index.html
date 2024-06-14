@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="icon" href="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" type="image/png">
+    <title>IBM Training - Skunkworks</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #121212;
+            color: #fff;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header img {
+            max-width: 100%;
+            height: auto;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #333;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            z-index: 1000;
+        }
+        nav ul li:hover ul {
+            display: block;
+        }
+        nav ul li ul li a {
+            padding: 10px 15px;
+        }
+        .section {
+            padding: 20px;
+            margin: 10px 0;
+        }
+        .welcome-section {
+            background-color: #fff;
+            color: #000;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .welcome-section h1, .welcome-section p {
+            margin-bottom: 20px;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        form input, form textarea, form button {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 1em;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        .training-item {
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        .training-item img {
+            max-width: 100%;
+            max-height: 100px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+        .training-item h3 {
+            margin-bottom: 10px;
+        }
+        .training-item p {
+            margin-bottom: 20px;
+        }
+        .divider {
+            height: 2px;
+            background-color: #444;
+            margin: 20px 0;
+        }
+        .centered-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #333;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            text-align: center;
+            color: #fff;
+        }
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM Logo">
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../aws/">AWS</a></li>
+                <li><a href="../comptia/">CompTIA</a></li>
+                <li><a href="../dell/">Dell</a></li>
+                <li><a href="../broadcom/">Broadcom</a></li>
+                <li><a href="../ibm/">IBM</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="welcome" class="section welcome-section">
+        <h1>Welcome to IBM Training</h1>
+        <p>Enhance your skills and advance your career with our comprehensive IBM training programs.</p>
+        <p>At Skunkworks, we offer a wide range of IBM training courses designed to help you gain the knowledge and skills you need to succeed in the ever-evolving technology landscape.</p>
+        <p>Join us and take the next step in your professional journey.</p>
+    </section>
+    <section id="training-programs" class="section">
+        <h1>Our IBM Training Programs</h1>
+        <div class="grid-container">
+            <div class="training-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM Maximo Logo">
+                <h3>IBM Maximo</h3>
+                <p>Learn how to manage assets and operations with IBM Maximo.</p>
+                <button onclick="location.href='ibm-maximo.html'">Learn More</button>
+            </div>
+            <div class="training-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM QRadar Logo">
+                <h3>IBM QRadar</h3>
+                <p>Master the art of security intelligence and analytics with IBM QRadar.</p>
+                <button onclick="location.href='ibm-qradar.html'">Learn More</button>
+            </div>
+            <div class="training-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM Cloud Logo">
+                <h3>IBM Cloud</h3>
+                <p>Explore the capabilities of IBM Cloud and enhance your cloud computing skills.</p>
+                <button onclick="location.href='ibm-cloud.html'">Learn More</button>
+            </div>
+            <div class="training-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM Watson Logo">
+                <h3>IBM Watson</h3>
+                <p>Delve into artificial intelligence and machine learning with IBM Watson.</p>
+                <button onclick="location.href='ibm-watson.html'">Learn More</button>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="section">
+        <h1>Contact Us</h1>
+        <form id="contactForm">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="number" placeholder="Number" required>
+            <textarea name="message" placeholder="How Can We Help?" required></textarea>
+            <button type="submit">CALL ME BACK</button>
+        </form>
+    </section>
+    <footer>
+        <p>© 2024 Skunkworks. All rights reserved.</p>
+        <p><a href="https://blog.skunkworks.africa/" target="_blank">Visit our blog</a></p>
+    </footer>
+    <script src="../js/formHandler.js"></script>
+    <script>
+        // JavaScript for mobile dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            var dropdowns = document.querySelectorAll('nav ul li');
+            dropdowns.forEach(function(dropdown) {
+                dropdown.addEventListener('click', function(event) {
+                    if (window.innerWidth <= 768) {
+                        var submenu = this.querySelector('ul');
+                        if (submenu) {
+                            event.preventDefault();
+                            submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+                        }
+                    }
+                });
+            });
+        });
+
+        // JavaScript for partner search filter
+        function filterPartners() {
+            var input = document.getElementById('partnerSearch');
+            var filter = input.value.toLowerCase();
+            var nodes = document.getElementsByClassName('partner-item');
+
+            for (i = 0; i < nodes.length; i++) {
+                if (nodes[i].innerText.toLowerCase().includes(filter)) {
+                    nodes[i].style.display = "block";
+                } else {
+                    nodes[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
