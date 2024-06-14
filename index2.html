@@ -89,69 +89,85 @@
             padding: 10px;
             font-size: 1em;
             width: 100%;
-            box-sizing: border-box;
+            box-sizing: border-box.
         }
         footer {
             background-color: #333;
             color: #fff;
             text-align: center;
-            padding: 10px 0;
+            padding: 10px 0.
         }
         button {
             background-color: #333;
             color: #fff;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            border: none.
+            padding: 10px 15px.
+            cursor: pointer.
+            transition: background-color 0.3s ease.
         }
         button:hover {
-            background-color: #555;
+            background-color: #555.
         }
         .partners-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            gap: 20px;
-            text-align: center;
+            display: grid.
+            grid-template-columns: 1fr 1fr 1fr 1fr.
+            gap: 20px.
+            text-align: center.
         }
         .partner-item {
-            background-color: #1f1f1f;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            background-color: #1f1f1f.
+            padding: 10px.
+            border-radius: 8px.
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5).
         }
         .statistics {
-            text-align: center;
-            margin-top: 20px;
+            text-align: center.
+            margin-top: 20px.
         }
         .divider {
-            height: 2px;
-            background-color: #444;
-            margin: 20px 0;
+            height: 2px.
+            background-color: #444.
+            margin: 20px 0.
         }
         .centered-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #333;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            border-radius: 8px;
-            text-align: center;
-            color: #fff;
+            max-width: 800px.
+            margin: 0 auto.
+            background-color: #333.
+            padding: 20px.
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5).
+            border-radius: 8px.
+            text-align: center.
+            color: #fff.
+        }
+        .libutton {
+            display: flex.
+            flex-direction: column.
+            justify-content: center.
+            padding: 7px.
+            text-align: center.
+            outline: none.
+            text-decoration: none !important.
+            color: #ffffff !important.
+            width: 200px.
+            height: 32px.
+            border-radius: 16px.
+            background-color: #0A66C2.
+            font-family: "SF Pro Text", Helvetica, sans-serif.
+            margin: 10px auto.
         }
         /* Mobile Styles */
         @media (max-width: 768px) {
             .grid-container {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr.
             }
             nav ul {
-                flex-direction: column;
+                flex-direction: column.
             }
             nav ul li {
-                margin: 10px 0;
+                margin: 10px 0.
             }
             .partners-list {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr.
             }
         }
     </style>
@@ -165,25 +181,26 @@
                 <li>
                     <a href="#">Training</a>
                     <ul>
-                        <li><a href="./AWS.html">AWS</a></li>
-                        <li><a href="./CISCO.html">CISCO</a></li>
-                        <li><a href="./GitHub.html">GitHub</a></li>
+                        <li><a href="./aws/">AWS</a></li>
+                        <li><a href="./comptia/">CompTIA</a></li>
+                        <li><a href="./dell/">Dell</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#">Services</a>
                     <ul>
-                        <li><a href="./Google.html">Google</a></li>
-                        <li><a href="./HashiCorp.html">HashiCorp</a></li>
-                        <li><a href="./IBM-Maximo-Manage-v8.x-Certified-Administrator-Preparation-and-Certification-Learning-Path.html">IBM Maximo</a></li>
+                        <li><a href="./broadcom/">Broadcom</a></li>
+                        <li><a href="./ibm/">IBM</a></li>
+                        <li><a href="./oracle/">Oracle</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#">Community</a>
                     <ul>
-                        <li><a href="./ibm-qradar.html">IBM QRadar</a></li>
-                        <li><a href="./ibm-security-verify-access.html">IBM Security</a></li>
-                        <li><a href="./Microsoft.html">Microsoft</a></li>
+                        <li><a href="./salesforce/">Salesforce</a></li>
+                        <li><a href="./veritas/">Veritas</a></li>
+                        <li><a href="./perosacademy/">Pero's Academy</a></li>
+                        <li><a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7104248104035479553" target="_blank">Subscribe on LinkedIn</a></li>
                     </ul>
                 </li>
                 <li><a href="#contact">Contact</a></li>
@@ -273,54 +290,82 @@
     </section>
     <section id="partners" class="section">
         <h1>Our Partners</h1>
-        <div class="grid-container">
+        <div class="partners-list">
             <div class="partner-item">
-                <img src="./assets/logo_200×1200px.png" alt="Partner Logo">
-                <p>Salesforce</p>
-            </div>
-            <div class="partner-item">
-                <img src="./assets/logo_200×1200px.png" alt="Partner Logo">
-                <p>Redhat</p>
-            </div>
-            <div class="partner-item">
-                <img src="./assets/logo_200×1200px.png" alt="Partner Logo">
-                <p>IBM</p>
-            </div>
-            <div class="partner-item">
-                <img src="./assets/logo_200×1200px.png" alt="Partner Logo">
-                <p>Microsoft</p>
-            </div>
-            <div class="partner-item">
-                <img src="./assets/logo_200×1200px.png" alt="Partner Logo">
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/aws/aws%20cloud.png?raw=true" alt="AWS Logo">
                 <p>AWS</p>
             </div>
             <div class="partner-item">
-                <img src="./assets/logo_200×1200px.png" alt="Partner Logo">
-                <p>GitHub</p>
-            </div>
-            <div class="partner-item">
-                <img src="./assets/logo_200×1200px.png" alt="Partner Logo">
-                <p>SAP</p>
-            </div>
-            <div class="partner-item">
-                <img src="./assets/logo_200×1200px.png" alt="Partner Logo">
-                <p>Quantitative</p>
-            </div>
-            <div class="partner-item">
-                <img src="./assets/logo_200×1200px.png" alt="Partner Logo">
-                <p>CourseDot</p>
-            </div>
-            <div class="partner-item">
-                <img src="./assets/logo_200×1200px.png" alt="Partner Logo">
-                <p>CRS</p>
-            </div>
-            <div class="partner-item">
-                <img src="./assets/logo_200×1200px.png" alt="Partner Logo">
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/checkpoint/checkpoint-logo-stacked-large-blk.png?raw=true" alt="Checkpoint Logo">
                 <p>Checkpoint</p>
             </div>
             <div class="partner-item">
-                <img src="./assets/logo_200×1200px.png" alt="Partner Logo">
-                <p>LearnQuest</p>
+                <img src="https://raw.githubusercontent.com/skunkworksza/www/021c38cde4ad3a9ccf72b8b18042f580b195a3d6/assets/cisco/strategic-partner-logo-cisco-1.svg" alt="Cisco Logo">
+                <p>Cisco</p>
+            </div>
+            <div class="partner-item">
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/comptia/08212-capp-digital-badges_delivery-partner.jpg?raw=true" alt="CompTIA Logo">
+                <p>CompTIA</p>
+            </div>
+            <div class="partner-item">
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/commvualt/commvualt.jpeg?raw=true" alt="Commvault Logo">
+                <p>Commvault</p>
+            </div>
+            <div class="partner-item">
+                <img src="https://raw.githubusercontent.com/skunkworksza/www/a1d437d3c21c968aa69d146b04703d7cecf5d838/assets/dell/strategic-partner-logo-dell-technologies-1.svg" alt="Dell Logo">
+                <p>Dell</p>
+            </div>
+            <div class="partner-item">
+                <img src="https://raw.githubusercontent.com/skunkworksza/www/c16c5586c66061112ffe4012073f564d9daa927d/assets/github/github-mark.svg" alt="GitHub Logo">
+                <p>GitHub</p>
+            </div>
+            <div class="partner-item">
+                <img src="https://raw.githubusercontent.com/skunkworksza/www/c16c5586c66061112ffe4012073f564d9daa927d/assets/google/google-cloud-logo-new.svg" alt="Google Cloud Logo">
+                <p>Google Cloud</p>
+            </div>
+            <div class="partner-item">
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/ibm/IBM_Partner_Plus_silver_partner_mark_pos_black_RGB(103x80).jpg?raw=true" alt="IBM Logo">
+                <p>IBM</p>
+            </div>
+            <div class="partner-item">
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/redhat/redhat_logo.png?raw=true" alt="Red Hat Logo">
+                <p>Red Hat</p>
+            </div>
+            <div class="partner-item">
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/microsoft/RWEDnc.png?raw=true" alt="Microsoft Logo">
+                <p>Microsoft</p>
+            </div>
+            <div class="partner-item">
+                <img src="https://raw.githubusercontent.com/skunkworksza/www/c16c5586c66061112ffe4012073f564d9daa927d/assets/vmware/strategic-partners-logo-vmware-1.svg" alt="VMware Logo">
+                <p>VMware</p>
+            </div>
+            <div class="partner-item">
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/veritas/veritaz.png?raw=true" alt="Veritas Logo">
+                <p>Veritas</p>
+            </div>
+            <div class="partner-item">
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/veeam/Veeam%20logo.jpeg?raw=true" alt="Veeam Logo">
+                <p>Veeam</p>
+            </div>
+            <div class="partner-item">
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/sap/SAP.jpeg?raw=true" alt="SAP Logo">
+                <p>SAP</p>
+            </div>
+            <div class="partner-item">
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/salesforce/Salesforce-Logo.png?raw=true" alt="Salesforce Logo">
+                <p>Salesforce</p>
+            </div>
+            <div class="partner-item">
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/openai/Open%20AI.jpeg?raw=true" alt="OpenAI Logo">
+                <p>OpenAI</p>
+            </div>
+            <div class="partner-item">
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/hs/Hashicorp-Vertical_onLight.png?raw=true" alt="HashiCorp Logo">
+                <p>HashiCorp</p>
+            </div>
+            <div class="partner-item">
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/crs/CRS-logo-GitHub.png?raw=true" alt="CRS Logo">
+                <p>CRS</p>
             </div>
         </div>
         <div class="divider"></div>
@@ -349,6 +394,7 @@
     </section>
     <footer>
         <p>© 2024 Skunkworks. All rights reserved.</p>
+        <p><a href="https://blog.skunkworks.africa/" target="_blank">Visit our blog</a></p>
     </footer>
     <script src="./js/formHandler.js"></script>
     <script>
