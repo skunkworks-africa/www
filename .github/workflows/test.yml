@@ -1,27 +1,22 @@
 name: Run Tests
-
 on:
   push:
     branches: ["main"]
   pull_request:
     branches: ["main"]
-
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
       - name: Setup Node.js
         uses: actions/setup-node@v4.0.2
         with:
           node-version: '16.x'
           cache: 'npm'
-
       - name: Install dependencies
         working-directory: ./backend
         run: |
@@ -31,7 +26,6 @@ jobs:
             npm install
           fi
         continue-on-error: true
-
       - name: Retry Install dependencies if it fails
         if: failure()
         working-directory: ./backend
@@ -41,12 +35,10 @@ jobs:
           else
             npm install
           fi
-
       - name: Run Tests
         working-directory: ./backend
         run: npm test || echo "No tests specified" && exit 0
         continue-on-error: true
-
       - name: Retry Run Tests if it fails
         if: failure()
         working-directory: ./backend
