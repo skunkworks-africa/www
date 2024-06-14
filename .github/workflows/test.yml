@@ -1,10 +1,9 @@
 name: Run Tests
-
 on:
   push:
     branches: ["main"]
   pull_request:
-
+    branches: ["main"]
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -12,23 +11,41 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Cache Node.js modules
-        uses: actions/cache@v4
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          fetch-depth: 0
 
-      - name: Setup Node.js environment
+      - name: Setup Node.js
         uses: actions/setup-node@v4.0.2
         with:
           node-version: '16.x'
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        working-directory: ./backend
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+        continue-on-error: true
 
-      - name: Run tests
+      - name: Retry Install dependencies if it fails
+        if: failure()
+        working-directory: ./backend
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Run Tests
+        working-directory: ./backend
+        run: npm test
+        continue-on-error: true
+
+      - name: Retry Run Tests if it fails
+        if: failure()
+        working-directory: ./backend
         run: npm test

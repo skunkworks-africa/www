@@ -111,20 +111,23 @@
         }
         .partners-list {
             display: grid.
-            grid-template-columns: 1fr 1fr 1fr 1fr.
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px.
             text-align: center.
         }
         .partner-item {
-            background-color: #1f1f1f.
-            padding: 10px.
-            border-radius: 8px.
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5).
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .partner-item img {
-            max-width: 100%.
-            max-height: 80px.
-            object-fit: contain.
+            max-width: 100%;
+            max-height: 100px;
+            object-fit: contain;
         }
         .statistics {
             text-align: center.
@@ -165,6 +168,12 @@
             width: 20px;
             height: 20px;
             margin-right: 5px;
+        }
+        .service-icon {
+            width: 40px;
+            height: 40px;
+            display: block;
+            margin: 0 auto 10px auto;
         }
         /* Mobile Styles */
         @media (max-width: 768px) {
@@ -233,26 +242,32 @@
         <h1>Custom Learning Solutions</h1>
         <div class="grid-container">
             <div>
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/icons/blended-learning.svg?raw=true" alt="Blended Learning" class="service-icon">
                 <h3>Blended Learning</h3>
                 <p>Blended learning programs & personalized learning paths.</p>
             </div>
             <div>
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/icons/course-development.svg?raw=true" alt="Course Development" class="service-icon">
                 <h3>Course Development</h3>
                 <p>We provide custom eLearning courses to meet client objectives.</p>
             </div>
             <div>
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/icons/project-mentoring.svg?raw=true" alt="Project Mentoring" class="service-icon">
                 <h3>Project Mentoring</h3>
                 <p>Guided support through training engagements with our Project Mentoring.</p>
             </div>
             <div>
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/icons/performance-support-tools.svg?raw=true" alt="Performance Support Tools" class="service-icon">
                 <h3>Performance Support Tools</h3>
                 <p>We create custom job aids and guides to help employees apply new skills to real-world tasks.</p>
             </div>
             <div>
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/icons/training-programs.svg?raw=true" alt="Training Programs" class="service-icon">
                 <h3>Training Programs</h3>
                 <p>We offer training in soft skills, compliance, boot camps, and provide outsourcing services.</p>
             </div>
             <div>
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/icons/lms.svg?raw=true" alt="LMS" class="service-icon">
                 <h3>LMS</h3>
                 <p>Custom LMS development and mgmt. for efficient content delivery, tracking, and reporting.</p>
             </div>
@@ -263,14 +278,17 @@
         <p>Our primary aim is to be a one-stop-shop for businesses looking to harness the power of technology and top-notch education.</p>
         <div class="grid-container">
             <div>
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/icons/software-development.svg?raw=true" alt="Software Development" class="service-icon">
                 <h3>Software Development</h3>
                 <p>Our experienced developers design and develop custom software solutions. Our services include web and mobile app development, software development, and application modernization.</p>
             </div>
             <div>
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/icons/hardware-software.svg?raw=true" alt="Hardware and Software" class="service-icon">
                 <h3>Hardware and Software</h3>
                 <p>We provide hardware and software products from most of the major technology vendor giants, including servers, storage solutions, networking equipment, and software licenses.</p>
             </div>
             <div>
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/icons/managed-cloud-services.svg?raw=true" alt="Managed Cloud Services" class="service-icon">
                 <h3>Managed Cloud Services</h3>
                 <p>Our cloud-based solutions cater to businesses of all sizes. We offer mixed cloud models, and manage cloud infrastructure, security, disaster recovery, and cloud migration services.</p>
             </div>
@@ -281,18 +299,22 @@
         <h1>Placement & Recruitment</h1>
         <div class="grid-container">
             <div>
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/icons/job-posting.svg?raw=true" alt="Job Posting" class="service-icon">
                 <h3>Job Posting</h3>
                 <p>Sourcing and advertising job openings to attract qualified candidates.</p>
             </div>
             <div>
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/icons/candidate-screening.svg?raw=true" alt="Candidate Screening" class="service-icon">
                 <h3>Candidate Screening</h3>
                 <p>Reviewing and filtering applications to identify the best matches.</p>
             </div>
             <div>
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/icons/interviews.svg?raw=true" alt="Interviews" class="service-icon">
                 <h3>Interviews</h3>
                 <p>Conducting interviews to evaluate candidates' qualifications and fit.</p>
             </div>
             <div>
+                <img src="https://github.com/skunkworksza/www/blob/main/assets/icons/job-offers.svg?raw=true" alt="Job Offers" class="service-icon">
                 <h3>Job Offers</h3>
                 <p>Making offers to selected candidates and negotiating terms.</p>
             </div>
@@ -301,82 +323,64 @@
     </section>
     <section id="partners" class="section">
         <h1>Our Partners</h1>
-        <div class="partners-list">
+        <input type="text" placeholder="Search partner name" id="partnerSearch" onkeyup="filterPartners()">
+        <div class="partners-list" id="partnersList">
             <div class="partner-item">
                 <img src="https://github.com/skunkworksza/www/blob/main/assets/aws/aws%20cloud.png?raw=true" alt="AWS Logo">
-                <p>AWS</p>
             </div>
             <div class="partner-item">
                 <img src="https://github.com/skunkworksza/www/blob/main/assets/checkpoint/checkpoint-logo-stacked-large-blk.png?raw=true" alt="Checkpoint Logo">
-                <p>Checkpoint</p>
             </div>
             <div class="partner-item">
                 <img src="https://raw.githubusercontent.com/skunkworksza/www/021c38cde4ad3a9ccf72b8b18042f580b195a3d6/assets/cisco/strategic-partner-logo-cisco-1.svg" alt="Cisco Logo">
-                <p>Cisco</p>
             </div>
             <div class="partner-item">
                 <img src="https://github.com/skunkworksza/www/blob/main/assets/comptia/08212-capp-digital-badges_delivery-partner.jpg?raw=true" alt="CompTIA Logo">
-                <p>CompTIA</p>
             </div>
             <div class="partner-item">
                 <img src="https://github.com/skunkworksza/www/blob/main/assets/commvualt/commvualt.jpeg?raw=true" alt="Commvault Logo">
-                <p>Commvault</p>
             </div>
             <div class="partner-item">
                 <img src="https://raw.githubusercontent.com/skunkworksza/www/a1d437d3c21c968aa69d146b04703d7cecf5d838/assets/dell/strategic-partner-logo-dell-technologies-1.svg" alt="Dell Logo">
-                <p>Dell</p>
             </div>
             <div class="partner-item">
                 <img src="https://raw.githubusercontent.com/skunkworksza/www/c16c5586c66061112ffe4012073f564d9daa927d/assets/github/github-mark.svg" alt="GitHub Logo">
-                <p>GitHub</p>
             </div>
             <div class="partner-item">
                 <img src="https://raw.githubusercontent.com/skunkworksza/www/c16c5586c66061112ffe4012073f564d9daa927d/assets/google/google-cloud-logo-new.svg" alt="Google Cloud Logo">
-                <p>Google Cloud</p>
             </div>
             <div class="partner-item">
                 <img src="https://github.com/skunkworksza/www/blob/main/assets/ibm/IBM_Partner_Plus_silver_partner_mark_pos_black_RGB(103x80).jpg?raw=true" alt="IBM Logo">
-                <p>IBM</p>
             </div>
             <div class="partner-item">
                 <img src="https://github.com/skunkworksza/www/blob/main/assets/redhat/redhat_logo.png?raw=true" alt="Red Hat Logo">
-                <p>Red Hat</p>
             </div>
             <div class="partner-item">
                 <img src="https://github.com/skunkworksza/www/blob/main/assets/microsoft/RWEDnc.png?raw=true" alt="Microsoft Logo">
-                <p>Microsoft</p>
             </div>
             <div class="partner-item">
                 <img src="https://raw.githubusercontent.com/skunkworksza/www/c16c5586c66061112ffe4012073f564d9daa927d/assets/vmware/strategic-partners-logo-vmware-1.svg" alt="VMware Logo">
-                <p>VMware</p>
             </div>
             <div class="partner-item">
                 <img src="https://github.com/skunkworksza/www/blob/main/assets/veritas/veritaz.png?raw=true" alt="Veritas Logo">
-                <p>Veritas</p>
             </div>
             <div class="partner-item">
                 <img src="https://github.com/skunkworksza/www/blob/main/assets/veeam/Veeam%20logo.jpeg?raw=true" alt="Veeam Logo">
-                <p>Veeam</p>
             </div>
             <div class="partner-item">
                 <img src="https://github.com/skunkworksza/www/blob/main/assets/sap/SAP.jpeg?raw=true" alt="SAP Logo">
-                <p>SAP</p>
             </div>
             <div class="partner-item">
                 <img src="https://github.com/skunkworksza/www/blob/main/assets/salesforce/Salesforce-Logo.png?raw=true" alt="Salesforce Logo">
-                <p>Salesforce</p>
             </div>
             <div class="partner-item">
                 <img src="https://github.com/skunkworksza/www/blob/main/assets/openai/Open%20AI.jpeg?raw=true" alt="OpenAI Logo">
-                <p>OpenAI</p>
             </div>
             <div class="partner-item">
                 <img src="https://github.com/skunkworksza/www/blob/main/assets/hs/Hashicorp-Vertical_onLight.png?raw=true" alt="HashiCorp Logo">
-                <p>HashiCorp</p>
             </div>
             <div class="partner-item">
                 <img src="https://github.com/skunkworksza/www/blob/main/assets/crs/CRS-logo-GitHub.png?raw=true" alt="CRS Logo">
-                <p>CRS</p>
             </div>
         </div>
         <div class="divider"></div>
@@ -424,6 +428,21 @@
                 });
             });
         });
+
+        // JavaScript for partner search filter
+        function filterPartners() {
+            var input = document.getElementById('partnerSearch');
+            var filter = input.value.toLowerCase();
+            var nodes = document.getElementsByClassName('partner-item');
+
+            for (i = 0; i < nodes.length; i++) {
+                if (nodes[i].innerText.toLowerCase().includes(filter)) {
+                    nodes[i].style.display = "block";
+                } else {
+                    nodes[i].style.display = "none";
+                }
+            }
+        }
     </script>
 </body>
 </html>

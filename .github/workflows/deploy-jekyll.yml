@@ -1,19 +1,12 @@
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
-
+name: Deploy to GitHub Pages
 on:
   push:
     branches: ["main"]
   workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
   id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -21,96 +14,66 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Cache Node.js modules
-        uses: actions/cache@v4
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          fetch-depth: 0  # Fetch all history for accurate build
 
-      - name: Setup Node.js environment
+      - name: Setup Node.js
         uses: actions/setup-node@v4.0.2
         with:
           node-version: '16.x'
           cache: 'npm'
 
-      - name: Install Node.js dependencies
-        run: npm install
+      - name: Install dependencies
+        working-directory: ./backend
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+        continue-on-error: true  # Allow the step to continue even if it fails
 
-      - name: Cache Ruby gems
-        uses: actions/cache@v4
+      - name: Retry Install dependencies if it fails
+        if: failure()  # Check if previous step failed
+        working-directory: ./backend
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
+          ruby-version: '3.0'
 
-      - name: Install Ruby dependencies
-        run: bundle install --path vendor/bundle
+      - name: Install Jekyll dependencies
+        run: |
+          bundle install
+        continue-on-error: true  # Allow the step to continue even if it fails
+
+      - name: Retry Install Jekyll dependencies if it fails
+        if: failure()  # Check if previous step failed
+        run: |
+          bundle install
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Build with Jekyll
-        run: bundle exec jekyll build
+        run: |
+          bundle exec jekyll build
+        continue-on-error: true  # Allow the step to continue even if it fails
+
+      - name: Retry Build with Jekyll if it fails
+        if: failure()  # Check if previous step failed
+        run: |
+          bundle exec jekyll build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
-      # Optional: Setup Java JDK
-      - name: Setup Java
-        if: ${{ false }}
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'adopt'
-          java-version: '11'
-
-      # Optional: Setup Go environment
-      - name: Setup Go
-        if: ${{ false }}
-        uses: actions/setup-go@v3
-        with:
-          go-version: '1.16'
-
-      # Optional: Setup .NET environment
-      - name: Setup .NET Core
-        if: ${{ false }}
-        uses: actions/setup-dotnet@v2
-        with:
-          dotnet-version: '3.1.x'
-
-      # Optional: Greet new contributors
-      - name: Greet new contributors
-        if: ${{ false }}
-        uses: actions/first-interaction@v1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          issue-message: 'Thanks for opening this issue!'
-          pr-message: 'Thanks for submitting this pull request!'
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build-and-deploy
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-      - name: Cache build outputs
-        uses: actions/cache@v4.0.2
-        with:
-          path: _site
-          key: ${{ runner.os }}-build-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-build-
-          upload-chunk-size: 4000000
-          enableCrossOsArchive: false
-          fail-on-cache-miss: false
-          lookup-only: false
-          save-always: false
