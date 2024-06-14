@@ -83,37 +83,46 @@
             display: flex;
             flex-direction: column;
             max-width: 600px;
-            margin: 0 auto.
+            margin: 0 auto;
         }
         form input, form textarea, form button {
-            margin-bottom: 10px.
-            padding: 10px.
-            font-size: 1em.
-            width: 100%.
-            box-sizing: border-box.
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 1em;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        form input::placeholder,
+        form textarea::placeholder {
+            color: #bbb;
+            opacity: 1; /* Firefox */
+        }
+        form input:focus::placeholder,
+        form textarea:focus::placeholder {
+            color: #888;
         }
         footer {
-            background-color: #333.
-            color: #fff.
-            text-align: center.
-            padding: 10px 0.
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
         }
         button {
-            background-color: #333.
-            color: #fff.
-            border: none.
-            padding: 10px 15px.
-            cursor: pointer.
-            transition: background-color 0.3s ease.
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
         button:hover {
-            background-color: #555.
+            background-color: #555;
         }
         .partners-list {
-            display: grid.
+            display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px.
-            text-align: center.
+            gap: 20px;
+            text-align: center;
         }
         .partner-item {
             background-color: #1f1f1f;
@@ -130,39 +139,39 @@
             object-fit: contain;
         }
         .statistics {
-            text-align: center.
-            margin-top: 20px.
+            text-align: center;
+            margin-top: 20px;
         }
         .divider {
-            height: 2px.
-            background-color: #444.
-            margin: 20px 0.
+            height: 2px;
+            background-color: #444;
+            margin: 20px 0;
         }
         .centered-container {
-            max-width: 800px.
-            margin: 0 auto.
-            background-color: #333.
-            padding: 20px.
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5).
-            border-radius: 8px.
-            text-align: center.
-            color: #fff.
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #333;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            text-align: center;
+            color: #fff;
         }
         .libutton {
-            display: flex.
-            flex-direction: column.
-            justify-content: center.
-            padding: 7px.
-            text-align: center.
-            outline: none.
-            text-decoration: none !important.
-            color: #ffffff !important.
-            width: 200px.
-            height: 32px.
-            border-radius: 16px.
-            background-color: #0A66C2.
-            font-family: "SF Pro Text", Helvetica, sans-serif.
-            margin: 10px auto.
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 7px;
+            text-align: center;
+            outline: none;
+            text-decoration: none !important;
+            color: #ffffff !important;
+            width: 200px;
+            height: 32px;
+            border-radius: 16px;
+            background-color: #0A66C2;
+            font-family: "SF Pro Text", Helvetica, sans-serif;
+            margin: 10px auto;
         }
         .icon {
             width: 20px;
@@ -178,16 +187,16 @@
         /* Mobile Styles */
         @media (max-width: 768px) {
             .grid-container {
-                grid-template-columns: 1fr.
+                grid-template-columns: 1fr;
             }
             nav ul {
-                flex-direction: column.
+                flex-direction: column;
             }
             nav ul li {
-                margin: 10px 0.
+                margin: 10px 0;
             }
             .partners-list {
-                grid-template-columns: 1fr.
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -324,61 +333,115 @@
         <input type="text" placeholder="Search partner name" id="partnerSearch" onkeyup="filterPartners()">
         <div class="partners-list" id="partnersList">
             <div class="partner-item">
-                <img src="https://d1.awsstatic.com/r2023/images/logos/aws_logo_smile_1200x630.png" alt="AWS Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Web Services (AWS) Logo">
             </div>
             <div class="partner-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Check_Point_logo.svg" alt="Checkpoint Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Microsoft_Azure_Logo.svg" alt="Microsoft Azure Logo">
             </div>
             <div class="partner-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg" alt="Cisco Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Google_Cloud_Logo.svg" alt="Google Cloud Platform (GCP) Logo">
             </div>
             <div class="partner-item">
-                <img src="https://github.com/skunkworksza/www/blob/main/assets/comptia/08212-capp-digital-badges_delivery-partner.jpg?raw=true" alt="CompTIA Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM Cloud Logo">
             </div>
             <div class="partner-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/Commvault_logo.svg" alt="Commvault Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Oracle_logo.svg" alt="Oracle Cloud Logo">
             </div>
             <div class="partner-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Dell_Logo.svg" alt="Dell Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Alibaba_Group_logo.svg" alt="Alibaba Cloud Logo">
             </div>
             <div class="partner-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/DigitalOcean_logo.svg" alt="DigitalOcean Logo">
             </div>
             <div class="partner-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Google_Meet_Logo.png" alt="Google Meet Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Linode_logo.svg" alt="Linode Logo">
             </div>
             <div class="partner-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/IBM_Cloud_logo.png" alt="IBM Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/McAfee_logo.svg" alt="McAfee Logo">
             </div>
             <div class="partner-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Red_Hat_logo.svg" alt="Red Hat Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Symantec_logo.svg" alt="Symantec Logo">
             </div>
             <div class="partner-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Microsoft_Teams-Logo.svg" alt="Microsoft Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Trend_Micro_logo.svg" alt="Trend Micro Logo">
             </div>
             <div class="partner-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/VMware_logo.svg" alt="VMware Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Fortinet_logo.svg" alt="Fortinet Logo">
             </div>
             <div class="partner-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Veritas_Technologies_logo.svg" alt="Veritas Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Palo_Alto_Networks_logo.svg" alt="Palo Alto Networks Logo">
             </div>
             <div class="partner-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Veeam_logo.svg" alt="Veeam Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Checkpoint_Software_Technologies_Logo.svg" alt="Checkpoint Logo">
             </div>
             <div class="partner-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" alt="SAP Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/CrowdStrike_logo.svg" alt="CrowdStrike Logo">
             </div>
             <div class="partner-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Salesforce.com_logo.svg" alt="Salesforce Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/FireEye_Logo.svg" alt="FireEye Logo">
             </div>
             <div class="partner-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/OpenAI_Logo.png" alt="OpenAI Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Kaspersky_Logo.svg" alt="Kaspersky Logo">
             </div>
             <div class="partner-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/HashiCorp_Logo.svg" alt="HashiCorp Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Sophos_logo.svg" alt="Sophos Logo">
             </div>
             <div class="partner-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/CRS_Logo.svg" alt="CRS Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Dell_logo.svg" alt="Dell Logo">
+            </div>
+            <div class="partner-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/HP_logo.svg" alt="HP (Hewlett-Packard) Logo">
+            </div>
+            <div class="partner-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Lenovo_logo.svg" alt="Lenovo Logo">
+            </div>
+            <div class="partner-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Intel_logo.svg" alt="Intel Logo">
+            </div>
+            <div class="partner-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/AMD_logo.svg" alt="AMD Logo">
+            </div>
+            <div class="partner-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Cisco_logo.svg" alt="Cisco Logo">
+            </div>
+            <div class="partner-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Juniper_Networks_logo.svg" alt="Juniper Networks Logo">
+            </div>
+            <div class="partner-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Arista_Networks_logo.svg" alt="Arista Networks Logo">
+            </div>
+            <div class="partner-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Ubiquiti_Networks_logo.svg" alt="Ubiquiti Networks Logo">
+            </div>
+            <div class="partner-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Microsoft_logo.svg" alt="Microsoft Logo">
+            </div>
+            <div class="partner-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Adobe_logo.svg" alt="Adobe Logo">
+            </div>
+            <div class="partner-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/VMware_logo.svg" alt="VMware Logo">
+            </div>
+            <div class="partner-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/SAP_logo.svg" alt="SAP Logo">
+            </div>
+            <div class="partner-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Salesforce_logo.svg" alt="Salesforce Logo">
+            </div>
+            <div class="partner-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Oracle_logo.svg" alt="Oracle Logo">
+            </div>
+            <div class="partner-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/ServiceNow_logo.svg" alt="ServiceNow Logo">
+            </div>
+            <div class="partner-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Atlassian_logo.svg" alt="Atlassian Logo">
+            </div>
+            <div class="partner-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Slack_Technologies_logo.svg" alt="Slack Logo">
+            </div>
+            <div class="partner-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Tableau_Logo.svg" alt="Tableau Logo">
             </div>
         </div>
         <div class="divider"></div>
@@ -409,7 +472,7 @@
         <p>© 2024 Skunkworks. All rights reserved.</p>
         <p><a href="https://blog.skunkworks.africa/" target="_blank">Visit our blog</a></p>
     </footer>
-    <script src="./js/partnerFilter.js"></script>
+    <script src="./js/formHandler.js"></script>
     <script>
         // JavaScript for mobile dropdown functionality
         document.addEventListener('DOMContentLoaded', function() {
