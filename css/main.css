@@ -105,7 +105,7 @@ body, html {
     padding: 20px;
     border-top: 2px solid #2563EB; /* Light Blue Border */
     border-bottom: 2px solid #2563EB; /* Light Blue Border */
-    background-color: #0F62FE; /* $interactive-01 */
+    background-color: #FFFFFF; /* $interactive-01 */
 }
 .statistics p {
     font-size: 1.5rem; /* $heading-03 */
