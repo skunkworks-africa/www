@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/@carbon/ibm-cloud-cognitive@0.34.1/css/index.min.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/forms.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/sidebar.css">
     <title>Welcome to Skunkworks: Innovative Technology and Education Solutions</title>
     <style>
         /* General Styles */
@@ -19,6 +23,21 @@
             background-color: #333;
             color: #fff;
             padding: 10px 0;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
         }
         .section {
             padding: 20px;
@@ -100,6 +119,12 @@
             .grid-container {
                 grid-template-columns: 1fr;
             }
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
             .partners-list {
                 grid-template-columns: 1fr;
             }
@@ -109,23 +134,22 @@
 <body>
     <header>
         <nav>
-            <div class="bx--dropdown bx--dropdown--inline bx--dropdown--light">
-                <button class="bx--dropdown-text" aria-haspopup="listbox" aria-expanded="false">
-                    <span class="bx--dropdown-text__inner">Menu</span>
-                    <span class="bx--dropdown-text__icon bx--dropdown-text__icon--caret-down"></span>
-                </button>
-                <ul class="bx--dropdown-list" role="listbox">
-                    <li class="bx--dropdown-item" role="option" tabindex="0">
-                        <a href="./AWS.html">AWS</a>
-                    </li>
-                    <li class="bx--dropdown-item" role="option" tabindex="0">
-                        <a href="./CISCO.html">CISCO</a>
-                    </li>
-                    <li class="bx--dropdown-item" role="option" tabindex="0">
-                        <a href="./GitHub.html">GitHub</a>
-                    </li>
-                </ul>
-            </div>
+            <ul>
+                <li><a href="./AWS.html">AWS</a></li>
+                <li><a href="./CISCO.html">CISCO</a></li>
+                <li><a href="./GitHub.html">GitHub</a></li>
+                <li><a href="./Google.html">Google</a></li>
+                <li><a href="./HashiCorp.html">HashiCorp</a></li>
+                <li><a href="./IBM-Maximo-Manage-v8.x-Certified-Administrator-Preparation-and-Certification-Learning-Path.html">IBM Maximo</a></li>
+                <li><a href="./ibm-qradar.html">IBM QRadar</a></li>
+                <li><a href="./ibm-security-verify-access.html">IBM Security</a></li>
+                <li><a href="./Microsoft.html">Microsoft</a></li>
+                <li><a href="./Oracle.html">Oracle</a></li>
+                <li><a href="./Palo Alto.html">Palo Alto</a></li>
+                <li><a href="./RedHat.html">RedHat</a></li>
+                <li><a href="./SAP.html">SAP</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
     </header>
     <section id="welcome" class="section welcome-section">
@@ -275,6 +299,6 @@
     <footer>
         <p>© 2024 Skunkworks. All rights reserved.</p>
     </footer>
-    <script src="https://unpkg.com/@carbon/ibm-cloud-cognitive@0.34.1/js/index.min.js"></script>
+    <script src="./js/formHandler.js"></script>
 </body>
 </html>
