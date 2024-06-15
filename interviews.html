@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <title>Interviews - Skunkworks</title>
+    <style>
+        .section {
+            padding: 40px 20px;
+            margin: 20px 0;
+            background-color: #ffffff;
+            color: #121212;
+            border-radius: 8px;
+        }
+
+        .section h1 {
+            color: #2563EB;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .grid-item {
+            background-color: #f5f5f5;
+            border: 2px solid #2563EB;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .grid-item h3 {
+            color: #2563EB;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="./css/sidebar.css">
+<link rel="stylesheet" href="./css/main.css">
+<link rel="stylesheet" href="./css/header.css">
+<link rel="stylesheet" href="./css/forms.css">
+<link rel="stylesheet" href="./css/footer.css">
+</head>
+<body>
+    @@include('partials/header.html')
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./placement-recruitment.html">Placement & Recruitment</a></li>
+                <li><a href="./job-posting.html">Job Posting</a></li>
+                <li><a href="./candidate-screening.html">Candidate Screening</a></li>
+                <li><a href="./interviews.html">Interviews</a></li>
+                <li><a href="./job-offers.html">Job Offers</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="section">
+            <h1>Interviews</h1>
+            <p>Our Interviews service is designed to evaluate candidates' qualifications and fit for your organization. We conduct thorough interviews to ensure that you hire the best talent for your team.</p>
+            <h2>Benefits</h2>
+            <ul>
+                <li>Comprehensive candidate evaluation</li>
+                <li>Structured and consistent interview process</li>
+                <li>Focus on cultural and skill fit</li>
+            </ul>
+            <h2>Our Approach</h2>
+            <p>We use a mix of behavioral, technical, and situational interview techniques to assess candidates. Our team is trained to conduct interviews that are fair, unbiased, and aligned with your company's values and requirements.</p>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Skunkworks. All rights reserved.</p>
+    </footer>
+<script src="./js/partnerSearchFilter.js"></script>
+<script src="./js/partnerFilter.js"></script>
+<script src="./js/mobileDropdown.js"></script>
+<script src="./js/main.js"></script>
+<script src="./js/include-header.js"></script>
+<script src="./js/gulpfile.js"></script>
+<script src="./js/formHandeler.js"></script>
+<script src="./js/combinedPartnerFilter.js"></script>
+</body>
+</html>

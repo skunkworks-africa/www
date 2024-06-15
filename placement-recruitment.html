@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <title>Placement & Recruitment - Skunkworks</title>
+    <style>
+        .section {
+            padding: 40px 20px;
+            margin: 20px 0;
+            background-color: #ffffff;
+            color: #121212;
+            border-radius: 8px;
+        }
+
+        .section h1 {
+            color: #2563EB;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .grid-item {
+            background-color: #f5f5f5;
+            border: 2px solid #2563EB;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .grid-item h3 {
+            color: #2563EB;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="./css/sidebar.css">
+<link rel="stylesheet" href="./css/main.css">
+<link rel="stylesheet" href="./css/header.css">
+<link rel="stylesheet" href="./css/forms.css">
+<link rel="stylesheet" href="./css/footer.css">
+</head>
+<body>
+    @@include('partials/header.html')
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./placement-recruitment.html">Placement & Recruitment</a></li>
+                <li><a href="./job-posting.html">Job Posting</a></li>
+                <li><a href="./candidate-screening.html">Candidate Screening</a></li>
+                <li><a href="./interviews.html">Interviews</a></li>
+                <li><a href="./job-offers.html">Job Offers</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="section">
+            <h1>Placement & Recruitment</h1>
+            <p>Our Placement & Recruitment services are designed to help businesses find the best talent for their needs. We offer a comprehensive suite of services to ensure that your organization is staffed with qualified and capable individuals.</p>
+            <h2>Our Services</h2>
+            <div class="grid-container">
+                <a href="./job-posting.html">
+                    <div class="grid-item">
+                        <h3>Job Posting</h3>
+                        <p>Sourcing and advertising job openings to attract qualified candidates.</p>
+                    </div>
+                </a>
+                <a href="./candidate-screening.html">
+                    <div class="grid-item">
+                        <h3>Candidate Screening</h3>
+                        <p>Reviewing and filtering applications to identify the best matches.</p>
+                    </div>
+                </a>
+                <a href="./interviews.html">
+                    <div class="grid-item">
+                        <h3>Interviews</h3>
+                        <p>Conducting interviews to evaluate candidates' qualifications and fit.</p>
+                    </div>
+                </a>
+                <a href="./job-offers.html">
+                    <div class="grid-item">
+                        <h3>Job Offers</h3>
+                        <p>Making offers to selected candidates and negotiating terms.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Skunkworks. All rights reserved.</p>
+    </footer>
+<script src="./js/partnerSearchFilter.js"></script>
+<script src="./js/partnerFilter.js"></script>
+<script src="./js/mobileDropdown.js"></script>
+<script src="./js/main.js"></script>
+<script src="./js/include-header.js"></script>
+<script src="./js/gulpfile.js"></script>
+<script src="./js/formHandeler.js"></script>
+<script src="./js/combinedPartnerFilter.js"></script>
+</body>
+</html>
