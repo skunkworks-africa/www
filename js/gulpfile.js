@@ -1,14 +1,13 @@
 const gulp = require('gulp');
 const fileInclude = require('gulp-file-include');
-const path = require('path');
 
-function includeHTML() {
-    return gulp.src(['./*.html', '!./partials/*.html']) // Exclude partials from being processed
-        .pipe(fileInclude({
-            prefix: '@@',
-            basepath: './partials'
-        }))
-        .pipe(gulp.dest('./'));
-}
+gulp.task('file-include', async function() {
+  gulp.src(['./src/**/*.html', '!./src/partials/**'])
+    .pipe(fileInclude({
+      prefix: '@@',
+      basepath: '@file'
+    }))
+    .pipe(gulp.dest('./dist'));
+});
 
-exports.default = includeHTML;
+gulp.task('default', gulp.series('file-include'));
