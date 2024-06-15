@@ -17,11 +17,11 @@ body, html {
     color: #60A5FA; /* Light Blue */
 }
 .welcome-section {
-    background: url('https://source.unsplash.com/random/1600x900') no-repeat center center/cover;
+    background: #fff; /* White Background */
     padding: 50px 20px;
-    color: #FFFFFF;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    color: #000; /* Black Text */
     position: relative;
+    margin-bottom: 40px; /* Increased spacing between sections */
 }
 .welcome-section::before {
     content: '';
@@ -30,21 +30,27 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: none; /* Remove the overlay */
     z-index: 0;
 }
 .welcome-section-content {
     position: relative;
     z-index: 1;
+    background: #fff; /* Ensure white background */
+    color: #000; /* Ensure black text */
+    padding: 20px;
+    border-radius: 8px;
 }
 .welcome-section h1 {
     font-size: 2.5rem;
     animation: fadeInDown 1s ease-out;
+    text-shadow: none; /* Remove text shadow */
 }
 .welcome-section p {
     font-size: 1.2rem;
     margin: 10px 0;
     animation: fadeInUp 1s ease-out;
+    text-shadow: none; /* Remove text shadow */
 }
 .welcome-section a {
     color: #FFDD57; /* Highlight color */
@@ -99,7 +105,7 @@ body, html {
     padding: 20px;
     border-top: 2px solid #2563EB; /* Light Blue Border */
     border-bottom: 2px solid #2563EB; /* Light Blue Border */
-    background-color: #0F62FE; /* $interactive-01 */
+    background-color: #FFFFFF; /* $interactive-01 */
 }
 .statistics p {
     font-size: 1.5rem; /* $heading-03 */
