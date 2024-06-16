@@ -1,7 +1,20 @@
 {
   "devDependencies": {
+    "@chromatic-com/storybook": "^1.5.0",
+    "@storybook/addon-essentials": "^8.1.9",
+    "@storybook/addon-interactions": "^8.1.9",
+    "@storybook/addon-links": "^8.1.9",
+    "@storybook/addon-onboarding": "^8.1.9",
+    "@storybook/addon-webpack5-compiler-swc": "^1.0.3",
+    "@storybook/blocks": "^8.1.9",
+    "@storybook/react": "^8.1.9",
+    "@storybook/react-webpack5": "^8.1.9",
+    "@storybook/test": "^8.1.9",
+    "chromatic": "^11.5.4",
     "gulp": "^5.0.0",
-    "gulp-file-include": "^2.3.0"
+    "gulp-file-include": "^2.3.0",
+    "prop-types": "^15.8.1",
+    "storybook": "^8.1.9"
   },
   "name": "www",
   "version": "1.0.0",
@@ -11,6 +24,7 @@
     "doc": "docs"
   },
   "dependencies": {
+    "@carbon/react": "^1.59.0",
     "ansi-colors": "^1.1.0",
     "ansi-regex": "^5.0.1",
     "ansi-styles": "^4.3.0",
@@ -172,7 +186,9 @@
     "yargs-parser": "^20.2.9"
   },
   "scripts": {
-    "test": "gulp"
+    "test": "gulp",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "repository": {
     "type": "git",
@@ -184,4 +200,7 @@
     "url": "https://github.com/skunkworksza/www/issues"
   },
   "homepage": "https://github.com/skunkworksza/www#readme"
+  "scripts": {
+    "chromatic": "chromatic --project-token=YOUR_PROJECT_TOKEN"
+
 }
