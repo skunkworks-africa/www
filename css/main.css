@@ -61,14 +61,18 @@ body, html {
 }
 
 .welcome-section a {
-    color: #FFDD57; /* Highlight color */
-    text-decoration: underline;
-    transition: color 0.3s ease;
+    color: #FFD700; /* Professional Gold Highlight */
+    text-decoration: none; /* Remove underline for a cleaner look */
+    font-weight: bold; /* Make the link text bold */
+    border-bottom: 2px solid transparent; /* Add bottom border for transition effect */
+    transition: border-color 0.3s ease, color 0.3s ease; /* Smooth transition for border and color */
 }
 
 .welcome-section a:hover {
-    color: #FFB800;
+    color: #FFA500; /* Slightly darker gold on hover */
+    border-bottom: 2px solid #FFA500; /* Highlight bottom border on hover */
 }
+
 
 @keyframes fadeInDown {
     from {
@@ -135,12 +139,12 @@ body, html {
     flex: 1 1 calc(33.333% - 40px);
     text-align: center;
 }
-
 .statistics p:hover {
     transform: scale(1.1);
     box-shadow: 0 10px 20px rgba(0, 43, 255, 0.5); /* Custom shadow */
-    color: #0043CE; /* $interactive-04 */
-    border-bottom: 2px solid #0043CE; /* $interactive-04 */
+    color: #0043CE; /* Darker Interactive Blue */
+    background-color: #E0E0E0; /* Slightly darker grey on hover */
+    border-bottom: 2px solid #0043CE; /* Dark Blue Border */
 }
 
 /* Partners Section */
