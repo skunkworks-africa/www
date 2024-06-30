@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -12,202 +11,202 @@
 <link href="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" rel="icon" type="image/png"/>
 <title>Welcome to Skunkworks: Innovative Technology and Education Solutions</title>
 <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background-color: #121212;
-            color: #fff;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        header img {
-            max-width: 100%;
-            height: auto;
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        background-color: #121212;
+        color: #fff;
+    }
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+    }
+    header img {
+        max-width: 100%;
+        height: auto;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    nav ul li {
+        margin: 0 15px;
+        position: relative;
+    }
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+    }
+    nav ul li ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #333;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        z-index: 1000;
+    }
+    nav ul li:hover ul {
+        display: block;
+    }
+    nav ul li ul li a {
+        padding: 10px 15px;
+    }
+    .section {
+        padding: 20px;
+        margin: 20px 0;
+    }
+    .welcome-section {
+        background-color: #ffffff;
+        text-align: center;
+        color: #000000;
+        padding: 20px;
+        box-shadow: none;
+    }
+    .welcome-section-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 2px solid #2563EB; /* Light Blue Border */
+        border-radius: 8px;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    form input, form textarea, form button {
+        margin-bottom: 10px;
+        padding: 10px;
+        font-size: 1em;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+    }
+    button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    button:hover {
+        background-color: #555;
+    }
+    .partners-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        text-align: center;
+    }
+    .partner-item {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .partner-item img {
+        max-width: 100%;
+        max-height: 100px;
+        object-fit: contain;
+    }
+    .statistics {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .divider {
+        height: 2px;
+        background-color: #444;
+        margin: 20px 0;
+    }
+    .centered-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border-radius: 8px;
+        text-align: center;
+        color: #000;
+    }
+    .libutton {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 7px;
+        text-align: center;
+        outline: none;
+        text-decoration: none !important;
+        color: #ffffff !important;
+        width: 200px;
+        height: 32px;
+        border-radius: 16px;
+        background-color: #ffffff;
+        font-family: "SF Pro Text", Helvetica, sans-serif;
+        margin: 10px auto;
+    }
+    .icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+    }
+    .service-icon {
+        width: 40px;
+        height: 40px;
+        display: block;
+        margin: 0 auto 10px auto;
+    }
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+        .grid-container {
+            grid-template-columns: 1fr;
         }
         nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            flex-direction: column;
         }
         nav ul li {
-            margin: 0 15px;
-            position: relative;
-        }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            display: block;
-            padding: 10px;
-        }
-        nav ul li ul {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #333;
-            padding: 0;
-            margin: 0;
-            list-style-type: none;
-            z-index: 1000;
-        }
-        nav ul li:hover ul {
-            display: block;
-        }
-        nav ul li ul li a {
-            padding: 10px 15px;
-        }
-        .section {
-            padding: 20px;
-            margin: 20px 0;
-        }
-        .welcome-section {
-            background-color: #ffffff;
-            text-align: center;
-            color: #000000;
-            padding: 20px;
-            box-shadow: none;
-        }
-        .welcome-section-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 2px solid #2563EB; /* Light Blue Border */
-            border-radius: 8px;
-        }
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        form input, form textarea, form button {
-            margin-bottom: 10px;
-            padding: 10px;
-            font-size: 1em;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-        }
-        button {
-            background-color: #333;
-            color: #fff;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        button:hover {
-            background-color: #555;
+            margin: 10px 0;
         }
         .partners-list {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            text-align: center;
+            grid-template-columns: 1fr;
         }
-        .partner-item {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .partner-item img {
-            max-width: 100%;
-            max-height: 100px;
-            object-fit: contain;
-        }
-        .statistics {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .divider {
-            height: 2px;
-            background-color: #444;
-            margin: 20px 0;
-        }
-        .centered-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            border-radius: 8px;
-            text-align: center;
-            color: #000;
-        }
-        .libutton {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 7px;
-            text-align: center;
-            outline: none;
-            text-decoration: none !important;
-            color: #ffffff !important;
-            width: 200px;
-            height: 32px;
-            border-radius: 16px;
-            background-color: #ffffff;
-            font-family: "SF Pro Text", Helvetica, sans-serif;
-            margin: 10px auto;
-        }
-        .icon {
-            width: 20px;
-            height: 20px;
-            margin-right: 5px;
-        }
-        .service-icon {
-            width: 40px;
-            height: 40px;
-            display: block;
-            margin: 0 auto 10px auto;
-        }
-        /* Mobile Styles */
-        @media (max-width: 768px) {
-            .grid-container {
-                grid-template-columns: 1fr;
-            }
-            nav ul {
-                flex-direction: column;
-            }
-            nav ul li {
-                margin: 10px 0;
-            }
-            .partners-list {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    }
+</style>
 <link href="./css/sidebar.css" rel="stylesheet"/>
 <link href="./css/main.css" rel="stylesheet"/>
 <link href="./css/header.css" rel="stylesheet"/>
 <link href="./css/forms.css" rel="stylesheet"/>
 <link href="./css/footer.css" rel="stylesheet"/>
 </head>
-<body><!-- header.html -->&gt;
+<body>
 <header>
 <nav>
 <ul>
@@ -247,9 +246,6 @@
 </nav>
 </header>
 
-<!-- header.html -->&gt;
-
-<!-- header.html -->
 <section class="section welcome-section" id="welcome">
 <div class="welcome-section-content">
 <h1>Welcome to Skunkworks</h1>
@@ -260,6 +256,7 @@
 <p>Contact: <a href="mailto:info@skunkworks.africa">info@skunkworks.africa</a></p>
 </div>
 </section>
+
 <section class="section" id="services">
 <h1>Custom Learning Solutions</h1>
 <div class="grid-container">
@@ -307,6 +304,7 @@
 </a>
 </div>
 </section>
+
 <section class="section" id="technology">
 <h1>Technology Solutions</h1>
 <p>Our primary aim is to be a one-stop-shop for businesses looking to harness the power of technology and top-notch education.</p>
@@ -346,29 +344,38 @@
 <section class="section" id="recruitment">
 <h1>Placement &amp; Recruitment</h1>
 <div class="grid-container">
+<a href="./job-posting.html">
 <div>
 <img alt="Job Posting" class="service-icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/presentation.svg"/>
 <h3>Job Posting</h3>
 <p>Sourcing and advertising job openings to attract qualified candidates.</p>
 </div>
+</a>
+<a href="./candidate-screening.html">
 <div>
 <img alt="Candidate Screening" class="service-icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/inspect--data.svg"/>
 <h3>Candidate Screening</h3>
 <p>Reviewing and filtering applications to identify the best matches.</p>
 </div>
+</a>
+<a href="./interviews.html">
 <div>
 <img alt="Interviews" class="service-icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/user--analytics.svg"/>
 <h3>Interviews</h3>
 <p>Conducting interviews to evaluate candidates' qualifications and fit.</p>
 </div>
+</a>
+<a href="./job-offers.html">
 <div>
 <img alt="Job Offers" class="service-icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/ai--transparency.svg"/>
 <h3>Job Offers</h3>
 <p>Making offers to selected candidates and negotiating terms.</p>
 </div>
+</a>
 </div>
 <button onclick="location.href='mailto:info@skunkworks.africa'">EMAIL US</button>
 </section>
+
 <section class="section" id="partners">
 <h1>Our Partners</h1>
 <input id="partnerSearch" onkeyup="filterPartners()" placeholder="Search partner name" type="text"/>
@@ -433,12 +440,32 @@
 </a>
 </div>
 <div class="divider"></div>
-<div class="statistics">
-<p>+80 Instructors &amp; Experts</p>
-<p>+40 Strategic Partnerships</p>
-<p>+1000 Courses Offered</p>
+</section>
+
+<section class="section" id="statistics">
+<h1>Our Achievements</h1>
+<div class="grid-container">
+<a href="./instructors.html">
+<div>
+<img alt="Instructors" class="service-icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/user--expert.svg"/>
+<h3>+80 Instructors & Experts</h3>
+</div>
+</a>
+<a href="./partnerships.html">
+<div>
+<img alt="Partnerships" class="service-icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/business--partnership.svg"/>
+<h3>+40 Strategic Partnerships</h3>
+</div>
+</a>
+<a href="./courses.html">
+<div>
+<img alt="Courses" class="service-icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/book--courses.svg"/>
+<h3>+1000 Courses Offered</h3>
+</div>
+</a>
 </div>
 </section>
+
 <section class="section" id="about">
 <div class="centered-container">
 <h1>About Us</h1>
@@ -446,6 +473,7 @@
 <p>Approach: We take a collaborative approach to every project, working closely with our clients to understand their needs and goals. We are committed to delivering solutions that meet or exceed our clients' expectations. Our team is responsive and accessible, and we pride ourselves on delivering exceptional customer service.</p>
 </div>
 </section>
+
 <section class="section" id="contact">
 <h1>Contact Us</h1>
 <form id="contactForm">
@@ -456,43 +484,44 @@
 <button type="submit">CALL ME BACK</button>
 </form>
 </section>
+
 <footer>
 <p>© 2024 Skunkworks. All rights reserved.</p>
 <p><a href="https://blog.skunkworks.africa/" target="_blank">Visit our blog</a></p>
 </footer>
 <script src="./js/formHandler.js"></script>
 <script>
-        // JavaScript for mobile dropdown functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            var dropdowns = document.querySelectorAll('nav ul li');
-            dropdowns.forEach(function(dropdown) {
-                dropdown.addEventListener('click', function(event) {
-                    if (window.innerWidth <= 768) {
-                        var submenu = this.querySelector('ul');
-                        if (submenu) {
-                            event.preventDefault();
-                            submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
-                        }
+    // JavaScript for mobile dropdown functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        var dropdowns = document.querySelectorAll('nav ul li');
+        dropdowns.forEach(function(dropdown) {
+            dropdown.addEventListener('click', function(event) {
+                if (window.innerWidth <= 768) {
+                    var submenu = this.querySelector('ul');
+                    if (submenu) {
+                        event.preventDefault();
+                        submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
                     }
-                });
+                }
             });
         });
+    });
 
-        // JavaScript for partner search filter
-        function filterPartners() {
-            var input = document.getElementById('partnerSearch');
-            var filter = input.value.toLowerCase();
-            var nodes = document.getElementsByClassName('partner-item');
+    // JavaScript for partner search filter
+    function filterPartners() {
+        var input = document.getElementById('partnerSearch');
+        var filter = input.value.toLowerCase();
+        var nodes = document.getElementsByClassName('partner-item');
 
-            for (i = 0; i < nodes.length; i++) {
-                if (nodes[i].innerText.toLowerCase().includes(filter)) {
-                    nodes[i].style.display = "block";
-                } else {
-                    nodes[i].style.display = "none";
-                }
+        for (i = 0; i < nodes.length; i++) {
+            if (nodes[i].innerText.toLowerCase().includes(filter)) {
+                nodes[i].style.display = "block";
+            } else {
+                nodes[i].style.display = "none";
             }
         }
-    </script>
+    }
+</script>
 <script src="./js/partnerSearchFilter.js"></script>
 <script src="./js/partnerFilter.js"></script>
 <script src="./js/mobileDropdown.js"></script>
