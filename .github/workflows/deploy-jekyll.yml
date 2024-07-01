@@ -1,0 +1,79 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for accurate build
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version: '16.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        working-directory: ./backend
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+        continue-on-error: true  # Allow the step to continue even if it fails
+
+      - name: Retry Install dependencies if it fails
+        if: failure()  # Check if previous step failed
+        working-directory: ./backend
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+
+      - name: Install Jekyll dependencies
+        run: |
+          bundle install
+        continue-on-error: true  # Allow the step to continue even if it fails
+
+      - name: Retry Install Jekyll dependencies if it fails
+        if: failure()  # Check if previous step failed
+        run: |
+          bundle install
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Build with Jekyll
+        run: |
+          bundle exec jekyll build
+        continue-on-error: true  # Allow the step to continue even if it fails
+
+      - name: Retry Build with Jekyll if it fails
+        if: failure()  # Check if previous step failed
+        run: |
+          bundle exec jekyll build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

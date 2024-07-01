@@ -2,20 +2,68 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main  # Or your default branch
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for accurate build
 
-      # Add your build steps here
+      - name: Setup Node.js
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version: '16.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          npm install
+        continue-on-error: true  # Allow the step to continue even if it fails
+      - name: Retry Install dependencies if it fails
+        if: failure()  # Check if previous step failed
+        run: |
+          npm install
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+
+      - name: Install Jekyll dependencies
+        run: |
+          bundle install
+        continue-on-error: true  # Allow the step to continue even if it fails
+      - name: Retry Install Jekyll dependencies if it fails
+        if: failure()  # Check if previous step failed
+        run: |
+          bundle install
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Build with Jekyll
+        run: |
+          bundle exec jekyll build
+        continue-on-error: true  # Allow the step to continue even if it fails
+      - name: Retry Build with Jekyll if it fails
+        if: failure()  # Check if previous step failed
+        run: |
+          bundle exec jekyll build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public  # Adjust to your build directory
+        id: deployment
+        uses: actions/deploy-pages@v4
