@@ -1,0 +1,21 @@
+/* css/forms.css */
+input, textarea {
+    width: 80%;
+    padding: 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2563EB; /* Light Blue */
+    color: #FFFFFF; /* White Text */
+}
+
+button {
+    width: 80%;
+    padding: 25px;
+    margin-top: 30px;
+    background-color: #3B82F6; /* Bright Blue */
+    color: #FFFFFF; /* White Text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

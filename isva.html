@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IBM Security Learning Path</title>
+<link href="logo-skunkworks-trans 40 × 40 px.png" rel="icon" type="img/png"/>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    height: 100vh; /* full height for html body*/
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Spreads out navbar, container, and footer */
+    background: #f0f0f0;
+  }
+  .navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  }
+  .nav-logo {
+    width: 420px; /* Adjust based on your actual logo size */
+    height: 120px;
+    margin: 10px 0;
+  }
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 1200px;
+    padding: 10px 20px;
+  }
+  .nav-item {
+    padding: 10px 20px;
+    color: white;
+  }
+  .nav-item:hover {
+    background-color: #555;
+    cursor: pointer;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 120px; /* Adjust based on the navbar's height */
+    padding-bottom: 60px; /* Adjust based on the footer's height */
+    flex-grow: 1;
+  }
+  .badge {
+    flex: 1 1 200px; /* Grow to fill available space, don’t shrink, base width 200px */
+    margin: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    text-align: center;
+  }
+  img {
+    width: 100px;
+    height: auto;
+  }
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  @media (max-width: 600px) {
+    .nav-menu {
+      flex-direction: column;
+    }
+    .nav-item {
+      text-align: center;
+      width: 100%;
+    }
+    .nav-logo {
+      width: 100%;
+      height: auto;
+    }
+  }
+</style>
+<link href="./css/sidebar.css" rel="stylesheet"/>
+<link href="./css/main.css" rel="stylesheet"/>
+<link href="./css/header.css" rel="stylesheet"/>
+<link href="./css/forms.css" rel="stylesheet"/>
+<link href="./css/footer.css" rel="stylesheet"/>
+</head>
+<body><!-- header.html -->&gt;
+<header>
+<nav>
+<ul>
+<li><a href="./index.html"><img alt="Home" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/container.svg"/>Home</a></li>
+<li>
+<a href="#"><img alt="Training" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/intelligence.svg"/>Training</a>
+<ul>
+<li><a href="./blended-learning.html"><img alt="Blended Learning" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/blended-learning.png?raw=true"/>Blended Learning</a></li>
+<li><a href="./course-development.html"><img alt="Course Development" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/course-development.png?raw=true"/>Course Development</a></li>
+<li><a href="./project-mentoring.html"><img alt="Project Mentoring" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/project-mentoring.png?raw=true"/>Project Mentoring</a></li>
+<li><a href="./performance-support.html"><img alt="Performance Support Tools" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/performance-support.png?raw=true"/>Performance Support Tools</a></li>
+<li><a href="./training-programs.html"><img alt="Training Programs" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/training-programs.png?raw=true"/>Training Programs</a></li>
+</ul>
+</li>
+<li>
+<a href="#"><img alt="Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/container--microservices.svg"/>Services</a>
+<ul>
+<li><a href="./software-development.html"><img alt="Software Development" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/software-development.png?raw=true"/>Software Development</a></li>
+<li><a href="./hardware-software.html"><img alt="Hardware and Software" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/hardware-software.png?raw=true"/>HW/SW Solutions</a></li>
+<li><a href="./managed-cloud.html"><img alt="Managed Cloud Services" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/managed-cloud.png?raw=true"/>Managed Cloud</a></li>
+<li><a href="./technical-support.html"><img alt="Technical Support Services" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/technical-support.png?raw=true"/>Technical Support</a></li>
+<li><a href="./placement-recruitment.html"><img alt="Placements" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/placement-recruitment.png?raw=true"/>Placements</a></li>
+</ul>
+</li>
+<li>
+<a href="#"><img alt="Careers" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/data--apis.svg"/>Careers</a>
+<ul>
+<li><a href="./job-posting.html"><img alt="Job Posting" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/job-posting.png?raw=true"/>Job Posting</a></li>
+<li><a href="./candidate-screening.html"><img alt="Candidate Screening" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/candidate-screening.png?raw=true"/>Candidate Screening</a></li>
+<li><a href="./interviews.html"><img alt="Interviews" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/interviews.png?raw=true"/>Interviews</a></li>
+<li><a href="./job-offers.html"><img alt="Job Offers" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/job-offers.png?raw=true"/>Job Offers</a></li>
+<li><a href="./perosacademy/"><img alt="Pero's Academy" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/peros-academy.png?raw=true"/>Pero's Academy</a></li>
+</ul>
+</li>
+<li><a href="#contact"><img alt="Contact" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/b6c7c3e93995fd5c2a6c0979d90ead76d9ef98dd/assets/icons/email.svg"/>Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<!-- header.html -->&gt;
+
+<div class="navbar">
+<img alt="Skunkworks EdTech" class="nav-logo" src="LARGE LOGO AND TEXT 420X120 CENTER.png"/>
+</div>
+<div class="container">
+<!-- Foundational Level -->
+<div class="badge">
+<a href="https://www.ibm.com/training/badge/introduction-to-ibm-security-verify">
+<img alt="Introduction to IBM Security Verify" src="https://images.credly.com/images/e15ac3c9-0c04-40bc-85d9-b9f17e2e946c/image.png"/>
+</a>
+</div>
+<div class="badge">
+<a href="https://www.ibm.com/training/badge/verify-access-sales-foundation">
+<img alt="Verify Access Sales Foundation" src="https://images.credly.com/images/bf76264f-bdc5-4cf2-ac0f-b804065c885f/image.png"/>
+</a>
+</div>
+<div class="badge">
+<a href="https://www.ibm.com/training/badge/ibm-cloud-pak-for-security-verify-sales-foundation">
+<img alt="IBM Cloud Pak for Security - Verify Sales Foundation" src="https://images.credly.com/images/b34920ea-994d-4b2e-a1cd-a6a0779a83db/image.png"/>
+</a>
+</div>
+<!-- Intermediate Level -->
+<div class="badge">
+<a href="https://www.ibm.com/training/badge/verify-access-technical-sales-intermediate">
+<img alt="Verify Access Technical Sales Intermediate" src="https://images.credly.com/images/a4d15972-5d8d-4b9b-9ad5-48dc7d632312/IBM_Security_Verify_Access_Foudations_-_Code_TW108G.png"/>
+</a>
+</div>
+<div class="badge">
+<a href="https://www.ibm.com/training/badge/verify-governance-technical-sales-intermediate">
+<img alt="Verify Governance Technical Sales Intermediate" src="https://images.credly.com/images/ebb1a46f-7dcb-484f-b1ed-20bb81df708e/image.png"/>
+</a>
+</div>
+<div class="badge">
+<a href="https://www.ibm.com/training/badge/verify-privilege-technical-sales-intermediate">
+<img alt="Verify Privilege Technical Sales Intermediate" src="https://images.credly.com/images/a95f46b0-e813-4adc-8a5e-cb8ccaccd70d/image.png"/>
+</a>
+</div>
+<div class="badge">
+<a href="https://www.ibm.com/training/badge/consumer-identity-and-access-management-sales-intermediate">
+<img alt="Consumer Identity and Access Management Sales Intermediate" src="https://images.credly.com/images/ded8eb19-96f7-451d-8aca-7ccf98d4ad1c/image.png"/>
+</a>
+</div>
+<div class="badge">
+<a href="https://www.ibm.com/training/badge/consumer-identity-and-access-management-technical-sales-intermediate">
+<img alt="Consumer Identity and Access Management Technical Sales Intermediate" src="https://images.credly.com/images/39406612-e632-4346-8c31-7afe8e34de80/image.png"/>
+</a>
+</div>
+<div class="badge">
+<a href="https://www.ibm.com/training/badge/ibm-security-verify-access-foundations-code-tw108g">
+<img alt="IBM Security Verify Access Foundations" src="https://images.credly.com/images/a4d15972-5d8d-4b9b-9ad5-48dc7d632312/IBM_Security_Verify_Access_Foudations_-_Code_TW108G.png"/>
+</a>
+</div>
+<div class="badge">
+<a href="https://www.ibm.com/training/badge/verify-governance-sales-foundation">
+<img alt="Verify Governance Sales Foundation" src="https://images.credly.com/images/5e3c64b5-dcbf-4509-94cc-6f1b523a3b74/image.png"/>
+</a>
+</div>
+<div class="badge">
+<a href="https://www.ibm.com/training/badge/verify-privilege-sales-foundation">
+<img alt="Verify Privilege Sales Foundation" src="https://images.credly.com/images/d9d6da40-cba4-45a6-9c0c-955b9e5f13ab/image.png"/>
+</a>
+</div>
+<!-- Advanced Level -->
+<div class="badge">
+<a href="https://www.ibm.com/training/badge/verify-privilege-technical-sales-advanced">
+<img alt="Verify Privilege Technical Sales Advanced" src="https://images.credly.com/images/22c166c1-1a4d-4dca-b294-d17b90ad855a/image.png"/>
+</a>
+</div>
+<div class="badge">
+<a href="https://www.ibm.com/training/badge/verify-privilege-practitioner-advanced">
+<img alt="Verify Privilege Practitioner Advanced" src="https://images.credly.com/images/dffda561-fd3b-4502-bbb6-8d770db51aaa/Verify-Privilege-for-Practitioner-Advanced.png"/>
+</a>
+</div>
+<!-- Certifications -->
+<div class="badge">
+<a href="https://www.ibm.com/training/certification/ibm-certified-deployment-professional-security-verify-access-v100-C4008807">
+<img alt="IBM Certified Deployment Professional - Security Verify Access V10.0" src="https://images.credly.com/images/7b7cceb0-20e6-4e7a-a46c-432527006acc/IBM_Certified_Deployment_Professional_-_Security_Verify_Access_V10.0.png"/>
+</a>
+</div>
+<div class="badge">
+<a href="https://www.ibm.com/training/certification/ibm-certified-administrator-security-verify-saas-v1-C0010700">
+<img alt="IBM Certified Administrator - Security Verify SaaS v1" src="https://images.credly.com/images/30b39d72-4f59-429a-932f-4fbb99d1fb0f/IBM_Certified_Administrator_-_Security_Verify_SaaS_v1.png"/>
+</a>
+</div>
+</div>
+<footer>
+<p>Disclaimer: The information provided is for educational purposes only.</p>
+<p>Contact us: training@skunkworks.africa | +27 73 503 9677</p>
+</footer>
+<script src="./js/partnerSearchFilter.js"></script>
+<script src="./js/partnerFilter.js"></script>
+<script src="./js/mobileDropdown.js"></script>
+<script src="./js/main.js"></script>
+<script src="./js/include-header.js"></script>
+<script src="./js/gulpfile.js"></script>
+<script src="./js/formHandeler.js"></script>
+<script src="./js/combinedPartnerFilter.js"></script>
+</body>
+</html>

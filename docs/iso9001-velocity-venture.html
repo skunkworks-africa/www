@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISO9001 Implementation for Velocity Venture</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #50b3a2;
+            color: #fff;
+            padding: 15px 0;
+            border-bottom: #e8491d 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+            padding: 0 15px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        header ul li {
+            position: relative;
+            padding: 0 15px;
+        }
+        header ul li ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #50b3a2;
+            display: none;
+            flex-direction: column;
+            padding: 0;
+            list-style: none;
+        }
+        header ul li ul li {
+            padding: 10px;
+            white-space: nowrap;
+        }
+        header ul li ul li a {
+            padding: 0;
+        }
+        .dropdown-content {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #50b3a2;
+            padding: 0;
+            list-style: none;
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: #fff;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #e8491d;
+        }
+        .show {
+            display: flex;
+        }
+        .main {
+            padding: 30px 0;
+        }
+        .main h1 {
+            color: #50b3a2;
+            text-align: center;
+        }
+        .main p {
+            line-height: 1.6;
+        }
+        .link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .link a {
+            color: #e8491d;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .link a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+        .audit-report {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .audit-report h2 {
+            color: #50b3a2;
+        }
+        .audit-report ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+    </style>
+    <script>
+        function toggleDropdown() {
+            document.getElementById("docsDropdown").classList.toggle("show");
+        }
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+<link rel="stylesheet" href="./css/sidebar.css">
+<link rel="stylesheet" href="./css/main.css">
+<link rel="stylesheet" href="./css/header.css">
+<link rel="stylesheet" href="./css/forms.css">
+<link rel="stylesheet" href="./css/footer.css">
+</head>
+<body>
+<!-- header.html -->>
+<header>
+  <nav>
+      <ul>
+          <li><a href="./index.html"><img src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/container.svg" alt="Home" class="icon">Home</a></li>
+          <li>
+              <a href="#"><img src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/intelligence.svg" alt="Training" class="icon">Training</a>
+              <ul>
+                  <li><a href="./blended-learning.html"><img src="https://github.com/skunkworksza/www/blob/main/assets/learning/blended-learning.png?raw=true" alt="Blended Learning" class="icon">Blended Learning</a></li>
+                  <li><a href="./course-development.html"><img src="https://github.com/skunkworksza/www/blob/main/assets/learning/course-development.png?raw=true" alt="Course Development" class="icon">Course Development</a></li>
+                  <li><a href="./project-mentoring.html"><img src="https://github.com/skunkworksza/www/blob/main/assets/learning/project-mentoring.png?raw=true" alt="Project Mentoring" class="icon">Project Mentoring</a></li>
+                  <li><a href="./performance-support.html"><img src="https://github.com/skunkworksza/www/blob/main/assets/learning/performance-support.png?raw=true" alt="Performance Support Tools" class="icon">Performance Support Tools</a></li>
+                  <li><a href="./training-programs.html"><img src="https://github.com/skunkworksza/www/blob/main/assets/learning/training-programs.png?raw=true" alt="Training Programs" class="icon">Training Programs</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="#"><img src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/container--microservices.svg" alt="Services" class="icon">Services</a>
+              <ul>
+                  <li><a href="./software-development.html"><img src="https://github.com/skunkworksza/www/blob/main/assets/services/software-development.png?raw=true" alt="Software Development" class="icon">Software Development</a></li>
+                  <li><a href="./hardware-software.html"><img src="https://github.com/skunkworksza/www/blob/main/assets/services/hardware-software.png?raw=true" alt="Hardware and Software" class="icon">HW/SW Solutions</a></li>
+                  <li><a href="./managed-cloud.html"><img src="https://github.com/skunkworksza/www/blob/main/assets/services/managed-cloud.png?raw=true" alt="Managed Cloud Services" class="icon">Managed Cloud</a></li>
+                  <li><a href="./technical-support.html"><img src="https://github.com/skunkworksza/www/blob/main/assets/services/technical-support.png?raw=true" alt="Technical Support Services" class="icon">Technical Support</a></li>
+                  <li><a href="./placement-recruitment.html"><img src="https://github.com/skunkworksza/www/blob/main/assets/services/placement-recruitment.png?raw=true" alt="Placements" class="icon">Placements</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="#"><img src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/data--apis.svg" alt="Careers" class="icon">Careers</a>
+              <ul>
+                  <li><a href="./job-posting.html"><img src="https://github.com/skunkworksza/www/blob/main/assets/careers/job-posting.png?raw=true" alt="Job Posting" class="icon">Job Posting</a></li>
+                  <li><a href="./candidate-screening.html"><img src="https://github.com/skunkworksza/www/blob/main/assets/careers/candidate-screening.png?raw=true" alt="Candidate Screening" class="icon">Candidate Screening</a></li>
+                  <li><a href="./interviews.html"><img src="https://github.com/skunkworksza/www/blob/main/assets/careers/interviews.png?raw=true" alt="Interviews" class="icon">Interviews</a></li>
+                  <li><a href="./job-offers.html"><img src="https://github.com/skunkworksza/www/blob/main/assets/careers/job-offers.png?raw=true" alt="Job Offers" class="icon">Job Offers</a></li>
+                  <li><a href="./perosacademy/"><img src="https://github.com/skunkworksza/www/blob/main/assets/careers/peros-academy.png?raw=true" alt="Pero's Academy" class="icon">Pero's Academy</a></li>
+              </ul>
+          </li>
+          <li><a href="#contact"><img src="https://raw.githubusercontent.com/skunkworksza/www/b6c7c3e93995fd5c2a6c0979d90ead76d9ef98dd/assets/icons/email.svg" alt="Contact" class="icon">Contact</a></li>
+      </ul>
+  </nav>
+</header>
+
+
+
+
+    <div class="container">
+        <div class="main">
+            <h1>ISO9001 Implementation for Velocity Venture</h1>
+            <p>Successfully guided Velocity Venture through the ISO9001 certification process, resulting in enhanced quality control and operational efficiency.</p>
+        </div>
+        <div class="audit-report">
+            <h2>Project Overview</h2>
+            <p>The ISO9001 implementation project for Velocity Venture involved a comprehensive approach to establish and maintain a robust Quality Management System (QMS) that meets ISO9001 standards. The project included the following phases:</p>
+            <ul>
+                <li>Initial Assessment and Gap Analysis</li>
+                <li>Development and Documentation of QMS</li>
+                <li>Training and Implementation</li>
+                <li>Internal Audits and Continuous Improvement</li>
+                <li>Final Certification Audit</li>
+            </ul>
+            <h2>Initial Assessment and Gap Analysis</h2>
+            <p>During the initial assessment, a detailed gap analysis was conducted to identify areas where Velocity Venture's existing processes did not meet ISO9001 requirements. Key findings included:</p>
+            <ul>
+                <li>Inconsistent documentation and record-keeping</li>
+                <li>Lack of standardized processes</li>
+                <li>Insufficient training and competency tracking</li>
+                <li>Gaps in customer feedback mechanisms</li>
+            </ul>
+            <h2>Development and Documentation of QMS</h2>
+            <p>Based on the gap analysis, a comprehensive Quality Management System was developed, incorporating the following elements:</p>
+            <ul>
+                <li><strong>Quality Policy and Objectives:</strong> Defined clear quality policy and objectives aligned with the company's strategic goals.</li>
+                <li><strong>Standard Operating Procedures (SOPs):</strong> Developed detailed SOPs for all critical processes to ensure consistency and compliance.</li>
+                <li><strong>Document Control:</strong> Implemented a document control system to manage and maintain all QMS documentation.</li>
+                <li><strong>Training Programs:</strong> Established comprehensive training programs to ensure all employees are knowledgeable and competent in their roles.</li>
+                <li><strong>Customer Feedback:</strong> Set up mechanisms to regularly collect and analyze customer feedback to drive improvements.</li>
+            </ul>
+            <h2>Training and Implementation</h2>
+            <p>Training sessions were conducted for all employees to ensure they understood their roles and responsibilities within the new QMS. The implementation phase included:</p>
+            <ul>
+                <li>Conducting workshops and training sessions</li>
+                <li>Disseminating SOPs and documentation</li>
+                <li>Setting up monitoring and measurement systems</li>
+                <li>Ensuring compliance through regular reviews and updates</li>
+            </ul>
+            <h2>Internal Audits and Continuous Improvement</h2>
+            <p>Regular internal audits were conducted to ensure ongoing compliance and identify areas for improvement. Key areas of focus included:</p>
+            <ul>
+                <li>Process adherence and effectiveness</li>
+                <li>Employee competency and training effectiveness</li>
+                <li>Customer satisfaction and feedback management</li>
+                <li>Document control and record-keeping</li>
+            </ul>
+            <p>Continuous improvement initiatives were implemented based on audit findings, ensuring that Velocity Venture's QMS remained effective and efficient.</p>
+            <h2>Final Certification Audit</h2>
+            <p>The final certification audit was conducted by an external auditor, resulting in successful ISO9001 certification with no major non-conformities. Key outcomes included:</p>
+            <ul>
+                <li>Enhanced process consistency and efficiency</li>
+                <li>Improved customer satisfaction and engagement</li>
+                <li>Higher levels of employee competency and morale</li>
+                <li>Better document control and compliance</li>
+            </ul>
+        </div>
+        <div class="link">
+            <a href="https://github.skunkworks.africa/docs/iso9001-velocity-venture.html" target="_blank">View Project Details</a>
+        </div>
+    </div>
+    <footer>
+        <p>© 2024 Raydo Matthee. All Rights Reserved.</p>
+    </footer>
+<script src="./js/partnerSearchFilter.js"></script>
+<script src="./js/partnerFilter.js"></script>
+<script src="./js/mobileDropdown.js"></script>
+<script src="./js/main.js"></script>
+<script src="./js/include-header.js"></script>
+<script src="./js/gulpfile.js"></script>
+<script src="./js/formHandeler.js"></script>
+<script src="./js/combinedPartnerFilter.js"></script>
+</body>
+</html>
