@@ -23,6 +23,8 @@ const partners = [
     { name: "FireEye", logo: "https://upload.wikimedia.org/wikipedia/commons/5/55/FireEye_Logo.svg" },
     { name: "Kaspersky", logo: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Kaspersky_Lab_logo.svg" },
     { name: "Sophos", logo: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Sophos_logo.svg" },
+    { name: "Cyber Retaliator Solutions", logo: "https://github.com/skunkworksza/web/blob/main/assets/crs/cyber-retaliator-solutions-cyber-security-za-web.png?raw=true" },
+    
     
     // Hardware Vendors
     { name: "Dell", logo: "https://upload.wikimedia.org/wikipedia/commons/4/48/Dell_Logo.svg" },
