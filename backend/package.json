@@ -1,4 +1,31 @@
 {
+  "name": "skunkworks-web",
+  "version": "1.0.0",
+  "description": "Skunkworks Web Application",
+  "main": "scripts.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skunkworksza/web.git"
+  },
+  "keywords": [
+    "jekyll",
+    "skunkworks",
+    "web",
+    "education"
+  ],
+  "author": "Raydo Matthee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/skunkworksza/web/issues"
+  },
+  "homepage": "https://github.com/skunkworksza/web#readme",
   "dependencies": {
     "apt": "^0.0.2",
     "body-parser": "^1.20.2",
@@ -10,32 +37,5 @@
   },
   "devDependencies": {
     "jekyll": "^3.0.0-beta1"
-  },
-  "name": "skunkworks-academy",
-  "version": "1.0.0",
-  "description": "Skunkworks Academy Jekyll site",
-  "main": "scripts.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "scripts": {
-    "test": "echo \"No tests specified\" && exit 0",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/skunkworksza/skunkworks-academy.git"
-  },
-  "keywords": [
-    "jekyll",
-    "skunkworks",
-    "academy",
-    "education"
-  ],
-  "author": "Raydo Matthee",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/skunkworksza/skunkworks-academy/issues"
-  },
-  "homepage": "https://github.com/skunkworksza/skunkworks-academy#readme"
+  }
 }
