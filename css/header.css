@@ -1,18 +1,20 @@
-.storybook-header {
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+/* General Styles for Header */
+.header {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 15px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #fff;
 }
 
-.storybook-header svg {
+.header svg {
   display: inline-block;
   vertical-align: top;
 }
 
-.storybook-header h1 {
+.header h1 {
   font-weight: 700;
   font-size: 20px;
   line-height: 1;
@@ -21,12 +23,39 @@
   vertical-align: top;
 }
 
-.storybook-header button + button {
-  margin-left: 10px;
+.header .menu {
+  display: flex;
+  align-items: center;
 }
 
-.storybook-header .welcome {
+.header .menu li {
+  list-style: none;
+  margin-right: 20px;
+}
+
+.header .menu li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+.header .menu li a:hover {
+  text-decoration: underline;
+}
+
+.header .menu li img.icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.header .welcome {
   color: #333;
   font-size: 14px;
   margin-right: 10px;
+}
+
+.header .button-group button + button {
+  margin-left: 10px;
 }
