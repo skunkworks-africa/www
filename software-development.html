@@ -1,20 +1,73 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="./css/header.css" rel="stylesheet"/>
-<link href="./css/main.css" rel="stylesheet"/>
+<link href="https://unpkg.com/@carbon/styles/css/styles.css" rel="stylesheet"/>
 <link href="./css/footer.css" rel="stylesheet"/>
-<title>Software Development - Skunkworks</title>
-<link href="./css/sidebar.css" rel="stylesheet"/>
-<link href="./css/main.css" rel="stylesheet"/>
-<link href="./css/header.css" rel="stylesheet"/>
 <link href="./css/forms.css" rel="stylesheet"/>
-<link href="./css/footer.css" rel="stylesheet"/>
+<link href="./css/header.css" rel="stylesheet"/>
+<link href="./css/main.css" rel="stylesheet"/>
+<link href="./css/sidebar.css" rel="stylesheet"/>
+<title>Software Development - Skunkworks</title>
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #ffffff;
+        color: #000000;
+    }
+    .icon {
+        width: 20px;
+        height: auto;
+        vertical-align: middle;
+        margin-right: 8px;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    nav ul li {
+        display: inline-block;
+        margin-right: 15px;
+    }
+    nav ul li ul {
+        display: none;
+        position: absolute;
+        background-color: white;
+        padding: 10px;
+        list-style-type: none;
+        border: 1px solid #ccc;
+    }
+    nav ul li:hover ul {
+        display: block;
+    }
+    nav ul li ul li {
+        display: block;
+        margin: 5px 0;
+    }
+    .section {
+        padding: 2em;
+    }
+    h1, h2, h3 {
+        font-weight: bold;
+        margin-bottom: 0.5em;
+    }
+    p {
+        margin-bottom: 1em;
+    }
+    ul {
+        list-style-type: disc;
+        padding-left: 20px;
+    }
+    footer {
+        text-align: center;
+        padding: 2em 0;
+        background-color: #000000;
+        color: white;
+    }
+</style>
 </head>
-<body><!-- header.html -->&gt;
+<body>
 <header>
 <nav>
 <ul>
@@ -59,20 +112,116 @@
 <main>
 <section class="section">
 <h1>Software Development</h1>
-<p>Our experienced developers design and develop custom software solutions. Our services include web and mobile app development, software development, and application modernization.</p>
+<p>Our experienced developers design and develop custom software solutions. We specialize in web and mobile app development, software development, and application modernization. Our team is proficient in a wide range of programming languages and frameworks to meet your specific needs.</p>
+
 <h2>Services</h2>
 <ul>
-<li>Web development</li>
-<li>Mobile app development</li>
-<li>Custom software solutions</li>
-<li>Application modernization</li>
+<li>Web Development
+    <ul>
+        <li>Responsive web design</li>
+        <li>Progressive web applications (PWAs)</li>
+        <li>Content management systems (CMS)</li>
+    </ul>
+</li>
+<li>Mobile App Development
+    <ul>
+        <li>iOS and Android app development</li>
+        <li>Cross-platform app development</li>
+        <li>Mobile backend as a service (MBaaS)</li>
+    </ul>
+</li>
+<li>Custom Software Solutions
+    <ul>
+        <li>Enterprise software development</li>
+        <li>Custom APIs and integrations</li>
+        <li>Business process automation</li>
+    </ul>
+</li>
+<li>Application Modernization
+    <ul>
+        <li>Legacy system modernization</li>
+        <li>Cloud migration and optimization</li>
+        <li>Microservices architecture</li>
+    </ul>
+</li>
+<li>DevOps and CI/CD
+    <ul>
+        <li>Continuous integration and continuous deployment (CI/CD) pipelines</li>
+        <li>Infrastructure as code (IaC)</li>
+        <li>Automated testing and monitoring</li>
+    </ul>
+</li>
+<li>UI/UX Design
+    <ul>
+        <li>User interface (UI) design</li>
+        <li>User experience (UX) design</li>
+        <li>Prototyping and wireframing</li>
+    </ul>
+</li>
+<li>Data Analytics and AI
+    <ul>
+        <li>Big data processing</li>
+        <li>Machine learning and AI integration</li>
+        <li>Data visualization and reporting</li>
+    </ul>
+</li>
 </ul>
+
+<h2>Technologies We Use</h2>
+<p>Our team has expertise in a wide range of programming languages, frameworks, and tools, including but not limited to:</p>
+<ul>
+<li>Programming Languages
+    <ul>
+        <li>HTML, CSS, JavaScript</li>
+        <li>Python, Java, C#</li>
+        <li>Ruby, PHP, TypeScript</li>
+        <li>Swift, Kotlin</li>
+    </ul>
+</li>
+<li>Frameworks and Libraries
+    <ul>
+        <li>React, Angular, Vue.js</li>
+        <li>Django, Flask, Spring</li>
+        <li>ASP.NET, Ruby on Rails</li>
+        <li>Node.js, Express.js</li>
+    </ul>
+</li>
+<li>Mobile Development
+    <ul>
+        <li>React Native, Flutter</li>
+        <li>SwiftUI, Kotlin Multiplatform</li>
+    </ul>
+</li>
+<li>DevOps and CI/CD Tools
+    <ul>
+        <li>Jenkins, GitLab CI, CircleCI</li>
+        <li>Terraform, Ansible, Chef</li>
+        <li>Docker, Kubernetes</li>
+    </ul>
+</li>
+<li>Cloud Platforms
+    <ul>
+        <li>AWS, Azure, Google Cloud</li>
+        <li>Heroku, DigitalOcean</li>
+    </ul>
+</li>
+<li>Databases
+    <ul>
+        <li>MySQL, PostgreSQL, MongoDB</li>
+        <li>Redis, Elasticsearch</li>
+        <li>Firebase, SQLite</li>
+    </ul>
+</li>
+</ul>
+
 <h2>Benefits</h2>
 <ul>
 <li>Tailored solutions to meet specific business needs</li>
 <li>Enhanced user experience and engagement</li>
 <li>Scalable and maintainable code</li>
 <li>Seamless integration with existing systems</li>
+<li>Access to the latest technologies and best practices</li>
+<li>Comprehensive support and maintenance</li>
 </ul>
 </section>
 </main>
