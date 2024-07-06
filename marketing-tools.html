@@ -3,161 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Marketing Tools</title>
+    <title>Skunkworks Marketing Tools</title>
+    <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'IBM Plex Sans', sans-serif;
             background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            min-height: 100vh;
         }
         .container {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            width: 100%;
             text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        .category {
-            margin: 20px 0;
-        }
-        .category h2 {
-            background-color: #ff9900;
-            padding: 10px;
-            border-radius: 5px;
+        .section-title {
+            background-color: #3d70b2;
             color: #fff;
-            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
         }
-        .buttons {
+        .tool-section {
+            margin-bottom: 30px;
+        }
+        .tool-section h2 {
+            margin-bottom: 20px;
+        }
+        .tool-list {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-around;
         }
-        .button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        .button:hover {
-            transform: scale(1.1);
+        .tool-item {
+            width: 45%;
+            margin-bottom: 20px;
         }
         .button a {
             color: #fff;
             text-decoration: none;
+        }
+        .bx--btn {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 768px) {
+            .tool-item {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>50+ FREE Top Marketing Tools</h1>
-    <div class="category">
-        <h2>Content Ideas</h2>
-        <div class="buttons">
-            <div class="button"><a href="https://answerthepublic.com">Answer the public</a></div>
-            <div class="button"><a href="https://twemax.com">Twemax - X</a></div>
-            <div class="button"><a href="https://linkedin.com">Kleo - LinkedIn</a></div>
-            <div class="button"><a href="https://www.tiktok.com/search">TikTok Search</a></div>
-            <div class="button"><a href="https://reddit.com">Reddit</a></div>
+    <h1 class="section-title">50+ FREE Top Marketing Tools</h1>
+
+    <div class="tool-section">
+        <h2 class="section-title">Content Ideas</h2>
+        <div class="tool-list">
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://answerthepublic.com" target="_blank">Answer the Public</a></button></div>
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://twemax.com" target="_blank">Twemax - X</a></button></div>
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://linkedin.com" target="_blank">Kleo - LinkedIn</a></button></div>
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://www.tiktok.com/search" target="_blank">TikTok Search</a></button></div>
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://reddit.com" target="_blank">Reddit</a></button></div>
         </div>
     </div>
-    <div class="category">
-        <h2>CRM</h2>
-        <div class="buttons">
-            <div class="button"><a href="https://folk.app">Folk</a></div>
-            <div class="button"><a href="https://mailchimp.com">Mailchimp</a></div>
+
+    <div class="tool-section">
+        <h2 class="section-title">CRM</h2>
+        <div class="tool-list">
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://folk.app" target="_blank">Folk</a></button></div>
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://mailchimp.com" target="_blank">Mailchimp</a></button></div>
         </div>
     </div>
-    <div class="category">
-        <h2>Invoicing</h2>
-        <div class="buttons">
-            <div class="button"><a href="https://stripe.com">Stripe</a></div>
-            <div class="button"><a href="https://paypal.com">Paypal</a></div>
+
+    <div class="tool-section">
+        <h2 class="section-title">Invoicing</h2>
+        <div class="tool-list">
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://stripe.com" target="_blank">Stripe</a></button></div>
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://paypal.com" target="_blank">Paypal</a></button></div>
         </div>
     </div>
-    <div class="category">
-        <h2>Content Creation</h2>
-        <div class="buttons">
-            <div class="button"><a href="https://canva.com">Canva</a></div>
-            <div class="button"><a href="https://capcut.com">Capcut</a></div>
-            <div class="button"><a href="https://unsplash.com">Unsplash</a></div>
-            <div class="button"><a href="https://photopea.com">Photopea</a></div>
-            <div class="button"><a href="https://pablo.buffer.com">Pablo</a></div>
+
+    <div class="tool-section">
+        <h2 class="section-title">Analytics</h2>
+        <div class="tool-list">
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://google.com/analytics" target="_blank">Google Analytics</a></button></div>
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://hotjar.com" target="_blank">Hotjar</a></button></div>
         </div>
     </div>
-    <div class="category">
-        <h2>Copywriting</h2>
-        <div class="buttons">
-            <div class="button"><a href="https://copy.ai">Copy.ai</a></div>
-            <div class="button"><a href="https://jasper.ai">Jasper.ai</a></div>
-            <div class="button"><a href="https://scribehow.com">Scribe</a></div>
-            <div class="button"><a href="https://authoredup.com">AuthoredUp</a></div>
-            <div class="button"><a href="https://claude.ai">Claude</a></div>
+
+    <div class="tool-section">
+        <h2 class="section-title">SEO Tools</h2>
+        <div class="tool-list">
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://ahrefs.com" target="_blank">Ahrefs</a></button></div>
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://moz.com" target="_blank">Moz</a></button></div>
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://semrush.com" target="_blank">SEMrush</a></button></div>
         </div>
     </div>
-    <div class="category">
-        <h2>Emailing</h2>
-        <div class="buttons">
-            <div class="button"><a href="https://mailchimp.com">Mailchimp</a></div>
-            <div class="button"><a href="https://beehiv.com">Beehiv</a></div>
-            <div class="button"><a href="https://hubspot.com">HubSpot</a></div>
-            <div class="button"><a href="https://klaviyo.com">Klaviyo</a></div>
-            <div class="button"><a href="https://mailerlite.com">Mailer Lite</a></div>
+
+    <div class="tool-section">
+        <h2 class="section-title">Graphic Design</h2>
+        <div class="tool-list">
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://canva.com" target="_blank">Canva</a></button></div>
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://crello.com" target="_blank">Crello</a></button></div>
         </div>
     </div>
-    <div class="category">
-        <h2>Blogs</h2>
-        <div class="buttons">
-            <div class="button"><a href="https://heyorca.com">HeyOrca</a></div>
-            <div class="button"><a href="https://later.com">Later</a></div>
-            <div class="button"><a href="https://moz.com">Moz</a></div>
-            <div class="button"><a href="https://buffer.com">Buffer</a></div>
-            <div class="button"><a href="https://hootsuite.com">Hootsuite</a></div>
-        </div>
-    </div>
-    <div class="category">
-        <h2>SEO</h2>
-        <div class="buttons">
-            <div class="button"><a href="https://ahrefs.com">Ahrefs</a></div>
-            <div class="button"><a href="https://semrush.com">SEMRush</a></div>
-            <div class="button"><a href="https://aiprm.com">AIPRM</a></div>
-            <div class="button"><a href="https://surferseo.com">Surfer SEO</a></div>
-            <div class="button"><a href="https://alsoasked.com">Also Asked</a></div>
-        </div>
-    </div>
-    <div class="category">
-        <h2>Image Gen</h2>
-        <div class="buttons">
-            <div class="button"><a href="https://openai.com/dall-e-3">DALLE-3</a></div>
-            <div class="button"><a href="https://adobe.com/sensei/generative-ai/firefly.html">Adobe firefly</a></div>
-        </div>
-    </div>
-    <div class="category">
-        <h2>Analytics</h2>
-        <div class="buttons">
-            <div class="button"><a href="https://socialblade.com">Social blade</a></div>
-            <div class="button"><a href="https://trends.google.com">Google Trends</a></div>
-        </div>
-    </div>
-    <div class="category">
-        <h2>Project Mgmt</h2>
-        <div class="buttons">
-            <div class="button"><a href="https://slack.com">Slack</a></div>
-            <div class="button"><a href="https://trello.com">Trello</a></div>
-            <div class="button"><a href="https://notion.so">Notion</a></div>
-            <div class="button"><a href="https://asana.com">Asana</a></div>
-            <div class="button"><a href="https://clickup.com">ClickUp</a></div>
+
+    <div class="tool-section">
+        <h2 class="section-title">Email Marketing</h2>
+        <div class="tool-list">
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://sendinblue.com" target="_blank">Sendinblue</a></button></div>
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://convertkit.com" target="_blank">ConvertKit</a></button></div>
         </div>
     </div>
 </div>
+
+<script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+<script>
+    carbonComponents.settings.prefix = 'bx';
+</script>
 
 </body>
 </html>
