@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: 'IBM Plex Sans', sans-serif;
-            background-color: #f9f9f9; /* Very light gray background */
+            background-color: #fff; /* White background */
             margin: 0;
             padding: 20px;
             display: flex;
@@ -67,9 +67,18 @@
             align-items: center;
             justify-content: center;
             transition: transform 0.3s;
+            background-color: #f9f9f9; /* Light gray background for tool items */
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         .tool-item:hover {
             transform: scale(1.05);
+        }
+        .tool-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
         }
         .button a {
             color: #fff;
@@ -101,76 +110,186 @@
     <div class="tool-section">
         <h2 class="section-title">Content Ideas</h2>
         <div class="tool-list">
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://answerthepublic.com" target="_blank">Answer the Public</a></button></div>
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://twemax.com" target="_blank">Twemax - X</a></button></div>
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://linkedin.com" target="_blank">Kleo - LinkedIn</a></button></div>
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://www.tiktok.com/search" target="_blank">TikTok Search</a></button></div>
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://reddit.com" target="_blank">Reddit</a></button></div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/education.svg" class="tool-icon" alt="Education Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://answerthepublic.com" target="_blank">Answer the Public</a>
+                </button>
+            </div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/gamification.svg" class="tool-icon" alt="Gamification Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://twemax.com" target="_blank">Twemax - X</a>
+                </button>
+            </div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/ibm-watson--knowledge-catalog.svg" class="tool-icon" alt="LinkedIn Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://linkedin.com" target="_blank">Kleo - LinkedIn</a>
+                </button>
+            </div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/screen.svg" class="tool-icon" alt="Screen Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://www.tiktok.com/search" target="_blank">TikTok Search</a>
+                </button>
+            </div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/white-paper.svg" class="tool-icon" alt="White Paper Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://reddit.com" target="_blank">Reddit</a>
+                </button>
+            </div>
         </div>
     </div>
 
     <div class="tool-section">
         <h2 class="section-title">CRM</h2>
         <div class="tool-list">
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://folk.app" target="_blank">Folk</a></button></div>
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://mailchimp.com" target="_blank">Mailchimp</a></button></div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/ibm-cloud--for-education.svg" class="tool-icon" alt="IBM Cloud Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://folk.app" target="_blank">Folk</a>
+                </button>
+            </div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/gamification.svg" class="tool-icon" alt="Mailchimp Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://mailchimp.com" target="_blank">Mailchimp</a>
+                </button>
+            </div>
         </div>
     </div>
 
     <div class="tool-section">
         <h2 class="section-title">Invoicing</h2>
         <div class="tool-list">
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://stripe.com" target="_blank">Stripe</a></button></div>
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://paypal.com" target="_blank">Paypal</a></button></div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/white-paper.svg" class="tool-icon" alt="Stripe Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://stripe.com" target="_blank">Stripe</a>
+                </button>
+            </div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/screen.svg" class="tool-icon" alt="PayPal Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://paypal.com" target="_blank">Paypal</a>
+                </button>
+            </div>
         </div>
     </div>
 
     <div class="tool-section">
         <h2 class="section-title">Analytics</h2>
         <div class="tool-list">
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://google.com/analytics" target="_blank">Google Analytics</a></button></div>
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://hotjar.com" target="_blank">Hotjar</a></button></div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/education.svg" class="tool-icon" alt="Google Analytics Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://google.com/analytics" target="_blank">Google Analytics</a>
+                </button>
+            </div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/ibm-watson--knowledge-catalog.svg" class="tool-icon" alt="Hotjar Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://hotjar.com" target="_blank">Hotjar</a>
+                </button>
+            </div>
         </div>
     </div>
 
     <div class="tool-section">
         <h2 class="section-title">SEO Tools</h2>
         <div class="tool-list">
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://ahrefs.com" target="_blank">Ahrefs</a></button></div>
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://moz.com" target="_blank">Moz</a></button></div>
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://semrush.com" target="_blank">SEMrush</a></button></div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/gamification.svg" class="tool-icon" alt="Ahrefs Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://ahrefs.com" target="_blank">Ahrefs</a>
+                </button>
+            </div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/screen.svg" class="tool-icon" alt="Moz Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://moz.com" target="_blank">Moz</a>
+                </button>
+            </div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/white-paper.svg" class="tool-icon" alt="SEMrush Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://semrush.com" target="_blank">SEMrush</a>
+                </button>
+            </div>
         </div>
     </div>
     
     <div class="tool-section">
         <h2 class="section-title">Graphic Design</h2>
         <div class="tool-list">
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://canva.com" target="_blank">Canva</a></button></div>
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://crello.com" target="_blank">Crello</a></button></div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/education.svg" class="tool-icon" alt="Canva Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://canva.com" target="_blank">Canva</a>
+                </button>
+            </div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/ibm-watson--knowledge-catalog.svg" class="tool-icon" alt="Crello Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://crello.com" target="_blank">Crello</a>
+                </button>
+            </div>
         </div>
     </div>
 
     <div class="tool-section">
         <h2 class="section-title">Email Marketing</h2>
         <div class="tool-list">
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://sendinblue.com" target="_blank">Sendinblue</a></button></div>
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://convertkit.com" target="_blank">ConvertKit</a></button></div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/screen.svg" class="tool-icon" alt="Sendinblue Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://sendinblue.com" target="_blank">Sendinblue</a>
+                </button>
+            </div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/white-paper.svg" class="tool-icon" alt="ConvertKit Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://convertkit.com" target="_blank">ConvertKit</a>
+                </button>
+            </div>
         </div>
     </div>
 
     <div class="tool-section">
         <h2 class="section-title">Social Media Management</h2>
         <div class="tool-list">
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://hootsuite.com" target="_blank">Hootsuite</a></button></div>
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://buffer.com" target="_blank">Buffer</a></button></div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/education.svg" class="tool-icon" alt="Hootsuite Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://hootsuite.com" target="_blank">Hootsuite</a>
+                </button>
+            </div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/ibm-watson--knowledge-catalog.svg" class="tool-icon" alt="Buffer Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://buffer.com" target="_blank">Buffer</a>
+                </button>
+            </div>
         </div>
     </div>
 
     <div class="tool-section">
         <h2 class="section-title">Content Management</h2>
         <div class="tool-list">
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://wordpress.com" target="_blank">WordPress</a></button></div>
-            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://medium.com" target="_blank">Medium</a></button></div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/screen.svg" class="tool-icon" alt="WordPress Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://wordpress.com" target="_blank">WordPress</a>
+                </button>
+            </div>
+            <div class="tool-item">
+                <img src="https://github.com/skunkworksza/web/blob/main/assets/icons/white-paper.svg" class="tool-icon" alt="Medium Icon">
+                <button class="bx--btn bx--btn--primary">
+                    <a href="https://medium.com" target="_blank">Medium</a>
+                </button>
+            </div>
         </div>
     </div>
 </div>
