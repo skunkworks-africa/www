@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: 'IBM Plex Sans', sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f0f8ff; /* Alice blue background */
             margin: 0;
             padding: 20px;
             display: flex;
@@ -26,7 +26,7 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .section-title {
-            background-color: #3d70b2;
+            background-color: #0066cc; /* Lighter blue */
             color: #fff;
             padding: 15px;
             border-radius: 5px;
@@ -37,6 +37,7 @@
         }
         .tool-section h2 {
             margin-bottom: 20px;
+            color: #0066cc; /* Lighter blue */
         }
         .tool-list {
             display: flex;
@@ -46,6 +47,13 @@
         .tool-item {
             width: 45%;
             margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+        .tool-item:hover {
+            transform: scale(1.05);
         }
         .button a {
             color: #fff;
@@ -54,6 +62,10 @@
         .bx--btn {
             width: 100%;
             margin-bottom: 10px;
+            background-color: #0066cc; /* Lighter blue */
+        }
+        .bx--btn:hover {
+            background-color: #005bb5; /* Slightly darker blue */
         }
         @media (max-width: 768px) {
             .tool-item {
@@ -110,7 +122,7 @@
             <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://semrush.com" target="_blank">SEMrush</a></button></div>
         </div>
     </div>
-
+    
     <div class="tool-section">
         <h2 class="section-title">Graphic Design</h2>
         <div class="tool-list">
@@ -124,6 +136,22 @@
         <div class="tool-list">
             <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://sendinblue.com" target="_blank">Sendinblue</a></button></div>
             <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://convertkit.com" target="_blank">ConvertKit</a></button></div>
+        </div>
+    </div>
+
+    <div class="tool-section">
+        <h2 class="section-title">Social Media Management</h2>
+        <div class="tool-list">
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://hootsuite.com" target="_blank">Hootsuite</a></button></div>
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://buffer.com" target="_blank">Buffer</a></button></div>
+        </div>
+    </div>
+
+    <div class="tool-section">
+        <h2 class="section-title">Content Management</h2>
+        <div class="tool-list">
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://wordpress.com" target="_blank">WordPress</a></button></div>
+            <div class="tool-item"><button class="bx--btn bx--btn--primary"><a href="https://medium.com" target="_blank">Medium</a></button></div>
         </div>
     </div>
 </div>
