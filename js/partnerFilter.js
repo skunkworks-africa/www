@@ -255,4 +255,3 @@ function initializePartners() {
 
 // Initialize partners on page load
 document.addEventListener('DOMContentLoaded', initializePartners);
-
