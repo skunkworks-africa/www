@@ -25,7 +25,6 @@ const partners = [
     { name: "Sophos", logo: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Sophos_logo.svg" },
     { name: "Cyber Retaliator Solutions", logo: "https://github.com/skunkworksza/web/blob/main/assets/crs/cyber-retaliator-solutions-cyber-security-za-web.png?raw=true" },
     
-    
     // Hardware Vendors
     { name: "Dell", logo: "https://upload.wikimedia.org/wikipedia/commons/4/48/Dell_Logo.svg" },
     { name: "HP (Hewlett-Packard)", logo: "https://upload.wikimedia.org/wikipedia/commons/5/5a/HP_logo_2012.svg" },
@@ -50,10 +49,6 @@ const partners = [
     { name: "Tableau", logo: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Tableau_Logo.svg" },
     
     // Networking Vendors
-    { name: "Cisco", logo: "https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg" },
-    { name: "Juniper Networks", logo: "https://upload.wikimedia.org/wikipedia/commons/7/79/Juniper_Networks_logo.svg" },
-    { name: "Arista Networks", logo: "https://upload.wikimedia.org/wikipedia/commons/7/79/Arista_Networks_logo.svg" },
-    { name: "Ubiquiti Networks", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Ubiquiti_Networks_logo.svg" },
     { name: "Extreme Networks", logo: "https://upload.wikimedia.org/wikipedia/commons/0/09/Extreme_Networks_logo.svg" },
     { name: "Netgear", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Netgear_logo.svg" },
     { name: "TP-Link", logo: "https://upload.wikimedia.org/wikipedia/commons/5/55/TP-Link_logo_2016.svg" },
@@ -93,7 +88,6 @@ const partners = [
     // Collaboration and Communication Tools
     { name: "Zoom", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2d/Zoom_Communications_Logo.png" },
     { name: "Microsoft Teams", logo: "https://upload.wikimedia.org/wikipedia/commons/4/48/Microsoft_Teams-Logo.svg" },
-    { name: "Slack", logo: "https://upload.wikimedia.org/wikipedia/commons/7/76/Slack_Icon.png" },
     { name: "Cisco Webex", logo: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Webex-logo.png" },
     { name: "Google Meet", logo: "https://upload.wikimedia.org/wikipedia/commons/9/92/Google_Meet_Logo.png" },
     { name: "BlueJeans", logo: "https://upload.wikimedia.org/wikipedia/commons/6/6f/BlueJeans_Network_Logo.png" },
@@ -143,7 +137,6 @@ const partners = [
     { name: "Eclipse Foundation", logo: "https://upload.wikimedia.org/wikipedia/commons/9/94/Eclipse_Logo.svg" },
     { name: "Microsoft Visual Studio", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a1/Visual_Studio_Icon_2022.svg" },
     { name: "GitHub", logo: "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" },
-    { name: "GitLab", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e1/GitLab_logo.svg" },
     { name: "Bitbucket", logo: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Bitbucket-logo.png" },
     { name: "Postman", logo: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Postman-logo.png" },
     
@@ -156,11 +149,9 @@ const partners = [
     { name: "SAP Commerce Cloud", logo: "https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" },
     
     // Customer Relationship Management (CRM)
-    { name: "Salesforce", logo: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Salesforce.com_logo.svg" },
     { name: "Microsoft Dynamics 365", logo: "https://upload.wikimedia.org/wikipedia/commons/4/48/Microsoft_Dynamics_365_logo.svg" },
     { name: "HubSpot", logo: "https://upload.wikimedia.org/wikipedia/commons/5/57/HubSpot_Logo.png" },
     { name: "Zoho CRM", logo: "https://upload.wikimedia.org/wikipedia/commons/2/27/Zoho_Logo.svg" },
-    { name: "Oracle CRM", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Oracle_Logo_Red_600x180.png" },
     { name: "SAP CRM", logo: "https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" },
     { name: "Pipedrive", logo: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Pipedrive_Logo.png" },
     
@@ -183,7 +174,6 @@ const partners = [
     { name: "Klarna", logo: "https://upload.wikimedia.org/wikipedia/commons/6/69/Klarna_Logo.svg" },
     
     // Virtualization
-    { name: "VMware", logo: "https://upload.wikimedia.org/wikipedia/commons/5/5e/VMware_logo.svg" },
     { name: "Microsoft Hyper-V", logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Microsoft_Hyper-V_Logo.png" },
     { name: "Oracle VM", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Oracle_Logo_Red_600x180.png" },
     { name: "Citrix", logo: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Citrix_Logo.svg" },
@@ -206,9 +196,31 @@ const partners = [
     // Other Potential Partners
     { name: "Red Hat", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Red_Hat_logo.svg" },
     { name: "Broadcom", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Broadcom_Logo.svg" },
-    { name: "ServiceNow", logo: "https://upload.wikimedia.org/wikipedia/commons/1/19/ServiceNow_logo.svg" },
     { name: "ZScaler", logo: "https://upload.wikimedia.org/wikipedia/commons/1/14/Zscaler_Logo.svg" },
     { name: "Proofpoint", logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Proofpoint_logo.svg" }
+];
+
+// Define an array of partners with their categories and image URLs
+const partners = [
+    { name: "Amazon Web Services (AWS)", logo: "https://d1.awsstatic.com/r2023/images/logos/aws_logo_smile_1200x630.png" },
+    { name: "Microsoft Azure", logo: "https://azurecomcdn.azureedge.net/cvt-9b5d4e8de7a0dfb2bcd1588c91ba648ecee223bfae3e7c3ff7d3b7697ebd4edb/images/page/home/header/logo-azure.svg" },
+    { name: "Google Cloud Platform (GCP)", logo: "https://cloud.google.com/images/social-icon-google-cloud-1200-630.png" },
+    { name: "IBM Cloud", logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/IBM_Cloud_logo.png" },
+    { name: "Oracle Cloud", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Oracle_Logo_Red_600x180.png" },
+    { name: "DigitalOcean", logo: "https://upload.wikimedia.org/wikipedia/commons/f/ff/DigitalOcean_logo.png" },
+    { name: "McAfee", logo: "https://upload.wikimedia.org/wikipedia/commons/3/3b/McAfee_logo.svg" },
+    { name: "Symantec", logo: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Symantec_logo.svg" },
+    { name: "Fortinet", logo: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Fortinet_logo.svg" },
+    { name: "Palo Alto Networks", logo: "https://upload.wikimedia.org/wikipedia/commons/1/10/Palo_Alto_Networks_Logo.png" },
+    // Add more partners here
+];
+
+const importantPartners = [
+    "Amazon Web Services (AWS)",
+    "Microsoft Azure",
+    "Google Cloud Platform (GCP)",
+    "IBM Cloud",
+    "Oracle Cloud"
 ];
 
 // Function to filter partners based on search input
@@ -232,9 +244,11 @@ function initializePartners() {
     partnersList.innerHTML = '';
 
     partners.forEach(partner => {
+        const isImportant = importantPartners.includes(partner.name);
         const partnerItem = document.createElement('div');
         partnerItem.className = 'partner-item';
-        partnerItem.innerHTML = `<img src="${partner.logo}" alt="${partner.name} Logo"><p>${partner.name}</p>`;
+        partnerItem.style.display = isImportant ? 'block' : 'none';
+        partnerItem.innerHTML = `<img src="${partner.logo}" alt="${partner.name} Logo" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Placeholder_Icon.svg/2048px-Placeholder_Icon.svg.png';"><p>${partner.name}</p>`;
         partnersList.appendChild(partnerItem);
     });
 }
