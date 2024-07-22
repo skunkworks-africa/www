@@ -39,6 +39,7 @@
 <link href="./css/styles.css" rel="stylesheet"/>
 <link href="./css/styles.min.css" rel="stylesheet"/>
 <link href="./css/tocbot.css" rel="stylesheet"/>
+<link href="./css/achievements.css" rel="stylesheet"/> <!-- Add this line -->
 <link href="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" rel="icon" type="image/png"/>
 <title>Welcome to Skunkworks: Innovative Technology and Education Solutions</title>
 <style>
@@ -473,19 +474,19 @@
 <div class="grid-container">
 <a href="./instructors.html">
 <div>
-<img alt="Instructors" class="service-icon" src="https://iconarchive.com/download/i86082/oxygen-icons.org/oxygen/Places-group.ico"/>
-<h3>+80 Instructors & Experts</h3>
+<Resources aria-label="Instructors" className="achievement-icon" />
+<h3>+100 Instructors & Experts</h3>
 </div>
 </a>
 <a href="./partnerships.html">
 <div>
-<img alt="Partnerships" class="service-icon" src="https://www.flaticon.com/svg/static/icons/svg/626/626271.svg"/>
+<GlobalPartner aria-label="Partnerships" className="achievement-icon" />
 <h3>+40 Strategic Partnerships</h3>
 </div>
 </a>
 <a href="./courses.html">
 <div>
-<img alt="Courses" class="service-icon" src="https://www.flaticon.com/svg/static/icons/svg/1826/1826284.svg"/>
+<Badge aria-label="Courses" className="achievement-icon" />
 <h3>+1000 Courses Offered</h3>
 </div>
 </a>
@@ -556,5 +557,18 @@
 <script src="./js/gulpfile.js"></script>
 <script src="./js/formHandeler.js"></script>
 <script src="./js/combinedPartnerFilter.js"></script>
+<script type="module">
+import { Resources, GlobalPartner, Badge } from '@carbon/pictograms-react';
+
+document.querySelectorAll('.achievement-icon').forEach(icon => {
+  if (icon.getAttribute('aria-label') === 'Instructors') {
+    ReactDOM.render(<Resources />, icon);
+  } else if (icon.getAttribute('aria-label') === 'Partnerships') {
+    ReactDOM.render(<GlobalPartner />, icon);
+  } else if (icon.getAttribute('aria-label') === 'Courses') {
+    ReactDOM.render(<Badge />, icon);
+  }
+});
+</script>
 </body>
 </html>
