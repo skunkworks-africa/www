@@ -11,7 +11,7 @@
     "type": "git",
     "url": "https://github.com/skunkworksza/web.git"
   },
-  "author": "Your Name",
+  "author": "burnt-exe, Skunkworks (Pty) Ltd",
   "license": "MIT",
   "dependencies": {
     "node-fetch": "^2.6.1",
