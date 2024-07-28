@@ -137,4 +137,8 @@ footer {
     color: #ffffff !important;
     width: 200px;
     height: 32px;
-    border-radius: 
+    border-radius: 16px;
+    background-color: #0A66C2;
+    font-family: "SF Pro Text", Helvetica, sans-serif;
+    margin-top: 20px;
+}
