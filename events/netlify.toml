@@ -1,6 +1,6 @@
 [build]
-  base = "/"
-  publish = "/"
+  base = "events/"
+  publish = "events/"
   functions = "events/netlify/functions"
 
 [build.environment]
