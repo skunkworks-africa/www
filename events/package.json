@@ -1,7 +1,7 @@
 {
-  "name": "web",
+  "name": "web-events",
   "version": "1.0.0",
-  "description": "A description of your project",
+  "description": "Event handling for Skunkworks",
   "main": "index.js",
   "scripts": {
     "build": "echo 'No build step required'",
