@@ -1,7 +1,7 @@
 [build]
   base = "/"
   publish = "/"
-  functions = "netlify/functions"
+  functions = "events/Netlify/functions"
 
 [build.environment]
   NODE_VERSION = "18.20.4"
