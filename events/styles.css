@@ -114,28 +114,6 @@ footer {
     border: none;
     cursor: pointer;
     width: 100%;
-    margin-bottom:10px;
-    opacity: 0.8;
-}
-
-.form-container .cancel {
-    background-color: red;
-}
-
-.form-container .btn:hover, .open-button:hover {
-    opacity: 1;
-}
-
-outline: none;
-}
-
-.form-container .btn {
-    background-color: #04AA6D;
-    color: white;
-    padding: 16px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
     margin-bottom: 10px;
     opacity: 0.8;
 }
@@ -146,4 +124,21 @@ outline: none;
 
 .form-container .btn:hover, .open-button:hover {
     opacity: 1;
+}
+
+.libutton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 7px;
+    text-align: center;
+    outline: none;
+    text-decoration: none !important;
+    color: #ffffff !important;
+    width: 200px;
+    height: 32px;
+    border-radius: 16px;
+    background-color: #0A66C2;
+    font-family: "SF Pro Text", Helvetica, sans-serif;
+    margin-top: 20px;
 }
