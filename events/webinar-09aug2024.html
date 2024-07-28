@@ -18,12 +18,13 @@
     </header>
     <main>
         <section class="webinar-details">
-            <h2>Webinar: Harnessing Technology for Business Growth</h2>
-            <img src="https://github.com/skunkworksza/Media/blob/main/events-page.png?raw=true" alt="Webinar Banner">
-            <p><strong>Date:</strong> August 10, 2024</p>
-            <p><strong>Time:</strong> 3:00 PM SAST</p>
-            <p>Join us for an insightful webinar on how to harness technology to drive business growth. Learn from industry experts and gain practical knowledge to apply in your organization.</p>
-            <a href="https://skunkworks.africa/events" class="cta-button">Register Now</a>
+            <div class="webinar-content">
+                <h2>Webinar: Harnessing Technology for Business Growth</h2>
+                <p><strong>Date:</strong> August 10, 2024</p>
+                <p><strong>Time:</strong> 3:00 PM SAST</p>
+                <p>Join us for an insightful webinar on how to harness technology to drive business growth. Learn from industry experts and gain practical knowledge to apply in your organization.</p>
+                <button onclick="openForm()" class="cta-button">Register Now</button>
+            </div>
         </section>
     </main>
     <footer>
@@ -33,5 +34,28 @@
             <a href="https://twitter.com/skunkworks"><img src="twitter-icon.png" alt="Twitter"></a>
         </div>
     </footer>
+    <div class="form-popup" id="registrationForm">
+        <form action="send-email.php" method="post" class="form-container">
+            <h2>Register for the Webinar</h2>
+
+            <label for="name"><b>Name</b></label>
+            <input type="text" placeholder="Enter Name" name="name" required>
+
+            <label for="email"><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" name="email" required>
+
+            <button type="submit" class="btn">Register</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+    <script>
+        function openForm() {
+            document.getElementById("registrationForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("registrationForm").style.display = "none";
+        }
+    </script>
 </body>
 </html>
