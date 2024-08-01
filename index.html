@@ -108,13 +108,64 @@
             padding: 20px;
             margin: 20px 0;
         }
-        .welcome-section {
-            background-color: #000000;
-            text-align: center;
-            color: #000000;
-            padding: 20px;
-            box-shadow: none;
-        }
+        .welcome-title {
+    color: #fff; /* White color */
+    margin-bottom: 20px; /* Adds spacing after the title */
+}
+
+.welcome-subtitle {
+    color: #fff; /* White color for the subtitle */
+}
+.welcome-section-content {
+    background-color: #000; /* Black background for contrast */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px; /* Increased padding for more spacing */
+    border: 2px solid #fff; /* White border for emphasis */
+    border-radius: 10px;
+    text-align: center; /* Center-align the text */
+    color: #fff; /* White text color */
+}
+
+.welcome-heading {
+    font-size: 1.8em; /* Larger font size for the heading */
+    margin-bottom: 25px; /* Spacing after heading */
+    color: #fff;
+}
+
+.intro-text {
+    font-size: 1.2em; /* Slightly larger intro text */
+    margin-bottom: 15px; /* Spacing after intro text */
+    color: #ddd;
+}
+
+.body-text {
+    margin-bottom: 20px; /* Consistent spacing after paragraphs */
+    line-height: 1.6; /* Improved line spacing for readability */
+    color: #ccc;
+}
+
+.contact-text {
+    font-weight: bold; /* Make contact info stand out */
+    margin-bottom: 30px; /* Extra spacing before the button */
+    color: #fff;
+}
+
+.cta-button {
+    background-color: #007bff; /* Primary color for the button */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: translateY(-2px); /* Subtle lift effect on hover */
+}
         .welcome-section-content {
             background-color: #000000;
             max-width: 800px;
@@ -274,28 +325,29 @@
         </nav>
     </header><br>
 
-    <section class="welcome-section">
-        <div class="hero-section">
-            <div>
-                <br>
-                <h1>Welcome to Skunkworks</h1><br>
-                <p>Innovative Technology, Education Solutions, and Placement Services for Tomorrow's Businesses.</p>
-                <br>
-            </div>
-
-            <div class="welcome-section-content">
-                <h1>Innovative Technology, Education Solutions, and Placement Services for Tomorrow's Businesses.</h1>
-                <br>
-
-                <p>Dear Visitor,</p>
-                <p>I'm Raydo Matthee, and I'm thrilled to welcome you to Skunkworks, where the intersection of education and technology is our passion and our purpose.</p>
-                <p>As the CEO of Skunkworks, I proudly wear multiple hats, overseeing all aspects of our business operations. From guiding our technological direction to managing financial planning and reporting, my mission is to provide a clear vision for our team, ensuring effective resource utilization, and keeping all our teams aligned with our mission.</p>
-                <p>Contact: <a href="mailto:info@skunkworks.africa">info@skunkworks.africa</a></p><br>
-                <button class="cta-button">Learn More</button>
-
-            </div>
+<section class="welcome-section">
+    <div class="hero-section">
+        <div>
+            <h1 class="welcome-title">Welcome to Skunkworks</h1>
+            <p class="welcome-subtitle">Innovative Technology, Education Solutions, and Placement Services for Tomorrow's Businesses.</p>
         </div>
-    </section>
+    </div>
+</section>
+
+<section class="welcome-section">
+    <div class="hero-section">
+        <div class="welcome-section-content">
+            <h1 class="welcome-heading">Innovative Technology, Education Solutions, and Placement Services for Tomorrow's Businesses.</h1>
+
+            <p class="intro-text">Dear Visitor,</p>
+            <p class="body-text">I'm Raydo Matthee, and I'm thrilled to welcome you to Skunkworks, where the intersection of education and technology is our passion and our purpose.</p>
+            <p class="body-text">As the CEO of Skunkworks, I proudly wear multiple hats, overseeing all aspects of our business operations. From guiding our technological direction to managing financial planning and reporting, my mission is to provide a clear vision for our team, ensuring effective resource utilization, and keeping all our teams aligned with our mission.</p>
+            <p class="contact-text">Contact: <a href="mailto:info@skunkworks.africa">info@skunkworks.africa</a></p>
+            <button class="cta-button">Learn More</button>
+        </div>
+    </div>
+</section>
+
 
     <section class="section" id="services">
         <h1>Custom Learning Solutions</h1>
