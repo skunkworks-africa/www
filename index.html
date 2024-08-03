@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="Innovative Technology, Education Solutions, and Placement Services for Tomorrow's Businesses." />
+    <meta name="keywords" content="Technology, Education, Placement Services, Cloud Services, Software Development" />
+    <meta name="author" content="Skunkworks" />
+
+    <!-- Carbon Design System CSS -->
+    <link href="https://unpkg.com/@carbon/styles/css/styles.css" rel="stylesheet" />
+    
+    <!-- Favicon -->
+    <link href="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" rel="icon" type="image/png" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #121212;
+            color: #fff;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #333;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            z-index: 1000;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        .section {
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .welcome-section-content {
+            background-color: #000000;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #ffffff;
+            border-radius: 8px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        form input,
+        form textarea,
+        form button {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 1em;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        button {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+
+        .partners-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .partner-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .partner-item img {
+            max-width: 100%;
+            max-height: 100px;
+            object-fit: contain;
+        }
+
+        .divider {
+            height: 2px;
+            background-color: #444;
+            margin: 20px 0;
+        }
+
+        .centered-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            text-align: center;
+            color: #000;
+        }
+
+        .libutton {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 7px;
+            text-align: center;
+            outline: none;
+            text-decoration: none !important;
+            color: #fff !important;
+            width: 200px;
+            height: 32px;
+            border-radius: 16px;
+            background-color: #fff;
+            font-family: "SF Pro Text", Helvetica, sans-serif;
+            margin: 10px auto;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        .service-icon {
+            width: 40px;
+            height: 40px;
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .partners-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="https://skunkworks.africa/index.html"><img alt="Home" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/application.svg" />Home</a></li>
+                <li>
+                    <a href="https://courses.skunkworks.africa/"><img alt="Training" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/training.svg" />Training</a>
+                    <ul>
+                        <li><a href="./blended-learning.html"><img alt="Blended Learning" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/literature.svg" />Blended Learning</a></li>
+                        <li><a href="./course-development.html"><img alt="Course Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presentation.svg" />Course Development</a></li>
+                        <li><a href="./project-mentoring.html"><img alt="Project Mentoring" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presenter.svg" />Project Mentoring</a></li>
+                        <li><a href="./performance-support.html"><img alt="Performance Support Tools" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/support--services.svg" />Performance Support Tools</a></li>
+                        <li><a href="https://courses.skunkworks.africa/"><img alt="Training Programs" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/professional--marketplace.svg" />Training Programs</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="./services/"><img alt="Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/automation--software.svg" />Services</a>
+                    <ul>
+                        <li><a href="./software-development.html"><img alt="Software Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/software.svg" />Software Development</a></li>
+                        <li><a href="./hardware-software.html"><img alt="Hardware and Software" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/server--rack.svg" />HW/SW Solutions</a></li>
+                        <li><a href="./managed-cloud.html"><img alt="Managed Cloud Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/bd6b329933add88d1b2fbd81339a6a2cf0683aaa/carbon/cloud--managed--services.svg" />Managed Cloud</a></li>
+                        <li><a href="./technical-support.html"><img alt="Technical Support Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/support--services.svg" />Technical Support</a></li>
+                        <li><a href="./careers/"><img alt="Placements" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/global--partner%20(1).svg" />Placements</a></li>
+                    </ul>
+                </li>
+                <li><a href="./careers/"><img alt="Recruitment" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/folder.svg" />Recruitment</a></li>
+                <li><a href="#contact"><img alt="Contact" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/bluepages.svg" />Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Start Training Section -->
+    <section class="bx--section">
+        <div class="bx--grid">
+            <div class="bx--row">
+                <div class="bx--col-lg-12">
+                    <h1 class="bx--type-expressive-heading-04">What IBM product area do you want to start learning today?</h1>
+                    <div class="bx--grid" style="grid-template-columns: repeat(3, 1fr); grid-auto-rows: 12rem; gap: 8px;">
+                        <a class="bx--tile bx--tile--clickable" href="#">
+                            <div class="bx--tile-content">
+                                <p class="bx--type-body-long-02">Artificial Intelligence</p>
+                                <p class="bx--type-body-long-01">watsonx product suite, Artificial Intelligence, Data Science, Machine Learning</p>
+                            </div>
+                            <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" class="bx--tile--icon">
+                                <path d="M9.3 3.7L13.1 7.5 1 7.5 1 8.5 13.1 8.5 9.3 12.3 10 13 15 8 10 3z"></path>
+                            </svg>
+                        </a>
+                        <a class="bx--tile bx--tile--clickable" href="#">
+                            <div class="bx--tile-content">
+                                <p class="bx--type-body-long-02">Automation</p>
+                                <p class="bx--type-body-long-01">APIC, ACE, MQ, CP4i, AIOPs, Turbonomic, Instana, Apptio, WAS, Liberty</p>
+                            </div>
+                            <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" class="bx--tile--icon">
+                                <path d="M9.3 3.7L13.1 7.5 1 7.5 1 8.5 13.1 8.5 9.3 12.3 10 13 15 8 10 3z"></path>
+                            </svg>
+                        </a>
+                        <a class="bx--tile bx--tile--clickable" href="#">
+                            <div class="bx--tile-content">
+                                <p class="bx--type-body-long-02">Cloud</p>
+                                <p class="bx--type-body-long-01">Power Virtual Server, SAP, VMware, AI Infrastructure, Regulated Industries</p>
+                            </div>
+                            <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" class="bx--tile--icon">
+                                <path d="M9.3 3.7L13.1 7.5 1 7.5 1 8.5 13.1 8.5 9.3 12.3 10 13 15 8 10 3z"></path>
+                            </svg>
+                        </a>
+                        <a class="bx--tile bx--tile--clickable" href="#">
+                            <div class="bx--tile-content">
+                                <p class="bx--type-body-long-02">Data, Analytics, and Business Automation</p>
+                                <p class="bx--type-body-long-01">Cloud Pak for Data, Data, Data Management & Analytics, Business Automation</p>
+                            </div>
+                            <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" class="bx--tile--icon">
+                                <path d="M9.3 3.7L13.1 7.5 1 7.5 1 8.5 13.1 8.5 9.3 12.3 10 13 15 8 10 3z"></path>
+                            </svg>
+                        </a>
+                        <a class="bx--tile bx--tile--clickable" href="#">
+                            <div class="bx--tile-content">
+                                <p class="bx--type-body-long-02">IT Infrastructure</p>
+                                <p class="bx--type-body-long-01">IBM Power, IBM Storage, IBM Z</p>
+                            </div>
+                            <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" class="bx--tile--icon">
+                                <path d="M9.3 3.7L13.1 7.5 1 7.5 1 8.5 13.1 8.5 9.3 12.3 10 13 15 8 10 3z"></path>
+                            </svg>
+                        </a>
+                        <a class="bx--tile bx--tile--clickable" href="#">
+                            <div class="bx--tile-content">
+                                <p class="bx--type-body-long-02">Security</p>
+                                <p class="bx--type-body-long-01">QRadar Suite, Guardium Suite, Verify, Trusteer, MaaS360</p>
+                            </div>
+                            <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" class="bx--tile--icon">
+                                <path d="M9.3 3.7L13.1 7.5 1 7.5 1 8.5 13.1 8.5 9.3 12.3 10 13 15 8 10 3z"></path>
+                            </svg>
+                        </a>
+                        <a class="bx--tile bx--tile--clickable" href="#">
+                            <div class="bx--tile-content">
+                                <p class="bx--type-body-long-02">Sustainability</p>
+                                <p class="bx--type-body-long-01">Maximo, ELM, EIS, Envizi, TRIRIGA, Supply Chain, B2B, Sterling, Data Exchange</p>
+                            </div>
+                            <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" class="bx--tile--icon">
+                                <path d="M9.3 3.7L13.1 7.5 1 7.5 1 8.5 13.1 8.5 9.3 12.3 10 13 15 8 10 3z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Existing content goes here -->
+
+    <footer>
+        <p>© 2024 Skunkworks. All rights reserved.</p>
+        <p><a href="https://blog.skunkworks.africa/" target="_blank">Visit our blog</a></p>
+    </footer>
+
+    <!-- Individual JavaScript Files -->
+    <script src="./js/formHandler.js"></script>
+    <script src="./js/partnerSearchFilter.js"></script>
+    <script src="./js/mobileDropdown.js"></script>
+    <script src="./js/main.js"></script>
+
+    <script>
+        // JavaScript for mobile dropdown functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            var dropdowns = document.querySelectorAll('nav ul li');
+            dropdowns.forEach(function (dropdown) {
+                dropdown.addEventListener('click', function (event) {
+                    if (window.innerWidth <= 768) {
+                        var submenu = this.querySelector('ul');
+                        if (submenu) {
+                            event.preventDefault();
+                            submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+                        }
+                    }
+                });
+            });
+        });
+
+        // JavaScript for partner search filter
+        function filterPartners() {
+            var input = document.getElementById('partnerSearch');
+            var filter = input.value.toLowerCase();
+            var nodes = document.getElementsByClassName('partner-item');
+
+            for (i = 0; i < nodes.length; i++) {
+                if (nodes[i].innerText.toLowerCase().includes(filter)) {
+                    nodes[i].style.display = "block";
+                } else {
+                    nodes[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
