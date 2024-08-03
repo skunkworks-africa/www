@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="Innovative Technology, Education Solutions, and Placement Services for Tomorrow's Businesses." />
+    <meta name="keywords" content="Technology, Education, Placement Services, Cloud Services, Software Development" />
+    <meta name="author" content="Skunkworks" />
+
+    <link href="./css/footer.css" rel="stylesheet" />
+    <link href="./css/forms.css" rel="stylesheet" />
+    <link href="./css/header.css" rel="stylesheet" />
+    <link href="./css/main.css" rel="stylesheet" />
+    <link href="./css/sidebar.css" rel="stylesheet" />
+    <link href="./css/airbnb.css" rel="stylesheet" />
+    <link href="./css/arabic.css" rel="stylesheet" />
+    <link href="./css/bass-addons.css" rel="stylesheet" />
+    <link href="./css/bass.css" rel="stylesheet" />
+    <link href="./css/button.css" rel="stylesheet" />
+    <link href="./css/carbon-components.min_copy.css" rel="stylesheet" />
+    <link href="./css/carbon-components_copy.css" rel="stylesheet" />
+    <link href="./css/confetti.css" rel="stylesheet" />
+    <link href="./css/confirmDate.css" rel="stylesheet" />
+    <link href="./css/dark.css" rel="stylesheet" />
+    <link href="./css/example.css" rel="stylesheet" />
+    <link href="./css/flatpickr.css" rel="stylesheet" />
+    <link href="./css/flatpickr.min.css" rel="stylesheet" />
+    <link href="./css/fonts.css" rel="stylesheet" />
+    <link href="./css/github.css" rel="stylesheet" />
+    <link href="./css/ie.css" rel="stylesheet" />
+    <link href="./css/jasmine.css" rel="stylesheet" />
+    <link href="./css/light.css" rel="stylesheet" />
+    <link href="./css/manager.css" rel="stylesheet" />
+    <link href="./css/material_blue.css" rel="stylesheet" />
+    <link href="./css/material_green.css" rel="stylesheet" />
+    <link href="./css/material_orange.css" rel="stylesheet" />
+    <link href="./css/material_red.css" rel="stylesheet" />
+    <link href="./css/page.css" rel="stylesheet" />
+    <link href="./css/screen_copy.css" rel="stylesheet" />
+    <link href="./css/services.css" rel="stylesheet" />
+    <link href="./css/source-code-pro.css" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <link href="./css/styles.css" rel="stylesheet" />
+    <link href="./css/styles.min.css" rel="stylesheet" />
+    <link href="./css/tocbot.css" rel="stylesheet" />
+    <link href="./css/achievements.css" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link href="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" rel="icon" type="image/png" />
+
+ <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #121212;
+            color: #fff;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header img {
+            max-width: 100%;
+            height: auto;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #333;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            z-index: 1000;
+        }
+        nav ul li:hover ul {
+            display: block;
+        }
+        nav ul li ul li a {
+            padding: 10px 15px;
+        }
+        .section {
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .welcome-title {
+    color: #fff; /* White color */
+    margin-bottom: 20px; /* Adds spacing after the title */
+}
+
+.welcome-subtitle {
+    color: #fff; /* White color for the subtitle */
+}
+.welcome-section-content {
+    background-color: #000; /* Black background for contrast */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px; /* Increased padding for more spacing */
+    border: 2px solid #fff; /* White border for emphasis */
+    border-radius: 10px;
+    text-align: center; /* Center-align the text */
+    color: #fff; /* White text color */
+}
+
+.welcome-heading {
+    font-size: 1.8em; /* Larger font size for the heading */
+    margin-bottom: 25px; /* Spacing after heading */
+    color: #fff;
+}
+
+.intro-text {
+    font-size: 1.2em; /* Slightly larger intro text */
+    margin-bottom: 15px; /* Spacing after intro text */
+    color: #ddd;
+}
+
+.body-text {
+    margin-bottom: 20px; /* Consistent spacing after paragraphs */
+    line-height: 1.6; /* Improved line spacing for readability */
+    color: #ccc;
+}
+
+.contact-text {
+    font-weight: bold; /* Make contact info stand out */
+    margin-bottom: 30px; /* Extra spacing before the button */
+    color: #fff;
+}
+
+.cta-button {
+    background-color: #007bff; /* Primary color for the button */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: translateY(-2px); /* Subtle lift effect on hover */
+}
+        .welcome-section-content {
+            background-color: #000000;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #ffffff;
+            border-radius: 8px;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        form input,
+        form textarea,
+        form button {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 1em;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        .partners-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+        .partner-item {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .partner-item img {
+            max-width: 100%;
+            max-height: 100px;
+            object-fit: contain;
+        }
+        .statistics {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .divider {
+            height: 2px;
+            background-color: #444;
+            margin: 20px 0;
+        }
+        .centered-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            text-align: center;
+            color: #000;
+        }
+        .libutton {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 7px;
+            text-align: center;
+            outline: none;
+            text-decoration: none !important;
+            color: #ffffff !important;
+            width: 200px;
+            height: 32px;
+            border-radius: 16px;
+            background-color: #ffffff;
+            font-family: "SF Pro Text", Helvetica, sans-serif;
+            margin: 10px auto;
+        }
+        .icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        .service-icon {
+            width: 40px;
+            height: 40px;
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            .partners-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="https://skunkworks.africa/index.html"><img alt="Home" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/application.svg" />Home</a></li>
+                <li>
+                    <a href="https://courses.skunkworks.africa/"><img alt="Training" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/training.svg" />Training</a>
+                    <!-- Other menu items omitted for brevity -->
+                </li>
+                <li>
+                    <a href="#careers"><img alt="Careers" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/briefcase.svg" />Careers</a>
+                    <ul>
+                        <li><a href="careers-openings.html"><img alt="Current Openings" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/calendar.svg" />Current Openings</a></li>
+                        <!-- Other submenu items omitted for brevity -->
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header><br>
+
+    <section class="section">
+        <h1>Current Openings</h1>
+        <div class="welcome-section-content">
+            <p>Explore our latest job opportunities. We are looking for talented individuals to join our team.</p>
+            <ul>
+                <li><strong>Software Developer</strong> - Johannesburg, South Africa</li>
+                <li><strong>Cloud Architect</strong> - Remote</li>
+                <li><strong>Project Manager</strong> - Cape Town, South Africa</li>
+                <!-- More job listings can be added here -->
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Skunkworks. All rights reserved.</p>
+        <p><a href="https://blog.skunkworks.africa/" target="_blank">Visit our blog</a></p>
+    </footer>
+
+    <!-- Individual JavaScript Files -->
+    <script src="./js/formHandler.js"></script>
+    <script src="./js/partnerSearchFilter.js"></script>
+    <script src="./js/mobileDropdown.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
