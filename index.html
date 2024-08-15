@@ -2,31 +2,20 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta name="description" content="Innovative Technology, Education Solutions, and Placement Services for Tomorrow's Businesses." />
-    <meta name="keywords" content="Technology, Education, Placement Services, Cloud Services, Software Development" />
-    <meta name="author" content="Skunkworks" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Innovative Technology, Education Solutions, and Placement Services for Tomorrow's Businesses.">
+    <meta name="keywords" content="Technology, Education, Placement Services, Cloud Services, Software Development">
+    <meta name="author" content="Skunkworks">
 
-    <!-- Include CSS Files -->
-    <link href="./css/footer.css" rel="stylesheet" />
-    <link href="./css/forms.css" rel="stylesheet" />
-    <link href="./css/header.css" rel="stylesheet" />
-    <link href="./css/main.css" rel="stylesheet" />
-    <link href="./css/sidebar.css" rel="stylesheet" />
-    <link href="./css/button.css" rel="stylesheet" />
-    <link href="./css/carbon-components.min.css" rel="stylesheet" />
-    <link href="./css/styles.css" rel="stylesheet" />
-
+    <!-- Carbon Design System CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+    
     <!-- Favicon -->
-    <link href="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" rel="icon" type="image/png" />
-
+    <link href="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" rel="icon" type="image/png">
+    
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
             background-color: #121212;
             color: #fff;
         }
@@ -75,55 +64,13 @@
             display: block;
         }
 
-        nav ul li ul li a {
-            padding: 10px 15px;
-        }
-
-        .section {
-            padding: 20px;
-            margin: 20px 0;
-        }
-
         .grid-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
 
-        .partners-list {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            text-align: center;
-        }
-
-        .divider {
-            height: 2px;
-            background-color: #444;
-            margin: 20px 0;
-        }
-
-        .centered-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            border-radius: 8px;
-            text-align: center;
-            color: #000;
-        }
-
-        .bx--tile-content p {
-            margin: 0;
-        }
-
-        /* Mobile Styles */
         @media (max-width: 768px) {
-            .grid-container {
-                grid-template-columns: 1fr;
-            }
-
             nav ul {
                 flex-direction: column;
             }
@@ -132,9 +79,16 @@
                 margin: 10px 0;
             }
 
-            .partners-list {
+            .grid-container {
                 grid-template-columns: 1fr;
             }
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
         }
     </style>
 </head>
@@ -143,70 +97,52 @@
     <header>
         <nav>
             <ul>
-                <li><a href="https://skunkworks.africa/index.html"><img alt="Home" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/application.svg" />Home</a></li>
+                <li><a href="https://skunkworks.africa/index.html"><img alt="Home" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/application.svg">Home</a></li>
                 <li>
-                    <a href="https://courses.skunkworks.africa/"><img alt="Training" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/training.svg" />Training</a>
+                    <a href="https://courses.skunkworks.africa/"><img alt="Training" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/training.svg">Training</a>
                     <ul>
-                        <li><a href="./blended-learning.html"><img alt="Blended Learning" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/literature.svg" />Blended Learning</a></li>
-                        <li><a href="./course-development.html"><img alt="Course Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presentation.svg" />Course Development</a></li>
-                        <li><a href="./project-mentoring.html"><img alt="Project Mentoring" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presenter.svg" />Project Mentoring</a></li>
-                        <li><a href="./performance-support.html"><img alt="Performance Support Tools" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/support--services.svg" />Performance Support Tools</a></li>
-                        <li><a href="https://courses.skunkworks.africa/"><img alt="Training Programs" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/professional--marketplace.svg" />Training Programs</a></li>
+                        <li><a href="./blended-learning.html"><img alt="Blended Learning" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/literature.svg">Blended Learning</a></li>
+                        <li><a href="./course-development.html"><img alt="Course Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presentation.svg">Course Development</a></li>
+                        <li><a href="./project-mentoring.html"><img alt="Project Mentoring" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presenter.svg">Project Mentoring</a></li>
+                        <li><a href="./performance-support.html"><img alt="Performance Support Tools" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/support--services.svg">Performance Support Tools</a></li>
+                        <li><a href="https://courses.skunkworks.africa/"><img alt="Training Programs" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/professional--marketplace.svg">Training Programs</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="./services/"><img alt="Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/automation--software.svg" />Services</a>
-                    <ul>
-                        <li><a href="./software-development.html"><img alt="Software Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/software.svg" />Software Development</a></li>
-                        <li><a href="./hardware-software.html"><img alt="Hardware and Software" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/server--rack.svg" />HW/SW Solutions</a></li>
-                        <li><a href="./managed-cloud.html"><img alt="Managed Cloud Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/bd6b329933add88d1b2fbd81339a6a2cf0683aaa/carbon/cloud--managed--services.svg" />Managed Cloud</a></li>
-                        <li><a href="./technical-support.html"><img alt="Technical Support Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/support--services.svg" />Technical Support</a></li>
-                        <li><a href="./careers/"><img alt="Placements" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/global--partner%20(1).svg" />Placements</a></li>
-                    </ul>
-                </li>
-                <li><a href="./careers/"><img alt="Recruitment" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/folder.svg" />Recruitment</a></li>
-                <li><a href="#contact"><img alt="Contact" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/bluepages.svg" />Contact</a></li>
+                <li><a href="./services/"><img alt="Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/automation--software.svg">Services</a></li>
+                <li><a href="./careers/"><img alt="Recruitment" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/folder.svg">Recruitment</a></li>
+                <li><a href="#contact"><img alt="Contact" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/bluepages.svg">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <br>
-
-    <!-- "Start Training" Section -->
-    <div data-hidden="false" id="section-1" class="bx--grid">
-        <section class="bx--section start-training">
-            <div class="bx--row">
-                <div class="bx--col-lg-12">
-                    <h1 class="bx--type-expressive-heading-04">What IBM product area do you want to start learning today?</h1>
-                    <div class="bx--grid expandable-tile-grid" style="grid-template-columns: repeat(3, 1fr); grid-auto-rows: 12rem; gap: 8px;">
-                        <a class="bx--link bx--tile bx--tile--clickable start-training-tile expandable-tile-item-large" tabindex="0">
-                            <div class="bx--tile-content">
-                                <p class="bx--tile-title">Artificial Intelligence</p>
-                                <p class="bx--tile-subtitle">Watsonx product suite, Artificial Intelligence, Data Science, Machine Learning</p>
-                            </div>
-                            <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" class="bx--tile--icon">
-                                <path d="M9.3 3.7L13.1 7.5 1 7.5 1 8.5 13.1 8.5 9.3 12.3 10 13 15 8 10 3z"></path>
-                            </svg>
-                        </a>
-                        <!-- Repeat similar blocks for other training areas -->
-                    </div>
-                </div>
+    <main class="bx--grid">
+        <div class="bx--row">
+            <div class="bx--col-lg-3">
+                <!-- Sidebar Content -->
             </div>
-        </section>
-    </div>
-
-    <!-- Existing content goes here -->
+            <div class="bx--col-lg-9">
+                <section class="bx--section">
+                    <div class="bx--row">
+                        <div class="bx--col-lg-12">
+                            <h1 class="bx--type-expressive-heading-04">Innovative Technology, Education Solutions, and Placement Services for Tomorrow's Businesses.</h1>
+                            <p class="bx--type-body-long-01">I'm Raydo Matthee, and I'm thrilled to welcome you to Skunkworks, where the intersection of education and technology is our passion and our purpose.</p>
+                            <p class="bx--type-body-long-01">As the CEO of Skunkworks, I proudly wear multiple hats, overseeing all aspects of our business operations. From guiding our technological direction to managing financial planning and reporting, my mission is to provide a clear vision for our team, ensuring effective resource utilization, and keeping all our teams aligned with our mission.</p>
+                            <p class="bx--type-body-long-01">Contact: <a href="mailto:info@skunkworks.africa">info@skunkworks.africa</a></p>
+                            <button class="bx--btn bx--btn--primary">Learn More</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
 
     <footer class="bx--footer">
         <p>© 2024 Skunkworks. All rights reserved.</p>
         <p><a href="https://blog.skunkworks.africa/" target="_blank">Visit our blog</a></p>
     </footer>
 
-    <!-- JavaScript Files -->
-    <script src="./js/formHandler.js"></script>
-    <script src="./js/partnerSearchFilter.js"></script>
-    <script src="./js/mobileDropdown.js"></script>
-    <script src="./js/main.js"></script>
+    <!-- Carbon Design System JavaScript -->
+    <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
 
     <script>
         // JavaScript for mobile dropdown functionality
@@ -224,21 +160,6 @@
                 });
             });
         });
-
-        // JavaScript for partner search filter
-        function filterPartners() {
-            var input = document.getElementById('partnerSearch');
-            var filter = input.value.toLowerCase();
-            var nodes = document.getElementsByClassName('partner-item');
-
-            for (i = 0; i < nodes.length; i++) {
-                if (nodes[i].innerText.toLowerCase().includes(filter)) {
-                    nodes[i].style.display = "block";
-                } else {
-                    nodes[i].style.display = "none";
-                }
-            }
-        }
     </script>
 </body>
 
