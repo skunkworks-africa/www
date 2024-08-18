@@ -190,6 +190,82 @@
             margin-bottom: 10px;
         }
 
+    /* Form General Styling */
+    #contactForm {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 32px;
+        background-color: #1c1c1c;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #contactForm .form-group {
+        margin-bottom: 32px; /* Default spacing between form items */
+    }
+
+    #contactForm label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 0.75rem; /* Label font size */
+        font-weight: 400; /* Regular weight */
+        color: #cccccc; /* Light gray color for labels */
+    }
+
+    #contactForm input,
+    #contactForm textarea {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 0.875rem; /* Field text font size */
+        font-weight: 400; /* Regular weight */
+        color: #ffffff; /* White text color */
+        background-color: #333333; /* Dark background */
+        border: 1px solid #444444; /* Subtle border color */
+        border-radius: 4px;
+        box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle inner shadow */
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #contactForm input:focus,
+    #contactForm textarea:focus {
+        border-color: #0f62fe; /* IBM Blue for focus */
+        box-shadow: 0px 0px 8px rgba(15, 98, 254, 0.5); /* Blue glow on focus */
+    }
+
+    #contactForm textarea {
+        resize: vertical;
+        min-height: 120px; /* Minimum height for textarea */
+    }
+
+    #contactForm button {
+        background-color: #0f62fe; /* IBM Blue */
+        color: #ffffff;
+        border: none;
+        padding: 12px 24px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 4px;
+        display: block;
+        margin: 48px auto 0; /* Center the button, margin-top for spacing */
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    #contactForm button:hover {
+        background-color: #0053ba; /* Darker blue on hover */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+    }
+
+    /* Heading Styling */
+    #contact h1 {
+        font-size: 1.75rem; /* Form heading font size */
+        font-weight: 400; /* Regular weight */
+        margin-bottom: 40px; /* Margin-bottom for spacing */
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 1.5px; /* Spacing for modern look */
+    }
+
         footer {
             background-color: #333;
             color: #fff;
@@ -274,7 +350,7 @@
         }
 
         h3, h4, h5, h6 {
-            color: #cccccc;
+            color: #000000;
         }
 
         /* General Styles for the Search Input */
@@ -638,16 +714,28 @@
         </div>
     </section>
 
-    <section class="section" id="contact">
-        <h1>Contact Us</h1>
-        <form id="contactForm">
-            <input name="name" placeholder="Name" required type="text" />
-            <input name="email" placeholder="Email" required type="email" />
-            <input name="number" placeholder="Number" required type="text" />
-            <textarea name="message" placeholder="How Can We Help?" required></textarea>
-            <button type="submit">CALL ME BACK</button>
-        </form>
-    </section>
+ <section class="section" id="contact">
+    <h1>Contact Us</h1>
+    <form id="contactForm">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input id="name" name="name" placeholder="Name" required type="text" />
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" name="email" placeholder="Email" required type="email" />
+        </div>
+        <div class="form-group">
+            <label for="number">Number</label>
+            <input id="number" name="number" placeholder="Number" required type="text" />
+        </div>
+        <div class="form-group">
+            <label for="message">How Can We Help?</label>
+            <textarea id="message" name="message" placeholder="How Can We Help?" required></textarea>
+        </div>
+        <button type="submit">CALL ME BACK</button>
+    </form>
+</section>
 
     <footer>
         <p>© 2024 Skunkworks. All rights reserved.</p>
