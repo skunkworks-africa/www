@@ -1,91 +1,222 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="./css/header.css" rel="stylesheet"/>
-<link href="./css/main.css" rel="stylesheet"/>
-<link href="./css/footer.css" rel="stylesheet"/>
-<title>LMS - Skunkworks</title>
-<link href="./css/sidebar.css" rel="stylesheet"/>
-<link href="./css/main.css" rel="stylesheet"/>
-<link href="./css/header.css" rel="stylesheet"/>
-<link href="./css/forms.css" rel="stylesheet"/>
-<link href="./css/footer.css" rel="stylesheet"/>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>LMS VTS Offerings - Skunkworks</title>
+    <link href="./css/styles.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #161616;
+            padding: 16px 32px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid #262626;
+        }
+
+        header h1 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #cccccc;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #1c1c1c;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            color: #0f62fe;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #cccccc;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        footer {
+            background-color: #161616;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #262626;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #0f62fe;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
-<body><!-- header.html -->&gt;
-<header>
-<nav>
-<ul>
-<li><a href="./index.html"><img alt="Home" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/container.svg"/>Home</a></li>
-<li>
-<a href="#"><img alt="Training" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/intelligence.svg"/>Training</a>
-<ul>
-<li><a href="./blended-learning.html"><img alt="Blended Learning" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/blended-learning.png?raw=true"/>Blended Learning</a></li>
-<li><a href="./course-development.html"><img alt="Course Development" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/course-development.png?raw=true"/>Course Development</a></li>
-<li><a href="./project-mentoring.html"><img alt="Project Mentoring" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/project-mentoring.png?raw=true"/>Project Mentoring</a></li>
-<li><a href="./performance-support.html"><img alt="Performance Support Tools" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/performance-support.png?raw=true"/>Performance Support Tools</a></li>
-<li><a href="./training-programs.html"><img alt="Training Programs" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/training-programs.png?raw=true"/>Training Programs</a></li>
-</ul>
-</li>
-<li>
-<a href="#"><img alt="Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/container--microservices.svg"/>Services</a>
-<ul>
-<li><a href="./software-development.html"><img alt="Software Development" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/software-development.png?raw=true"/>Software Development</a></li>
-<li><a href="./hardware-software.html"><img alt="Hardware and Software" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/hardware-software.png?raw=true"/>HW/SW Solutions</a></li>
-<li><a href="./managed-cloud.html"><img alt="Managed Cloud Services" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/managed-cloud.png?raw=true"/>Managed Cloud</a></li>
-<li><a href="./technical-support.html"><img alt="Technical Support Services" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/technical-support.png?raw=true"/>Technical Support</a></li>
-<li><a href="./placement-recruitment.html"><img alt="Placements" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/placement-recruitment.png?raw=true"/>Placements</a></li>
-</ul>
-</li>
-<li>
-<a href="#"><img alt="Careers" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/data--apis.svg"/>Careers</a>
-<ul>
-<li><a href="./job-posting.html"><img alt="Job Posting" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/job-posting.png?raw=true"/>Job Posting</a></li>
-<li><a href="./candidate-screening.html"><img alt="Candidate Screening" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/candidate-screening.png?raw=true"/>Candidate Screening</a></li>
-<li><a href="./interviews.html"><img alt="Interviews" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/interviews.png?raw=true"/>Interviews</a></li>
-<li><a href="./job-offers.html"><img alt="Job Offers" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/job-offers.png?raw=true"/>Job Offers</a></li>
-<li><a href="./perosacademy/"><img alt="Pero's Academy" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/peros-academy.png?raw=true"/>Pero's Academy</a></li>
-</ul>
-</li>
-<li><a href="#contact"><img alt="Contact" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/b6c7c3e93995fd5c2a6c0979d90ead76d9ef98dd/assets/icons/email.svg"/>Contact</a></li>
-</ul>
-</nav>
-</header>
 
-<!-- header.html -->&gt;
+<body>
+    <header>
+        <h1>LMS VTS Offerings</h1>
+    </header>
 
-<main>
-<section class="section">
-<h1>LMS (Learning Management System)</h1>
-<p>Our custom LMS development and management services are designed to provide efficient content delivery, tracking, and reporting. We create robust and scalable LMS solutions that cater to the specific needs of your organization, ensuring a seamless learning experience for your employees and clients.</p>
-<h2>Features</h2>
-<ul>
-<li>Customizable course creation</li>
-<li>Automated tracking and reporting</li>
-<li>Scalable architecture</li>
-<li>Integration with other systems</li>
-</ul>
-<h2>Benefits</h2>
-<ul>
-<li>Streamlined content delivery</li>
-<li>Improved learner engagement and retention</li>
-<li>Enhanced reporting and analytics</li>
-<li>Cost-effective and scalable solutions</li>
-</ul>
-</section>
-</main>
-<footer>
-<p>© 2024 Skunkworks. All rights reserved.</p>
-</footer>
-<script src="./js/partnerSearchFilter.js"></script>
-<script src="./js/partnerFilter.js"></script>
-<script src="./js/mobileDropdown.js"></script>
-<script src="./js/main.js"></script>
-<script src="./js/include-header.js"></script>
-<script src="./js/gulpfile.js"></script>
-<script src="./js/formHandeler.js"></script>
-<script src="./js/combinedPartnerFilter.js"></script>
+    <section class="section" id="lms-options">
+        <h2>Our LMS VTS Offerings</h2>
+        <div class="grid-container">
+            <div class="card" data-image-key="Moodle">
+                <h3>Moodle</h3>
+                <p>Get Moodle hosting, LMS integration, and more.</p>
+            </div>
+            <div class="card" data-image-key="OpenEdx">
+                <h3>OpenEdx</h3>
+                <p>Discover the flexibility of OpenEdx for your online courses.</p>
+            </div>
+            <div class="card" data-image-key="GitHub">
+                <h3>GitHub Classroom</h3>
+                <p>Leverage GitHub for education with GitHub Classroom.</p>
+            </div>
+            <div class="card" data-image-key="Google_Classroom">
+                <h3>Google Classroom</h3>
+                <p>Streamline learning and collaboration with Google Classroom.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="lms-support">
+        <h2>Support Services</h2>
+        <div class="grid-container">
+            <div class="card" data-image-key="Cloud_hosting">
+                <h3>Hosting</h3>
+                <p>Get secure and scalable hosting solutions, installation, configuration, backups, and more.</p>
+            </div>
+            <div class="card" data-image-key="System_integration">
+                <h3>Integration</h3>
+                <p>Connect all your applications for a full view of your customers.</p>
+            </div>
+            <div class="card" data-image-key="Custom_software">
+                <h3>Custom Themes & Features</h3>
+                <p>Get a custom solution with a range of themes and features to choose from.</p>
+            </div>
+            <div class="card" data-image-key="Technical_support">
+                <h3>Implementation and Support</h3>
+                <p>Get full support for the implementation of secure on-site or hosted solutions.</p>
+            </div>
+            <div class="card" data-image-key="Consultant">
+                <h3>Consulting</h3>
+                <p>Get expert advice on Moodle-based online learning solutions.</p>
+            </div>
+            <div class="card" data-image-key="Data_analysis">
+                <h3>Reporting and Analytics</h3>
+                <p>Get a deeper understanding of Moodle’s reporting capabilities and how to leverage insights.</p>
+            </div>
+            <div class="card" data-image-key="Instructional_design">
+                <h3>Course Design</h3>
+                <p>Get assistance in creating high quality, engaging learning content.</p>
+            </div>
+            <div class="card" data-image-key="Training">
+                <h3>Training</h3>
+                <p>Onboard staff with training designed around the unique needs of administrators, course creators, educators, L&D professionals, and teachers.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Skunkworks. All rights reserved.</p>
+        <p><a href="https://blog.skunkworks.africa/" target="_blank">Visit our blog</a></p>
+    </footer>
+
+    <script>
+        // Function to fetch images from Wikimedia Commons
+        function fetchImage(imageKey, callback) {
+            var apiUrl = `https://en.wikipedia.org/w/api.php?action=query&titles=File:${imageKey}.jpg&prop=imageinfo&iiprop=url&format=json&origin=*`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    var pages = data.query.pages;
+                    var page = Object.values(pages)[0];
+                    if (page.imageinfo) {
+                        callback(page.imageinfo[0].url);
+                    } else {
+                        console.error('Image not found on Wikimedia Commons');
+                        callback(null);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching image:', error);
+                    callback(null);
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var cards = document.querySelectorAll('.card');
+
+            cards.forEach(function (card) {
+                var imageKey = card.getAttribute('data-image-key');
+                fetchImage(imageKey, function (imageUrl) {
+                    if (imageUrl) {
+                        var imgElement = document.createElement('img');
+                        imgElement.src = imageUrl;
+                        imgElement.alt = imageKey;
+                        card.insertBefore(imgElement, card.firstChild);
+                    } else {
+                        card.style.display = 'none'; // Hide the card if the image is not found
+                    }
+                });
+            });
+        });
+    </script>
 </body>
+
 </html>
