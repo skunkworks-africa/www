@@ -27,6 +27,21 @@
             align-items: center;
         }
 
+/* Custom Styling for Skunkworks Title */
+.skunkworks-title {
+    color: #ffffff; /* White color */
+    font-family: 'IBM Plex Sans', Arial, sans-serif; /* IBM-like font */
+    font-weight: 700; /* Bold font weight */
+    font-size: 2.5rem; /* Specific font size */
+    text-transform: uppercase; /* Uppercase for emphasis */
+    letter-spacing: 2px; /* Spacing between letters for a modern look */
+    margin: 0; /* Remove default margin */
+    padding: 10px 0; /* Padding for spacing */
+    text-align: center; /* Center the text */
+    background-color: #1c1c1c; /* Optional: dark background to make the text pop */
+    border-bottom: 2px solid #4d4d4d; /* Optional: subtle bottom border for effect */
+}
+
         nav {
             flex-grow: 1;
             text-align: right;
@@ -98,7 +113,7 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            border: 2px solid #2563EB;
+            border: 2px solid #333333;
             border-radius: 8px;
         }
 
@@ -354,7 +369,7 @@ h3, h4, h5, h6 {
 <body>
     <header>
         <div class="logo">
-            <h1>Skunkworks</h1>
+         <h1 class="skunkworks-title">Skunkworks</h1>
         </div>
         <div class="burger" onclick="toggleMenu()">
             &#9776;
