@@ -469,4 +469,87 @@ button:hover {
     nav.visible {
         display: block;
     }
+    
+    /* Contact Us Section */
+#contactForm {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 32px;
+    background-color: #1c1c1c;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#contactForm .form-group {
+    margin-bottom: 24px; /* Reduced spacing for smaller screens */
+}
+
+#contactForm label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.875rem; /* Increased font size for better readability */
+    font-weight: 400; /* Regular weight */
+    color: #cccccc; /* Light gray color for labels */
+}
+
+#contactForm input,
+#contactForm textarea {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 1rem; /* Increased field text font size */
+    font-weight: 400; /* Regular weight */
+    color: #ffffff; /* White text color */
+    background-color: #333333; /* Dark background */
+    border: 1px solid #444444; /* Subtle border color */
+    border-radius: 4px;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle inner shadow */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+    border-color: #0f62fe; /* IBM Blue for focus */
+    box-shadow: 0px 0px 8px rgba(15, 98, 254, 0.5); /* Blue glow on focus */
+}
+
+#contactForm textarea {
+    resize: vertical;
+    min-height: 120px; /* Minimum height for textarea */
+}
+
+#contactForm button {
+    background-color: #0f62fe; /* IBM Blue */
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 4px;
+    display: block;
+    margin: 48px auto 0; /* Center the button, margin-top for spacing */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+#contactForm button:hover {
+    background-color: #0053ba; /* Darker blue on hover */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+/* Mobile Responsive Styling */
+@media (max-width: 768px) {
+    #contactForm {
+        padding: 16px; /* Reduced padding for smaller screens */
+        box-shadow: none; /* Remove shadow for a cleaner mobile view */
+        border-radius: 0; /* Remove border radius on mobile for edge-to-edge display */
+    }
+
+    #contactForm .form-group {
+        margin-bottom: 16px; /* Reduced spacing between form groups on mobile */
+    }
+
+    #contactForm button {
+        margin-top: 24px; /* Adjusted spacing above the button */
+        width: 100%; /* Make button full width on mobile */
+    }
 }
