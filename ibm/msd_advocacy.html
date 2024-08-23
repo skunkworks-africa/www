@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skunkworks Badge Advocacy</title>
+    <style>
+        /* Basic reset */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            scroll-behavior: smooth;
+        }
+
+        /* Parallax header */
+        .parallax {
+            background-image: url('https://skunkworks.africa/wp-content/uploads/2022/08/Skunkworks_Africa_Homepage_Banner.jpg');
+            min-height: 600px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .header-content h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .header-content p {
+            font-size: 1.5em;
+        }
+
+        /* Grid Container */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 50px;
+        }
+
+        /* Flip Card */
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 400px;
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .flip-card-front {
+            background-color: #333;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flip-card-front img {
+            width: 80%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .flip-card-back {
+            background-color: #2980b9;
+            color: white;
+            transform: rotateY(180deg);
+            padding: 20px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        footer a {
+            color: #f9f9f9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="parallax">
+        <div class="header-content">
+            <h1>Master Your Mainframe Skills with IBM Badges</h1>
+            <p>An Advocacy by Skunkworks Africa</p>
+        </div>
+    </header>
+
+    <section class="grid-container">
+        <!-- Each grid-item contains a flip tile -->
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://mainframeskillsdepot.ibm.com/badges/ibm-z-101/image" alt="IBM Z 101">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>IBM Z 101</h2>
+                        <p>This badge represents foundational knowledge of IBM Z systems, essential for new professionals in the field.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://mainframeskillsdepot.ibm.com/badges/mainframe-systems-administrator-201/image" alt="Mainframe Systems Administrator 201">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Mainframe Systems Administrator 201</h2>
+                        <p>This badge signifies skills in managing and administering IBM mainframe systems at an intermediate level.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://mainframeskillsdepot.ibm.com/badges/mainframe-systems-administrator-301/image" alt="Mainframe Systems Administrator 301">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Mainframe Systems Administrator 301</h2>
+                        <p>Advanced level badge for professionals with deep expertise in IBM mainframe administration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://mainframeskillsdepot.ibm.com/badges/architecting-apps-ibmz/image" alt="Architecting Apps on IBM Z">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Architecting Apps on IBM Z</h2>
+                        <p>Earn this badge to demonstrate your ability to design and architect applications on IBM Z systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://mainframeskillsdepot.ibm.com/badges/addi/image" alt="Application Discovery & Delivery Intelligence">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Application Discovery & Delivery Intelligence</h2>
+                        <p>This badge represents expertise in using ADDI for application discovery and delivery on IBM platforms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://mainframeskillsdepot.ibm.com/badges/dependency-based-build-fundamentals/image" alt="Dependency Based Build Fundamentals">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Dependency Based Build Fundamentals</h2>
+                        <p>Fundamental skills in dependency-based builds on IBM Z systems, vital for modern software development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://mainframeskillsdepot.ibm.com/badges/abo/image" alt="Advanced Business Optimizer">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Advanced Business Optimizer</h2>
+                        <p>Optimize business processes with this badge that highlights expertise in IBM's Advanced Business Optimizer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://mainframeskillsdepot.ibm.com/badges/cics-v5v6-operations/image" alt="CICS v5/v6 Operations">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>CICS v5/v6 Operations</h2>
+                        <p>Show your skills in managing and operating CICS systems, a key component in enterprise-level IBM Z environments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://mainframeskillsdepot.ibm.com/badges/modapp-ibm-cics/image" alt="Modern Application Development on IBM CICS">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Modern Application Development on IBM CICS</h2>
+                        <p>This badge certifies your ability to develop modern applications on the IBM CICS platform.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://mainframeskillsdepot.ibm.com/badges/practical-groovy/image" alt="Practical Groovy">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Practical Groovy</h2>
+                        <p>Enhance your coding skills with this badge, showcasing practical knowledge of the Groovy programming language.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://mainframeskillsdepot.ibm.com/badges/devops-git-jenkins/image" alt="DevOps with Git and Jenkins">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>DevOps with Git and Jenkins</h2>
+                        <p>Showcase your DevOps skills, particularly in using Git and Jenkins, essential tools in modern CI/CD pipelines.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://mainframeskillsdepot.ibm.com/badges/mastering-groovy/image" alt="Mastering Groovy">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Mastering Groovy</h2>
+                        <p>Master the Groovy programming language and enhance your development toolkit with this advanced badge.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://mainframeskillsdepot.ibm.com/badges/containers-kubernetes-essentials/image" alt="Containers and Kubernetes Essentials">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Containers and Kubernetes Essentials</h2>
+                        <p>Learn the essentials of containerization and orchestration with Kubernetes on IBM platforms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://mainframeskillsdepot.ibm.com/badges/data-analytics-essentials/image" alt="Data Analytics Essentials">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Data Analytics Essentials</h2>
+                        <p>Develop a strong foundation in data analytics, a critical skill in today’s data-driven world.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://mainframeskillsdepot.ibm.com/badges/big-data-hadoop-spark/image" alt="Big Data, Hadoop, and Spark">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Big Data, Hadoop, and Spark</h2>
+                        <p>Master big data technologies like Hadoop and Spark with this comprehensive badge.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://mainframeskillsdepot.ibm.com/badges/ibm-cloud-essentials/image" alt="IBM Cloud Essentials">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>IBM Cloud Essentials</h2>
+                        <p>Understand the basics of cloud computing and IBM Cloud with this essential badge.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://mainframeskillsdepot.ibm.com/badges/root-cause-analysis/image" alt="Root Cause Analysis">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Root Cause Analysis</h2>
+                        <p>Learn how to identify and solve the underlying causes of issues within your systems with this critical badge.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://mainframeskillsdepot.ibm.com/badges/fundamentals-zowe/image" alt="Fundamentals of Zowe">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Fundamentals of Zowe</h2>
+                        <p>Gain foundational knowledge in Zowe, an open-source framework for z/OS, with this badge.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Explore more certifications on <a href="https://mainframeskillsdepot.ibm.com/badges">IBM Skills Gateway</a></p>
+        <p>© Skunkworks Africa</p>
+    </footer>
+</body>
+
+</html>
