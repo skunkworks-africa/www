@@ -60,58 +60,94 @@
             padding: 50px;
         }
 
-        /* Flip Card */
-        .flip-card {
-            background-color: transparent;
-            width: 100%;
-            height: 400px;
-            perspective: 1000px;
-        }
+ /* Flip Card */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 400px;
+    perspective: 1000px;
+    border-radius: 10px; /* Add rounded corners to the entire card */
+    overflow: hidden; /* Prevent content from overflowing */
+}
 
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.8s;
-            transform-style: preserve-3d;
-        }
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s ease-in-out; /* Add easing for smoother transitions */
+    transform-style: preserve-3d;
+}
 
-        .flip-card:hover .flip-card-inner {
-            transform: rotateY(180deg);
-        }
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
 
-        .flip-card-front,
-        .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        }
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Enhance the box shadow for a more dynamic look */
+}
 
-        .flip-card-front {
-            background-color: #333;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.flip-card-front {
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease-in-out; /* Smooth transition for background color */
+}
 
-        .flip-card-front img {
-            width: 80%;
-            height: auto;
-            border-radius: 10px;
-        }
+.flip-card-front:hover {
+    background-color: #444; /* Slightly change the background color on hover */
+}
 
-        .flip-card-back {
-            background-color: #2980b9;
-            color: white;
-            transform: rotateY(180deg);
-            padding: 20px;
-        }
+.flip-card-front img {
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow to the image */
+    transition: transform 0.3s ease-in-out; /* Add a smooth zoom effect */
+}
+
+.flip-card-front img:hover {
+    transform: scale(1.05); /* Slightly zoom in on hover */
+}
+
+.flip-card-back {
+    background-color: #2980b9;
+    color: white;
+    transform: rotateY(180deg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease-in-out; /* Smooth transition for background color */
+}
+
+.flip-card-back:hover {
+    background-color: #3498db; /* Change the background color slightly on hover */
+}
+
+.flip-card-back h1 {
+    margin-bottom: 15px;
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.flip-card-back p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
 
         /* Footer */
         footer {
