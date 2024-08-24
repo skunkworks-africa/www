@@ -5,238 +5,207 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skunkworks Badge Advocacy</title>
-    <style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-/* Basic reset */
-body,
-html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    scroll-behavior: smooth;
-}
-
-/* Parallax header */
-.parallax {
-    background-image: url('https://skunkworks.africa/wp-content/uploads/2022/08/Skunkworks_Africa_Homepage_Banner.jpg');
-    min-height: 600px;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    margin-bottom: 30px; /* Add margin below the header */
-}
-
-.header-content h1 {
-    font-size: 3em;
-    margin: 0;
-    font-family: 'Helvetica Neue', sans-serif;
-    color: #333;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    padding-bottom: 0.5em;
-    border-bottom: 3px solid #ccc;
-}
-
-.header-content p {
-    font-size: 1.5em;
-    font-family: 'Georgia', serif;
-    color: #666;
-    line-height: 1.6;
-    margin-top: 0.5em;
-    margin-bottom: 1.5em;
-}
-
-/* Section framing and margins */
-section {
-    margin: 0 auto; /* Center section content */
-    max-width: 1200px; /* Limit width for readability */
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px; /* Add spacing between sections */
-}
-
-/* Grid Container */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 20px;
-}
-
-/* Flip Card */
-.flip-card {
-    background-color: transparent;
-    width: 100%;
-    height: 400px;
-    perspective: 1000px;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s ease-in-out;
-    transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.flip-card-front {
-    background-color: #333;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease-in-out;
-}
-
-.flip-card-front:hover {
-    background-color: #444;
-}
-
-.flip-card-front img {
-    width: 80%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-in-out;
-}
-
-.flip-card-front img:hover {
-    transform: scale(1.05);
-}
-
-.flip-card-back {
-    background-color: #2980b9;
-    color: white;
-    transform: rotateY(180deg);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s ease-in-out;
-}
-
-.flip-card-back:hover {
-    background-color: #3498db;
-}
-
-.flip-card-back h2 {
-    margin-bottom: 15px;
-    font-size: 2em;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.flip-card-back p {
-    font-size: 1.2em;
-    line-height: 1.5;
-    margin: 0;
-    padding: 0;
-}
-
-/* Call-to-action button styling */
-.cta-button {
-    display: inline-block;
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: #ffffff;
-    background-color: #2980b9; /* Updated to match the page's color scheme */
-    padding: 12px 24px;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 10px; /* Add margin for spacing */
-}
-
-.cta-button:hover {
-    background-color: #3498db; /* Slightly lighter blue on hover */
-    transform: translateY(-2px);
-}
-
-/* Center align buttons */
-.cta-buttons {
-    text-align: center; /* Center the buttons */
-    margin: 20px 0; /* Add margin above and below */
-}
-
-/* Social media icons */
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.social-icons a {
-    color: #2980b9;
-    font-size: 24px;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-    color: #3498db;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: white;
-}
-
-footer a {
-    color: #f9f9f9;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-</styles>
-</head>
-
-<body>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skunkworks Badge Advocacy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Include your CSS here */
+        /* Basic reset */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            scroll-behavior: smooth;
+        }
+
+        /* Parallax header */
+        .parallax {
+            background-image: url('https://skunkworks.africa/wp-content/uploads/2022/08/Skunkworks_Africa_Homepage_Banner.jpg');
+            min-height: 600px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header-content h1 {
+            font-size: 3em;
+            margin: 0;
+            font-family: 'Helvetica Neue', sans-serif;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            padding-bottom: 0.5em;
+            border-bottom: 3px solid #ccc;
+        }
+
+        .header-content p {
+            font-size: 1.5em;
+            font-family: 'Georgia', serif;
+            color: #666;
+            line-height: 1.6;
+            margin-top: 0.5em;
+            margin-bottom: 1.5em;
+        }
+
+        /* Section framing and margins */
+        section {
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        /* Grid Container */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* Flip Card */
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 400px;
+            perspective: 1000px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s ease-in-out;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .flip-card-front {
+            background-size: cover;
+            background-position: center;
+        }
+
+        .flip-card-back {
+            background-color: #2980b9;
+            color: white;
+            transform: rotateY(180deg);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .flip-card-back:hover {
+            background-color: #3498db;
+        }
+
+        .flip-card-back h2 {
+            margin-bottom: 15px;
+            font-size: 2em;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .flip-card-back p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Call-to-action button styling */
+        .cta-button {
+            display: inline-block;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            background-color: #2980b9;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+
+        .cta-button:hover {
+            background-color: #3498db;
+            transform: translateY(-2px);
+        }
+
+        /* Center align buttons */
+        .cta-buttons {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        /* Social media icons */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: #2980b9;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #3498db;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        footer a {
+            color: #f9f9f9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -245,24 +214,25 @@ footer a:hover {
         <div class="header-content">
             <h1>Master Your Mainframe Skills with IBM Badges</h1>
             <p>An Advocacy by Skunkworks Africa</p>
+            <div>
+                <iframe width="560" height="315" src="https://mediacenter.ibm.com/media/t/1_prj2fzji" title="IBM Video" allowfullscreen></iframe>
+            </div>
         </div>
     </header>
 
     <section>
         <div class="cta-buttons">
-            <a href="tel:+27871645398" class="cta-button">Call Us: +27 871 645 398</a>
-            <a href="mailto:info@skunkworks.africa" class="cta-button">Email: info@skunkworks.africa</a>
+            <a class="cta-button">Call Us</a>
+            <a class="cta-button">Email Us</a>
         </div>
     </section>
 
-    </section>
     <section class="grid-container">
         <!-- Each grid-item contains a flip tile -->
         <div class="grid-item">
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/ud5xusc9nxv5c4urc9l0xm0xxtb7" alt="IBM Z 101">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/ud5xusc9nxv5c4urc9l0xm0xxtb7');">
                     </div>
                     <div class="flip-card-back">
                         <h2>IBM Z 101</h2>
@@ -275,8 +245,7 @@ footer a:hover {
         <div class="grid-item">
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/sln8phy0lw7k6fmx3t1o8x1e8qaq" alt="Mainframe Systems Administrator 201">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/sln8phy0lw7k6fmx3t1o8x1e8qaq');">
                     </div>
                     <div class="flip-card-back">
                         <h2>Mainframe Systems Administrator 201</h2>
@@ -289,22 +258,7 @@ footer a:hover {
         <div class="grid-item">
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/sln8phy0lw7k6fmx3t1o8x1e8qaq" alt="Mainframe Systems Administrator 301">
-                    </div>
-                    <div class="flip-card-back">
-                        <h2>Mainframe Systems Administrator 301</h2>
-                        <p>Advanced level badge for professionals with deep expertise in IBM mainframe administration.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid-item">
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/o3gw9yt490i2kharsvgl9kb3zi42" alt="Architecting Apps on IBM Z">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/o3gw9yt490i2kharsvgl9kb3zi42');">
                     </div>
                     <div class="flip-card-back">
                         <h2>Architecting Apps on IBM Z</h2>
@@ -317,8 +271,7 @@ footer a:hover {
         <div class="grid-item">
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/md3xek6213j4833jpna702ice7fp" alt="Application Discovery & Delivery Intelligence">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/md3xek6213j4833jpna702ice7fp');">
                     </div>
                     <div class="flip-card-back">
                         <h2>Application Discovery & Delivery Intelligence</h2>
@@ -331,8 +284,7 @@ footer a:hover {
         <div class="grid-item">
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/mnq2jpifaercz12t00hs9egdcgt2" alt="Dependency Based Build Fundamentals">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/mnq2jpifaercz12t00hs9egdcgt2');">
                     </div>
                     <div class="flip-card-back">
                         <h2>Dependency Based Build Fundamentals</h2>
@@ -345,8 +297,7 @@ footer a:hover {
         <div class="grid-item">
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/mpz3nxk9jcu57gcnpexxs1sepudi" alt="Advanced Business Optimizer">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/mpz3nxk9jcu57gcnpexxs1sepudi');">
                     </div>
                     <div class="flip-card-back">
                         <h2>Advanced Business Optimizer</h2>
@@ -359,8 +310,7 @@ footer a:hover {
         <div class="grid-item">
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/vt1356m1rt9hbx6582fw38q7c8xy" alt="CICS v5/v6 Operations">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/vt1356m1rt9hbx6582fw38q7c8xy');">
                     </div>
                     <div class="flip-card-back">
                         <h2>CICS v5/v6 Operations</h2>
@@ -373,8 +323,7 @@ footer a:hover {
         <div class="grid-item">
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/li6qqi0old9j0jxv2ikbx8haecg9" alt="Modern Application Development on IBM CICS">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/li6qqi0old9j0jxv2ikbx8haecg9');">
                     </div>
                     <div class="flip-card-back">
                         <h2>Modern Application Development on IBM CICS</h2>
@@ -387,8 +336,7 @@ footer a:hover {
         <div class="grid-item">
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/g3jc19yudwx8yfa1eujh450gspjg" alt="Practical Groovy">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/g3jc19yudwx8yfa1eujh450gspjg');">
                     </div>
                     <div class="flip-card-back">
                         <h2>Practical Groovy</h2>
@@ -401,8 +349,7 @@ footer a:hover {
         <div class="grid-item">
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/n8dzb728kmkvcyjbpd64igk1eixg" alt="DevOps with Git and Jenkins">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/n8dzb728kmkvcyjbpd64igk1eixg');">
                     </div>
                     <div class="flip-card-back">
                         <h2>DevOps with Git and Jenkins</h2>
@@ -415,8 +362,7 @@ footer a:hover {
         <div class="grid-item">
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/v659hygpuxxhdpivochjllch1b0q" alt="Mastering Groovy">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/v659hygpuxxhdpivochjllch1b0q');">
                     </div>
                     <div class="flip-card-back">
                         <h2>Mastering Groovy</h2>
@@ -429,8 +375,7 @@ footer a:hover {
         <div class="grid-item">
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/t1temm3upvvl1g17jniutkr5hsgl" alt="Containers and Kubernetes Essentials">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/t1temm3upvvl1g17jniutkr5hsgl');">
                     </div>
                     <div class="flip-card-back">
                         <h2>Containers and Kubernetes Essentials</h2>
@@ -443,8 +388,7 @@ footer a:hover {
         <div class="grid-item">
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/mzsy75diiz9930mfgsm9h0nt4ub8" alt="Data Analytics Essentials">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/mzsy75diiz9930mfgsm9h0nt4ub8');">
                     </div>
                     <div class="flip-card-back">
                         <h2>Data Analytics Essentials</h2>
@@ -457,8 +401,7 @@ footer a:hover {
         <div class="grid-item">
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/7lnhq2omaje9x74gfjk6x568ydf6" alt="Big Data, Hadoop, and Spark">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/7lnhq2omaje9x74gfjk6x568ydf6');">
                     </div>
                     <div class="flip-card-back">
                         <h2>Big Data, Hadoop, and Spark</h2>
@@ -471,8 +414,7 @@ footer a:hover {
         <div class="grid-item">
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/kgkb8ct2xke1xv8skd3y0dnbds05" alt="IBM Cloud Essentials">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/kgkb8ct2xke1xv8skd3y0dnbds05');">
                     </div>
                     <div class="flip-card-back">
                         <h2>IBM Cloud Essentials</h2>
@@ -485,8 +427,7 @@ footer a:hover {
         <div class="grid-item">
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/42o8owffuc2n4keoe9kme0yegs08" alt="Root Cause Analysis">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/42o8owffuc2n4keoe9kme0yegs08');">
                     </div>
                     <div class="flip-card-back">
                         <h2>Root Cause Analysis</h2>
@@ -499,8 +440,7 @@ footer a:hover {
         <div class="grid-item">
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/qbpnk1yioi63bm36bxxpxmoqi2yr" alt="Fundamentals of Zowe">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/qbpnk1yioi63bm36bxxpxmoqi2yr');">
                     </div>
                     <div class="flip-card-back">
                         <h2>Fundamentals of Zowe</h2>
@@ -509,12 +449,105 @@ footer a:hover {
                 </div>
             </div>
         </div>
+
+        <!-- Additional badge flip tiles -->
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/ex7nwmewtdqoo05620ck8rjuh9m3');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>New Badge Title 1</h2>
+                        <p>Description of the new badge 1 goes here.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/ul8286l2d6tnvrccx2tp0kyly1uh');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>New Badge Title 2</h2>
+                        <p>Description of the new badge 2 goes here.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/sawsjbeejthc2kju9l6vr7v6742r');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>New Badge Title 3</h2>
+                        <p>Description of the new badge 3 goes here.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/bi7plsfmgulemj3shxv8x7z9abit');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>New Badge Title 4</h2>
+                        <p>Description of the new badge 4 goes here.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/dmjp1hmgehtldg177ixpjr5kpz37');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>New Badge Title 5</h2>
+                        <p>Description of the new badge 5 goes here.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/elpihwzomq34ixl7twkbz9bi9u83');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>New Badge Title 6</h2>
+                        <p>Description of the new badge 6 goes here.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/psktqsvm9mstyd89dj2tjgqwisdc');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>New Badge Title 7</h2>
+                        <p>Description of the new badge 7 goes here.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
-    
+
     <section>
         <div class="cta-buttons">
-            <a href="tel:+27871645398" class="cta-button">Call Us: +27 871 645 398</a>
-            <a href="mailto:info@skunkworks.africa" class="cta-button">Email: info@skunkworks.africa</a>
+            <a class="cta-button">Call Us</a>
+            <a class="cta-button">Email Us</a>
         </div>
 
         <div class="social-icons">
