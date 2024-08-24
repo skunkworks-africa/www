@@ -164,6 +164,69 @@ nav ul li ul li a:hover {
     gap: 20px;
 }
 
+/* Center the heading and align text to the center */
+.centered-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* General styling for section padding */
+.section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* Grid container with centered content */
+.grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Specific styling for the framed grid layout */
+.framed-grid {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Framed tile styling for each achievement */
+.framed-tile {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 20px;
+    border: 2px solid #333333;
+    border-radius: 8px;
+    text-align: center;
+    flex-basis: calc(33.333% - 20px); /* Three tiles in a row */
+    max-width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for tiles */
+.framed-tile:hover {
+    transform: translateY(-5px);
+}
+
+/* Icon styling */
+.achievement-icon {
+    margin-bottom: 20px;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .grid-container {
+        flex-direction: column;
+    }
+
+    .framed-tile {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
 /* Carbon Tile Styling */
 .carbon-tile {
     padding: 20px;
