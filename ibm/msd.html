@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" rel="icon" type="image/png" />
+    <title>Skunkworks Badge Advocacy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Basic reset */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            scroll-behavior: smooth;
+        }
+
+        /* Parallax header */
+        .parallax {
+            background-image: url('https://skunkworks.africa/wp-content/uploads/2022/08/Skunkworks_Africa_Homepage_Banner.jpg');
+            min-height: 600px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header-content h1 {
+            font-size: 3em;
+            margin: 0;
+            font-family: 'Helvetica Neue', sans-serif;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            padding-bottom: 0.5em;
+            border-bottom: 3px solid #ccc;
+        }
+
+        .header-content p {
+            font-size: 1.5em;
+            font-family: 'Georgia', serif;
+            color: #666;
+            line-height: 1.6;
+            margin-top: 0.5em;
+            margin-bottom: 1.5em;
+        }
+
+        /* Section framing and margins */
+        section {
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        /* Grid Container */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* Flip Card */
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 400px;
+            perspective: 1000px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s ease-in-out;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .flip-card-front {
+            background-size: cover;
+            background-position: center;
+        }
+
+        .flip-card-back {
+            background-color: #2980b9;
+            color: white;
+            transform: rotateY(180deg);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            word-wrap: break-word;
+            word-break: break-word;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .flip-card-back:hover {
+            background-color: #3498db;
+            transform: scale(1.05);
+        }
+
+        .flip-card-back h2 {
+            margin-bottom: 15px;
+            font-size: 2em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            max-width: 100%;
+        }
+
+        .flip-card-back p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            max-width: 100%;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Call-to-action button styling */
+        .cta-button {
+            display: inline-block;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            background-color: #2980b9;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+
+        .cta-button:hover {
+            background-color: #3498db;
+            transform: translateY(-2px);
+        }
+
+        /* Center align buttons */
+        .cta-buttons {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        /* Social media icons */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: #2980b9;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #3498db;
+        }
+
+        /* Footer */
+        .footer-body {
+            background-color: #f9f9f9;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .footer-body a {
+            color: #gray-400;
+            text-decoration: none;
+        }
+        
+        .footer-body a:hover {
+            color: #333;
+        }
+        
+        .footer-body p {
+            margin: 0;
+        }
+
+        /* Mobile Responsive Styling */
+        @media (max-width: 768px) {
+            .parallax {
+                min-height: 400px;
+                background-attachment: scroll;
+                margin-bottom: 20px;
+            }
+
+            .header-content h1 {
+                font-size: 2em;
+            }
+
+            .header-content p {
+                font-size: 1.2em;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+                padding: 10px;
+            }
+
+            .flip-card {
+                height: 300px;
+            }
+
+            .flip-card-back h2 {
+                font-size: 1.5em;
+            }
+
+            .flip-card-back p {
+                font-size: 1em;
+            }
+
+            .cta-button {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+
+            .cta-buttons {
+                margin: 15px 0;
+            }
+
+            .social-icons a {
+                font-size: 20px;
+            }
+
+            .footer-body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="parallax">
+        <div class="header-content">
+            <h1>Master Your Mainframe Skills with IBM Badges</h1>
+            <p>An Advocacy by Skunkworks Africa</p>
+            <div>
+                <iframe width="100%" height="315" src="https://mainframeskillsdepot.ibm.com/" title="Mainframe Skills Depot" allowfullscreen></iframe>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="cta-buttons">
+            <a class="cta-button">Call Us</a>
+            <a class="cta-button">Email Us</a>
+        </div>
+    </section>
+
+    <section class="grid-container">
+        <!-- Each grid-item contains a flip tile -->
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/eja50z451isz879u78u1zainwdrj');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Introduction to IBM z/OS</h2>
+                        <p>This badge represents foundational knowledge of IBM z/OS, essential for new professionals in the field.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/fod0nfgkxggd6mnkr6sml1pacfb2');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>TCP/IP on z/OS Essentials - Level 1</h2>
+                        <p>This badge signifies skills in TCP/IP on z/OS, essential for managing network protocols on IBM Z.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/w55o8wvwtq87hxh7aq96g76op0ts');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>COBOL Programming with VSCode</h2>
+                        <p>This badge represents expertise in COBOL programming using VSCode for modern mainframe development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://images.credly.com/size/680x680/images/c29eff7b-eeab-43f8-8ef7-d7943cf65dcd/image.png');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Introduction to z/OS Commands and Panels on IBM Z</h2>
+                        <p>This badge earner has gained the fundamental practical skills to navigate and work in a z/OS environment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/sawsjbeejthc2kju9l6vr7v6742r');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>IBM Z Xplore - Concepts</h2>
+                        <p>This badge earner has learned and displayed fundamental IBM Z skills and understands IBM Z concepts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/jwyu7hzgi13j24o28h7xwqpdpuf3');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Modernize Applications with IBM CICS</h2>
+                        <p>This badge earner understands why CICS is perfect for powering the next generation of enterprise applications.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/mzsy75diiz9930mfgsm9h0nt4ub8');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Practical Groovy</h2>
+                        <p>This badge certifies practical knowledge in the Groovy programming language.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/7lnhq2omaje9x74gfjk6x568ydf6');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>DevOps with GIT Jenkins</h2>
+                        <p>This badge represents expertise in DevOps practices using Git and Jenkins.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/kgkb8ct2xke1xv8skd3y0dnbds05');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Mastering Groovy</h2>
+                        <p>This badge earner has demonstrated advanced Groovy programming skills.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/g3jc19yudwx8yfa1eujh450gspjg');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Root Cause Analysis</h2>
+                        <p>This badge represents understanding and applying root cause analysis techniques.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/t1temm3upvvl1g17jniutkr5hsgl');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Fundamentals for Zowe</h2>
+                        <p>This badge earner can describe the functional components and capabilities of Zowe.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional badges -->
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://images.credly.com/size/680x680/images/3c94ec71-118c-48c0-8ffd-58af4fb5bc12/IBM_Certificate_-_zOS_Mainframe_Practitioner.png');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>IBM z/OS Mainframe Practitioner</h2>
+                        <p>This badge earner has developed foundational skills in IBM Z hardware and software, especially around z/OS and System Administration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/qbpnk1yioi63bm36bxxpxmoqi2yr');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Web Development with HTML, CSS, JavaScript Essentials</h2>
+                        <p>This badge represents essential skills in web development with HTML, CSS, and JavaScript.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/bi7plsfmgulemj3shxv8x7z9abit');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Git and GitHub Essentials</h2>
+                        <p>This badge represents essential skills in using Git and GitHub for version control.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/41i7jwdo0k9jx4gq0g2dypn50u22');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Python for Data Science and AI</h2>
+                        <p>This badge represents foundational skills in Python for Data Science and AI.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/buowe3eidi6ajet8mj8comoyohd5');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>JavaScript Programming Essentials</h2>
+                        <p>This badge represents essential skills in JavaScript programming.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/psktqsvm9mstyd89dj2tjgqwisdc');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Front-end Development with React</h2>
+                        <p>This badge represents skills in front-end development using React.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/k2g9fwj22jhp8x5q6peazu1zesje');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Node and Express Essentials</h2>
+                        <p>This badge represents foundational skills in Node.js and Express.js for server-side development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/v659hygpuxxhdpivochjllch1b0q');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Interskill - Mainframe Specialist - Db2 V13 Operations</h2>
+                        <p>This badge earner has a solid understanding of the Db2 environment, its components, and the use of SQL to extract data.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://images.credly.com/size/680x680/images/ae6d25bc-b1d9-4f3e-b970-64bba32aab7a/image.png');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>IBM Z Xplore - Advanced</h2>
+                        <p>This badge earner can solve advanced IBM Z problems by thinking critically and applying information from various sources.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/ud5xusc9nxv5c4urc9l0xm0xxtb7');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>IBM Z 101 Certificate</h2>
+                        <p>This credential earner has developed critical skills in IBM Z hardware, operating systems, and software, especially around z/OS.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('hhttps://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/sln8phy0lw7k6fmx3t1o8x1e8qaq');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Mainframe Systems Administrator 201</h2>
+                        <p>This badge earner has developed comprehensive skills in IBM Z for the role of system administrator.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-image: url('https://sn-portals-zskills.s3.us-east.cloud-object-storage.appdomain.cloud/o3gw9yt490i2kharsvgl9kb3zi42');">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Mainframe Systems Administrator 301</h2>
+                        <p>This credential earner has completed advanced training for their career as an IBM Mainframe System Administrator.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="cta-buttons">
+            <a class="cta-button">Call Us</a>
+            <a class="cta-button">Email Us</a>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://youtube.com/@skunkworksza?si=uR7G1nKtBbSzt_ZD" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/company/skunkworksza/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/share/V3Q1EQUjk2YbThC8/?mibextid=LQQJ4d" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/skunkworksafrica?igsh=cHM0NDJrcnFzZ3ow&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/skunkworksza" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/Skunkworks-Lab-Services" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/Skunkworks-Placements" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com/skunkworksza" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+    </section>
+
+    <footer class="footer-body max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:py-16 lg:px-8">
+        <div class="sm:grid sm:grid-cols-2 sm:gap-8 text-center sm:text-left">
+            <div class="flex justify-center sm:justify-start items-center mt-2 gap-8 xl:mt-0">
+                <ul role="list" class="md:grid md:grid-rows-2 md:grid-flow-col md:gap-8 space-y-4 md:space-y-0">
+                    <li class="text-base text-gray-400 hover:text-gray-900">
+                        <a href="https://skunkworks.africa/privacy">Privacy Notice</a>
+                    </li>
+                    <li class="text-base text-gray-400 hover:text-gray-900">
+                        <a href="https://skunkworks.africa/terms">Terms of Service</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="space-y-8 xl:col-span-1 justify-self-end self-center mt-8 sm:mt-12 xl:mt-0">
+                <div class="text-sm text-gray-400 text-center flex items-center justify-center">
+                    <p class="md:mr-5 mr-3">Powered by</p>
+                    <a class="font-normal contents" href="https://skills.network" target="_blank">
+                        <img class="mx-0" alt="organization logo" src="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" style="height: 50px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <p class="text-sm text-gray-400">Explore more certifications on <a href="https://mainframeskillsdepot.ibm.com/badges" class="text-gray-400 hover:text-gray-900">IBM Skills Gateway</a></p>
+            <p class="text-sm text-gray-400">© Skunkworks Academy</p>
+        </div>
+    </footer>
+</body>
+
+</html>
