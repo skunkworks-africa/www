@@ -1,11 +1,11 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'IBM Plex Sans', Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #000000;
-    color: #fff;
+    background-color: #f4f4f4;
+    color: #000000; /* Set text color to black */
 }
 
 /* Skip to main content link for accessibility */
@@ -168,12 +168,12 @@ nav ul li ul li a:hover {
 .centered-heading {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 /* General styling for section padding */
 .section {
-    padding: 60px 20px;
+    padding: 30px 20px;
     text-align: center;
 }
 
@@ -183,26 +183,38 @@ nav ul li ul li a:hover {
     justify-content: center;
     align-items: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 /* Specific styling for the framed grid layout */
 .framed-grid {
     max-width: 800px;
     margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #333333;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Framed tile styling for each achievement */
 .framed-tile {
     background-color: #ffffff;
-    color: #000000;
+    color: #000000; /* Ensure tile text is black */
     padding: 20px;
-    border: 2px solid #333333;
     border-radius: 8px;
     text-align: center;
-    flex-basis: calc(33.333% - 20px); /* Three tiles in a row */
-    max-width: 250px;
+    flex-basis: calc(33.33% - 20px); /* Three tiles in a row */
+    max-width: 300px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+}
+
+
+/* Tile heading styling */
+.framed-tile h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #000000; /* Ensure heading is black */
 }
 
 /* Hover effect for tiles */
@@ -210,9 +222,18 @@ nav ul li ul li a:hover {
     transform: translateY(-5px);
 }
 
-/* Icon styling */
-.achievement-icon {
-    margin-bottom: 20px;
+/* Tile paragraph styling */
+.framed-tile p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #333333; /* Slightly lighter shade for paragraph text */
+}
+
+/* Icon styling within framed tiles */
+.framed-tile .achievement-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
 }
 
 /* Media query for responsiveness */
