@@ -122,11 +122,16 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            transition: background-color 0.3s ease-in-out;
+            word-wrap: break-word; /* Ensure long words break to fit within the container */
+            word-break: break-word; /* Ensure long words break to fit within the container */
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
         }
 
         .flip-card-back:hover {
             background-color: #3498db;
+            transform: scale(1.05);
         }
 
         .flip-card-back h2 {
@@ -134,6 +139,8 @@
             font-size: 2em;
             font-weight: bold;
             letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            max-width: 100%; /* Ensure the heading fits within the container */
         }
 
         .flip-card-back p {
@@ -141,6 +148,8 @@
             line-height: 1.5;
             margin: 0;
             padding: 0;
+            max-width: 100%; /* Ensure the paragraph fits within the container */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         /* Call-to-action button styling */
