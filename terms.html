@@ -16,18 +16,14 @@
             background-color: #f4f4f4;
             color: #000;
         }
-        .bx--header {
-            background-color: #ffffff;
+        header {
+            background-color: #fff;
             color: #000000;
             padding: 10px 0;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
         }
-        .bx--header img {
-            max-width: 100%;
-            height: auto;
-        }
-        .bx--content {
+        .container {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
@@ -37,10 +33,17 @@
             border-radius: 8px;
         }
         h1, h2 {
-            color: #000;
+            color: #000; /* Set all headings to black */
         }
         p, ul {
             margin: 15px 0;
+        }
+        .section {
+            margin-bottom: 40px; /* Add spacing between sections */
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #ffffff;
         }
     </style>
 </head>
@@ -128,21 +131,17 @@
                 <div class="space-y-8 xl:col-span-1 justify-self-end self-center mt-8 sm:mt-12 xl:mt-0">
                     <div class="text-sm text-gray-400 text-center flex items-center justify-center">
                         <p class="md:mr-5 mr-3">Powered by</p>
-                        <a class="font-normal contents" href="https://skills.network" target="_blank">
-                            <img class="mx-0" alt="organization logo" src="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" style="height: 50px;">
+                        <a class="font-normal contents" href="https://skunkworks.africa" target="_blank" rel="noopener noreferrer">
+                            <img class="mx-0" alt="Skunkworks Logo" src="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" style="height: 50px;">
                         </a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="text-center mt-4">
-            <p class="text-sm text-gray-400">Explore more certifications on <a href="https://mainframeskillsdepot.ibm.com/badges" class="text-gray-400 hover:text-gray-900">IBM Skills Gateway</a></p>
             <p class="text-sm text-gray-400">© Skunkworks Academy</p>
         </div>
     </footer>
-</body>
-</html>
-
     <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
 </body>
 </html>
