@@ -173,16 +173,16 @@ nav ul li ul li a:hover {
 
 /* General styling for section padding */
 .section {
-    padding: 30px 20px;
+    padding: 20px 20px;
     text-align: center;
 }
 
 /* Grid container with centered content */
 .grid-container {
-    display: flex;
+    display: ;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
     flex-wrap: wrap;
 }
 
@@ -212,7 +212,7 @@ nav ul li ul li a:hover {
 
 /* Tile heading styling */
 .framed-tile h2 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-bottom: 15px;
     color: #000000; /* Ensure heading is black */
 }
@@ -226,7 +226,7 @@ nav ul li ul li a:hover {
 .framed-tile p {
     font-size: 1rem;
     margin-bottom: 10px;
-    color: #333333; /* Slightly lighter shade for paragraph text */
+    color: #000; /* Slightly lighter shade for paragraph text */
 }
 
 /* Icon styling within framed tiles */
