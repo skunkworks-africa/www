@@ -35,55 +35,33 @@ jobs:
         with:
           ruby-version: '3.0'
 
+      - name: Create Jekyll directory if missing
+        run: |
+          if [ ! -d "./jekyll" ]; then
+            echo "Jekyll directory not found, creating it..."
+            mkdir ./jekyll
+          fi
+
       - name: Install Jekyll dependencies
         run: bundle install
-        working-directory: ./jekyll  # Adjust to your Jekyll directory
-
-      - name: Ensure required directories and files exist
-        run: |
-          # Directories to check
-          required_directories=("jekyll/_site" "backend/dist" "assets" "css" "js")
-          
-          # Check and create missing directories
-          for dir in "${required_directories[@]}"; do
-            if [ ! -d "$dir" ]; then
-              echo "Creating missing directory: $dir"
-              mkdir -p "$dir"
-            fi
-          done
-          
-          # Handle duplicate files and merge directories
-          merge_directories() {
-            src=$1
-            dest=$2
-            if [ -d "$src" ]; then
-              echo "Merging $src into $dest"
-              rsync -a --remove-source-files "$src/" "$dest/"
-              rm -rf "$src"
-            fi
-          }
-
-          # Example: Merging duplicate directories
-          merge_directories "duplicate_dir" "target_dir"
-
-          # Check and merge specific files if duplicates exist
-          if [ -f "duplicate_file.txt" ] && [ -f "target_file.txt" ]; then
-            echo "Merging duplicate_file.txt into target_file.txt"
-            cat duplicate_file.txt >> target_file.txt
-            rm duplicate_file.txt
-          fi
+        working-directory: ./jekyll  # Adjust to your Jekyll directory if it exists
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Build with Jekyll
-        run: bundle exec jekyll build
-        working-directory: ./jekyll  # Adjust to your Jekyll directory
+        run: |
+          if [ -d "./jekyll" ]; then
+            bundle exec jekyll build
+          else
+            echo "Jekyll directory not found, skipping build step..."
+          fi
+        working-directory: ./jekyll  # Adjust to your Jekyll directory if it exists
 
       - name: Upload Jekyll artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./jekyll/_site  # Adjust to your Jekyll output directory
+          path: ./jekyll/_site  # Adjust to your Jekyll output directory if it exists
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
