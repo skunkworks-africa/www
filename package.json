@@ -172,7 +172,9 @@
     "test": "gulp",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "chromatic --project-token=YOUR_PROJECT_TOKEN"
+    "chromatic": "chromatic --project-token=YOUR_PROJECT_TOKEN",
+    "lint:js": "eslint '**/*.js'",
+    "lint:css": "stylelint '**/*.css'"
   },
   "repository": {
     "type": "git",
