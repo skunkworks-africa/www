@@ -1,23 +1,40 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
-# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
-
+# Dependabot configuration file
 version: 2
 updates:
+  # Update npm dependencies
   - package-ecosystem: "npm"
-    directory: "/"
+    directory: "/"  # The root directory containing package.json
     schedule:
-      interval: "weekly"
+      interval: "weekly"  # Check for updates every week
+    # Optionally, specify a day and time for the updates
+    # day: "monday"
+    # time: "04:00"
+
+  # Update Bundler dependencies (for Ruby)
   - package-ecosystem: "bundler"
-    directory: "/"
+    directory: "/"  # The root directory containing Gemfile
     schedule:
-      interval: "weekly"
+      interval: "weekly"  # Check for updates every week
+    # Optionally, specify a day and time for the updates
+    # day: "tuesday"
+    # time: "05:00"
+
+  # Update Docker dependencies
   - package-ecosystem: "docker"
-    directory: "/"
+    directory: "/"  # The directory containing your Dockerfile
     schedule:
-      interval: "weekly"
+      interval: "weekly"  # Check for updates every week
+    # Optionally, specify a day and time for the updates
+    # day: "wednesday"
+    # time: "06:00"
+
+  # Update Python dependencies (for pip)
   - package-ecosystem: "pip"
-    directory: "/"
+    directory: "/"  # The root directory containing requirements.txt or pyproject.toml
     schedule:
-      interval: "weekly"
+      interval: "weekly"  # Check for updates every week
+    # Optionally, specify a day and time for the updates
+    # day: "thursday"
+    # time: "07:00"
+
+# You can add more configurations for different package ecosystems as needed.
