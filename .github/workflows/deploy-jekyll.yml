@@ -1,12 +1,15 @@
 name: Deploy to GitHub Pages
+
 on:
   push:
     branches: ["main"]
   workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -23,25 +26,9 @@ jobs:
           node-version: '16.x'
           cache: 'npm'
 
-      - name: Install dependencies
-        working-directory: ./backend
-        run: |
-          if [ -f package-lock.json ]; then
-            npm ci
-          else
-            npm install
-          fi
-        continue-on-error: true  # Allow the step to continue even if it fails
-
-      - name: Retry Install dependencies if it fails
-        if: failure()  # Check if previous step failed
-        working-directory: ./backend
-        run: |
-          if [ -f package-lock.json ]; then
-            npm ci
-          else
-            npm install
-          fi
+      - name: Install Node.js dependencies
+        run: npm install
+        working-directory: ./backend  # Adjust to your backend directory
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -49,31 +36,54 @@ jobs:
           ruby-version: '3.0'
 
       - name: Install Jekyll dependencies
-        run: |
-          bundle install
-        continue-on-error: true  # Allow the step to continue even if it fails
+        run: bundle install
+        working-directory: ./jekyll  # Adjust to your Jekyll directory
 
-      - name: Retry Install Jekyll dependencies if it fails
-        if: failure()  # Check if previous step failed
+      - name: Ensure required directories and files exist
         run: |
-          bundle install
+          # Directories to check
+          required_directories=("jekyll/_site" "backend/dist" "assets" "css" "js")
+          
+          # Check and create missing directories
+          for dir in "${required_directories[@]}"; do
+            if [ ! -d "$dir" ]; then
+              echo "Creating missing directory: $dir"
+              mkdir -p "$dir"
+            fi
+          done
+          
+          # Handle duplicate files and merge directories
+          merge_directories() {
+            src=$1
+            dest=$2
+            if [ -d "$src" ]; then
+              echo "Merging $src into $dest"
+              rsync -a --remove-source-files "$src/" "$dest/"
+              rm -rf "$src"
+            fi
+          }
+
+          # Example: Merging duplicate directories
+          merge_directories "duplicate_dir" "target_dir"
+
+          # Check and merge specific files if duplicates exist
+          if [ -f "duplicate_file.txt" ] && [ -f "target_file.txt" ]; then
+            echo "Merging duplicate_file.txt into target_file.txt"
+            cat duplicate_file.txt >> target_file.txt
+            rm duplicate_file.txt
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Build with Jekyll
-        run: |
-          bundle exec jekyll build
-        continue-on-error: true  # Allow the step to continue even if it fails
+        run: bundle exec jekyll build
+        working-directory: ./jekyll  # Adjust to your Jekyll directory
 
-      - name: Retry Build with Jekyll if it fails
-        if: failure()  # Check if previous step failed
-        run: |
-          bundle exec jekyll build
-
-      - name: Upload artifact
+      - name: Upload Jekyll artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./jekyll/_site  # Adjust to your Jekyll output directory
 
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v4
