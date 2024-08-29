@@ -26,6 +26,14 @@ jobs:
           node-version: '16.x'
           cache: 'npm'
 
+      - name: Create missing directories and files
+        run: |
+          mkdir -p ./backend
+          mkdir -p ./jekyll
+          touch ./jekyll/Gemfile
+          touch ./jekyll/_config.yml
+        # This will ensure the directories and essential files are present
+
       - name: Install dependencies
         run: |
           npm install
@@ -38,12 +46,14 @@ jobs:
 
       - name: Install Jekyll dependencies
         run: bundle install
+        working-directory: ./jekyll
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Build with Jekyll
         run: bundle exec jekyll build
+        working-directory: ./jekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
