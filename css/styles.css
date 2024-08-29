@@ -26,7 +26,7 @@ body {
 
 /* Header Styling */
 header {
-    background-color: #161616;
+    background-color: #000000;
     color: #ffffff;
     padding: 16px 32px;
     display: flex;
@@ -38,6 +38,7 @@ header {
 
 /* Custom Styling for Skunkworks Title */
 .skunkworks-title {
+    color: #ffffff;
     font-weight: 700;
     font-size: 2.5rem;
     text-transform: uppercase;
@@ -52,7 +53,7 @@ nav {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-color: #ffffff;
+    background-color: #1c1c1c;
     padding: 10px 20px;
 }
 
@@ -71,7 +72,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #ffffff;
+    color: #1c1c1c;
     text-decoration: none;
     display: block;
     padding: 8px 16px;
@@ -82,7 +83,7 @@ nav ul li a {
 
 nav ul li a:hover {
     background-color: #262626;
-    color: #0f62fe;
+    color: #ffffff;
 }
 
 /* Dropdown Menu Styling */
@@ -111,8 +112,8 @@ nav ul li ul li a {
 }
 
 nav ul li ul li a:hover {
-    background-color: #333333;
-    color: #0f62fe;
+    background-color: #1c1c1c;
+    color: #f1f1f1;
 }
 
 /* Burger Menu Styling */
