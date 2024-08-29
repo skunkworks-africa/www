@@ -226,15 +226,18 @@ nav ul li ul li a:hover {
     transform: translateY(-3px);
 }
 
-/* Grid Layout for Tiles */
+/* Improved Grid Layout for Tiles */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
     max-width: 1000px;
     width: 100%;
+    margin: 0 auto; /* Centers the grid container horizontally */
     padding: 20px;
+    box-sizing: border-box; /* Ensures padding doesn't affect the width */
 }
+
 
 /* Specific styling for the framed grid layout */
 .framed-grid {
