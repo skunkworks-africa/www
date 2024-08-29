@@ -313,7 +313,7 @@ nav ul li ul li a:hover {
 }
 
 .carbon-tile img {
-    max-width: 100%;
+    max-width: 50%;
     height: auto;
     margin-bottom: 10px;
 }
