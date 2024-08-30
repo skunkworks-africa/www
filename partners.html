@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="./css/styles.css" rel="stylesheet" />
+    <link href="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" rel="icon" type="image/png" />
+    <title>Strategic Partners - Skunkworks</title>
+</head>
+<body>
+    <header class="ui-shell-header" role="banner">
+        <div class="logo">
+            <div class="skunkworks-title">Skunkworks</div>
+        </div>
+        <div class="burger" onclick="toggleMenu()" aria-expanded="false" aria-controls="main-menu" aria-label="Toggle navigation">
+            &#9776;
+        </div>
+        <nav id="main-menu" class="header-navigation" role="navigation">
+            <ul>
+                <li><a href="./index.html"><img alt="Home" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/container.svg" />Home</a></li>
+                <li><a href="./training.html"><img alt="Training" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/intelligence.svg" />Training</a></li>
+                <li><a href="./services.html"><img alt="Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/container--microservices.svg" />Services</a></li>
+                <li><a href="./careers.html"><img alt="Careers" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/data--apis.svg" />Careers</a></li>
+                <li><a href="#contact"><img alt="Contact" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/b6c7c3e93995fd5c2a6c0979d90ead76d9ef98dd/assets/icons/email.svg" />Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Partners Section -->
+    <section class="section" id="partners">
+        <h1 class="centered-heading">Our Strategic Partners</h1>
+        <p class="centered-paragraph">We collaborate with industry-leading organizations to deliver the best solutions and services to our clients. Our strategic partnerships allow us to extend our capabilities and provide comprehensive, cutting-edge technology solutions.</p>
+        
+        <input id="partnerSearch" onkeyup="filterPartners()" placeholder="Search partner name" type="text" />
+        <div class="divider"></div>
+        <div class="partners-list grid-container" id="partnersList">
+            <!-- Partner 1 -->
+            <a class="partner-item framed-tile" data-name="AWS" href="aws.html">
+                <img alt="AWS Logo" src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" />
+                <h2>AWS</h2>
+            </a>
+            <!-- Partner 2 -->
+            <a class="partner-item framed-tile" data-name="Checkpoint" href="checkpoint.html">
+                <img alt="Checkpoint Logo" src="https://github.com/skunkworksza/www/blob/main/assets/checkpoint/checkpoint-logo-stacked-large-blk.png?raw=true" />
+                <h2>Checkpoint</h2>
+            </a>
+            <!-- Partner 3 -->
+            <a class="partner-item framed-tile" data-name="Cisco" href="cisco.html">
+                <img alt="Cisco Logo" src="https://raw.githubusercontent.com/skunkworksza/www/021c38cde4ad3a9ccf72b8b18042f580b195a3d6/assets/cisco/strategic-partner-logo-cisco-1.svg" />
+                <h2>Cisco</h2>
+            </a>
+            <!-- Partner 4 -->
+            <a class="partner-item framed-tile" data-name="CompTIA" href="comptia.html">
+                <img alt="CompTIA Logo" src="https://github.com/skunkworksza/www/blob/main/assets/comptia/08212-capp-digital-badges_delivery-partner.jpg?raw=true" />
+                <h2>CompTIA</h2>
+            </a>
+            <!-- Partner 5 -->
+            <a class="partner-item framed-tile" data-name="Commvault" href="commvault.html">
+                <img alt="Commvault Logo" src="https://github.com/skunkworksza/www/blob/main/assets/commvualt/commvualt.jpeg?raw=true" />
+                <h2>Commvault</h2>
+            </a>
+            <!-- Partner 6 -->
+            <a class="partner-item framed-tile" data-name="Dell" href="dell.html">
+                <img alt="Dell Logo" src="https://raw.githubusercontent.com/skunkworksza/www/a1d437d3c21c968aa69d146b04703d7cecf5d838/assets/dell/strategic-partner-logo-dell-technologies-1.svg" />
+                <h2>Dell</h2>
+            </a>
+            <!-- Partner 7 -->
+            <a class="partner-item framed-tile" data-name="GitHub" href="github.html">
+                <img alt="GitHub Logo" src="https://raw.githubusercontent.com/skunkworksza/www/c16c5586c66061112ffe4012073f564d9daa927d/assets/github/github-mark.svg" />
+                <h2>GitHub</h2>
+            </a>
+            <!-- Partner 8 -->
+            <a class="partner-item framed-tile" data-name="Google Cloud" href="googlecloud.html">
+                <img alt="Google Cloud Logo" src="https://raw.githubusercontent.com/skunkworksza/www/c16c5586c66061112ffe4012073f564d9daa927d/assets/google/google-cloud-logo-new.svg" />
+                <h2>Google Cloud</h2>
+            </a>
+            <!-- Partner 9 -->
+            <a class="partner-item framed-tile" data-name="IBM" href="ibm.html">
+                <img alt="IBM Logo" src="https://github.com/skunkworksza/www/blob/main/assets/ibm/IBM_Partner_Plus_silver_partner_mark_pos_black_RGB(103x80).jpg?raw=true" />
+                <h2>IBM</h2>
+            </a>
+            <!-- Partner 10 -->
+            <a class="partner-item framed-tile" data-name="Red Hat" href="redhat.html">
+                <img alt="Red Hat Logo" src="https://github.com/skunkworksza/www/blob/main/assets/redhat/redhat_logo.png?raw=true" />
+                <h2>Red Hat</h2>
+            </a>
+            <!-- Partner 11 -->
+            <a class="partner-item framed-tile" data-name="Microsoft" href="microsoft.html">
+                <img alt="Microsoft Logo" src="https://github.com/skunkworksza/www/blob/main/assets/microsoft/RWEDnc.png?raw=true" />
+                <h2>Microsoft</h2>
+            </a>
+            <!-- Partner 12 -->
+            <a class="partner-item framed-tile" data-name="VMware" href="vmware.html">
+                <img alt="VMware Logo" src="https://raw.githubusercontent.com/skunkworksza/www/c16c5586c66061112ffe4012073f564d9daa927d/assets/vmware/strategic-partners-logo-vmware-1.svg" />
+                <h2>VMware</h2>
+            </a>
+            <!-- Partner 13 -->
+            <a class="partner-item framed-tile" data-name="Veritas" href="veritas.html">
+                <img alt="Veritas Logo" src="https://github.com/skunkworksza/www/blob/main/assets/veritas/veritaz.png?raw=true" />
+                <h2>Veritas</h2>
+            </a>
+            <!-- Partner 14 -->
+            <a class="partner-item framed-tile" data-name="Veeam" href="veeam.html">
+                <img alt="Veeam Logo" src="https://github.com/skunkworksza/www/blob/main/assets/veeam/Veeam%20logo.jpeg?raw=true" />
+                <h2>Veeam</h2>
+            </a>
+            <!-- Partner 15 -->
+            <a class="partner-item framed-tile" data-name="SAP" href="sap.html">
+                <img alt="SAP Logo" src="https://github.com/skunkworksza/www/blob/main/assets/sap/SAP.jpeg?raw=true" />
+                <h2>SAP</h2>
+            </a>
+            <!-- Partner 16 -->
+            <a class="partner-item framed-tile" data-name="Salesforce" href="salesforce.html">
+                <img alt="Salesforce Logo" src="https://github.com/skunkworksza/www/blob/main/assets/salesforce/Salesforce-Logo.png?raw=true" />
+                <h2>Salesforce</h2>
+            </a>
+            <!-- Partner 17 -->
+            <a class="partner-item framed-tile" data-name="OpenAI" href="openai.html">
+                <img alt="OpenAI Logo" src="https://github.com/skunkworksza/www/blob/main/assets/openai/Open%20AI.jpeg?raw=true" />
+                <h2>OpenAI</h2>
+            </a>
+            <!-- Partner 18 -->
+            <a class="partner-item framed-tile" data-name="HashiCorp" href="hashicorp.html">
+                <img alt="HashiCorp Logo" src="https://github.com/skunkworksza/www/blob/main/assets/hs/Hashicorp-Vertical_onLight.png?raw=true" />
+                <h2>HashiCorp</h2>
+            </a>
+            <!-- Partner 19 -->
+            <a class="partner-item framed-tile" data-name="CRS" href="crs.html">
+                <img alt="CRS Logo" src="https://github.com/skunkworksza/www/blob/main/assets/crs/CRS-logo-GitHub.png?raw=true" />
+                <h2>CRS</h2>
+            </a>
+        </div>
+        <div class="divider"></div>
+    </section>
+
+    <footer>
+        <p>© 2024 Skunkworks. All rights reserved.</p>
+        <p><a href="https://blog.skunkworks.africa/" target="_blank">Visit our blog</a></p>
+    </footer>
+
+    <!-- JavaScript for Functionality -->
+    <script>
+        // Toggle Menu Functionality for Mobile
+        function toggleMenu() {
+            var menu = document.getElementById("main-menu");
+            menu.classList.toggle("visible");
+            var burger = document.querySelector(".burger");
+            var isExpanded = burger.getAttribute("aria-expanded") === "true" || false;
+            burger.setAttribute("aria-expanded", !isExpanded);
+        }
+
+        // Partner Search Filter
+        function filterPartners() {
+            var input = document.getElementById('partnerSearch');
+            var filter = input.value.toLowerCase();
+            var nodes = document.getElementsByClassName('partner-item');
+
+            for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].getAttribute('data-name').toLowerCase().includes(filter)) {
+                    nodes[i].style.display = "block";
+                } else {
+                    nodes[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
