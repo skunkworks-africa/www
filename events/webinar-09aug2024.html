@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webinar: Harnessing Technology for Business Growth</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Skunkworks Events</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="webinar-09aug2024.html">Upcoming Webinar</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="webinar-details">
+            <div class="webinar-content">
+                <h2>Webinar: Harnessing Technology for Business Growth</h2>
+                <p><strong>Date:</strong> August 10, 2024</p>
+                <p><strong>Time:</strong> 3:00 PM SAST</p>
+                <p>Join us for an insightful webinar on how to harness technology to drive business growth. Learn from industry experts and gain practical knowledge to apply in your organization.</p>
+                <button onclick="openForm()" class="cta-button">Register Now</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Skunkworks. All rights reserved.</p>
+        <div class="social-media">
+            <a href="https://www.linkedin.com/company/skunkworksza/"><img src="https://github.com/skunkworksza/Media/blob/main/linkedin-icon.svg?raw=true" alt="LinkedIn"></a>
+            <a href="https://twitter.com/@skunkworksza"><img src="https://github.com/skunkworksza/Media/blob/main/x-icon.svg?raw=true" alt="Twitter"></a>
+            <a href="https://www.facebook.com/skunkworksza"><img src="https://github.com/skunkworksza/Media/blob/main/facebook-icon.svg?raw=true" alt="Facebook"></a>
+            <a href="https://www.youtube.com/@skunkworksza"><img src="https://github.com/skunkworksza/Media/blob/main/youtube-icon.svg?raw=true" alt="YouTube"></a>
+            <a href="https://blog.skunkworks.africa/"><img src="https://github.com/skunkworksza/Media/blob/main/blogger-icon.svg?raw=true" alt="Blog"></a>
+        </div>
+        <a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7104248104035479553" target="_blank">Subscribe on LinkedIn</a>
+    </footer>
+    <div class="form-popup" id="registrationForm">
+        <form action="/.netlify/functions/send-email" method="post" class="form-container">
+            <h2>Register for the Webinar</h2>
+
+            <label for="name"><b>Name</b></label>
+            <input type="text" placeholder="Enter Name" name="name" required>
+
+            <label for="email"><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" name="email" required>
+
+            <button type="submit" class="btn">Register</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+    <script>
+        function openForm() {
+            document.getElementById("registrationForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("registrationForm").style.display = "none";
+        }
+    </script>
+</body>
+</html>

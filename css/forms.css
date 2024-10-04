@@ -1,0 +1,94 @@
+/* css/forms.css */
+
+/* General Form Styling */
+form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    border: 2px solid #2563EB; /* Light Blue Border */
+    border-radius: 5px;
+    background-color: #F0F4F8; /* Light Grey Background */
+    color: #333333; /* Dark Text */
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: #3B82F6; /* Bright Blue Border on Focus */
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #3B82F6; /* Bright Blue Background */
+    color: #FFFFFF; /* White Text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #2563EB; /* Darker Blue on Hover */
+    transform: scale(1.02);
+}
+
+button:active {
+    background-color: #1D4ED8; /* Even Darker Blue on Click */
+    transform: scale(0.98);
+}
+
+/* Styling for Labels */
+label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333; /* Dark Text */
+}
+
+/* Styling for Form Headings */
+.form-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #3B82F6; /* Bright Blue Text */
+}
+
+/* Placeholder Styling */
+::placeholder {
+    color: #9CA3AF; /* Grey Placeholder Text */
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: #9CA3AF;
+}
+
+::-ms-input-placeholder {
+    color: #9CA3AF;
+}
+
+/* Styling for Error Messages */
+.error-message {
+    color: #EF4444; /* Red Text */
+    font-size: 14px;
+    margin-top: 5px;
+}

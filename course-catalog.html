@@ -1,0 +1,210 @@
+<!--DOC
+<!-- header.html ---->&gt;
+
+
+TYPE html&gt;
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Course Catalog</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;display=swap" rel="stylesheet"/>
+<style>
+        .header-blue { background-color: #0f62fe; }
+        .bg-light-blue { background-color: #e0f2fe; }
+        .category-box {
+            background-color: white;
+            border: 2px solid #0f62fe;
+            border-radius: 0.5rem;
+            text-align: center;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease-in-out;
+        }
+        .category-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2rem;
+        }
+        .grid {
+            display: grid;
+            grid-gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+        .text-center { text-align: center; }
+        .text-white { color: white; }
+        .mb-4 { margin-bottom: 1rem; }
+        .p-4 { padding: 1rem; }
+        .p-10 { padding: 2.5rem; }
+        .hover\:underline:hover { text-decoration: underline; }
+    </style>
+<link href="./css/sidebar.css" rel="stylesheet"/>
+<link href="./css/main.css" rel="stylesheet"/>
+<link href="./css/header.css" rel="stylesheet"/>
+<link href="./css/forms.css" rel="stylesheet"/>
+<link href="./css/footer.css" rel="stylesheet"/>
+</head>
+<body class="font-roboto flex flex-col min-h-screen bg-light-blue text-gray-900"><!-- header.html -->&gt;
+<header>
+<nav>
+<ul>
+<li><a href="./index.html"><img alt="Home" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/container.svg"/>Home</a></li>
+<li>
+<a href="#"><img alt="Training" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/intelligence.svg"/>Training</a>
+<ul>
+<li><a href="./blended-learning.html"><img alt="Blended Learning" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/blended-learning.png?raw=true"/>Blended Learning</a></li>
+<li><a href="./course-development.html"><img alt="Course Development" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/course-development.png?raw=true"/>Course Development</a></li>
+<li><a href="./project-mentoring.html"><img alt="Project Mentoring" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/project-mentoring.png?raw=true"/>Project Mentoring</a></li>
+<li><a href="./performance-support.html"><img alt="Performance Support Tools" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/performance-support.png?raw=true"/>Performance Support Tools</a></li>
+<li><a href="./training-programs.html"><img alt="Training Programs" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/training-programs.png?raw=true"/>Training Programs</a></li>
+</ul>
+</li>
+<li>
+<a href="#"><img alt="Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/container--microservices.svg"/>Services</a>
+<ul>
+<li><a href="./software-development.html"><img alt="Software Development" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/software-development.png?raw=true"/>Software Development</a></li>
+<li><a href="./hardware-software.html"><img alt="Hardware and Software" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/hardware-software.png?raw=true"/>HW/SW Solutions</a></li>
+<li><a href="./managed-cloud.html"><img alt="Managed Cloud Services" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/managed-cloud.png?raw=true"/>Managed Cloud</a></li>
+<li><a href="./technical-support.html"><img alt="Technical Support Services" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/technical-support.png?raw=true"/>Technical Support</a></li>
+<li><a href="./placement-recruitment.html"><img alt="Placements" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/placement-recruitment.png?raw=true"/>Placements</a></li>
+</ul>
+</li>
+<li>
+<a href="#"><img alt="Careers" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/data--apis.svg"/>Careers</a>
+<ul>
+<li><a href="./job-posting.html"><img alt="Job Posting" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/job-posting.png?raw=true"/>Job Posting</a></li>
+<li><a href="./candidate-screening.html"><img alt="Candidate Screening" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/candidate-screening.png?raw=true"/>Candidate Screening</a></li>
+<li><a href="./interviews.html"><img alt="Interviews" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/interviews.png?raw=true"/>Interviews</a></li>
+<li><a href="./job-offers.html"><img alt="Job Offers" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/job-offers.png?raw=true"/>Job Offers</a></li>
+<li><a href="./perosacademy/"><img alt="Pero's Academy" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/peros-academy.png?raw=true"/>Pero's Academy</a></li>
+</ul>
+</li>
+<li><a href="#contact"><img alt="Contact" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/b6c7c3e93995fd5c2a6c0979d90ead76d9ef98dd/assets/icons/email.svg"/>Contact</a></li>
+</ul>
+</nav>
+</header>
+<!-- header.html -->&gt;
+
+<!-- Menu Bar -->
+<header class="bg-blue-800 text-white p-4">
+<nav class="container mx-auto flex justify-between items-center">
+<a class="text-xl font-bold" href="#">Skunkworks Academy</a>
+<div class="space-x-4">
+<nav class="flex justify-center space-x-4">
+<a class="text-white hover:underline" href="index.html">Home</a>
+<a class="text-white hover:underline" href="about-us.html">About Us</a>
+<a class="text-white hover:underline" href="course-catalog.html">Course Catalog</a>
+<a class="text-white hover:underline" href="contact.html">Contact</a>
+<a class="text-white hover:underline" href="onboarding.html">Onboarding</a>
+</nav>
+</div>
+</nav>
+<div class="container mx-auto p-8">
+<div class="grid">
+<!-- Adobe Category -->
+<a class="category-box" href="adobe.html">
+<h2 class="text-xl font-semibold">Adobe</h2>
+</a>
+<!-- AI Category -->
+<a class="category-box" href="ai.html">
+<h2 class="text-xl font-semibold">AI</h2>
+</a>
+<!-- Checkpoint Category -->
+<a class="category-box" href="checkpoint.html">
+<h2 class="text-xl font-semibold">Checkpoint</h2>
+</a>
+<!-- Cloud Category -->
+<a class="category-box" href="cloud.html">
+<h2 class="text-xl font-semibold">Cloud</h2>
+</a>
+<!-- Data Analytics and Business Intelligence Category -->
+<a class="category-box" href="data-analytics-and-business-intelligence.html">
+<h2 class="text-xl font-semibold">Data Analytics &amp; BI</h2>
+</a>
+<!-- DevOps & Agile Category -->
+<a class="category-box" href="devops-agile.html">
+<h2 class="text-xl font-semibold">DevOps &amp; Agile</h2>
+</a>
+<!-- Drools Category -->
+<a class="category-box" href="drools.html">
+<h2 class="text-xl font-semibold">Drools</h2>
+</a>
+<!-- GitHub Category -->
+<a class="category-box" href="github.html">
+<h2 class="text-xl font-semibold">GitHub</h2>
+</a>
+<!-- Google Category -->
+<a class="category-box" href="google.html">
+<h2 class="text-xl font-semibold">Google</h2>
+</a>
+<!-- IBM Category -->
+<a class="category-box" href="ibm.html">
+<h2 class="text-xl font-semibold">IBM</h2>
+</a>
+<!-- ISO Category -->
+<a class="category-box" href="iso.html">
+<h2 class="text-xl font-semibold">ISO</h2>
+</a>
+<!-- Mainframe Category -->
+<a class="category-box" href="mainframe.html">
+<h2 class="text-xl font-semibold">Mainframe</h2>
+</a>
+<!-- Microsoft Category -->
+<a class="category-box" href="microsoft.html">
+<h2 class="text-xl font-semibold">Microsoft</h2>
+</a>
+<!-- Middleware Category -->
+<a class="category-box" href="middleware.html">
+<h2 class="text-xl font-semibold">Middleware</h2>
+</a>
+<!-- Networking and Communication Category -->
+<a class="category-box" href="networking-and-communication.html">
+<h2 class="text-xl font-semibold">Networking &amp; Communication</h2>
+</a>
+<!-- Occupational Skills Category -->
+<a class="category-box" href="occupational-skills.html">
+<h2 class="text-xl font-semibold">Occupational Skills</h2>
+</a>
+<!-- Soft Skills, SAFe, IT Management, ITIL Category -->
+<a class="category-box" href="soft-skills-safe-it-management-itil.html">
+<h2 class="text-xl font-semibold">Soft Skills &amp; Management</h2>
+</a>
+<!-- Project Management (PMI) Category -->
+<a class="category-box" href="project-management-pmi.html">
+<h2 class="text-xl font-semibold">Project Management (PMI)</h2>
+</a>
+<!-- SAP Category -->
+<a class="category-box" href="sap.html">
+<h2 class="text-xl font-semibold">SAP</h2>
+</a>
+<!-- Security Category -->
+<a class="category-box" href="security.html">
+<h2 class="text-xl font-semibold">Security</h2>
+</a>
+<!-- Storage Category -->
+<a class="category-box" href="storage.html">
+<h2 class="text-xl font-semibold">Storage</h2>
+</a>
+<!-- WhatsApp Category -->
+<a class="category-box" href="whatsapp.html">
+<h2 class="text-xl font-semibold">WhatsApp</h2>
+</a>
+</div>
+</div>
+<footer class="text-center p-4 text-white header-blue">
+<p>© 2024 Skunkworks Education. All rights reserved.</p>
+</footer>
+<script src="./js/partnerSearchFilter.js"></script>
+<script src="./js/partnerFilter.js"></script>
+<script src="./js/mobileDropdown.js"></script>
+<script src="./js/main.js"></script>
+<script src="./js/include-header.js"></script>
+<script src="./js/gulpfile.js"></script>
+<script src="./js/formHandeler.js"></script>
+<script src="./js/combinedPartnerFilter.js"></script>
+</header></body>
+</html>

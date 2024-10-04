@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="Explore career opportunities at Skunkworks. Join our team and grow with us in technology and innovation." />
+    <meta name="keywords" content="Skunkworks, Careers, Jobs, Technology, Innovation, Openings" />
+    <meta name="author" content="Skunkworks" />
+    <title>Careers | Skunkworks</title>
+
+    <!-- Individual CSS Files -->
+    <link href="./css/footer.css" rel="stylesheet" />
+    <link href="./css/forms.css" rel="stylesheet" />
+    <link href="./css/header.css" rel="stylesheet" />
+    <link href="./css/main.css" rel="stylesheet" />
+    <link href="./css/sidebar.css" rel="stylesheet" />
+    <link href="./css/airbnb.css" rel="stylesheet" />
+    <link href="./css/arabic.css" rel="stylesheet" />
+    <link href="./css/bass-addons.css" rel="stylesheet" />
+    <link href="./css/bass.css" rel="stylesheet" />
+    <link href="./css/button.css" rel="stylesheet" />
+    <link href="./css/carbon-components.min_copy.css" rel="stylesheet" />
+    <link href="./css/carbon-components_copy.css" rel="stylesheet" />
+    <link href="./css/confetti.css" rel="stylesheet" />
+    <link href="./css/confirmDate.css" rel="stylesheet" />
+    <link href="./css/dark.css" rel="stylesheet" />
+    <link href="./css/example.css" rel="stylesheet" />
+    <link href="./css/flatpickr.css" rel="stylesheet" />
+    <link href="./css/flatpickr.min.css" rel="stylesheet" />
+    <link href="./css/fonts.css" rel="stylesheet" />
+    <link href="./css/github.css" rel="stylesheet" />
+    <link href="./css/ie.css" rel="stylesheet" />
+    <link href="./css/jasmine.css" rel="stylesheet" />
+    <link href="./css/light.css" rel="stylesheet" />
+    <link href="./css/manager.css" rel="stylesheet" />
+    <link href="./css/material_blue.css" rel="stylesheet" />
+    <link href="./css/material_green.css" rel="stylesheet" />
+    <link href="./css/material_orange.css" rel="stylesheet" />
+    <link href="./css/material_red.css" rel="stylesheet" />
+    <link href="./css/page.css" rel="stylesheet" />
+    <link href="./css/screen_copy.css" rel="stylesheet" />
+    <link href="./css/services.css" rel="stylesheet" />
+    <link href="./css/source-code-pro.css" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <link href="./css/styles.css" rel="stylesheet" />
+    <link href="./css/styles.min.css" rel="stylesheet" />
+    <link href="./css/tocbot.css" rel="stylesheet" />
+    <link href="./css/achievements.css" rel="stylesheet" />
+    <link href="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" rel="icon" type="image/png" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #121212;
+            color: #fff;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #333;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            z-index: 1000;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li a {
+            padding: 10px 15px;
+        }
+
+        .section {
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .section h1 {
+            text-align: center;
+            color: #fff;
+        }
+
+        .section p {
+            text-align: center;
+            color: #ddd;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+        }
+
+        .section a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .section a:hover {
+            text-decoration: underline;
+        }
+
+        .section .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .section .grid-container .grid-item {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .section .grid-container .grid-item img {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+
+        .section .grid-container .grid-item h2 {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="https://skunkworks.africa/index.html"><img alt="Home" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/application.svg" />Home</a></li>
+                <li>
+                    <a href="https://courses.skunkworks.africa/"><img alt="Training" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/training.svg" />Training</a>
+                    <ul>
+                        <li><a href="https://skunkworks.africa/blended-learning.html"><img alt="Blended Learning" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/literature.svg" />Blended Learning</a></li>
+                        <li><a href="https://skunkworks.africa/course-development.html"><img alt="Course Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presentation.svg" />Course Development</a></li>
+                        <li><a href="https://skunkworks.africa/project-mentoring.html"><img alt="Project Mentoring" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presenter.svg" />Project Mentoring</a></li>
+                        <li><a href="https://skunkworks.africa/performance-support.html"><img alt="Performance Support Tools" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/support--services.svg" />Performance Support Tools</a></li>
+                        <li><a href="https://skunkworks.africa/training-programs.html"><img alt="Training Programs" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/professional--marketplace.svg" />Training Programs</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><img alt="Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/automation--software.svg" />Services</a>
+                    <ul>
+                        <li><a href="https://skunkworks.africa/software-development.html"><img alt="Software Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/software.svg" />Software Development</a></li>
+                        <li><a href="https://skunkworks.africa/hardware-software.html"><img alt="Hardware and Software" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/server--rack.svg" />HW/SW Solutions</a></li>
+                        <li><a href="https://skunkworks.africa/managed-cloud.html"><img alt="Managed Cloud Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/bd6b329933add88d1b2fbd81339a6a2cf0683aaa/carbon/cloud--managed--services.svg" />Managed Cloud</a></li>
+                        <li><a href="https://skunkworks.africa/technical-support.html"><img alt="Technical Support Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/support--services.svg" />Technical Support</a></li>
+                        <li><a href="https://skunkworks.africa/placement-recruitment.html"><img alt="Placements" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/global--partner%20(1).svg" />Placements</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#careers"><img alt="Careers" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/briefcase.svg" />Careers</a>
+                    <ul>
+                        <li><a href="https://skunkworks.africa/careers-openings.html"><img alt="Current Openings" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/calendar.svg" />Current Openings</a></li>
+                        <li><a href="https://skunkworks.africa/careers-internships.html"><img alt="Internship Programs" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/education.svg" />Internship Programs</a></li>
+                        <li><a href="https://skunkworks.africa/careers-placements.html"><img alt="Placements" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/global--partner.svg" />Placements</a></li>
+                        <li><a href="https://skunkworks.africa/careers-jobs.html"><img alt="Jobs" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/calendar.svg" />Jobs</a></li>
+                        <li><a href="https://skunkworks.africa/careers-mentorship.html"><img alt="Mentorship" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presenter.svg" />Mentorship</a></li>
+                        <li><a href="https://skunkworks.africa/careers-development.html"><img alt="Employee Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/development.svg" />Employee Development</a></li>
+                        <li><a href="https://skunkworks.africa/careers-culture.html"><img alt="Our Culture" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/team.svg" />Our Culture</a></li>
+                        <li><a href="https://skunkworks.africa/careers-testimonials.html"><img alt="Employee Testimonials" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/thumbs-up.svg" />Employee Testimonials</a></li>
+                        <li><a href="https://skunkworks.africa/careers-apply.html"><img alt="How to Apply" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/send-alt.svg" />How to Apply</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header><br>
+
+    <section class="section">
+        <h1>Careers at Skunkworks</h1>
+        <p>Join our team of innovative thinkers and doers. At Skunkworks, we offer a dynamic work environment where your skills and talents can thrive. Explore our current openings, internship programs, and learn more about our company culture.</p>
+        
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/calendar.svg" alt="Current Openings">
+                <h2>Current Openings</h2>
+                <p>Explore our current job openings and find the role that suits you.</p>
+                <a href="https://skunkworks.africa/careers-openings.html">Learn More</a>
+            </div>
+            <div class="grid-item">
+                <img src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/education.svg" alt="Internship Programs">
+                <h2>Internship Programs</h2>
+                <p>Kickstart your career with our internship programs.</p>
+                <a href="https://skunkworks.africa/careers-internships.html">Learn More</a>
+            </div>
+            <div class="grid-item">
+                <img src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/development.svg" alt="Employee Development">
+                <h2>Employee Development</h2>
+                <p>Grow your career with our comprehensive development programs.</p>
+                <a href="https://skunkworks.africa/careers-development.html">Learn More</a>
+            </div>
+            <div class="grid-item">
+                <img src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/team.svg" alt="Our Culture">
+                <h2>Our Culture</h2>
+                <p>Discover the unique culture that makes Skunkworks a great place to work.</p>
+                <a href="https://skunkworks.africa/careers-culture.html">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Skunkworks. All rights reserved.</p>
+        <p><a href="https://blog.skunkworks.africa/" target="_blank">Visit our blog</a></p>
+    </footer>
+
+    <!-- Individual JavaScript Files -->
+    <script src="./js/formHandler.js"></script>
+    <script src="./js/partnerSearchFilter.js"></script>
+    <script src="./js/mobileDropdown.js"></script>
+    <script src="./js/main.js"></script>
+
+    <script>
+        // JavaScript for mobile dropdown functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            var dropdowns = document.querySelectorAll('nav ul li');
+            dropdowns.forEach(function (dropdown) {
+                dropdown.addEventListener('click', function (event) {
+                    if (window.innerWidth <= 768) {
+                        var submenu = this.querySelector('ul');
+                        if (submenu) {
+                            event.preventDefault();
+                            submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
+
