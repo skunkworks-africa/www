@@ -1,11 +1,9 @@
 {
-  "name": "skunkworks-carbon",
+  "name": "skunkworks-www",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://skunkworks.africa",
   "dependencies": {
-    "@carbon/icons-react": "^11.50.1",
-    "@carbon/pictograms-react": "^11.67.1",
-    "@carbon/react": "^1.67.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -23,7 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -42,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
   }
 }
