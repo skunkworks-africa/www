@@ -6,6 +6,9 @@
   "homepage": "https://skunkworks.africa",
   "main": "./js/gulfile.js",
   "dependencies": {
+    "@carbon/icons-react": "^11.50.1",
+    "@carbon/pictograms-react": "^11.67.1",
+    "@carbon/react": "^1.67.1",
     "@carbon/pictograms-react": "^11.67.1",
     "@carbon/react": "^1.59.0",
     "@testing-library/jest-dom": "^5.17.0",
