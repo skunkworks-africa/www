@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="./css/header.css" rel="stylesheet"/>
+<link href="./css/main.css" rel="stylesheet"/>
+<link href="./css/footer.css" rel="stylesheet"/>
+<title>Job Offers - Skunkworks</title>
+<style>
+        .section {
+            padding: 40px 20px;
+            margin: 20px 0;
+            background-color: #ffffff;
+            color: #121212;
+            border-radius: 8px;
+        }
+
+        .section h1 {
+            color: #2563EB;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .grid-item {
+            background-color: #f5f5f5;
+            border: 2px solid #2563EB;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .grid-item h3 {
+            color: #2563EB;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+<link href="./css/sidebar.css" rel="stylesheet"/>
+<link href="./css/main.css" rel="stylesheet"/>
+<link href="./css/header.css" rel="stylesheet"/>
+<link href="./css/forms.css" rel="stylesheet"/>
+<link href="./css/footer.css" rel="stylesheet"/>
+</head>
+<body><!-- header.html -->&gt;
+<header>
+<nav>
+<ul>
+<li><a href="./index.html"><img alt="Home" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/container.svg"/>Home</a></li>
+<li>
+<a href="#"><img alt="Training" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/intelligence.svg"/>Training</a>
+<ul>
+<li><a href="./blended-learning.html"><img alt="Blended Learning" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/blended-learning.png?raw=true"/>Blended Learning</a></li>
+<li><a href="./course-development.html"><img alt="Course Development" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/course-development.png?raw=true"/>Course Development</a></li>
+<li><a href="./project-mentoring.html"><img alt="Project Mentoring" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/project-mentoring.png?raw=true"/>Project Mentoring</a></li>
+<li><a href="./performance-support.html"><img alt="Performance Support Tools" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/performance-support.png?raw=true"/>Performance Support Tools</a></li>
+<li><a href="./training-programs.html"><img alt="Training Programs" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/training-programs.png?raw=true"/>Training Programs</a></li>
+</ul>
+</li>
+<li>
+<a href="#"><img alt="Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/container--microservices.svg"/>Services</a>
+<ul>
+<li><a href="./software-development.html"><img alt="Software Development" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/software-development.png?raw=true"/>Software Development</a></li>
+<li><a href="./hardware-software.html"><img alt="Hardware and Software" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/hardware-software.png?raw=true"/>HW/SW Solutions</a></li>
+<li><a href="./managed-cloud.html"><img alt="Managed Cloud Services" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/managed-cloud.png?raw=true"/>Managed Cloud</a></li>
+<li><a href="./technical-support.html"><img alt="Technical Support Services" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/technical-support.png?raw=true"/>Technical Support</a></li>
+<li><a href="./placement-recruitment.html"><img alt="Placements" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/placement-recruitment.png?raw=true"/>Placements</a></li>
+</ul>
+</li>
+<li>
+<a href="#"><img alt="Careers" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/data--apis.svg"/>Careers</a>
+<ul>
+<li><a href="./job-posting.html"><img alt="Job Posting" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/job-posting.png?raw=true"/>Job Posting</a></li>
+<li><a href="./candidate-screening.html"><img alt="Candidate Screening" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/candidate-screening.png?raw=true"/>Candidate Screening</a></li>
+<li><a href="./interviews.html"><img alt="Interviews" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/interviews.png?raw=true"/>Interviews</a></li>
+<li><a href="./job-offers.html"><img alt="Job Offers" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/job-offers.png?raw=true"/>Job Offers</a></li>
+<li><a href="./perosacademy/"><img alt="Pero's Academy" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/peros-academy.png?raw=true"/>Pero's Academy</a></li>
+</ul>
+</li>
+<li><a href="#contact"><img alt="Contact" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/b6c7c3e93995fd5c2a6c0979d90ead76d9ef98dd/assets/icons/email.svg"/>Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<!-- header.html -->&gt;
+
+<main>
+<section class="section">
+<h1>Job Offers</h1>
+<p>Our Job Offers service ensures that you can secure top talent by making competitive and attractive job offers. We assist in the negotiation process to ensure that both you and the candidate are satisfied with the terms.</p>
+<h2>Benefits</h2>
+<ul>
+<li>Competitive and attractive job offers</li>
+<li>Expert negotiation support</li>
+<li>High acceptance rates</li>
+</ul>
+<h2>Our Approach</h2>
+<p>We work closely with you to understand your budget and requirements. Our team is skilled in negotiation and ensures that the offers we make are competitive and in line with industry standards, ensuring a high acceptance rate.</p>
+</section>
+</main>
+<footer>
+<p>© 2024 Skunkworks. All rights reserved.</p>
+</footer>
+<script src="./js/partnerSearchFilter.js"></script>
+<script src="./js/partnerFilter.js"></script>
+<script src="./js/mobileDropdown.js"></script>
+<script src="./js/main.js"></script>
+<script src="./js/include-header.js"></script>
+<script src="./js/gulpfile.js"></script>
+<script src="./js/formHandeler.js"></script>
+<script src="./js/combinedPartnerFilter.js"></script>
+</body>
+</html>

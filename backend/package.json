@@ -1,0 +1,41 @@
+{
+  "name": "skunkworks-web",
+  "version": "1.0.0",
+  "description": "Skunkworks Web Application",
+  "main": "scripts.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skunkworksza/web.git"
+  },
+  "keywords": [
+    "jekyll",
+    "skunkworks",
+    "web",
+    "education"
+  ],
+  "author": "Raydo Matthee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/skunkworksza/web/issues"
+  },
+  "homepage": "https://github.com/skunkworksza/web#readme",
+  "dependencies": {
+    "apt": "^0.0.2",
+    "body-parser": "^1.20.2",
+    "carbon-components": "^10.58.12",
+    "carbon-components-react": "^8.57.0",
+    "express": "^4.19.2",
+    "git-all": "^0.0.3",
+    "nodemailer": "^6.9.13"
+  },
+  "devDependencies": {
+    "jekyll": "^3.0.0-beta1"
+  }
+}

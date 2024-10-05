@@ -1,0 +1,40 @@
+# Dependabot configuration file
+version: 2
+updates:
+  # Update npm dependencies
+  - package-ecosystem: "npm"
+    directory: "/"  # The root directory containing package.json
+    schedule:
+      interval: "weekly"  # Check for updates every week
+    # Optionally, specify a day and time for the updates
+    # day: "monday"
+    # time: "04:00"
+
+  # Update Bundler dependencies (for Ruby)
+  - package-ecosystem: "bundler"
+    directory: "/"  # The root directory containing Gemfile
+    schedule:
+      interval: "weekly"  # Check for updates every week
+    # Optionally, specify a day and time for the updates
+    # day: "tuesday"
+    # time: "05:00"
+
+  # Update Docker dependencies
+  - package-ecosystem: "docker"
+    directory: "/"  # The directory containing your Dockerfile
+    schedule:
+      interval: "weekly"  # Check for updates every week
+    # Optionally, specify a day and time for the updates
+    # day: "wednesday"
+    # time: "06:00"
+
+  # Update Python dependencies (for pip)
+  - package-ecosystem: "pip"
+    directory: "/"  # The root directory containing requirements.txt or pyproject.toml
+    schedule:
+      interval: "weekly"  # Check for updates every week
+    # Optionally, specify a day and time for the updates
+    # day: "thursday"
+    # time: "07:00"
+
+# You can add more configurations for different package ecosystems as needed.

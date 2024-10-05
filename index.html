@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="./css/styles.css" rel="stylesheet" />
+    <link href="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" rel="icon" type="image/png" />
+    <title>Welcome to Skunkworks: Innovative Technology and Education Solutions</title>
+</head>
+
+<body>
+    <!-- Skip to main content link -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <!-- Header Section -->
+    <header class="ui-shell-header" role="banner">
+        <div class="logo">
+            <div class="skunkworks-title">Skunkworks</div>
+        </div>
+        <div class="burger" onclick="toggleMenu()" aria-expanded="false" aria-controls="main-menu" aria-label="Toggle navigation">
+            &#9776;
+        </div>
+        <nav id="main-menu" class="header-navigation" role="navigation">
+            <ul>
+                <li><a href="./index.html"><img alt="Home" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/container.svg" />Home</a></li>
+                <li>
+                    <a href="#"><img alt="Training" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/intelligence.svg" />Training</a>
+                    <ul>
+                        <li><a href="./blended-learning.html"><img alt="Blended Learning" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/blended-learning.png?raw=true" />Blended Learning</a></li>
+                        <li><a href="./course-development.html"><img alt="Course Development" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/course-development.png?raw=true" />Course Development</a></li>
+                        <li><a href="./project-mentoring.html"><img alt="Project Mentoring" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/project-mentoring.png?raw=true" />Project Mentoring</a></li>
+                        <li><a href="./performance-support.html"><img alt="Performance Support Tools" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/performance-support.png?raw=true" />Performance Support Tools</a></li>
+                        <li><a href="./training-programs.html"><img alt="Training Programs" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/training-programs.png?raw=true" />Training Programs</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><img alt="Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/container--microservices.svg" />Services</a>
+                    <ul>
+                        <li><a href="./software-development.html"><img alt="Software Development" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/software-development.png?raw=true" />Software Development</a></li>
+                        <li><a href="./hardware-software.html"><img alt="Hardware and Software" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/hardware-software.png?raw=true" />HW/SW Solutions</a></li>
+                        <li><a href="./managed-cloud.html"><img alt="Managed Cloud Services" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/managed-cloud.png?raw=true" />Managed Cloud</a></li>
+                        <li><a href="./technical-support.html"><img alt="Technical Support Services" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/technical-support.png?raw=true" />Technical Support</a></li>
+                        <li><a href="./placement-recruitment.html"><img alt="Placements" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/placement-recruitment.png?raw=true" />Placements</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><img alt="Careers" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/data--apis.svg" />Careers</a>
+                    <ul>
+                        <li><a href="./job-posting.html"><img alt="Job Posting" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/job-posting.png?raw=true" />Job Posting</a></li>
+                        <li><a href="./candidate-screening.html"><img alt="Candidate Screening" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/candidate-screening.png?raw=true" />Candidate Screening</a></li>
+                        <li><a href="./interviews.html"><img alt="Interviews" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/interviews.png?raw=true" />Interviews</a></li>
+                        <li><a href="./job-offers.html"><img alt="Job Offers" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/job-offers.png?raw=true" />Job Offers</a></li>
+                        <li><a href="./perosacademy/"><img alt="Pero's Academy" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/peros-academy.png?raw=true" />Pero's Academy</a></li>
+                    </ul>
+                </li>
+                <li><a href="#contact"><img alt="Contact" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/b6c7c3e93995fd5c2a6c0979d90ead76d9ef98dd/assets/icons/email.svg" />Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<!-- Welcome Section -->
+    <section class="section welcome-section" id="welcome">
+        <div class="welcome-section-content">
+            <h4>Welcome to Skunkworks</h4>
+            <h5>Innovative Technology, Education Solutions, and Placement Services for Tomorrow's Businesses.</h5>
+            <p><a href="mailto:info@skunkworks.africa">info@skunkworks.africa</a></p><p><a href="tel:(+27)87 164 5398">(+27)87 164 5398</a></p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <h1>Custom Learning Solutions</h1>
+        <div class="grid-container">
+            <a href="./blended-learning.html" class="carbon-tile">
+                <img alt="Blended Learning" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/analyzes--data.svg" />
+                <h3>Blended Learning</h3>
+                <p>Blended learning programs & personalized learning paths.</p>
+            </a>
+            <a href="./course-development.html" class="carbon-tile">
+                <img alt="Course Development" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/cloud--data--services.svg" />
+                <h3>Course Development</h3>
+                <p>We provide custom eLearning courses to meet client objectives.</p>
+            </a>
+            <a href="./project-mentoring.html" class="carbon-tile">
+                <img alt="Project Mentoring" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/business--continuity.svg" />
+                <h3>Project Mentoring</h3>
+                <p>Guided support through training engagements with our Project Mentoring.</p>
+            </a>
+            <a href="./performance-support.html" class="carbon-tile">
+                <img alt="Performance Support Tools" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/cloud--builder--professional--services.svg" />
+                <h3>Performance Support Tools</h3>
+                <p>We create custom job aids and guides to help employees apply new skills to real-world tasks.</p>
+            </a>
+            <a href="./training-programs.html" class="carbon-tile">
+                <img alt="Training Programs" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/key--users.svg" />
+                <h3>Training Programs</h3>
+                <p>We offer training in soft skills, compliance, boot camps, and provide outsourcing services.</p>
+            </a>
+            <a href="./lms.html" class="carbon-tile">
+                <img alt="LMS" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/presentation.svg" />
+                <h3>LMS</h3>
+                <p>Custom LMS development and mgmt. for efficient content delivery, tracking, and reporting.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Technology Solutions Section -->
+    <section class="section" id="technology">
+        <h1>Technology Solutions</h1>
+        <p>Our primary aim is to be a one-stop-shop for businesses looking to harness the power of technology and top-notch education.</p>
+        <div class="grid-container">
+            <a href="./software-development.html" class="carbon-tile">
+                <img alt="Software Development" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/code--syntax.svg" />
+                <h3>Software Development</h3>
+                <p>Our experienced developers design and develop custom software solutions. Our services include web and mobile app development, software development, and application modernization.</p>
+            </a>
+            <a href="./hardware-software.html" class="carbon-tile">
+                <img alt="Hardware and Software" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/server--operating-systems.svg" />
+                <h3>Hardware and Software</h3>
+                <p>We provide hardware and software products from most of the major technology vendor giants, including servers, storage solutions, networking equipment, and software licenses.</p>
+            </a>
+            <a href="./managed-cloud.html" class="carbon-tile">
+                <img alt="Managed Cloud Services" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/hybrid--cloud--infrastructure.svg" />
+                <h3>Managed Cloud Services</h3>
+                <p>Our cloud-based solutions cater to businesses of all sizes. We offer mixed cloud models, and manage cloud infrastructure, security, disaster recovery, and cloud migration services.</p>
+            </a>
+            <a href="./technical-support.html" class="carbon-tile">
+                <img alt="Technical Support Services" src="https://raw.githubusercontent.com/skunkworksza/web/9db2d1c6d2c8393c97ea017c12d263d0d75b756a/assets/pictograms/support.svg" />
+                <h3>Technical Support Services</h3>
+                <p>Our technical support team is dedicated to providing timely and effective solutions to ensure your systems run smoothly. We offer 24/7 support, troubleshooting, and maintenance services.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Placement & Recruitment Section -->
+    <section class="section" id="recruitment">
+        <h1>Placement & Recruitment</h1>
+        <div class="grid-container">
+            <a href="./job-posting.html" class="carbon-tile">
+                <img alt="Job Posting" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/presentation.svg" />
+                <h3>Job Posting</h3>
+                <p>Sourcing and advertising job openings to attract qualified candidates.</p>
+            </a>
+            <a href="./candidate-screening.html" class="carbon-tile">
+                <img alt="Candidate Screening" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/inspect--data.svg" />
+                <h3>Candidate Screening</h3>
+                <p>Reviewing and filtering applications to identify the best matches.</p>
+            </a>
+            <a href="./interviews.html" class="carbon-tile">
+                <img alt="Interviews" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/user--analytics.svg" />
+                <h3>Interviews</h3>
+                <p>Conducting interviews to evaluate candidates' qualifications and fit.</p>
+            </a>
+            <a href="./job-offers.html" class="carbon-tile">
+                <img alt="Job Offers" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/ai--transparency.svg" />
+                <h3>Job Offers</h3>
+                <p>Making offers to selected candidates and negotiating terms.</p>
+            </a>
+        </div>
+        <button onclick="location.href='mailto:info@skunkworks.africa'">EMAIL US</button>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="section" id="partners">
+        <h1>Our Partners</h1>
+        <input id="partnerSearch" onkeyup="filterPartners()" placeholder="Search partner name" type="text" />
+        <div class="divider"></div>
+        <div class="partners-list" id="partnersList">
+            <a class="partner-item" data-name="AWS" href="aws.html">
+                <img alt="AWS Logo" src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" />
+            </a>
+            <a class="partner-item" data-name="Checkpoint" href="checkpoint.html">
+                <img alt="Checkpoint Logo" src="https://github.com/skunkworksza/www/blob/main/assets/checkpoint/checkpoint-logo-stacked-large-blk.png?raw=true" />
+            </a>
+            <a class="partner-item" data-name="Cisco" href="cisco.html">
+                <img alt="Cisco Logo" src="https://raw.githubusercontent.com/skunkworksza/www/021c38cde4ad3a9ccf72b8b18042f580b195a3d6/assets/cisco/strategic-partner-logo-cisco-1.svg" />
+            </a>
+            <a class="partner-item" data-name="CompTIA" href="comptia.html">
+                <img alt="CompTIA Logo" src="https://github.com/skunkworksza/www/blob/main/assets/comptia/08212-capp-digital-badges_delivery-partner.jpg?raw=true" />
+            </a>
+            <a class="partner-item" data-name="Commvault" href="commvault.html">
+                <img alt="Commvault Logo" src="https://github.com/skunkworksza/www/blob/main/assets/commvualt/commvualt.jpeg?raw=true" />
+            </a>
+            <a class="partner-item" data-name="Dell" href="dell.html">
+                <img alt="Dell Logo" src="https://raw.githubusercontent.com/skunkworksza/www/a1d437d3c21c968aa69d146b04703d7cecf5d838/assets/dell/strategic-partner-logo-dell-technologies-1.svg" />
+            </a>
+            <a class="partner-item" data-name="GitHub" href="github.html">
+                <img alt="GitHub Logo" src="https://raw.githubusercontent.com/skunkworksza/www/c16c5586c66061112ffe4012073f564d9daa927d/assets/github/github-mark.svg" />
+            </a>
+            <a class="partner-item" data-name="Google Cloud" href="googlecloud.html">
+                <img alt="Google Cloud Logo" src="https://raw.githubusercontent.com/skunkworksza/www/c16c5586c66061112ffe4012073f564d9daa927d/assets/google/google-cloud-logo-new.svg" />
+            </a>
+            <a class="partner-item" data-name="IBM" href="./ibm/index.html">
+                <img alt="IBM Logo" src="https://github.com/skunkworksza/www/blob/main/assets/ibm/IBM_Partner_Plus_silver_partner_mark_pos_black_RGB(103x80).jpg?raw=true" />
+            </a>
+            <a class="partner-item" data-name="Red Hat" href="./redhat/index.html">
+                <img alt="Red Hat Logo" src="https://github.com/skunkworksza/www/blob/main/assets/redhat/redhat_logo.png?raw=true" />
+            </a>
+            <a class="partner-item" data-name="Microsoft" href="./microsoft/index.html">
+                
+                <img alt="Microsoft Logo" src="https://github.com/skunkworksza/www/blob/main/assets/microsoft/RWEDnc.png?raw=true" />
+            </a>
+            <a class="partner-item" data-name="VMware" href="./vmware/index.html">
+                <img alt="VMware Logo" src="https://raw.githubusercontent.com/skunkworksza/www/c16c5586c66061112ffe4012073f564d9daa927d/assets/vmware/strategic-partners-logo-vmware-1.svg" />
+            </a>
+            <a class="partner-item" data-name="Veritas" href="veritas.html">
+                <img alt="Veritas Logo" src="https://github.com/skunkworksza/www/blob/main/assets/veritas/veritaz.png?raw=true" />
+            </a>
+            <a class="partner-item" data-name="Veeam" href="veeam.html">
+                <img alt="Veeam Logo" src="https://github.com/skunkworksza/www/blob/main/assets/veeam/Veeam%20logo.jpeg?raw=true" />
+            </a>
+            <a class="partner-item" data-name="SAP" href="sap.html">
+                <img alt="SAP Logo" src="https://github.com/skunkworksza/www/blob/main/assets/sap/SAP.jpeg?raw=true" />
+            </a>
+            <a class="partner-item" data-name="Salesforce" href="salesforce.html">
+                <img alt="Salesforce Logo" src="https://github.com/skunkworksza/www/blob/main/assets/salesforce/Salesforce-Logo.png?raw=true" />
+            </a>
+            <a class="partner-item" data-name="OpenAI" href="openai.html">
+                <img alt="OpenAI Logo" src="https://github.com/skunkworksza/www/blob/main/assets/openai/Open%20AI.jpeg?raw=true" />
+            </a>
+            <a class="partner-item" data-name="HashiCorp" href="hashicorp.html">
+                <img alt="HashiCorp Logo" src="https://github.com/skunkworksza/www/blob/main/assets/hs/Hashicorp-Vertical_onLight.png?raw=true" />
+            </a>
+            <a class="partner-item" data-name="CRS" href="crs.html">
+                <img alt="CRS Logo" src="https://github.com/skunkworksza/www/blob/main/assets/crs/CRS-logo-GitHub.png?raw=true" />
+            </a>
+        </div>
+        <div class="divider"></div>
+</section>
+
+    <!-- Statistics Section -->
+    <section class="bg-gray-100 py-16" id="statistics">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-12 text-center">Our Achievements</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <a href="./instructors.html" class="block bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300 p-6 text-center">
+            <div class="mb-4">
+              <svg class="w-16 h-16 mx-auto text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">+100 Instructors &amp; Experts</h3>
+            <p class="text-gray-600">Learn from the best in the industry</p>
+          </a>
+          <a href="./partnerships.html" class="block bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300 p-6 text-center">
+            <div class="mb-4">
+              <svg class="w-16 h-16 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">+40 Strategic Partnerships</h3>
+            <p class="text-gray-600">Collaborating for success</p>
+          </a>
+          <a href="./courses.html" class="block bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300 p-6 text-center">
+            <div class="mb-4">
+              <svg class="w-16 h-16 mx-auto text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">+1000 Courses Offered</h3>
+            <p class="text-gray-600">Diverse learning opportunities</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  <!-- About Us Section -->
+  <section class="bg-gray-100 py-16" id="about">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-8 text-center">About Us</h2>
+      <div class="max-w-3xl mx-auto">
+        <p class="mb-4 text-lg">Our team is dedicated to providing top-notch services, and our expertise spans various domains including education, technology, and business development.</p>
+        <h3 class="text-xl font-semibold mb-2">Our Approach</h3>
+        <p class="text-lg">We take a collaborative approach to every project, working closely with our clients to understand their needs and goals. We are committed to delivering solutions that meet or exceed our clients' expectations. Our team is responsive and accessible, and we pride ourselves on delivering exceptional customer service.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Us Section -->
+  <section class="py-16" id="contact">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-8 text-center">Contact Us</h2>
+      <div class="max-w-3xl mx-auto">
+        <iframe 
+          title="Contact Form"
+          width="100%" 
+          height="600px" 
+          src="https://forms.office.com/Pages/ResponsePage.aspx?id=5I0ul2Xjo0OZ7MhqDMJJ6EpjwRy2-BFGo8O-br_aZGZUMTBBRkU3UEVPTVQ5QlEwOFVJV1kwTUowVC4u&embed=true" 
+          frameborder="0" 
+          style="border: none; max-width:100%; max-height:80vh" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-wrap justify-between items-center">
+            <div class="w-full md:w-1/3 mb-4 md:mb-0">
+                <p class="text-sm">&copy; 2024 Skunkworks. All rights reserved.</p>
+            </div>
+            <div class="w-full md:w-1/3 mb-4 md:mb-0">
+                <p class="text-sm">26 Second Avenue, Germiston, Gauteng. South Africa 1401</p>
+            </div>
+            <div class="w-full md:w-1/3 text-center md:text-right">
+                <a href="https://blog.skunkworks.africa/" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="text-sm text-gray-300 hover:text-white transition duration-300">
+                    Visit our blog
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript for Functionality -->
+<script>
+    // Toggle Menu Functionality for Mobile
+    function toggleMenu() {
+        var menu = document.getElementById("main-menu");
+        menu.classList.toggle("visible");
+        var burger = document.querySelector(".burger");
+        var isExpanded = burger.getAttribute("aria-expanded") === "true" || false;
+        burger.setAttribute("aria-expanded", !isExpanded);
+    }
+
+    // Partner Search Filter
+    function filterPartners() {
+        var input = document.getElementById('partnerSearch');
+        var filter = input.value.toLowerCase();
+        var nodes = document.getElementsByClassName('partner-item');
+
+        for (var i = 0; i < nodes.length; i++) {
+            if (nodes[i].getAttribute('data-name').toLowerCase().includes(filter)) {
+                nodes[i].style.display = "block";
+            } else {
+                nodes[i].style.display = "none";
+            }
+        }
+    }
+
+    // Mobile Dropdown for Submenus
+    document.addEventListener('DOMContentLoaded', function() {
+        var dropdowns = document.querySelectorAll('nav ul li');
+        dropdowns.forEach(function(dropdown) {
+            dropdown.addEventListener('click', function(event) {
+                if (window.innerWidth <= 768) {
+                    var submenu = this.querySelector('ul');
+                    if (submenu) {
+                        event.preventDefault();
+                        submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+<!-- Example of including icons from Carbon Pictograms -->
+<script type="module">
+    import { Resources, GlobalPartner, Badge } from '@carbon/pictograms-react';
+
+    document.querySelectorAll('.achievement-icon').forEach(icon => {
+        if (icon.getAttribute('aria-label') === 'Instructors') {
+            ReactDOM.render(<Resources />, icon);
+        } else if (icon.getAttribute('aria-label') === 'Partnerships') {
+            ReactDOM.render(<GlobalPartner />, icon);
+        } else if (icon.getAttribute('aria-label') === 'Courses') {
+            ReactDOM.render(<Badge />, icon);
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBM Partner Assessment Form - Skunkworks Africa</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h1, h2, h3 {
+            color: #1e3c72;
+        }
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="url"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        input[type="submit"] {
+            background-color: #1e3c72;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #152a50;
+        }
+        .required:after {
+            content: " *";
+            color: red;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .checkbox-group {
+            margin-top: 10px;
+        }
+        .checkbox-group label {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            form {
+                padding: 15px;
+            }
+            input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="url"], textarea, select {
+                font-size: 14px;
+            }
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            tr {
+                margin-bottom: 15px;
+            }
+            td {
+                border: none;
+                position: relative;
+                padding-left: 50%;
+            }
+            td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                font-weight: bold;
+            }
+            .checkbox-group label {
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>IBM Partner Assessment Form</h1>
+    <p>Please complete the following form with accurate and up-to-date information. Fields marked with an asterisk (*) are required.</p>
+    
+    <form action="mailto:raydo@skunkworks.africa" method="post" enctype="text/plain">
+        <h2>1. Company Information</h2>
+        <label for="company_name" class="required">Company Name:</label>
+        <input type="text" id="company_name" name="Company Name" required>
+        
+        <label for="ibm_enterprise_id">IBM Enterprise ID (if applicable):</label>
+        <input type="text" id="ibm_enterprise_id" name="IBM Enterprise ID">
+        
+        <label for="contact_name" class="required">Primary Contact Name:</label>
+        <input type="text" id="contact_name" name="Primary Contact Name" required>
+        
+        <label for="contact_email" class="required">Primary Contact Email:</label>
+        <input type="email" id="contact_email" name="Primary Contact Email" required>
+        
+        <label for="contact_phone" class="required">Primary Contact Phone:</label>
+        <input type="tel" id="contact_phone" name="Primary Contact Phone" required>
+        
+        <label for="company_address" class="required">Company Address:</label>
+        <textarea id="company_address" name="Company Address" rows="3" required></textarea>
+        
+        <label for="website">Website:</label>
+        <input type="url" id="website" name="Website">
+
+        <h2>2. Current IBM Partnership Status</h2>
+        <label for="ibm_status">Current IBM PartnerWorld status and level (if any):</label>
+        <input type="text" id="ibm_status" name="IBM PartnerWorld Status">
+        
+        <label for="years_as_partner">Number of years as an IBM partner (if applicable):</label>
+        <input type="number" id="years_as_partner" name="Years as IBM Partner" min="0">
+
+        <h2>3. Technical Capabilities</h2>
+        <h3>A. Staff and Certifications</h3>
+        <label for="total_tech_staff">Total number of technical staff:</label>
+        <input type="number" id="total_tech_staff" name="Total Technical Staff" min="0">
+        
+        <label for="certified_staff">Number of staff with IBM certifications:</label>
+        <input type="number" id="certified_staff" name="Certified Staff" min="0">
+        
+        <label>List current IBM certifications held by staff:</label>
+        <textarea name="IBM Certifications" rows="5"></textarea>
+
+        <h4>Personnel Information Table</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Role</th>
+                    <th>Resource Name</th>
+                    <th>IBM ID</th>
+                    <th>IBM Certifications (Technical)</th>
+                    <th>Supported IBM Products (Technical)</th>
+                    <th>Sales Experience/Certifications</th>
+                    <th>Dual Role (Yes/No)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Role">Tech Resource 1</td>
+                    <td data-label="Resource Name"><input type="text" name="Tech Resource 1 Name"></td>
+                    <td data-label="IBM ID"><input type="text" name="Tech Resource 1 IBM ID"></td>
+                    <td data-label="IBM Certifications"><input type="text" name="Tech Resource 1 Certifications"></td>
+                    <td data-label="Supported Products"><input type="text" name="Tech Resource 1 Products"></td>
+                    <td data-label="Sales Experience">N/A</td>
+                    <td data-label="Dual Role"><select name="Tech Resource 1 Dual Role"><option>Yes</option><option>No</option></select></td>
+                </tr>
+                <tr>
+                    <td data-label="Role">Tech Resource 2</td>
+                    <td data-label="Resource Name"><input type="text" name="Tech Resource 2 Name"></td>
+                    <td data-label="IBM ID"><input type="text" name="Tech Resource 2 IBM ID"></td>
+                    <td data-label="IBM Certifications"><input type="text" name="Tech Resource 2 Certifications"></td>
+                    <td data-label="Supported Products"><input type="text" name="Tech Resource 2 Products"></td>
+                    <td data-label="Sales Experience">N/A</td>
+                    <td data-label="Dual Role"><select name="Tech Resource 2 Dual Role"><option>Yes</option><option>No</option></select></td>
+                </tr>
+                <tr>
+                    <td data-label="Role">Tech Resource 3</td>
+                    <td data-label="Resource Name"><input type="text" name="Tech Resource 3 Name"></td>
+                    <td data-label="IBM ID"><input type="text" name="Tech Resource 3 IBM ID"></td>
+                    <td data-label="IBM Certifications"><input type="text" name="Tech Resource 3 Certifications"></td>
+                    <td data-label="Supported Products"><input type="text" name="Tech Resource 3 Products"></td>
+                    <td data-label="Sales Experience">N/A</td>
+                    <td data-label="Dual Role"><select name="Tech Resource 3 Dual Role"><option>Yes</option><option>No</option></select></td>
+                </tr>
+                <tr>
+                    <td data-label="Role">Sales Resource 1</td>
+                    <td data-label="Resource Name"><input type="text" name="Sales Resource 1 Name"></td>
+                    <td data-label="IBM ID"><input type="text" name="Sales Resource 1 IBM ID"></td>
+                    <td data-label="IBM Certifications">N/A</td>
+                    <td data-label="Supported Products">N/A</td>
+                    <td data-label="Sales Experience"><input type="text" name="Sales Resource 1 Experience"></td>
+                    <td data-label="Dual Role"><select name="Sales Resource 1 Dual Role"><option>Yes</option><option>No</option></select></td>
+                </tr>
+                <tr>
+                    <td data-label="Role">Sales Resource 2</td>
+                    <td data-label="Resource Name"><input type="text" name="Sales Resource 2 Name"></td>
+                    <td data-label="IBM ID"><input type="text" name="Sales Resource 2 IBM ID"></td>
+                    <td data-label="IBM Certifications">N/A</td>
+                    <td data-label="Supported Products">N/A</td>
+                    <td data-label="Sales Experience"><input type="text" name="Sales Resource 2 Experience"></td>
+                    <td data-label="Dual Role"><select name="Sales Resource 2 Dual Role"><option>Yes</option><option>No</option></select></td>
+                </tr>
+                <tr>
+                    <td data-label="Role">Sales Resource 3</td>
+                    <td data-label="Resource Name"><input type="text" name="Sales Resource 3 Name"></td>
+                    <td data-label="IBM ID"><input type="text" name="Sales Resource 3 IBM ID"></td>
+                    <td data-label="IBM Certifications">N/A</td>
+                    <td data-label="Supported Products">N/A</td>
+                    <td data-label="Sales Experience"><input type="text" name="Sales Resource 3 Experience"></td>
+                    <td data-label="Dual Role"><select name="Sales Resource 3 Dual Role"><option>Yes</option><option>No</option></select></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>B. Supported IBM Products</h3>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="IBM Products[]" value="IBM Power"> IBM Power</label>
+            <label><input type="checkbox" name="IBM Products[]" value="IBM Storage"> IBM Storage</label>
+            <label><input type="checkbox" name="IBM Products[]" value="IBM Spectrum Protect"> IBM Spectrum Protect</label>
+            <label><input type="checkbox" name="IBM Products[]" value="Other"> Other (please specify)</label>
+        </div>
+        <textarea name="IBM Power Details" rows="3" placeholder="Describe your services for IBM Power"></textarea>
+        <textarea name="IBM Storage Details" rows="3" placeholder="Describe your services for IBM Storage"></textarea>
+        <textarea name="IBM Spectrum Protect Details" rows="3" placeholder="Describe your services for IBM Spectrum Protect"></textarea>
+        <input type="text" name="Other IBM Product Name" placeholder="Other Product Name">
+        <textarea name="Other IBM Product Details" rows="3" placeholder="Enter other product/service details"></textarea>
+
+        <h2>4. Customer Base</h2>
+        <label for="ibm_customers">Current number of IBM-related customers:</label>
+        <input type="number" id="ibm_customers" name="IBM Customers" min="0">
+        
+        <label for="industries_served" class="required">Primary industries served:</label>
+        <input type="text" id="industries_served" name="Industries Served" required>
+        
+        <label>Top 3 IBM-related customers:</label>
+        <textarea name="Top IBM Customers" rows="6" placeholder="List customer names and describe services/products provided"></textarea>
+
+        <h2>5. Business Information</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Document</th>
+                    <th>Available</th>
+                    <th>Additional Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Document">Company registration documents</td>
+                    <td data-label="Available"><select name="Company Registration Available"><option>Yes</option><option>No</option></select></td>
+                    <td data-label="Notes"><input type="text" name="Company Registration Notes"></td>
+                </tr>
+                <tr>
+                    <td data-label="Document">Financial statements (last 2 years)</td>
+                    <td data-label="Available"><select name="Financial Statements Available"><option>Yes</option><option>No</option></select></td>
+                    <td data-label="Notes"><input type="text" name="Financial Statements Notes"></td>
+                </tr>
+                <tr>
+                    <td data-label="Document">Business plan for IBM-related services</td>
+                    <td data-label="Available"><select name="Business Plan Available"><option>Yes</option><option>No</option></select></td>
+                    <td data-label="Notes"><input type="text" name="Business Plan Notes"></td>
+                </tr>
+                <tr>
+                    <td data-label="Document">Marketing strategy for IBM products/services</td>
+                    <td data-label="Available"><select name="Marketing Strategy Available"><option>Yes</option><option>No</option></select></td>
+                    <td data-label="Notes"><input type="text" name="Marketing Strategy Notes"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>6. Technical Infrastructure</h2>
+        <label for="tech_infrastructure">Please describe your current technical infrastructure and resources:</label>
+        <textarea id="tech_infrastructure" name="Technical Infrastructure" rows="5" placeholder="Describe infrastructure in detail (e.g., cloud infrastructure, data centers, proprietary technologies, etc.)"></textarea>
+
+        <h2>7. Language Proficiency</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Language</th>
+                    <th>Number of Staff</th>
+                    <th>Additional Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Language">English</td>
+                    <td data-label="Number of Staff"><input type="number" name="English Staff" min="0"></td>
+                    <td data-label="Additional Notes"><input type="text" name="English Staff Notes"></td>
+                </tr>
+                <tr>
+                    <td data-label="Language">French</td>
+                    <td data-label="Number of Staff"><input type="number" name="French Staff" min="0"></td>
+                    <td data-label="Additional Notes"><input type="text" name="French Staff Notes"></td>
+                </tr>
+                <tr>
+                    <td data-label="Language">Other (specify)</td>
+                    <td data-label="Number of Staff"><input type="number" name="Other Language Staff" min="0"></td>
+                    <td data-label="Additional Notes"><input type="text" name="Other Language Details" placeholder="Specify language and proficiency"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>8. Additional Information</h2>
+        <label for="additional_info">Please provide any additional information relevant to your IBM partnership application:</label>
+        <textarea id="additional_info" name="Additional Information" rows="5"></textarea>
+
+        <h2>9. Next Steps and Goals</h2>
+        <label>What are your primary goals for enhancing your IBM partnership status?</label>
+        <textarea name="Partnership Goals" rows="5" placeholder="Enter goals (e.g., specific certifications, competency levels, market expansion, etc.)"></textarea>
+
+        <h2>10. Training and Certification Needs</h2>
+        <label>Please list any specific IBM training or certifications you believe your team needs:</label>
+        <textarea name="Training Needs" rows="5"></textarea>
+
+        <h2>11. Additional Comments or Questions</h2>
+        <label for="comments">Please provide any other comments or questions related to the IBM partnership:</label>
+        <textarea id="comments" name="Comments or Questions" rows="5"></textarea>
+
+        <label for="completed_by" class="required">Completed by:</label>
+        <input type="text" id="completed_by" name="Completed By" required>
+        
+        <label for="position" class="required">Position:</label>
+        <input type="text" id="position" name="Position" required>
+        
+        <label for="completion_date" class="required">Date:</label>
+        <input type="date" id="completion_date" name="Completion Date" required>
+
+        <input type="submit" value="Submit Form">
+    </form>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let formData = new FormData(form);
+            let body = '';
+            
+            for (let [key, value] of formData.entries()) {
+                body += key + ': ' + value + '\n\n';
+            }
+            
+            let mailtoLink = 'mailto:raydo@skunkworks.africa'
+                + '?subject=' + encodeURIComponent('IBM Partner Assessment Form Submission')
+                + '&body=' + encodeURIComponent(body);
+            
+            window.location.href = mailtoLink;
+        });
+    });
+    </script>
+</body>
+</html>

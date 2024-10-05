@@ -1,0 +1,20 @@
+{
+  "name": "web-events",
+  "version": "1.0.0",
+  "description": "Event handling for Skunkworks",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo 'No build step required'",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skunkworksza/web.git"
+  },
+  "author": "burnt-exe, Skunkworks (Pty) Ltd",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.1",
+    "nodemailer": "^6.6.3"
+  }
+}

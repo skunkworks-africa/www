@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skunkworks Company Profile and Membership Information</title><!DOCTYPE html>
+<html lang="en"><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skunkworks Company Profile and Membership Information</title>
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #ffffff;
+            color: #000000;
+        }
+        h1, h2, h3 {
+            color: #2E3B4E;
+        }
+        p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .logos img {
+            max-height: 50px;
+            margin: 10px;
+        }
+        .organization-logos img {
+            max-height: 50px;
+            margin: 10px;
+            display: inline-block;
+        }
+        @media (max-width: 600px) {
+            .organization-logos img {
+                max-height: 30px;
+            }
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        .grid-item:hover {
+            transform: scale(1.05);
+        }
+        .grid-item img {
+            max-height: 100px;
+            margin-bottom: 10px;
+        }
+        .grid-item a {
+            text-decoration: none;
+            color: #2E3B4E;
+            font-weight: bold;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            background-color: #000000;
+            padding: 10px 20px;
+        }
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+        }
+        .navbar a:hover {
+            background-color: #575757;
+        }
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .iframe-container {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .iframe-container iframe {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        @media (max-width: 600px) {
+            .navbar a {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">Skunkworks</div>
+        <div>
+            <a href="#profile">Profile</a>
+            <a href="#services">Services</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#membership">Membership</a>
+            <a href="#projects">Projects</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="section" id="profile">
+            <h1>Skunkworks (Pty) Ltd</h1>
+            <h2>Company Profile</h2>
+            <p><strong>CEO:</strong> Raydo M</p>
+            <p><strong>Location:</strong> Johannesburg, South Africa</p>
+            <p><strong>Contact:</strong> <a href="mailto:raydo@skunkworks.africa">raydo@skunkworks.africa</a></p>
+            <p><strong>Website:</strong> <a href="https://www.skunkworks.africa">www.skunkworks.africa</a></p>
+        </div>
+        
+        <div class="section" id="overview">
+            <h3>Overview</h3>
+            <p>Skunkworks (Pty) Ltd is a premier provider of managed cloud services and IT training solutions. We empower businesses through innovative technology, ensuring operational excellence and digital transformation. Our services cater to diverse industries, tailored to meet each client's unique needs.</p>
+        </div>
+
+        <div class="section" id="services">
+            <h3>Core Services</h3>
+            <ul>
+                <li><strong>Strategic Partnerships:</strong> IBM, Red Hat, Microsoft, Cisco, LearnQuest, CourseDot, PMI, EC-Council, CompTIA.</li>
+                <li><strong>Educational Partnerships:</strong> Vaal University of Technology, Nelson Mandela University, Tshwane University of Technology.</li>
+                <li><strong>Managed Cloud Services:</strong> Cloud Migration, Infrastructure Management, Security Solutions.</li>
+                <li><strong>IT Training:</strong> Certification Programs, Customized Training Solutions, Workshops, and Seminars.</li>
+                <li><strong>Expertise in IBM Technologies:</strong> Extensive experience in deploying and managing IBM solutions.</li>
+                <li><strong>Customized Solutions:</strong> Tailored IT services for unique business challenges.</li>
+                <li><strong>Proven Success:</strong> Strong portfolio of successful projects across various industries.</li>
+                <li><strong>Comprehensive Training:</strong> IT training programs to upskill your workforce.</li>
+            </ul>
+        </div>
+
+        <div class="section" id="achievements">
+            <h3>Achievements and Affiliations</h3>
+            <ul>
+                <li><strong>IBM:</strong> Partner</li>
+                <li><strong>Microsoft:</strong> Partner</li>
+                <li><strong>Red Hat:</strong> Partner</li>
+                <li><strong>Cisco:</strong> Partner</li>
+                <li><strong>LearnQuest:</strong> Partner</li>
+                <li><strong>CourseDot:</strong> Partner</li>
+                <li><strong>PMI:</strong> Partner</li>
+                <li><strong>EC-Council:</strong> Partner</li>
+                <li><strong>CompTIA:</strong> Partner</li>
+                <li><strong>VUT:</strong> Partner</li>
+                <li><strong>NMU:</strong> Partner</li>
+                <li><strong>TUT:</strong> Partner</li>
+            </ul>
+            <p>For more information, visit our <a href="https://www.linkedin.com/company/skunkworksza/">LinkedIn page</a> or <a href="https://www.skunkworks.africa/">company website</a>.</p>
+        </div>
+
+        <div class="section" id="value-proposition">
+            <h3>Value Proposition</h3>
+            <p>Unlock the Power of Innovation with Skunkworks (Pty) Ltd</p>
+            <ul>
+                <li>Accelerate Digital Transformation</li>
+                <li>Enhance Operational Efficiency</li>
+                <li>Strengthen Data Security</li>
+                <li>Foster Innovation</li>
+            </ul>
+        </div>
+
+        <div class="section" id="membership">
+            <h2>Membership Information</h2>
+            <p>Would you be interested in becoming a member of Skunkworks?</p>
+        
+            <h3>What Becoming a Member Entails</h3>
+            <ul>
+                <li><strong>Access to a Network of Professionals:</strong> Connect with like-minded individuals and professionals in the industry, offering a great opportunity to network and collaborate.</li>
+                <li><strong>Exclusive Benefits:</strong> Gain access to benefits offered by Skunkworks' business partners, including companies like IBM, SAP, and Microsoft. These benefits can include official course materials, software (e.g., MS 365), certification vouchers, and much more.</li>
+                <li><strong>Career Opportunities:</strong> Skunkworks looks for ad-hoc, part-time, and freelance work opportunities for its members, helping you find extra income and professional growth opportunities.</li>
+                <li><strong>Skill Enhancement:</strong> Be part of a community that is dedicated to continuous learning and skill development, with access to training and resources.</li>
+            </ul>
+        
+            <h3>Requirements for Membership</h3>
+            <ul>
+                <li><strong>Active Participation:</strong> Members are expected to help other members whenever possible, fostering a community of mutual support and collaboration.</li>
+                <li><strong>Engagement:</strong> Regularly engage with the community, share knowledge, and participate in events and discussions.</li>
+            </ul>
+        
+            <h3>Benefits for You</h3>
+            <ul>
+                <li><strong>Professional Growth:</strong> Enhance your skills and knowledge through access to high-quality resources and training.</li>
+                <li><strong>Networking Opportunities:</strong> Build connections with professionals across various industries, potentially leading to new career opportunities and collaborations.</li>
+                <li><strong>Exclusive Access:</strong> Enjoy benefits and resources that are exclusive to members, giving you an edge in your professional endeavors.</li>
+            </ul>
+        
+            <h3>Benefits for Skunkworks</h3>
+            <ul>
+                <li><strong>Community Building:</strong> Strengthen the Skunkworks community by adding skilled and experienced professionals.</li>
+                <li><strong>Knowledge Sharing:</strong> Benefit from the diverse expertise and knowledge that new members bring, enriching the community.</li>
+                <li><strong>Enhanced Reputation:</strong> As the community grows with talented professionals, it enhances Skunkworks' reputation as a leading platform for professional development and collaboration.</li>
+            </ul>
+        
+            <p>We currently have over 80 members, a significant increase from just 14 in January. Your participation would be highly valued and beneficial for both you and Skunkworks.</p>
+        
+            <p>Members can be employed and continue searching for work while being a member. There are no obligations. The point of joining is to actually try and increase your career growth, opportunities, network, skills, etc.</p>
+        
+            <p>Would you be interested in joining us?</p>
+        </div>
+        
+        <div class="section" id="jonathans-contributions">
+            <h3>Jonathan's Potential Contributions</h3>
+            <p>Jonathan, with your extensive experience and network, you can leverage Skunkworks' platform to further enhance your career and contribute significantly to our community:</p>
+            <ul>
+                <li><strong>Utilize Your Network:</strong> Bring in new opportunities and collaborations through your extensive network, creating mutual benefits for you and Skunkworks.</li>
+                <li><strong>Share Your Expertise:</strong> Conduct workshops, seminars, and training sessions to share your knowledge and experience with other members, fostering a learning environment.</li>
+                <li><strong>Build New Opportunities:</strong> Use Skunkworks' resources and platform to explore new business ventures, projects, and career paths.</li>
+                <li><strong>Mentor and Guide:</strong> Provide mentorship to less experienced members, helping them grow and develop their skills while solidifying your leadership role within the community.</li>
+            </ul>
+        </div>
+        
+        <div class="section" id="projects">
+            <h3>Projects and Affiliations with Organizations</h3>
+            <div class="organization-logos">
+                <img src="https://avatars.githubusercontent.com/u/164502065?s=200&v=4" alt="4-levels Logo">
+                <img src="https://avatars.githubusercontent.com/u/166485532?s=200&v=4" alt="Aero-and-General Logo">
+                <img src="https://avatars.githubusercontent.com/u/155151671?s=200&v=4" alt="Course-Dot Logo">
+                <img src="https://avatars.githubusercontent.com/u/155438366?s=200&v=4" alt="Course-Monster Logo">
+                <img src="https://avatars.githubusercontent.com/u/153610891?s=200&v=4" alt="Cyber-Retaliator-Solutions Logo">
+                <img src="https://avatars.githubusercontent.com/u/171165434?s=200&v=4" alt="Durban-University-of-Technology-DUT Logo">
+                <img src="https://avatars.githubusercontent.com/u/170214804?s=200&v=4" alt="Nelson-Mandela-University-NMU Logo">
+                <img src="https://avatars.githubusercontent.com/u/171473857?s=200&v=4" alt="North-West-University-NWU Logo">
+                <img src="https://avatars.githubusercontent.com/u/158819841?s=200&v=4" alt="Pause-Online Logo">
+                <img src="https://avatars.githubusercontent.com/u/171094682?s=200&v=4" alt="Pero-s-Academy Logo">
+                <img src="https://avatars.githubusercontent.com/u/154006129?s=200&v=4" alt="Quantum-Pay Logo">
+                <img src="https://avatars.githubusercontent.com/u/127200796?s=200&v=4" alt="Skunkworks-Lab-Services Logo">
+                <img src="https://avatars.githubusercontent.com/u/166816276?s=200&v=4" alt="skunkworksza Logo">
+                <img src="https://avatars.githubusercontent.com/u/170215074?s=200&v=4" alt="StorVault Logo">
+                <img src="https://avatars.githubusercontent.com/u/171472868?s=200&v=4" alt="Tshwane-University-of-Technology-TUT Logo">
+                <img src="https://avatars.githubusercontent.com/u/171472704?s=200&v=4" alt="UnderGrooveRave Logo">
+                <img src="https://avatars.githubusercontent.com/u/171474257?s=200&v=4" alt="University-of-Cape-Town-UCT Logo">
+                <img src="https://avatars.githubusercontent.com/u/171473327?s=200&v=4" alt="University-of-Johannesburg-UJ Logo">
+                <img src="https://avatars.githubusercontent.com/u/171474790?s=200&v=4" alt="University-of-Limpopo-UL Logo">
+                <img src="https://avatars.githubusercontent.com/u/169838339?s=200&v=4" alt="University-of-South-Africa-Unisa Logo">
+                <img src="https://avatars.githubusercontent.com/u/171475219?s=200&v=4" alt="University-of-the-Free-State-UFS Logo">
+                <img src="https://avatars.githubusercontent.com/u/171475768?s=200&v=4" alt="Vaal-University-of-Technology-VUT Logo">
+                <img src="https://avatars.githubusercontent.com/u/171476555?s=200&v=4" alt="Witwatersrand-Wits-University Logo">
+            </div>
+
+            <h3>GitHub Organizations and Projects</h3>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/164502065?s=200&v=4" alt="4-levels">
+                    <a href="https://github.com/4-levels">4-levels Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/166485532?s=200&v=4" alt="Aero-and-General">
+                    <a href="https://github.com/Aero-and-General">Aero-and-General Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/155151671?s=200&v=4" alt="Course-Dot">
+                    <a href="https://github.com/Course-Dot">Course-Dot Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/155438366?s=200&v=4" alt="Course-Monster">
+                    <a href="https://github.com/Course-Monster">Course-Monster Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/153610891?s=200&v=4" alt="Cyber-Retaliator-Solutions">
+                    <a href="https://github.com/Cyber-Retaliator-Solutions">Cyber-Retaliator-Solutions Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/171165434?s=200&v=4" alt="Durban-University-of-Technology-DUT">
+                    <a href="https://github.com/Durban-University-of-Technology-DUT">Durban-University-of-Technology-DUT Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/170214804?s=200&v=4" alt="Nelson-Mandela-University-NMU">
+                    <a href="https://github.com/Nelson-Mandela-University-NMU">Nelson-Mandela-University-NMU Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/171473857?s=200&v=4" alt="North-West-University-NWU">
+                    <a href="https://github.com/North-West-University-NWU">North-West-University-NWU Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/158819841?s=200&v=4" alt="Pause-Online">
+                    <a href="https://github.com/Pause-Online">Pause-Online Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/171094682?s=200&v=4" alt="Pero-s-Academy">
+                    <a href="https://github.com/Pero-s-Academy">Pero-s-Academy Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/154006129?s=200&v=4" alt="Quantum-Pay">
+                    <a href="https://github.com/Quantum-Pay">Quantum-Pay Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/127200796?s=200&v=4" alt="Skunkworks-Lab-Services">
+                    <a href="https://github.com/Skunkworks-Lab-Services">Skunkworks-Lab-Services Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/166816276?s=200&v=4" alt="skunkworksza">
+                    <a href="https://github.com/skunkworksza">skunkworksza Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/170215074?s=200&v=4" alt="StorVault">
+                    <a href="https://github.com/StorVault">StorVault Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/171472868?s=200&v=4" alt="Tshwane-University-of-Technology-TUT">
+                    <a href="https://github.com/Tshwane-University-of-Technology-TUT">Tshwane-University-of-Technology-TUT Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/171472704?s=200&v=4" alt="UnderGrooveRave">
+                    <a href="https://github.com/UnderGrooveRave">UnderGrooveRave Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/171474257?s=200&v=4" alt="University-of-Cape-Town-UCT">
+                    <a href="https://github.com/University-of-Cape-Town-UCT">University-of-Cape-Town-UCT Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/171473327?s=200&v=4" alt="University-of-Johannesburg-UJ">
+                    <a href="https://github.com/University-of-Johannesburg-UJ">University-of-Johannesburg-UJ Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/171474790?s=200&v=4" alt="University-of-Limpopo-UL">
+                    <a href="https://github.com/University-of-Limpopo-UL">University-of-Limpopo-UL Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/169838339?s=200&v=4" alt="University-of-South-Africa-Unisa">
+                    <a href="https://github.com/University-of-South-Africa-Unisa">University-of-South-Africa-Unisa Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/171475219?s=200&v=4" alt="University-of-the-Free-State-UFS">
+                    <a href="https://github.com/University-of-the-Free-State-UFS">University-of-the-Free-State-UFS Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/171475768?s=200&v=4" alt="Vaal-University-of-Technology-VUT">
+                    <a href="https://github.com/Vaal-University-of-Technology-VUT">Vaal-University-of-Technology-VUT Projects</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://avatars.githubusercontent.com/u/171476555?s=200&v=4" alt="Witwatersrand-Wits-University">
+                    <a href="https://github.com/Witwatersrand-Wits-University">Witwatersrand-Wits-University Projects</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="iframe-container">
+            <iframe width="640px" height="480px" src="https://forms.office.com/r/qWX1GgU47Q?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+        </div>
+    </div>
+
+    <script src="js/formHandeler.js"></script>
+    <script src="js/gulpfile.js"></script>
+    <script src="js/include-header.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/mobileDropdown.js"></script>
+    <script src="js/partnerFilter.js"></script>
+    <script src="js/partnerSearchFilter.js"></script>
+    <script src=".storybook/main.js"></script>
+    <script src=".storybook/preview.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Performance Support Tools - Skunkworks</title>
+<link href="./css/footer.css" rel="stylesheet"/>
+<link href="./css/forms.css" rel="stylesheet"/>
+<link href="./css/header.css" rel="stylesheet"/>
+<link href="./css/main.css" rel="stylesheet"/>
+<link href="./css/sidebar.css" rel="stylesheet"/>
+<link href="./css/airbnb.css" rel="stylesheet"/>
+<link href="./css/arabic.css" rel="stylesheet"/>
+<link href="./css/bass-addons.css" rel="stylesheet"/>
+<link href="./css/bass.css" rel="stylesheet"/>
+<link href="./css/button.css" rel="stylesheet"/>
+<link href="./css/carbon-components.min_copy.css" rel="stylesheet"/>
+<link href="./css/carbon-components_copy.css" rel="stylesheet"/>
+<link href="./css/confetti.css" rel="stylesheet"/>
+<link href="./css/confirmDate.css" rel="stylesheet"/>
+<link href="./css/dark.css" rel="stylesheet"/>
+<link href="./css/example.css" rel="stylesheet"/>
+<link href="./css/flatpickr.css" rel="stylesheet"/>
+<link href="./css/flatpickr.min.css" rel="stylesheet"/>
+<link href="./css/fonts.css" rel="stylesheet"/>
+<link href="./css/github.css" rel="stylesheet"/>
+<link href="./css/ie.css" rel="stylesheet"/>
+<link href="./css/jasmine.css" rel="stylesheet"/>
+<link href="./css/light.css" rel="stylesheet"/>
+<link href="./css/manager.css" rel="stylesheet"/>
+<link href="./css/material_blue.css" rel="stylesheet"/>
+<link href="./css/material_green.css" rel="stylesheet"/>
+<link href="./css/material_orange.css" rel="stylesheet"/>
+<link href="./css/material_red.css" rel="stylesheet"/>
+<link href="./css/page.css" rel="stylesheet"/>
+<link href="./css/screen_copy.css" rel="stylesheet"/>
+<link href="./css/services.css" rel="stylesheet"/>
+<link href="./css/source-code-pro.css" rel="stylesheet"/>
+<link href="./css/style.css" rel="stylesheet"/>
+<link href="./css/styles.css" rel="stylesheet"/>
+<link href="./css/styles.min.css" rel="stylesheet"/>
+<link href="./css/tocbot.css" rel="stylesheet"/>
+<link href="./css/achievements.css" rel="stylesheet"/>
+<link href="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" rel="icon" type="image/png"/>
+<style>
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        background-color: #121212;
+        color: #fff;
+    }
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+    }
+    header img {
+        max-width: 100%;
+        height: auto;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    nav ul li {
+        margin: 0 15px;
+        position: relative;
+    }
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+    }
+    nav ul li ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #333;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        z-index: 1000;
+    }
+    nav ul li:hover ul {
+        display: block;
+    }
+    nav ul li ul li a {
+        padding: 10px 15px;
+    }
+    .section {
+        padding: 20px;
+        margin: 20px 0;
+    }
+    .welcome-section {
+        background-color: #ffffff;
+        text-align: center;
+        color: #000000;
+        padding: 20px;
+        box-shadow: none;
+    }
+    .welcome-section-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 2px solid #2563EB; /* Light Blue Border */
+        border-radius: 8px;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    form input, form textarea, form button {
+        margin-bottom: 10px;
+        padding: 10px;
+        font-size: 1em;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+    }
+    button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    button:hover {
+        background-color: #555;
+    }
+    .partners-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        text-align: center;
+    }
+    .partner-item {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .partner-item img {
+        max-width: 100%;
+        max-height: 100px;
+        object-fit: contain;
+    }
+    .statistics {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .divider {
+        height: 2px;
+        background-color: #444;
+        margin: 20px 0;
+    }
+    .centered-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border-radius: 8px;
+        text-align: center;
+        color: #000;
+    }
+    .libutton {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 7px;
+        text-align: center;
+        outline: none;
+        text-decoration: none !important;
+        color: #ffffff !important;
+        width: 200px;
+        height: 32px;
+        border-radius: 16px;
+        background-color: #ffffff;
+        font-family: "SF Pro Text", Helvetica, sans-serif;
+        margin: 10px auto;
+    }
+    .icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+    }
+    .service-icon {
+        width: 40px;
+        height: 40px;
+        display: block;
+        margin: 0 auto 10px auto;
+    }
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+        .grid-container {
+            grid-template-columns: 1fr;
+        }
+        nav ul {
+            flex-direction: column;
+        }
+        nav ul li {
+            margin: 10px 0;
+        }
+        .partners-list {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+</head>
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="./index.html"><img alt="Home" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/container.svg"/>Home</a></li>
+<li>
+<a href="#"><img alt="Training" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/intelligence.svg"/>Training</a>
+<ul>
+<li><a href="./blended-learning.html"><img alt="Blended Learning" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/blended-learning.png?raw=true"/>Blended Learning</a></li>
+<li><a href="./course-development.html"><img alt="Course Development" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/course-development.png?raw=true"/>Course Development</a></li>
+<li><a href="./project-mentoring.html"><img alt="Project Mentoring" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/project-mentoring.png?raw=true"/>Project Mentoring</a></li>
+<li><a href="./performance-support.html"><img alt="Performance Support Tools" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/performance-support.png?raw=true"/>Performance Support Tools</a></li>
+<li><a href="./training-programs.html"><img alt="Training Programs" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/training-programs.png?raw=true"/>Training Programs</a></li>
+</ul>
+</li>
+<li>
+<a href="#"><img alt="Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/container--microservices.svg"/>Services</a>
+<ul>
+<li><a href="./software-development.html"><img alt="Software Development" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/software-development.png?raw=true"/>Software Development</a></li>
+<li><a href="./hardware-software.html"><img alt="Hardware and Software" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/hardware-software.png?raw=true"/>HW/SW Solutions</a></li>
+<li><a href="./managed-cloud.html"><img alt="Managed Cloud Services" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/managed-cloud.png?raw=true"/>Managed Cloud</a></li>
+<li><a href="./technical-support.html"><img alt="Technical Support Services" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/technical-support.png?raw=true"/>Technical Support</a></li>
+<li><a href="./placement-recruitment.html"><img alt="Placements" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/placement-recruitment.png?raw=true"/>Placements</a></li>
+</ul>
+</li>
+<li>
+<a href="#"><img alt="Careers" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/data--apis.svg"/>Careers</a>
+<ul>
+<li><a href="./job-posting.html"><img alt="Job Posting" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/job-posting.png?raw=true"/>Job Posting</a></li>
+<li><a href="./candidate-screening.html"><img alt="Candidate Screening" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/candidate-screening.png?raw=true"/>Candidate Screening</a></li>
+<li><a href="./interviews.html"><img alt="Interviews" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/interviews.png?raw=true"/>Interviews</a></li>
+<li><a href="./job-offers.html"><img alt="Job Offers" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/job-offers.png?raw=true"/>Job Offers</a></li>
+<li><a href="./perosacademy/"><img alt="Pero's Academy" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/peros-academy.png?raw=true"/>Pero's Academy</a></li>
+</ul>
+</li>
+<li><a href="#contact"><img alt="Contact" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/b6c7c3e93995fd5c2a6c0979d90ead76d9ef98dd/assets/icons/email.svg"/>Contact</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<section class="section welcome-section" id="welcome">
+<div class="welcome-section-content">
+<h1>Performance Support Tools</h1>
+<p>Our Performance Support Tools are designed to help employees apply new skills to real-world tasks. We create custom job aids and guides that provide just-in-time support, ensuring that learners can access the information they need exactly when they need it.</p>
+</div>
+</section>
+<section class="section" id="tools">
+<h2>Tools</h2>
+<div class="grid-container">
+<div>
+<h3>Job Aids and Quick Reference Guides</h3>
+<p>Detailed, easy-to-use resources to help employees perform their tasks efficiently.</p>
+</div>
+<div>
+<h3>Interactive Tutorials and Simulations</h3>
+<p>Engaging, hands-on learning experiences to reinforce new skills.</p>
+</div>
+<div>
+<h3>Mobile Learning Resources</h3>
+<p>On-the-go access to learning materials, anytime and anywhere.</p>
+</div>
+<div>
+<h3>Knowledge Bases and FAQs</h3>
+<p>Comprehensive repositories of information to answer common questions.</p>
+</div>
+</div>
+</section>
+<section class="section" id="benefits">
+<h2>Benefits</h2>
+<div class="grid-container">
+<div>
+<h3>Increased Productivity and Efficiency</h3>
+<p>Employees can quickly find the information they need to complete tasks effectively.</p>
+</div>
+<div>
+<h3>Reduced Learning Curve</h3>
+<p>Minimize the time it takes for employees to become proficient in new skills.</p>
+</div>
+<div>
+<h3>Improved Performance and Accuracy</h3>
+<p>Ensure high-quality work with the right resources at hand.</p>
+</div>
+<div>
+<h3>On-Demand Access to Critical Information</h3>
+<p>Immediate access to vital information when it's needed most.</p>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<p>© 2024 Skunkworks. All rights reserved.</p>
+<p><a href="https://blog.skunkworks.africa/" target="_blank">Visit our blog</a></p>
+</footer>
+<script src="./js/partnerSearchFilter.js"></script>
+<script src="./js/partnerFilter.js"></script>
+<script src="./js/mobileDropdown.js"></script>
+<script src="./js/main.js"></script>
+<script src="./js/include-header.js"></script>
+<script src="./js/gulpfile.js"></script>
+<script src="./js/formHandeler.js"></script>
+<script src="./js/combinedPartnerFilter.js"></script>
+</body>
+</html>
