@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -243,4 +242,3 @@ Visit our [website](https://skunkworks.africa) to learn more about what we do.
 ---
 
 *Made with ❤️ by the Skunkworks Team.*
->>>>>>> 979695405be1decbcb7bf272407840bd3946dfb9
