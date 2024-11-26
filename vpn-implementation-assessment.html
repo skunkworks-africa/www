@@ -1,0 +1,2065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPN Implementation Assessment - Initial Scope</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2C3E50;
+            --accent-color: #3498DB;
+            --success-color: #2ECC71;
+            --warning-color: #F1C40F;
+            --danger-color: #E74C3C;
+            --bg-color: #1a1a2e;
+            --text-color: #e0e0e0;
+            --section-bg: rgba(255, 255, 255, 0.05);
+            --input-bg: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(54, 89, 219, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(54, 89, 219, 0.1) 0%, transparent 20%);
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInDown 1s;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .info-box {
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .section {
+            background: var(--section-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeIn 1s;
+        }
+
+        .section h2 {
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .required::after {
+            content: " *";
+            color: var(--danger-color);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: var(--input-bg);
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        button {
+            background: var(--accent-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2rem;
+        }
+
+        button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            margin-left: 0.5rem;
+            cursor: help;
+        }
+
+        .tooltip-icon {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+
+        .tooltip-text {
+            visibility: hidden;
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            z-index: 1;
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>VPN Implementation Assessment</h1>
+            <p>Section 1: Project Scope and Initial Assessment</p>
+        </header>
+
+        <div class="info-box">
+            <p>This section aligns with NIST SP 800-53 controls (CM-1, CM-2, CM-3) and ISO 27001 controls (A.12.1.1, A.12.1.2, A.14.2.2)</p>
+        </div>
+
+        <form id="vpnAssessmentForm" onsubmit="submitForm(event)">
+            <!-- Project Classification -->
+            <div class="section">
+                <h2>Project Classification and Stakeholders</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Project Classification Level</label>
+                        <select name="projectClassification" required>
+                            <option value="">Select Classification</option>
+                            <option value="critical">Critical - Business Operations Dependent</option>
+                            <option value="high">High - Significant Business Impact</option>
+                            <option value="medium">Medium - Moderate Business Impact</option>
+                            <option value="low">Low - Minimal Business Impact</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Expected Project Duration (weeks)</label>
+                        <input type="number" name="projectDuration" required min="1">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Primary Business Sponsor</label>
+                        <input type="text" name="businessSponsor" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Technical Lead</label>
+                        <input type="text" name="technicalLead" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Remote Work Assessment -->
+            <div class="section">
+                <h2>Remote Work Assessment</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Is remote work possible for this implementation?</label>
+                        <select name="remoteWorkPossible" required>
+                            <option value="">Select Option</option>
+                            <option value="fully">Yes - Fully Remote</option>
+                            <option value="hybrid">Yes - Hybrid Approach</option>
+                            <option value="no">No - On-site Only</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>If hybrid, specify on-site requirements</label>
+                        <textarea name="onSiteRequirements"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Change Management -->
+            <div class="section">
+                <h2>Change Management Process</h2>
+                <div class="form-group">
+                    <label class="required">Change Management Framework</label>
+                    <select name="changeManagement" required>
+                        <option value="">Select Framework</option>
+                        <option value="itil">ITIL-based</option>
+                        <option value="internal">Internal Process</option>
+                        <option value="agile">Agile/DevOps</option>
+                        <option value="none">No Formal Process</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Change Advisory Board (CAB) Meeting Frequency</label>
+                        <select name="cabFrequency" required>
+                            <option value="">Select Frequency</option>
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="biweekly">Bi-weekly</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="adhoc">Ad-hoc</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Standard Lead Time for Changes (days)</label>
+                        <input type="number" name="changeLead" required min="0">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Change Management Process Notes</label>
+                    <textarea name="changeNotes" placeholder="Describe any specific change management requirements, restrictions, or considerations"></textarea>
+                </div>
+            </div>
+
+            <!-- Key Stakeholders -->
+            <div class="section">
+                <h2>Key Stakeholders and Access Requirements</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Domain Admin Contact</label>
+                        <input type="text" name="domainAdmin" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Security Team Contact</label>
+                        <input type="text" name="securityTeam" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Network Team Contact</label>
+                        <input type="text" name="networkTeam" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Compliance Officer Contact</label>
+                        <input type="text" name="complianceOfficer">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Additional Stakeholders</label>
+                    <textarea name="additionalStakeholders" placeholder="List any additional stakeholders who need to be involved or consulted"></textarea>
+                </div>
+            </div>
+
+            <!-- Implementation Windows -->
+            <div class="section">
+                <h2>Implementation Windows and Constraints</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Preferred Implementation Window</label>
+                        <select name="implementationWindow" required>
+                            <option value="">Select Window</option>
+                            <option value="afterHours">After Business Hours</option>
+                            <option value="weekend">Weekend</option>
+                            <option value="businessHours">Business Hours</option>
+                            <option value="maintenance">Regular Maintenance Window</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Maximum Allowed Downtime (hours)</label>
+                        <input type="number" name="maxDowntime" required min="0" step="0.5">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Blackout Periods</label>
+                    <textarea name="blackoutPeriods" placeholder="Specify any dates or periods when changes cannot be implemented"></textarea>
+                </div>
+            </div>
+
+            <button type="submit">Save Section 1</button>
+        </form>
+    </div>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const formObject = Object.fromEntries(formData.entries());
+            
+            // In a real implementation, you would send this data to your server
+            console.log('Form data:', formObject);
+            alert('Section 1 saved successfully! Ready for Section 2?');
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPN Implementation Assessment - Technical Infrastructure</title>
+    <style>
+        /* Previous styles remain the same */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .subsection {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .warning-text {
+            color: var(--warning-color);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .info-tag {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tag-high {
+            background: rgba(231, 76, 60, 0.2);
+            color: #E74C3C;
+        }
+
+        .tag-medium {
+            background: rgba(241, 196, 15, 0.2);
+            color: #F1C40F;
+        }
+
+        .tag-low {
+            background: rgba(46, 204, 113, 0.2);
+            color: #2ECC71;
+        }
+
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-upload input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .file-upload-label {
+            display: block;
+            padding: 1rem;
+            background: var(--input-bg);
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .file-upload-label:hover {
+            border-color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>VPN Implementation Assessment</h1>
+            <p>Section 2: Technical Infrastructure Assessment</p>
+        </header>
+
+        <div class="info-box">
+            <p>This section captures detailed technical information about your current infrastructure and requirements. Accuracy here is crucial for proper effort estimation.</p>
+        </div>
+
+        <form id="technicalAssessmentForm" onsubmit="submitForm(event)">
+            <!-- Current Infrastructure -->
+            <div class="section">
+                <h2>Current Infrastructure Details</h2>
+                
+                <div class="subsection">
+                    <h3>Server Environment</h3>
+                    <div class="grid-container">
+                        <div class="form-group">
+                            <label class="required">Primary Domain Controller OS</label>
+                            <select name="pdcOS" required>
+                                <option value="">Select OS</option>
+                                <option value="ws2022">Windows Server 2022</option>
+                                <option value="ws2019">Windows Server 2019</option>
+                                <option value="ws2016">Windows Server 2016</option>
+                                <option value="ws2012R2">Windows Server 2012 R2</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="required">Domain Functional Level</label>
+                            <select name="domainLevel" required>
+                                <option value="">Select Level</option>
+                                <option value="2022">Windows Server 2022</option>
+                                <option value="2019">Windows Server 2019</option>
+                                <option value="2016">Windows Server 2016</option>
+                                <option value="2012R2">Windows Server 2012 R2</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid-container">
+                        <div class="form-group">
+                            <label class="required">Number of Domain Controllers</label>
+                            <input type="number" name="dcCount" required min="1">
+                        </div>
+                        <div class="form-group">
+                            <label class="required">Sites Count</label>
+                            <input type="number" name="sitesCount" required min="1">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Current Server Roles</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="adDS" name="serverRoles" value="ADDS">
+                                <label for="adDS">AD DS</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="adCS" name="serverRoles" value="ADCS">
+                                <label for="adCS">AD CS</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dns" name="serverRoles" value="DNS">
+                                <label for="dns">DNS</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dhcp" name="serverRoles" value="DHCP">
+                                <label for="dhcp">DHCP</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="npas" name="serverRoles" value="NPAS">
+                                <label for="npas">NPAS/NPS</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3>Network Infrastructure</h3>
+                    <div class="grid-container">
+                        <div class="form-group">
+                            <label class="required">Primary Firewall Vendor</label>
+                            <select name="firewallVendor" required>
+                                <option value="">Select Vendor</option>
+                                <option value="cisco">Cisco</option>
+                                <option value="paloalto">Palo Alto</option>
+                                <option value="fortinet">Fortinet</option>
+                                <option value="checkpoint">Check Point</option>
+                                <option value="sonicwall">SonicWall</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="required">Internet Connection Speed</label>
+                            <input type="text" name="internetSpeed" required placeholder="e.g., 100Mbps">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Network Segmentation</label>
+                        <select name="networkSegmentation" required>
+                            <option value="">Select Type</option>
+                            <option value="flat">Flat Network</option>
+                            <option value="vlan">VLAN Segmentation</option>
+                            <option value="physical">Physical Segmentation</option>
+                            <option value="sdn">Software-Defined Networking</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Network Diagram Upload</label>
+                        <div class="file-upload">
+                            <label class="file-upload-label">
+                                Drop network diagram here or click to upload
+                                <input type="file" name="networkDiagram" accept=".pdf,.png,.jpg,.vsdx">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Existing Security Controls -->
+            <div class="section">
+                <h2>Security Controls and Authentication</h2>
+                
+                <div class="grid-container">
+                    <div class="form-group">
+                        <label class="required">Current Authentication Method</label>
+                        <select name="authMethod" required>
+                            <option value="">Select Method</option>
+                            <option value="password">Password Only</option>
+                            <option value="mfa">MFA Enabled</option>
+                            <option value="certificate">Certificate-Based</option>
+                            <option value="biometric">Biometric</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Identity Provider</label>
+                        <select name="idpProvider" required>
+                            <option value="">Select Provider</option>
+                            <option value="adfs">ADFS</option>
+                            <option value="azure">Azure AD</option>
+                            <option value="okta">Okta</option>
+                            <option value="none">None</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Current Security Tools</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="edr" name="securityTools" value="EDR">
+                            <label for="edr">EDR/XDR Solution</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="siem" name="securityTools" value="SIEM">
+                            <label for="siem">SIEM</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="dlp" name="securityTools" value="DLP">
+                            <label for="dlp">DLP</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="pam" name="securityTools" value="PAM">
+                            <label for="pam">PAM Solution</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Existing VPN Infrastructure -->
+            <div class="section">
+                <h2>Existing VPN Infrastructure</h2>
+                
+                <div class="form-group">
+                    <label class="required">Current VPN Solution</label>
+                    <select name="currentVPN" required>
+                        <option value="">Select Solution</option>
+                        <option value="none">None</option>
+                        <option value="cisco">Cisco AnyConnect</option>
+                        <option value="windows">Windows VPN</option>
+                        <option value="fortinet">FortiClient</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>If existing VPN, current issues:</label>
+                    <textarea name="vpnIssues" placeholder="Describe any current VPN-related issues or limitations"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">Planned VPN Users Location</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="domestic" name="userLocation" value="domestic">
+                            <label for="domestic">Domestic</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="international" name="userLocation" value="international">
+                            <label for="international">International</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">Save Section 2 and Continue</button>
+        </form>
+    </div>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const formObject = Object.fromEntries(formData.entries());
+            
+            // In a real implementation, you would send this data to your server
+            console.log('Form data:', formObject);
+            alert('Section 2 saved successfully! Ready for Section 3?');
+        }
+
+        // File upload handler
+        document.querySelectorAll('input[type="file"]').forEach(input => {
+            input.addEventListener('change', function(e) {
+                const fileName = e.target.files[0]?.name;
+                if (fileName) {
+                    e.target.parentElement.textContent = `Selected file: ${fileName}`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPN Implementation Assessment - Compliance and Security</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        /* Previous styles remain the same */
+        
+        .requirement-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 1rem 0;
+        }
+
+        .matrix-table th,
+        .matrix-table td {
+            padding: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .matrix-table th {
+            background: rgba(52, 152, 219, 0.2);
+        }
+
+        .matrix-table tr:hover td {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .compliance-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+            background: rgba(52, 152, 219, 0.2);
+        }
+
+        .priority-high {
+            border-color: var(--danger-color);
+        }
+
+        .priority-medium {
+            border-color: var(--warning-color);
+        }
+
+        .priority-low {
+            border-color: var(--success-color);
+        }
+
+        .expandable-section {
+            margin-bottom: 1rem;
+        }
+
+        .expandable-header {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .expandable-content {
+            display: none;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0 0 8px 8px;
+            margin-top: -8px;
+        }
+
+        .expandable-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>VPN Implementation Assessment</h1>
+            <p>Section 3: Compliance and Security Requirements</p>
+        </header>
+
+        <div class="info-box">
+            <p>This section ensures your VPN implementation meets all necessary compliance requirements and security standards.</p>
+        </div>
+
+        <form id="complianceSecurityForm" onsubmit="submitForm(event)">
+            <!-- Compliance Requirements -->
+            <div class="section">
+                <h2>Regulatory Compliance Requirements</h2>
+                
+                <div class="requirement-card">
+                    <div class="form-group">
+                        <label class="required">Applicable Regulations</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="gdpr" name="regulations" value="GDPR">
+                                <label for="gdpr">GDPR</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="hipaa" name="regulations" value="HIPAA">
+                                <label for="hipaa">HIPAA</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="pci" name="regulations" value="PCI-DSS">
+                                <label for="pci">PCI DSS</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="sox" name="regulations" value="SOX">
+                                <label for="sox">SOX</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="iso27001" name="regulations" value="ISO27001">
+                                <label for="iso27001">ISO 27001</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Compliance Documentation Requirements</label>
+                        <textarea name="complianceDoc" placeholder="Specify any documentation requirements for compliance"></textarea>
+                    </div>
+                </div>
+
+                <div class="requirement-card">
+                    <h3>Audit Requirements</h3>
+                    <div class="grid-container">
+                        <div class="form-group">
+                            <label class="required">Audit Frequency</label>
+                            <select name="auditFrequency" required>
+                                <option value="">Select Frequency</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="quarterly">Quarterly</option>
+                                <option value="biannual">Bi-annual</option>
+                                <option value="annual">Annual</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="required">Audit Log Retention Period (months)</label>
+                            <input type="number" name="logRetention" required min="1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Controls -->
+            <div class="section">
+                <h2>Security Requirements</h2>
+
+                <div class="requirement-card">
+                    <h3>Access Control</h3>
+                    <div class="grid-container">
+                        <div class="form-group">
+                            <label class="required">Authentication Method</label>
+                            <select name="authMethod" required>
+                                <option value="">Select Method</option>
+                                <option value="mfa">Multi-Factor Authentication</option>
+                                <option value="certificate">Certificate-Based</option>
+                                <option value="biometric">Biometric</option>
+                                <option value="hybrid">Hybrid Approach</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="required">Session Timeout (minutes)</label>
+                            <input type="number" name="sessionTimeout" required min="5">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="requirement-card">
+                    <h3>Data Protection</h3>
+                    <div class="form-group">
+                        <label class="required">Encryption Requirements</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="aes256" name="encryption" value="AES256">
+                                <label for="aes256">AES-256</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tls12" name="encryption" value="TLS1.2">
+                                <label for="tls12">TLS 1.2+</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ipsec" name="encryption" value="IPSec">
+                                <label for="ipsec">IPSec</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monitoring Requirements -->
+            <div class="section">
+                <h2>Monitoring and Incident Response</h2>
+
+                <div class="requirement-card">
+                    <h3>Monitoring Requirements</h3>
+                    <div class="grid-container">
+                        <div class="form-group">
+                            <label class="required">Monitoring System Integration</label>
+                            <select name="monitoringSystem" required>
+                                <option value="">Select System</option>
+                                <option value="siem">SIEM</option>
+                                <option value="nms">Network Monitoring System</option>
+                                <option value="custom">Custom Solution</option>
+                                <option value="none">No Integration Required</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="required">Alert Response Time (minutes)</label>
+                            <input type="number" name="responseTime" required min="1">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Required Metrics</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="userAccess" name="metrics" value="userAccess">
+                                <label for="userAccess">User Access Patterns</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="bandwidth" name="metrics" value="bandwidth">
+                                <label for="bandwidth">Bandwidth Usage</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="failed" name="metrics" value="failedAttempts">
+                                <label for="failed">Failed Login Attempts</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="latency" name="metrics" value="latency">
+                                <label for="latency">Connection Latency</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disaster Recovery -->
+            <div class="section">
+                <h2>Disaster Recovery and Business Continuity</h2>
+
+                <div class="requirement-card">
+                    <div class="grid-container">
+                        <div class="form-group">
+                            <label class="required">Recovery Time Objective (hours)</label>
+                            <input type="number" name="rto" required min="0" step="0.5">
+                        </div>
+                        <div class="form-group">
+                            <label class="required">Recovery Point Objective (hours)</label>
+                            <input type="number" name="rpo" required min="0" step="0.5">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Failover Requirements</label>
+                        <textarea name="failoverReq" placeholder="Describe failover and redundancy requirements"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">Save Section 3 and Continue</button>
+        </form>
+    </div>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const formObject = Object.fromEntries(formData.entries());
+            
+            // In a real implementation, you would send this data to your server
+            console.log('Form data:', formObject);
+            alert('Section 3 saved successfully! Ready for Section 4?');
+        }
+
+        // Expandable sections
+        document.querySelectorAll('.expandable-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                content.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPN Implementation Assessment - Implementation and Support Planning</title>
+    <style>
+        /* Previous styles remain the same */
+
+        .milestone-container {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .milestone-container::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent-color);
+            opacity: 0.3;
+        }
+
+        .milestone {
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .milestone::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background: var(--accent-color);
+        }
+
+        .resource-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .resource-info {
+            flex-grow: 1;
+        }
+
+        .resource-hours {
+            background: rgba(52, 152, 219, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .documentation-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .documentation-item {
+            padding: 1rem;
+            border-left: 3px solid var(--accent-color);
+            margin-bottom: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .test-case {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .test-case-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .phase-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            background: rgba(52, 152, 219, 0.2);
+        }
+
+        .support-tier {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .support-tier-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sla-metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>VPN Implementation Assessment</h1>
+            <p>Section 4: Implementation and Support Planning</p>
+        </header>
+
+        <div class="info-box">
+            <p>This section helps plan the implementation process, training requirements, and ongoing support needs.</p>
+        </div>
+
+        <form id="implementationPlanForm" onsubmit="submitForm(event)">
+            <!-- Implementation Planning -->
+            <div class="section">
+                <h2>Implementation Planning</h2>
+                
+                <div class="form-group">
+                    <label class="required">Preferred Implementation Approach</label>
+                    <select name="implementationApproach" required>
+                        <option value="">Select Approach</option>
+                        <option value="phased">Phased Rollout</option>
+                        <option value="pilot">Pilot Group First</option>
+                        <option value="full">Full Implementation</option>
+                        <option value="hybrid">Hybrid Approach</option>
+                    </select>
+                </div>
+
+                <div class="milestone-container">
+                    <h3>Implementation Milestones</h3>
+                    <div class="milestone">
+                        <div class="form-group">
+                            <label class="required">Phase 1: Initial Setup</label>
+                            <input type="number" name="phase1Hours" required min="1" placeholder="Estimated Hours">
+                            <textarea name="phase1Tasks" placeholder="Key tasks and deliverables"></textarea>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="form-group">
+                            <label class="required">Phase 2: Configuration</label>
+                            <input type="number" name="phase2Hours" required min="1" placeholder="Estimated Hours">
+                            <textarea name="phase2Tasks" placeholder="Key tasks and deliverables"></textarea>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="form-group">
+                            <label class="required">Phase 3: Testing</label>
+                            <input type="number" name="phase3Hours" required min="1" placeholder="Estimated Hours">
+                            <textarea name="phase3Tasks" placeholder="Key tasks and deliverables"></textarea>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="form-group">
+                            <label class="required">Phase 4: Deployment</label>
+                            <input type="number" name="phase4Hours" required min="1" placeholder="Estimated Hours">
+                            <textarea name="phase4Tasks" placeholder="Key tasks and deliverables"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Resource Requirements</h3>
+                <div class="resource-card">
+                    <div class="resource-info">
+                        <h4>Network Engineer</h4>
+                        <p>Configuration and implementation of VPN infrastructure</p>
+                    </div>
+                    <div class="resource-hours">
+                        <input type="number" name="networkEngineerHours" required min="1" placeholder="Hours">
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-info">
+                        <h4>Security Engineer</h4>
+                        <p>Security configuration and compliance validation</p>
+                    </div>
+                    <div class="resource-hours">
+                        <input type="number" name="securityEngineerHours" required min="1" placeholder="Hours">
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-info">
+                        <h4>System Administrator</h4>
+                        <p>Server configuration and maintenance</p>
+                    </div>
+                    <div class="resource-hours">
+                        <input type="number" name="sysAdminHours" required min="1" placeholder="Hours">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Training Requirements -->
+            <div class="section">
+                <h2>Training Requirements</h2>
+
+                <div class="form-group">
+                    <label class="required">Training Delivery Method</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="inPerson" name="trainingMethod" value="inPerson">
+                            <label for="inPerson">In-Person Training</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="virtual" name="trainingMethod" value="virtual">
+                            <label for="virtual">Virtual Sessions</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="documentation" name="trainingMethod" value="documentation">
+                            <label for="documentation">Written Documentation</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="video" name="trainingMethod" value="video">
+                            <label for="video">Video Tutorials</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="documentation-list">
+                    <h3>Required Documentation</h3>
+                    <div class="documentation-item">
+                        <div class="form-group">
+                            <label class="required">End User Guide</label>
+                            <select name="userGuideFormat" required>
+                                <option value="">Select Format</option>
+                                <option value="pdf">PDF Document</option>
+                                <option value="web">Web-based Guide</option>
+                                <option value="both">Both PDF and Web</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="documentation-item">
+                        <div class="form-group">
+                            <label class="required">Technical Documentation</label>
+                            <select name="techDocFormat" required>
+                                <option value="">Select Format</option>
+                                <option value="wiki">Internal Wiki</option>
+                                <option value="pdf">PDF Document</option>
+                                <option value="both">Both Wiki and PDF</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testing and Validation -->
+            <div class="section">
+                <h2>Testing and Validation</h2>
+
+                <div class="test-case">
+                    <div class="test-case-header">
+                        <h3>Performance Testing</h3>
+                        <span class="phase-tag">Pre-deployment</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Performance Metrics to Test</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="latency" name="perfMetrics" value="latency">
+                                <label for="latency">Connection Latency</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="throughput" name="perfMetrics" value="throughput">
+                                <label for="throughput">Throughput</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="concurrent" name="perfMetrics" value="concurrent">
+                                <label for="concurrent">Concurrent Users</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="test-case">
+                    <div class="test-case-header">
+                        <h3>Security Testing</h3>
+                        <span class="phase-tag">Pre-deployment</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Security Tests Required</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="pentest" name="securityTests" value="pentest">
+                                <label for="pentest">Penetration Testing</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="vulnerability" name="securityTests" value="vulnerability">
+                                <label for="vulnerability">Vulnerability Assessment</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="compliance" name="securityTests" value="compliance">
+                                <label for="compliance">Compliance Audit</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post-Implementation Support -->
+            <div class="section">
+                <h2>Post-Implementation Support</h2>
+
+                <div class="support-tier">
+                    <div class="support-tier-header">
+                        <h3>Tier 1 Support</h3>
+                        <div class="form-group">
+                            <label class="required">Response Time (minutes)</label>
+                            <input type="number" name="tier1Response" required min="1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Support Coverage</label>
+                        <select name="tier1Coverage" required>
+                            <option value="">Select Coverage</option>
+                            <option value="247">24/7</option>
+                            <option value="24x5">24x5</option>
+                            <option value="8x5">8x5</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="support-tier">
+                    <div class="support-tier-header">
+                        <h3>Tier 2/3 Support</h3>
+                        <div class="form-group">
+                            <label class="required">Response Time (minutes)</label>
+                            <input type="number" name="tier2Response" required min="1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Support Coverage</label>
+                        <select name="tier2Coverage" required>
+                            <option value="">Select Coverage</option>
+                            <option value="247">24/7</option>
+                            <option value="24x5">24x5</option>
+                            <option value="8x5">8x5</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="sla-metric">
+                    <span>Monthly Uptime Target (%)</span>
+                    <input type="number" name="uptimeTarget" required min="90" max="100" step="0.1">
+                </div>
+
+                <div class="sla-metric">
+                    <span>Maximum Incident Resolution Time (hours)</span>
+                    <input type="number" name="maxResolutionTime" required min="1">
+                </div>
+            </div>
+
+            <button type="submit">Complete Assessment</button>
+        </form>
+    </div>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const formObject = Object.fromEntries(formData.entries());
+            
+            // Calculate total estimated hours
+            const implementationHours = ['phase1Hours', 'phase2Hours', 'phase3Hours', 'phase4Hours']
+                .reduce((total, phase) => total + Number(formObject[phase] || 0), 0);
+            
+            const resourceHours = ['networkEngineerHours', 'securityEngineerHours', 'sysAdminHours']
+                .reduce((total, resource) => total + Number(formObject[resource] || 0), 0);
+            
+            const totalH<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPN Implementation Assessment - Implementation and Support Planning</title>
+    <style>
+        /* Previous styles remain the same */
+
+        .milestone-container {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .milestone-container::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent-color);
+            opacity: 0.3;
+        }
+
+        .milestone {
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .milestone::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background: var(--accent-color);
+        }
+
+        .resource-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .resource-info {
+            flex-grow: 1;
+        }
+
+        .resource-hours {
+            background: rgba(52, 152, 219, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .documentation-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .documentation-item {
+            padding: 1rem;
+            border-left: 3px solid var(--accent-color);
+            margin-bottom: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .test-case {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .test-case-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .phase-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            background: rgba(52, 152, 219, 0.2);
+        }
+
+        .support-tier {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .support-tier-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sla-metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>VPN Implementation Assessment</h1>
+            <p>Section 4: Implementation and Support Planning</p>
+        </header>
+
+        <div class="info-box">
+            <p>This section helps plan the implementation process, training requirements, and ongoing support needs.</p>
+        </div>
+
+        <form id="implementationPlanForm" onsubmit="submitForm(event)">
+            <!-- Implementation Planning -->
+            <div class="section">
+                <h2>Implementation Planning</h2>
+                
+                <div class="form-group">
+                    <label class="required">Preferred Implementation Approach</label>
+                    <select name="implementationApproach" required>
+                        <option value="">Select Approach</option>
+                        <option value="phased">Phased Rollout</option>
+                        <option value="pilot">Pilot Group First</option>
+                        <option value="full">Full Implementation</option>
+                        <option value="hybrid">Hybrid Approach</option>
+                    </select>
+                </div>
+
+                <div class="milestone-container">
+                    <h3>Implementation Milestones</h3>
+                    <div class="milestone">
+                        <div class="form-group">
+                            <label class="required">Phase 1: Initial Setup</label>
+                            <input type="number" name="phase1Hours" required min="1" placeholder="Estimated Hours">
+                            <textarea name="phase1Tasks" placeholder="Key tasks and deliverables"></textarea>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="form-group">
+                            <label class="required">Phase 2: Configuration</label>
+                            <input type="number" name="phase2Hours" required min="1" placeholder="Estimated Hours">
+                            <textarea name="phase2Tasks" placeholder="Key tasks and deliverables"></textarea>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="form-group">
+                            <label class="required">Phase 3: Testing</label>
+                            <input type="number" name="phase3Hours" required min="1" placeholder="Estimated Hours">
+                            <textarea name="phase3Tasks" placeholder="Key tasks and deliverables"></textarea>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="form-group">
+                            <label class="required">Phase 4: Deployment</label>
+                            <input type="number" name="phase4Hours" required min="1" placeholder="Estimated Hours">
+                            <textarea name="phase4Tasks" placeholder="Key tasks and deliverables"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Resource Requirements</h3>
+                <div class="resource-card">
+                    <div class="resource-info">
+                        <h4>Network Engineer</h4>
+                        <p>Configuration and implementation of VPN infrastructure</p>
+                    </div>
+                    <div class="resource-hours">
+                        <input type="number" name="networkEngineerHours" required min="1" placeholder="Hours">
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-info">
+                        <h4>Security Engineer</h4>
+                        <p>Security configuration and compliance validation</p>
+                    </div>
+                    <div class="resource-hours">
+                        <input type="number" name="securityEngineerHours" required min="1" placeholder="Hours">
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-info">
+                        <h4>System Administrator</h4>
+                        <p>Server configuration and maintenance</p>
+                    </div>
+                    <div class="resource-hours">
+                        <input type="number" name="sysAdminHours" required min="1" placeholder="Hours">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Training Requirements -->
+            <div class="section">
+                <h2>Training Requirements</h2>
+
+                <div class="form-group">
+                    <label class="required">Training Delivery Method</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="inPerson" name="trainingMethod" value="inPerson">
+                            <label for="inPerson">In-Person Training</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="virtual" name="trainingMethod" value="virtual">
+                            <label for="virtual">Virtual Sessions</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="documentation" name="trainingMethod" value="documentation">
+                            <label for="documentation">Written Documentation</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="video" name="trainingMethod" value="video">
+                            <label for="video">Video Tutorials</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="documentation-list">
+                    <h3>Required Documentation</h3>
+                    <div class="documentation-item">
+                        <div class="form-group">
+                            <label class="required">End User Guide</label>
+                            <select name="userGuideFormat" required>
+                                <option value="">Select Format</option>
+                                <option value="pdf">PDF Document</option>
+                                <option value="web">Web-based Guide</option>
+                                <option value="both">Both PDF and Web</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="documentation-item">
+                        <div class="form-group">
+                            <label class="required">Technical Documentation</label>
+                            <select name="techDocFormat" required>
+                                <option value="">Select Format</option>
+                                <option value="wiki">Internal Wiki</option>
+                                <option value="pdf">PDF Document</option>
+                                <option value="both">Both Wiki and PDF</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testing and Validation -->
+            <div class="section">
+                <h2>Testing and Validation</h2>
+
+                <div class="test-case">
+                    <div class="test-case-header">
+                        <h3>Performance Testing</h3>
+                        <span class="phase-tag">Pre-deployment</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Performance Metrics to Test</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="latency" name="perfMetrics" value="latency">
+                                <label for="latency">Connection Latency</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="throughput" name="perfMetrics" value="throughput">
+                                <label for="throughput">Throughput</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="concurrent" name="perfMetrics" value="concurrent">
+                                <label for="concurrent">Concurrent Users</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="test-case">
+                    <div class="test-case-header">
+                        <h3>Security Testing</h3>
+                        <span class="phase-tag">Pre-deployment</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Security Tests Required</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="pentest" name="securityTests" value="pentest">
+                                <label for="pentest">Penetration Testing</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="vulnerability" name="securityTests" value="vulnerability">
+                                <label for="vulnerability">Vulnerability Assessment</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="compliance" name="securityTests" value="compliance">
+                                <label for="compliance">Compliance Audit</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post-Implementation Support -->
+            <div class="section">
+                <h2>Post-Implementation Support</h2>
+
+                <div class="support-tier">
+                    <div class="support-tier-header">
+                        <h3>Tier 1 Support</h3>
+                        <div class="form-group">
+                            <label class="required">Response Time (minutes)</label>
+                            <input type="number" name="tier1Response" required min="1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Support Coverage</label>
+                        <select name="tier1Coverage" required>
+                            <option value="">Select Coverage</option>
+                            <option value="247">24/7</option>
+                            <option value="24x5">24x5</option>
+                            <option value="8x5">8x5</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="support-tier">
+                    <div class="support-tier-header">
+                        <h3>Tier 2/3 Support</h3>
+                        <div class="form-group">
+                            <label class="required">Response Time (minutes)</label>
+                            <input type="number" name="tier2Response" required min="1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Support Coverage</label>
+                        <select name="tier2Coverage" required>
+                            <option value="">Select Coverage</option>
+                            <option value="247">24/7</option>
+                            <option value="24x5">24x5</option>
+                            <option value="8x5">8x5</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="sla-metric">
+                    <span>Monthly Uptime Target (%)</span>
+                    <input type="number" name="uptimeTarget" required min="90" max="100" step="0.1">
+                </div>
+
+                <div class="sla-metric">
+                    <span>Maximum Incident Resolution Time (hours)</span>
+                    <input type="number" name="maxResolutionTime" required min="1">
+                </div>
+            </div>
+
+            <button type="submit">Complete Assessment</button>
+        </form>
+    </div>
+
+  <script>
+        function submitForm(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const formObject = Object.fromEntries(formData.entries());
+            
+            // Calculate total estimated hours
+            const implementationHours = ['phase1Hours', 'phase2Hours', 'phase3Hours', 'phase4Hours']
+                .reduce((total, phase) => total + Number(formObject[phase] || 0), 0);
+            
+            const resourceHours = ['networkEngineerHours', 'securityEngineerHours', 'sysAdminHours']
+                .reduce((total, resource) => total + Number(formObject[resource] || 0), 0);
+            
+            const totalHours = implementationHours + resourceHours;
+
+            // Prepare summary data
+            const summaryData = {
+                ...formObject,
+                totalImplementationHours: implementationHours,
+                totalResourceHours: resourceHours,
+                grandTotalHours: totalHours
+            };
+
+            // Prepare email content
+            const emailSubject = `VPN Implementation Assessment Summary - ${formObject.projectName || 'New Project'}`;
+            const emailBody = `
+                Implementation Assessment Summary:
+                
+                Total Implementation Hours: ${implementationHours}
+                Total Resource Hours: ${resourceHours}
+                Grand Total Hours: ${totalHours}
+                
+                Implementation Approach: ${formObject.implementationApproach}
+                
+                Phase Hours:
+                - Initial Setup: ${formObject.phase1Hours || 0}
+                - Configuration: ${formObject.phase2Hours || 0}
+                - Testing: ${formObject.phase3Hours || 0}
+                - Deployment: ${formObject.phase4Hours || 0}
+                
+                Resource Allocation:
+                - Network Engineer: ${formObject.networkEngineerHours || 0} hours
+                - Security Engineer: ${formObject.securityEngineerHours || 0} hours
+                - System Administrator: ${formObject.sysAdminHours || 0} hours
+                
+                Support Requirements:
+                - Tier 1 Response Time: ${formObject.tier1Response} minutes
+                - Tier 1 Coverage: ${formObject.tier1Coverage}
+                - Tier 2/3 Response Time: ${formObject.tier2Response} minutes
+                - Tier 2/3 Coverage: ${formObject.tier2Coverage}
+                - Monthly Uptime Target: ${formObject.uptimeTarget}%
+                - Max Resolution Time: ${formObject.maxResolutionTime} hours
+            `;
+
+            // In a real implementation, you would send this to your server
+            console.log('Assessment Summary:', summaryData);
+            console.log('Email would be sent to cherisa@skunkworks.africa and raydo@skunkworks.africa');
+            console.log('Email Subject:', emailSubject);
+            console.log('Email Body:', emailBody);
+
+            // Show success message to user
+            alert(`Assessment completed successfully!\n\nTotal estimated hours: ${totalHours}\n\nA detailed summary will be sent to the project stakeholders.`);
+
+            // Reset form after successful submission
+            setTimeout(() => {
+                event.target.reset();
+            }, 2000);
+        }
+
+        // Add event listeners for dynamic calculations
+        document.querySelectorAll('input[type="number"]').forEach(input => {
+            input.addEventListener('change', function() {
+                // Recalculate totals when any number input changes
+                const allHourInputs = document.querySelectorAll('input[type="number"][name$="Hours"]');
+                const currentTotal = Array.from(allHourInputs)
+                    .reduce((total, input) => total + (Number(input.value) || 0), 0);
+                
+                // Update any total display elements if they exist
+                const totalDisplay = document.getElementById('totalHours');
+                if (totalDisplay) {
+                    totalDisplay.textContent = currentTotal;
+                }
+            });
+        });
+
+        // File upload handling
+        document.querySelectorAll('input[type="file"]').forEach(input => {
+            input.addEventListener('change', function(e) {
+                const fileName = e.target.files[0]?.name;
+                const label = this.parentElement.querySelector('.file-upload-label');
+                if (fileName && label) {
+                    label.textContent = `Selected: ${fileName}`;
+                }
+            });
+        });
+
+        // Form validation
+        function validateForm() {
+            const requiredFields = document.querySelectorAll('[required]');
+            let valid = true;
+
+            requiredFields.forEach(field => {
+                if (!field.value) {
+                    field.classList.add('invalid');
+                    valid = false;
+                } else {
+                    field.classList.remove('invalid');
+                }
+            });
+
+            return valid;
+        }
+
+        // Add custom form validation
+        document.getElementById('implementationPlanForm').addEventListener('submit', function(e) {
+            if (!validateForm()) {
+                e.preventDefault();
+                alert('Please fill in all required fields before submitting.');
+            }
+        });
+    </script><script>
+        function submitForm(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const formObject = Object.fromEntries(formData.entries());
+            
+            // Calculate total estimated hours
+            const implementationHours = ['phase1Hours', 'phase2Hours', 'phase3Hours', 'phase4Hours']
+                .reduce((total, phase) => total + Number(formObject[phase] || 0), 0);
+            
+            const resourceHours = ['networkEngineerHours', 'securityEngineerHours', 'sysAdminHours']
+                .reduce((total, resource) => total + Number(formObject[resource] || 0), 0);
+            
+            const totalHours = implementationHours + resourceHours;
+
+            // Prepare summary data
+            const summaryData = {
+                ...formObject,
+                totalImplementationHours: implementationHours,
+                totalResourceHours: resourceHours,
+                grandTotalHours: totalHours
+            };
+
+            // Prepare email content
+            const emailSubject = `VPN Implementation Assessment Summary - ${formObject.projectName || 'New Project'}`;
+            const emailBody = `
+                Implementation Assessment Summary:
+                
+                Total Implementation Hours: ${implementationHours}
+                Total Resource Hours: ${resourceHours}
+                Grand Total Hours: ${totalHours}
+                
+                Implementation Approach: ${formObject.implementationApproach}
+                
+                Phase Hours:
+                - Initial Setup: ${formObject.phase1Hours || 0}
+                - Configuration: ${formObject.phase2Hours || 0}
+                - Testing: ${formObject.phase3Hours || 0}
+                - Deployment: ${formObject.phase4Hours || 0}
+                
+                Resource Allocation:
+                - Network Engineer: ${formObject.networkEngineerHours || 0} hours
+                - Security Engineer: ${formObject.securityEngineerHours || 0} hours
+                - System Administrator: ${formObject.sysAdminHours || 0} hours
+                
+                Support Requirements:
+                - Tier 1 Response Time: ${formObject.tier1Response} minutes
+                - Tier 1 Coverage: ${formObject.tier1Coverage}
+                - Tier 2/3 Response Time: ${formObject.tier2Response} minutes
+                - Tier 2/3 Coverage: ${formObject.tier2Coverage}
+                - Monthly Uptime Target: ${formObject.uptimeTarget}%
+                - Max Resolution Time: ${formObject.maxResolutionTime} hours
+            `;
+
+            // In a real implementation, you would send this to your server
+            console.log('Assessment Summary:', summaryData);
+            console.log('Email would be sent to cherisa@skunkworks.africa and raydo@skunkworks.africa');
+            console.log('Email Subject:', emailSubject);
+            console.log('Email Body:', emailBody);
+
+            // Show success message to user
+            alert(`Assessment completed successfully!\n\nTotal estimated hours: ${totalHours}\n\nA detailed summary will be sent to the project stakeholders.`);
+
+            // Reset form after successful submission
+            setTimeout(() => {
+                event.target.reset();
+            }, 2000);
+        }
+
+        // Add event listeners for dynamic calculations
+        document.querySelectorAll('input[type="number"]').forEach(input => {
+            input.addEventListener('change', function() {
+                // Recalculate totals when any number input changes
+                const allHourInputs = document.querySelectorAll('input[type="number"][name$="Hours"]');
+                const currentTotal = Array.from(allHourInputs)
+                    .reduce((total, input) => total + (Number(input.value) || 0), 0);
+                
+                // Update any total display elements if they exist
+                const totalDisplay = document.getElementById('totalHours');
+                if (totalDisplay) {
+                    totalDisplay.textContent = currentTotal;
+                }
+            });
+        });
+
+        // File upload handling
+        document.querySelectorAll('input[type="file"]').forEach(input => {
+            input.addEventListener('change', function(e) {
+                const fileName = e.target.files[0]?.name;
+                const label = this.parentElement.querySelector('.file-upload-label');
+                if (fileName && label) {
+                    label.textContent = `Selected: ${fileName}`;
+                }
+            });
+        });
+
+        // Form validation
+        function validateForm() {
+            const requiredFields = document.querySelectorAll('[required]');
+            let valid = true;
+
+            requiredFields.forEach(field => {
+                if (!field.value) {
+                    field.classList.add('invalid');
+                    valid = false;
+                } else {
+                    field.classList.remove('invalid');
+                }
+            });
+
+            return valid;
+        }
+
+        // Add custom form validation
+        document.getElementById('implementationPlanForm').addEventListener('submit', function(e) {
+            if (!validateForm()) {
+                e.preventDefault();
+                alert('Please fill in all required fields before submitting.');
+            }
+        });
+    </script>
+
+<!-- Previous HTML remains the same until the end of the script tags -->
+            
+            <noscript>
+                <div class="warning-box">
+                    This form requires JavaScript to function properly. Please enable JavaScript in your browser settings.
+                </div>
+            </noscript>
+        </div>
+
+        <!-- Add footer with metadata -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>VPN Implementation Assessment Tool - Version 1.0</p>
+                <p>© 2024 Skunkworks.Africa - All rights reserved</p>
+                <p>For technical support: support@skunkworks.africa</p>
+            </div>
+        </footer>
+
+        <!-- Add any additional scripts needed -->
+        <script>
+            // Check for modern browser features
+            if (typeof window.FormData === 'undefined') {
+                alert('Your browser may not support all features of this form. Please use a modern browser for the best experience.');
+            }
+
+            // Add window load event handler
+            window.addEventListener('load', function() {
+                // Remove any loading states
+                document.body.classList.remove('loading');
+                
+                // Initialize any remaining components
+                document.querySelectorAll('.form-group input').forEach(input => {
+                    input.addEventListener('invalid', function(e) {
+                        e.preventDefault();
+                        this.classList.add('invalid');
+                    });
+                    
+                    input.addEventListener('input', function() {
+                        this.classList.remove('invalid');
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
