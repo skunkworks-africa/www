@@ -1,0 +1,2035 @@
+Finish this code <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skunkworks × Nixon Marketing - Strategic Partnership</title>
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.149.0/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Variables & Settings */
+        :root {
+            /* Color Palette */
+            --color-primary: #121214;
+            --color-secondary: #f8f9fa;
+            --color-accent-1: #ff3366;
+            --color-accent-2: #0ea5e9;
+            --color-accent-3: #10b981;
+            --color-accent-4: #8b5cf6;
+            --color-accent-5: #f59e0b;
+            --color-dark-1: #1e1e24;
+            --color-dark-2: #28282c;
+            --color-dark-3: #32323a;
+            --color-light-1: #f8f9fa;
+            --color-light-2: #e9ecef;
+            --color-light-3: #dee2e6;
+            --color-gray-1: #6c757d;
+            --color-gray-2: #495057;
+            --color-gray-3: #343a40;
+            
+            /* Typography */
+            --font-primary: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-secondary: 'Playfair Display', Georgia, serif;
+            --font-tertiary: 'Inter', sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-md: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            --font-size-4xl: 2.25rem;
+            --font-size-5xl: 3rem;
+            --font-size-6xl: 3.75rem;
+            --font-size-7xl: 4.5rem;
+            --font-size-8xl: 6rem;
+            
+            /* Spacing */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-5: 1.25rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-10: 2.5rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --space-20: 5rem;
+            --space-24: 6rem;
+            --space-32: 8rem;
+            
+            /* Borders & Shadows */
+            --radius-sm: 0.25rem;
+            --radius-md: 0.375rem;
+            --radius-lg: 0.5rem;
+            --radius-xl: 0.75rem;
+            --radius-2xl: 1rem;
+            --radius-3xl: 1.5rem;
+            --radius-full: 9999px;
+            
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+            
+            /* Transitions */
+            --transition-slower: 700ms cubic-bezier(0.25, 1, 0.5, 1);
+            --transition-slow: 400ms cubic-bezier(0.25, 1, 0.5, 1);
+            --transition-default: 250ms cubic-bezier(0.25, 1, 0.5, 1);
+            --transition-fast: 150ms cubic-bezier(0.25, 1, 0.5, 1);
+            
+            /* Z-indices */
+            --z-negative: -1;
+            --z-0: 0;
+            --z-10: 10;
+            --z-20: 20;
+            --z-30: 30;
+            --z-40: 40;
+            --z-50: 50;
+            --z-max: 999;
+            
+            /* Container */
+            --container-width-xs: 100%;
+            --container-width-sm: 540px;
+            --container-width-md: 720px;
+            --container-width-lg: 960px;
+            --container-width-xl: 1140px;
+            --container-width-2xl: 1320px;
+        }
+
+        /* CSS Reset & Base Styles */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            scroll-padding-top: 5rem;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color var(--transition-slow);
+            min-height: 100vh;
+        }
+
+        body.light-mode {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        h1, h2 {
+            font-family: var(--font-secondary);
+        }
+
+        p {
+            margin: 0 0 var(--space-4);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all var(--transition-default);
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            background: none;
+            border: none;
+            outline: none;
+        }
+
+        img, svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+            padding-right: var(--space-4);
+            padding-left: var(--space-4);
+        }
+
+        @media (min-width: 576px) {
+            .container { max-width: var(--container-width-sm); }
+        }
+        @media (min-width: 768px) {
+            .container { max-width: var(--container-width-md); }
+        }
+        @media (min-width: 992px) {
+            .container { max-width: var(--container-width-lg); }
+        }
+        @media (min-width: 1200px) {
+            .container { max-width: var(--container-width-xl); }
+        }
+        @media (min-width: 1400px) {
+            .container { max-width: var(--container-width-2xl); }
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .text-gradient-primary {
+            background-image: linear-gradient(to right, var(--color-accent-1), var(--color-accent-2));
+        }
+
+        .text-gradient-secondary {
+            background-image: linear-gradient(to right, var(--color-accent-3), var(--color-accent-4));
+        }
+
+        /* Accessibility */
+        :focus-visible {
+            outline: 3px solid var(--color-accent-2);
+            outline-offset: 2px;
+        }
+
+        /* Animation Classes */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-accent-2);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-accent-4);
+        }
+
+        /* Selection */
+        ::selection {
+            background-color: var(--color-accent-1);
+            color: white;
+        }
+
+        /* Background Effects */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: var(--z-negative);
+            opacity: 0.5;
+        }
+
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: var(--z-negative);
+            opacity: 0.15;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            transition: opacity var(--transition-slow);
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .noise-texture {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            z-index: var(--z-negative);
+            pointer-events: none;
+        }
+
+        /* Header & Navigation */
+        .header {
+            padding: var(--space-4) 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: var(--z-50);
+            transition: all var(--transition-default);
+            backdrop-filter: blur(10px);
+            background-color: rgba(18, 18, 20, 0.8);
+        }
+
+        .light-mode .header {
+            background-color: rgba(248, 249, 250, 0.8);
+        }
+
+        .header.scrolled {
+            padding: var(--space-3) 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-weight: 700;
+            font-size: var(--font-size-xl);
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+
+        .brand-logo .logo {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-xl);
+            font-weight: 800;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .brand-logo .logo.sw {
+            background-color: #111;
+            color: white;
+        }
+
+        .brand-logo .logo.nx {
+            color: black;
+            background: white;
+            font-family: "Times New Roman", serif;
+            font-style: italic;
+        }
+
+        .brand-logo .logo.nx::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                rgba(255, 0, 128, 0.5), 
+                rgba(255, 102, 0, 0.5), 
+                rgba(255, 204, 0, 0.5), 
+                rgba(51, 204, 51, 0.5), 
+                rgba(0, 153, 204, 0.5), 
+                rgba(102, 0, 204, 0.5));
+            animation: borderGradient 3s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes borderGradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: var(--space-8);
+        }
+
+        .nav-list {
+            display: flex;
+            gap: var(--space-6);
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            font-size: var(--font-size-md);
+            position: relative;
+            padding: var(--space-2) 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-accent-2);
+            transition: width var(--transition-default);
+        }
+
+        .nav-link:hover::after,
+        .nav-link:focus::after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus {
+            color: var(--color-accent-2);
+        }
+
+        .toggle-theme {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-xl);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--color-secondary);
+            transition: all var(--transition-default);
+        }
+
+        .light-mode .toggle-theme {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--color-primary);
+        }
+
+        .toggle-theme:hover,
+        .toggle-theme:focus {
+            background-color: var(--color-accent-2);
+            color: white;
+            transform: rotate(15deg);
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 2rem;
+            height: 1.5rem;
+            cursor: pointer;
+            z-index: var(--z-max);
+        }
+
+        .mobile-toggle span {
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-secondary);
+            transition: all var(--transition-default);
+        }
+
+        .light-mode .mobile-toggle span {
+            background-color: var(--color-primary);
+        }
+
+        @media (max-width: 991px) {
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .nav-list {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background-color: var(--color-dark-2);
+                flex-direction: column;
+                padding: 6rem var(--space-8) var(--space-8);
+                transition: right var(--transition-default);
+                z-index: var(--z-40);
+            }
+
+            .light-mode .nav-list {
+                background-color: var(--color-light-2);
+            }
+
+            .nav-list.active {
+                right: 0;
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
+            }
+
+            .mobile-toggle.active span:nth-child(1) {
+                transform: translateY(10px) rotate(45deg);
+            }
+
+            .mobile-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-toggle.active span:nth-child(3) {
+                transform: translateY(-10px) rotate(-45deg);
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: var(--space-20);
+            padding-bottom: var(--space-20);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: var(--z-10);
+        }
+
+        .hero-title {
+            font-size: var(--font-size-7xl);
+            margin-bottom: var(--space-6);
+            line-height: 1.1;
+            position: relative;
+        }
+
+        .hero-subtitle {
+            font-size: var(--font-size-xl);
+            max-width: 700px;
+            margin: 0 auto var(--space-12);
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-16);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: var(--font-size-md);
+            transition: all var(--transition-default);
+            position: relative;
+            overflow: hidden;
+            z-index: var(--z-0);
+        }
+
+        .btn-primary {
+            background-color: var(--color-accent-2);
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-secondary);
+            border: 2px solid var(--color-accent-3);
+        }
+
+        .light-mode .btn-secondary {
+            color: var(--color-primary);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transition: left 0.7s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-accent-4);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-accent-3);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: var(--space-10);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-2);
+            opacity: 0.7;
+            transition: opacity var(--transition-default);
+        }
+
+        .scroll-indicator:hover {
+            opacity: 1;
+        }
+
+        .scroll-indicator span {
+            font-size: var(--font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .scroll-indicator .arrow {
+            font-size: var(--font-size-2xl);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-12px); }
+            60% { transform: translateY(-6px); }
+        }
+
+        @media (max-width: 991px) {
+            .hero-title {
+                font-size: var(--font-size-5xl);
+            }
+            
+            .hero-subtitle {
+                font-size: var(--font-size-lg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: var(--font-size-4xl);
+            }
+            
+            .hero-subtitle {
+                font-size: var(--font-size-md);
+                margin-bottom: var(--space-8);
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: var(--space-3);
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: var(--space-24) 0;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: var(--space-16);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: var(--font-size-4xl);
+            margin-bottom: var(--space-4);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-subtitle {
+            font-size: var(--font-size-lg);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.8;
+        }
+
+        .divider {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--color-accent-2), var(--color-accent-4));
+            margin: var(--space-6) auto;
+            border-radius: var(--radius-full);
+        }
+
+        /* Collaboration Cards */
+        .collab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--space-6);
+            margin-top: var(--space-10);
+        }
+
+        .collab-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-default);
+            position: relative;
+            z-index: var(--z-10);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            height: 100%;
+        }
+
+        .light-mode .collab-card {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .collab-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .collab-card:hover .card-icon {
+            transform: translateY(-5px) scale(1.1);
+            color: var(--color-accent-2);
+        }
+
+        .collab-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--color-accent-2), var(--color-accent-4));
+            opacity: 0.8;
+        }
+
+        .card-header {
+            padding: var(--space-6) var(--space-6) var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+
+        .card-icon {
+            font-size: var(--font-size-3xl);
+            color: var(--color-accent-3);
+            transition: all var(--transition-default);
+        }
+
+        .card-title {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .card-body {
+            padding: 0 var(--space-6) var(--space-6);
+        }
+
+        .features-list {
+            margin-bottom: var(--space-4);
+        }
+
+        .features-list li {
+            position: relative;
+            padding-left: var(--space-6);
+            margin-bottom: var(--space-3);
+            font-size: var(--font-size-md);
+        }
+
+        .features-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent-2);
+            font-weight: bold;
+        }
+
+        .monetization {
+            background: rgba(14, 165, 233, 0.07);
+            padding: var(--space-4);
+            border-radius: var(--radius-md);
+            margin-top: var(--space-4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .light-mode .monetization {
+            background: rgba(14, 165, 233, 0.1);
+        }
+
+        .monetization-label {
+            display: block;
+            margin-bottom: var(--space-2);
+            color: var(--color-accent-5);
+            font-weight: 600;
+            font-size: var(--font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .monetization-content {
+            font-size: var(--font-size-md);
+        }
+
+        @media (max-width: 768px) {
+            .collab-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Capabilities Section */
+        .capabilities {
+            margin-top: var(--space-16);
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: var(--space-6);
+            margin-top: var(--space-10);
+        }
+
+        .capability-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .capability-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .capability-title {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--space-2);
+            font-weight: 600;
+        }
+
+        .capability-description {
+            font-size: var(--font-size-sm);
+            opacity: 0.9;
+        }
+
+        .web-dev { background: linear-gradient(135deg, #6366f1, #a855f7); }
+        .digital-marketing { background: linear-gradient(135deg, #0ea5e9, #2563eb); }
+        .app-dev { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+        .cloud-services { background: linear-gradient(135deg, #10b981, #14b8a6); }
+
+        @media (max-width: 768px) {
+            .capabilities-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Next Steps Section */
+        .next-steps {
+            background: rgba(14, 165, 233, 0.05);
+            border-radius: var(--radius-xl);
+            padding: var(--space-10);
+            margin-top: var(--space-16);
+            position: relative;
+            overflow: hidden;
+            z-index: var(--z-10);
+        }
+
+        .light-mode .next-steps {
+            background: rgba(14, 165, 233, 0.08);
+        }
+
+        .next-steps::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .next-steps-title {
+            font-size: var(--font-size-3xl);
+            color: var(--color-accent-2);
+            margin-bottom: var(--space-6);
+            position: relative;
+            display: inline-block;
+        }
+
+        .next-steps-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--color-accent-2), var(--color-accent-4));
+            border-radius: var(--radius-full);
+        }
+
+        .next-steps-content {
+            margin-bottom: var(--space-6);
+        }
+
+        .next-steps-content p {
+            margin-bottom: var(--space-4);
+            font-size: var(--font-size-lg);
+        }
+
+        .signature {
+            margin-top: var(--space-6);
+            font-family: var(--font-secondary);
+            font-style: italic;
+            font-weight: 500;
+            font-size: var(--font-size-xl);
+            color: var(--color-accent-5);
+            text-align: right;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: var(--space-20) 0;
+            background: rgba(31, 41, 55, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: var(--z-10);
+            margin-top: var(--space-20);
+        }
+
+        .light-mode .contact {
+            background: rgba(248, 249, 250, 0.7);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-8);
+            margin-top: var(--space-10);
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            backdrop-filter: blur(5px);
+            transition: all var(--transition-default);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+        }
+
+        .light-mode .contact-card {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-6);
+            padding-bottom: var(--space-4);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .light-mode .contact-header {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-logo {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: var(--font-size-lg);
+        }
+
+        .contact-logo.sw {
+            background-color: #111;
+            color: white;
+        }
+
+        .contact-logo.nx {
+            background: white;
+            color: black;
+            font-style: italic;
+            font-family: "Times New Roman", serif;
+        }
+
+        .contact-title {
+            font-size: var(--font-size-xl);
+            margin: 0;
+        }
+
+        .contact-description {
+            margin-bottom: var(--space-6);
+            font-size: var(--font-size-md);
+            opacity: 0.9;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-4);
+            font-size: var(--font-size-md);
+        }
+
+        .contact-info-icon {
+            font-size: var(--font-size-lg);
+            color: var(--color-accent-2);
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-info-link {
+            color: inherit;
+            transition: color var(--transition-default);
+        }
+
+        .contact-info-link:hover {
+            color: var(--color-accent-2);
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            padding: var(--space-8) 0;
+            text-align: center;
+            position: relative;
+            z-index: var(--z-10);
+        }
+
+        .copyright {
+            font-size: var(--font-size-sm);
+            opacity: 0.7;
+        }
+
+        /* Animations */
+        .animate-fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate-fade-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-fade-right {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate-fade-right.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .animate-fade-left {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate-fade-left.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Animation Delays */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+        .delay-500 { transition-delay: 500ms; }
+    </style>
+</head>
+<body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Animated Gradient Background -->
+    <div class="gradient-bg"></div>
+    
+    <!-- Noise Texture -->
+    <div class="noise-texture"></div>
+    
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <div class="brand-logo">
+                <div class="logo sw">SW</div>
+                <div class="logo nx">NX</div>
+            </div>
+            
+            <nav class="nav">
+                <div class="mobile-toggle" id="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <ul class="nav-list" id="nav-list">
+                    <li class="nav-item">
+                        <a href="#collaboration" class="nav-link">Collaboration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#capabilities" class="nav-link">Capabilities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#next-steps" class="nav-link">Next Steps</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                
+                <button class="toggle-theme" id="toggle-theme" aria-label="Toggle theme">
+                    <i class="theme-icon">🌙</i>
+                </button>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title text-gradient text-gradient-primary animate-fade-up">
+                    Strategic Partnership:
+                    <br>
+                    Skunkworks × Nixon Marketing
+                </h1>
+                <p class="hero-subtitle animate-fade-up delay-200">
+                    Combining our technological expertise with your creative marketing genius to deliver exceptional digital experiences that drive growth and revenue.
+                </p>
+                
+                <div class="cta-buttons animate-fade-up delay-300">
+                    <a href="#collaboration" class="btn btn-primary">
+                        <i class="fas fa-handshake"></i>
+                        View Collaboration Areas
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i>
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator animate-fade-up delay-500">
+                <span>Scroll Down</span>
+                <div class="arrow">↓</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Collaboration Areas Section -->
+    <section class="section" id="collaboration">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-gradient text-gradient-primary animate-fade-up">
+                    Key Collaboration Areas
+                </h2>
+                <div class="divider animate-fade-up delay-100"></div>
+                <p class="section-subtitle animate-fade-up delay-200">
+                    Strategic services that combine our technical expertise with your marketing brilliance to create powerful digital solutions that drive results.
+                </p>
+            </div>
+            
+            <div class="collab-grid">
+                <!-- Collaboration Card 1 -->
+                <div class="collab-card animate-fade-right">
+                    <div class="card-header">
+                        <i class="card-icon fas fa-laptop-code"></i>
+                        <h3 class="card-title">Business Essentials Setup</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="features-list">
+                            <li>Skunkworks handles domain registration, Microsoft 365 accounts, and email setup</li>
+                            <li>Ongoing support and licensing management</li>
+                            <li>Secure and reliable infrastructure management</li>
+                        </ul>
+                        <div class="monetization">
+                            <span class="monetization-label">Monetization Strategy</span>
+                            <div class="monetization-content">
+                                One-time setup fee + monthly maintenance packages
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Collaboration Card 2 -->
+                <div class="collab-card animate-fade-up">
+                    <div class="card-header">
+                        <i class="card-icon fas fa-browser"></i>
+                        <h3 class="card-title">Website & App Development</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="features-list">
+                            <li>Nixon Marketing designs the brand & content strategy</li>
+                            <li>Skunkworks builds and maintains the site/app with cutting-edge technology</li>
+                            <li>Collaborative approach ensures technical excellence with marketing impact</li>
+                        </ul>
+                        <div class="monetization">
+                            <span class="monetization-label">Monetization Strategy</span>
+                            <div class="monetization-content">
+                                Project-based pricing + website management retainers
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Collaboration Card 3 -->
+                <div class="collab-card animate-fade-left">
+                    <div class="card-header">
+                        <i class="card-icon fas fa-database"></i>
+                        <h3 class="card-title">CRM Setup & Integration</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="features-list">
+                            <li>Setup and integration of Microsoft Dynamics, Zoho, Salesforce, HubSpot, etc.</li>
+                            <li>Nixon Marketing provides lead generation and campaign execution</li>
+                            <li>Holistic approach to customer journey and data management</li>
+                        </ul>
+                        <div class="monetization">
+                            <span class="monetization-label">Monetization Strategy</span>
+                            <div class="monetization-content">
+                                CRM setup fees + training sessions + ongoing management packages
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Collaboration Card 4 -->
+                <div class="collab-card animate-fade-right">
+                    <div class="card-header">
+                        <i class="card-icon fas fa-bullhorn"></i>
+                        <h3 class="card-title">Digital Advertising & Automation</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="features-list">
+                            <li>Focused Google Ads, Facebook/Instagram ads, and SEO strategies</li>
+                            <li>AI-powered chatbots & virtual agents to enhance customer engagement</li>
+                            <li>Data-driven campaign optimization for maximum ROI</li>
+                        </ul>
+                        <div class="monetization">
+                            <span class="monetization-label">Monetization Strategy</span>
+                            <div class="monetization-content">
+                                Ad campaign management retainers + chatbot subscriptions
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Collaboration Card 5 -->
+                <div class="collab-card animate-fade-up">
+                    <div class="card-header">
+                        <i class="card-icon fas fa-shopping-cart"></i>
+                        <h3 class="card-title">E-commerce & Growth Solutions</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="features-list">
+                            <li>Nixon Marketing handles branding & content strategy</li>
+                            <li>Skunkworks sets up Shopify, AWS, or custom e-commerce solutions</li>
+                            <li>Integrated approach to online stores and digital marketing</li>
+                        </ul>
+                        <div class="monetization">
+                            <span class="monetization-label">Monetization Strategy</span>
+                            <div class="monetization-content">
+                                E-commerce setup fee + percentage of revenue model
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Collaboration Card 6 -->
+                <div class="collab-card animate-fade-left">
+                    <div class="card-header">
+                        <i class="card-icon fas fa-phone-alt"></i>
+                        <h3 class="card-title">VoIP & Communication Solutions</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="features-list">
+                            <li>Skunkworks provides VoIP and cloud-based phone solutions</li>
+                            <li>Nixon Marketing helps market these services to SMEs</li>
+                            <li>Comprehensive business communication systems</li>
+                        </ul>
+                        <div class="monetization">
+                            <span class="monetization-label">Monetization Strategy</span>
+                            <div class="monetization-content">
+                                Subscription-based VoIP services with white-label options
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Technical Capabilities Section -->
+            <div class="capabilities" id="capabilities">
+                <div class="section-header">
+                    <h2 class="section-title text-gradient text-gradient-secondary animate-fade-up">
+                        Our Technical Capabilities
+                    </h2>
+                    <div class="divider animate-fade-up delay-100"></div>
+                    <p class="section-subtitle animate-fade-up delay-200">
+                        Skunkworks brings a wide range of technical expertise to complement Nixon Marketing's creative brilliance.
+                    </p>
+                </div>
+                
+                <div class="capabilities-grid">
+                    <div class="capability-card web-dev animate-fade-up">
+                        <div class="capability-content">
+                            <h3 class="capability-title">Advanced Web Development</h3>
+                            <p class="capability-description">Responsive, high-performance websites built with modern frameworks and cutting-edge technology</p>
+                        </div>
+                    </div>
+                    
+                    <div class="capability-card digital-marketing animate-fade-up delay-100">
+                        <div class="capability-content">
+                            <h3 class="capability-title">Marketing Technology</h3>
+                            <p class="capability-description">Integration of analytics, CRMs, and automation tools to power data-driven marketing</p>
+                        </div>
+                    </div>
+                    
+                    <div class="capability-card app-dev animate-fade-up delay-200">
+                        <div class="capability-content">
+                            <h3 class="capability-title">Mobile Applications</h3>
+                            <p class="capability-description">Cross-platform app development for iOS and Android with seamless user experiences</p>
+                        </div>
+                    </div>
+                    
+                    <div class="capability-card cloud-services animate-fade-up delay-300">
+                        <div class="capability-content">
+                            <h3 class="capability-title">Cloud Infrastructure</h3>
+                            <p class="capability-description">Scalable hosting and cloud solutions designed for security, performance, and reliability</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Next Steps Section -->
+            <div class="next-steps animate-fade-up" id="next-steps">
+                <h2 class="next-steps-title">Next Steps</h2>
+                <div class="next-steps-content">
+                    <p>Let's refine these ideas together. Your feedback will help identify additional opportunities we might have missed and create a partnership strategy that delivers exceptional value to clients.</p>
+                    <p>We can set up a quick call or meeting when you have time to discuss how we can move forward with these collaboration areas and begin transforming businesses with our combined expertise.</p>
+                </div>
+                <div class="signature">Raydo</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-gradient text-gradient-primary animate-fade-up">
+                    Get In Touch
+                </h2>
+                <div class="divider animate-fade-up delay-100"></div>
+                <p class="section-subtitle animate-fade-up delay-200">
+                    Reach out to discuss how we can collaborate and create exceptional digital experiences together.
+                </p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-card animate-fade-right">
+                    <div class="contact-header">
+                        <div class="contact-logo nx">NX</div>
+                        <h3 class="contact-title">Nixon Marketing</h3>
+                    </div>
+                    <p class="contact-description">
+                        Expert in social media management & creative content that drives engagement, growth, and brand love.
+                    </p>
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <i class="contact-info-icon fas fa-phone"></i>
+                            <a href="tel:+27823367446" class="contact-info-link">+27 82 336 7446</a>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="contact-info-icon fas fa-envelope"></i>
+                            <a href="mailto:nr.tennent@gmail.com" class="contact-info-link">nr.tennent@gmail.com</a>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="contact-info-icon fab fa-instagram"></i>
+                            <a href="https://instagram.com/_nixon_marketing_" class="contact-info-link">@_nixon_marketing_</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-card animate-fade-left">
+                    <div class="contact-header">
+                        <div class="contact-logo sw">SW</div>
+                        <h3 class="contact-title">Skunkworks Media</h3>
+                    </div>
+                    <p class="contact-description">
+                        Technology solutions that power digital experiences and help businesses thrive in the digital age.
+                    </p>
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <i class="contact-info-icon fas fa-user"></i>
+                            <span>Contact: Raydo</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="contact-info-icon fas fa-envelope"></i>
+                            <a href="mailto:raydowho@skunkworks.media" class="contact-info-link">raydowho@skunkworks.media</a>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="contact-info-icon fas fa-globe"></i>
+                            <a href="https://skunkworks.media" class="contact-info-link">skunkworks.media</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="copyright">
+                © 2025 Skunkworks × Nixon Marketing Partnership. All rights reserved.
+            </p>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize components
+            initParticles();
+            setupThreeJS();
+            initScrollAnimations();
+            initMobileNav();
+            initThemeToggle();
+            
+            // Setup header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // Close mobile menu if open
+                        const mobileToggle = document.getElementById('mobile-toggle');
+                        const navList = document.getElementById('nav-list');
+                        
+                        if (mobileToggle.classList.contains('active')) {
+                            mobileToggle.classList.remove('active');
+                            navList.classList.remove('active');
+                        }
+                        
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+        
+        // Initialize particles background
+        function initParticles() {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#0ea5e9"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#0ea5e9",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        }
+        
+        // Setup Three.js background effect
+        function setupThreeJS() {
+            // Create scene
+            const scene = new THREE.Scene();
+            
+            // Create camera with perspective
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 5;
+            
+            // Create renderer with transparency
+            const renderer = new THREE.WebGLRenderer({ alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000, 0);
+            
+            // Append to hero section
+            const heroSection = document.getElementById('hero');
+            renderer.domElement.style.position = 'absolute';
+            renderer.domElement.style.top = '0';
+            renderer.domElement.style.left = '0';
+            renderer.domElement.style.zIndex = '1';
+            renderer.domElement.style.pointerEvents = 'none';
+            heroSection.appendChild(renderer.domElement);
+            
+            // Create particles geometry
+            const particlesGeometry = new THREE.BufferGeometry();
+            const particlesCount = 500;
+            
+            const posArray = new Float32Array(particlesCount * 3);
+            
+            for(let i = 0; i < particlesCount * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 10;
+            }
+            d {
+            height: 200px;
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition-default);
+            color: white;
+        }
+
+        .capability-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+            z-index: 1;
+        }
+
+        .capability-car
+        Here's the outstanding JavaScript code needed to complete your HTML document:
+
+```javascript
+// Initialize particles background
+function initParticles() {
+    particlesJS('particles-js', {
+        "particles": {
+            "number": {
+                "value": 80,
+                "density": {
+                    "enable": true,
+                    "value_area": 800
+                }
+            },
+            "color": {
+                "value": "#0ea5e9"
+            },
+            "shape": {
+                "type": "circle",
+                "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                },
+                "polygon": {
+                    "nb_sides": 5
+                }
+            },
+            "opacity": {
+                "value": 0.5,
+                "random": false,
+                "anim": {
+                    "enable": false,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                }
+            },
+            "size": {
+                "value": 3,
+                "random": true,
+                "anim": {
+                    "enable": false,
+                    "speed": 40,
+                    "size_min": 0.1,
+                    "sync": false
+                }
+            },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#0ea5e9",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 2,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                }
+            }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": {
+                    "enable": true,
+                    "mode": "grab"
+                },
+                "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                },
+                "resize": true
+            },
+            "modes": {
+                "grab": {
+                    "distance": 140,
+                    "line_linked": {
+                        "opacity": 1
+                    }
+                },
+                "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 2,
+                    "opacity": 8,
+                    "speed": 3
+                },
+                "repulse": {
+                    "distance": 200,
+                    "duration": 0.4
+                },
+                "push": {
+                    "particles_nb": 4
+                },
+                "remove": {
+                    "particles_nb": 2
+                }
+            }
+        },
+        "retina_detect": true
+    });
+}
+
+// Setup Three.js background effect
+function setupThreeJS() {
+    // Create scene
+    const scene = new THREE.Scene();
+    
+    // Create camera with perspective
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 5;
+    
+    // Create renderer with transparency
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x000000, 0);
+    
+    // Append to hero section
+    const heroSection = document.getElementById('hero');
+    renderer.domElement.style.position = 'absolute';
+    renderer.domElement.style.top = '0';
+    renderer.domElement.style.left = '0';
+    renderer.domElement.style.zIndex = '1';
+    renderer.domElement.style.pointerEvents = 'none';
+    heroSection.appendChild(renderer.domElement);
+    
+    // Create particles geometry
+    const particlesGeometry = new THREE.BufferGeometry();
+    const particlesCount = 500;
+    
+    const posArray = new Float32Array(particlesCount * 3);
+    
+    for(let i = 0; i < particlesCount * 3; i++) {
+        posArray[i] = (Math.random() - 0.5) * 10;
+    }
+    
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    
+    // Create particles material
+    const particlesMaterial = new THREE.PointsMaterial({
+        size: 0.015,
+        color: 0x0ea5e9,
+        transparent: true,
+        opacity: 0.5,
+        sizeAttenuation: true
+    });
+    
+    // Create particles mesh
+    const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particlesMesh);
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+    
+    // Animation loop
+    const animate = () => {
+        requestAnimationFrame(animate);
+        
+        particlesMesh.rotation.x += 0.0003;
+        particlesMesh.rotation.y += 0.0005;
+        
+        renderer.render(scene, camera);
+    };
+    
+    animate();
+}
+
+// Initialize scroll animations
+function initScrollAnimations() {
+    // Initialize GSAP ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Animate elements on scroll
+    const animateElements = document.querySelectorAll('.animate-fade-up, .animate-fade-right, .animate-fade-left');
+    
+    animateElements.forEach(element => {
+        gsap.fromTo(
+            element,
+            {
+                opacity: 0,
+                y: element.classList.contains('animate-fade-up') ? 30 : 0,
+                x: element.classList.contains('animate-fade-right') ? -30 : (element.classList.contains('animate-fade-left') ? 30 : 0)
+            },
+            {
+                opacity: 1,
+                y: 0,
+                x: 0,
+                duration: 0.8,
+                scrollTrigger: {
+                    trigger: element,
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                }
+            }
+        );
+    });
+}
+
+// Initialize mobile navigation
+function initMobileNav() {
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const navList = document.getElementById('nav-list');
+    
+    mobileToggle.addEventListener('click', () => {
+        mobileToggle.classList.toggle('active');
+        navList.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking on a nav link
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileToggle.classList.remove('active');
+            navList.classList.remove('active');
+        });
+    });
+}
+
+// Initialize theme toggle
+function initThemeToggle() {
+    const themeToggle = document.getElementById('toggle-theme');
+    const themeIcon = themeToggle.querySelector('.theme-icon');
+    const body = document.body;
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        body.classList.add('light-mode');
+        themeIcon.textContent = '☀️';
+    }
+    
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('light-mode');
+        
+        if (body.classList.contains('light-mode')) {
+            themeIcon.textContent = '☀️';
+            localStorage.setItem('theme', 'light');
+        } else {
+            themeIcon.textContent = '🌙';
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize components
+    initParticles();
+    setupThreeJS();
+    initScrollAnimations();
+    initMobileNav();
+    initThemeToggle();
+    
+    // Setup header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                // Close mobile menu if open
+                const mobileToggle = document.getElementById('mobile-toggle');
+                const navList = document.getElementById('nav-list');
+                
+                if (mobileToggle.classList.contains('active')) {
+                    mobileToggle.classList.remove('active');
+                    navList.classList.remove('active');
+                }
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
+
+.capability-content {
+    position: relative;
+    z-index: 2;
+}
+
+.capability-title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-2);
+    font-weight: 600;
+}
+
+.capability-description {
+    font-size: var(--font-size-sm);
+    opacity: 0.9;
+}
+
+.web-dev { background: linear-gradient(135deg, #6366f1, #a855f7); }
+.digital-marketing { background: linear-gradient(135deg, #0ea5e9, #2563eb); }
+.app-dev { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+.cloud-services { background: linear-gradient(135deg, #10b981, #14b8a6); }
+
+@media (max-width: 768px) {
+    .capabilities-grid {
+        grid-template-columns: 1fr;
+    }
+}
