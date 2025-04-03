@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Comparison - Skunkworks Offerings</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #F5F7FA;
+            color: #0A192F;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 2rem;
+        }
+        h1 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 4rem);
+            color: #FF6F61;
+            margin-bottom: 3rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .crm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+        .crm-card {
+            background: #4B5563; /* Darkened from #6B7280 */
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            color: #F3F4F6;
+        }
+        .crm-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        .crm-card h2 {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin: 0 0 1rem;
+            color: #F3F4F6;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .crm-card svg {
+            width: 2rem;
+            height: 2rem;
+            fill: #FF6F61;
+        }
+        .crm-card p {
+            margin: 0.5rem 0;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            line-height: 1.6;
+        }
+        .price { color: #FF6F61; font-weight: bold; }
+        .pros { color: #A3E4D7; }
+        .cons { color: #111827; }
+        .toggle-details {
+            background: #FF6F61;
+            color: #F3F4F6;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background 0.3s ease;
+            font-weight: bold;
+        }
+        .toggle-details:hover {
+            background: #FF8A80;
+        }
+        .details {
+            display: none;
+            margin-top: 1rem;
+        }
+        .details.show {
+            display: block;
+            animation: slideUp 0.5s ease-in-out;
+        }
+        .cta {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 1.2rem;
+        }
+        .cta a {
+            color: #FF6F61;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .cta a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #0A192F;
+        }
+        .footer a {
+            color: #FF6F61;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .whatsapp-chat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-chat:hover {
+            transform: scale(1.1);
+        }
+        .whatsapp-chat svg {
+            width: 30px;
+            height: 30px;
+            fill: #FFFFFF;
+        }
+        @media (max-width: 768px) {
+            .crm-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .crm-card {
+                padding: 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            .crm-card h2 { font-size: 1.2rem; }
+            .crm-card svg { width: 1.5rem; height: 1.5rem; }
+            .whatsapp-chat { width: 50px; height: 50px; }
+            .whatsapp-chat svg { width: 25px; height: 25px; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CRM Solutions Comparison - Skunkworks Offerings</h1>
+        <div class="crm-grid">
+            <div class="crm-card">
+                <h2>
+                    <svg viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.5l7 3.5v7l-7 3.5-7-3.5v-7l7-3.5z"/></svg>
+                    Salesforce
+                </h2>
+                <p class="price">Price: Starts at $25/user/month</p>
+                <button class="toggle-details">View Details</button>
+                <div class="details">
+                    <p class="pros">Pros: Offers unparalleled customization for complex workflows, saving time with robust automation. Extensive third-party integrations (e.g., Slack, Tableau) enhance functionality. Scales effortlessly for growing enterprises, supporting thousands of users. Advanced analytics provide deep business insights.</p>
+                    <p class="cons">Cons: Steep learning curve demands significant training investment. High cost can overwhelm small business budgets, especially with add-ons. Customization often requires expert support, increasing expenses. Overly complex for basic CRM needs, potentially slowing smaller teams.</p>
+                </div>
+            </div>
+            <div class="crm-card">
+                <h2>
+                    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16z"/></svg>
+                    HubSpot CRM
+                </h2>
+                <p class="price">Price: Free plan; premium from $50/month</p>
+                <button class="toggle-details">View Details</button>
+                <div class="details">
+                    <p class="pros">Pros: Intuitive interface cuts onboarding time to days. Free tier is perfect for startups or small teams with basic needs. Seamless marketing tool integration (e.g., email campaigns) boosts lead generation. Frequent updates keep features competitive and relevant.</p>
+                    <p class="cons">Cons: Limited customization hampers advanced use cases like custom workflows. Premium features escalate costs quickly, outpacing small budgets. Basic reporting lacks depth for complex analytics. Struggles to scale efficiently for large enterprises with diverse needs.</p>
+                </div>
+            </div>
+            <div class="crm-card">
+                <h2>
+                    <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4V4zm2 2v12h12V6H6z"/></svg>
+                    Zoho CRM
+                </h2>
+                <p class="price">Price: Free up to 3 users; $12/user/month</p>
+                <button class="toggle-details">View Details</button>
+                <div class="details">
+                    <p class="pros">Pros: Affordable pricing fits tight budgets, even for growing teams. Strong automation (e.g., workflows, macros) streamlines sales processes. Free tier supports small teams with core CRM needs. Broad feature set rivals pricier competitors like Salesforce.</p>
+                    <p class="cons">Cons: Dated UI feels clunky, slowing user adoption. Customer support response times can lag, frustrating urgent issues. Limited integration with non-Zoho tools restricts ecosystem flexibility. Advanced features locked behind higher tiers, raising costs unexpectedly.</p>
+                </div>
+            </div>
+            <div class="crm-card">
+                <h2>
+                    <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5z"/></svg>
+                    monday.com
+                </h2>
+                <p class="price">Price: From $15/user/month</p>
+                <button class="toggle-details">View Details</button>
+                <div class="details">
+                    <p class="pros">Pros: Visually stunning dashboards enhance team collaboration. AI-driven features (e.g., task suggestions) boost productivity. Flexible workflows adapt to industries like marketing or IT. Strong project management integration complements CRM use.</p>
+                    <p class="cons">Cons: Limited CRM-specific customization (e.g., sales pipelines) restricts depth. Full functionality requires higher tiers, increasing costs. Not a standalone CRM solution—best paired with other tools. Learning curve challenges non-tech-savvy users.</p>
+                </div>
+            </div>
+            <div class="crm-card">
+                <h2>
+                    <svg viewBox="0 0 24 24"><path d="M12 2L2 7h20L12 2zm0 3l7 3H5l7-3zm-7 5v10h14V10H5z"/></svg>
+                    Pipedrive
+                </h2>
+                <p class="price">Price: From $14/user/month</p>
+                <button class="toggle-details">View Details</button>
+                <div class="details">
+                    <p class="pros">Pros: Simple, sales-focused design accelerates team adoption. AI tools (e.g., lead scoring) deliver actionable insights. Affordable pricing suits small to mid-sized teams. Pipeline management excels for tracking deals and conversions.</p>
+                    <p class="cons">Cons: Limited customization beyond sales use cases (e.g., no marketing tools). Basic reporting lacks depth for strategic analysis. Missing advanced features like detailed forecasting. Struggles to scale for complex, enterprise-level needs.</p>
+                </div>
+            </div>
+            <div class="crm-card">
+                <h2>
+                    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-10 10h4a6 6 0 016-6 6 6 0 016 6h4a10 10 0 00-10-10z"/></svg>
+                    Intuit (Method CRM)
+                </h2>
+                <p class="price">Price: Starts at $25/user/month</p>
+                <button class="toggle-details">View Details</button>
+                <div class="details">
+                    <p class="pros">Pros: Tight QuickBooks integration syncs financial data seamlessly. Customizable workflows tailor to service-based businesses. Direct invoicing and payment features save time. Ideal for small firms already using Intuit products.</p>
+                    <p class="cons">Cons: Limited value without QuickBooks—dependency reduces flexibility. Standalone CRM features are basic, lacking depth. Setup complexity frustrates non-accounting users. Not scalable for large or non-financial-focused operations.</p>
+                </div>
+            </div>
+            <div class="crm-card">
+                <h2>
+                    <svg viewBox="0 0 24 24"><path d="M4 4h16v4H4V4zm0 6h16v4H4v-4zm0 6h16v4H4v-4z"/></svg>
+                    Sage CRM
+                </h2>
+                <p class="price">Price: Custom pricing</p>
+                <button class="toggle-details">View Details</button>
+                <div class="details">
+                    <p class="pros">Pros: Seamless Sage accounting integration syncs financials and CRM. Intuitive interface speeds up adoption for mid-sized firms. Robust reporting supports business decisions. Tailored for companies already in the Sage ecosystem.</p>
+                    <p class="cons">Cons: Limited third-party app support restricts broader integration. Custom pricing obscures cost transparency, risking budget surprises. Less flexible for non-Sage users. Additional modules often needed, driving up expenses.</p>
+                </div>
+            </div>
+            <div class="crm-card">
+                <h2>
+                    <svg viewBox="0 0 24 24"><path d="M4 4h8v8H4V4zm8 0h8v8h-8V4zm-8 8h8v8H4v-8zm8 0h8v8h-8v-8z"/></svg>
+                    Microsoft Dynamics 365
+                </h2>
+                <p class="price">Price: Starts at $65/user/month</p>
+                <button class="toggle-details">View Details</button>
+                <div class="details">
+                    <p class="pros">Pros: Comprehensive features cover sales, service, and more for enterprises. Deep Microsoft ecosystem integration (e.g., Teams, Power BI) enhances workflows. Advanced analytics deliver strategic insights. Highly scalable for large, complex organizations.</p>
+                    <p class="cons">Cons: High cost excludes small businesses from practical use. Complex setup requires IT expertise, adding overhead. Steep learning curve delays ROI for new users. Overkill for basic CRM needs, overwhelming smaller teams.</p>
+                </div>
+            </div>
+            <div class="crm-card">
+                <h2>
+                    <svg viewBox="0 0 24 24"><path d="M12 2L2 12h4v10h12V12h4L12 2zm0 2.83L17.17 10H6.83L12 4.83z"/></svg>
+                    Xero (with CRM)
+                </h2>
+                <p class="price">Price: Varies with integration</p>
+                <button class="toggle-details">View Details</button>
+                <div class="details">
+                    <p class="pros">Pros: Excellent financial data management for small businesses. Integrates with top CRMs (e.g., Zoho, Salesforce) for flexibility. Cloud-based access ensures real-time updates. Streamlines accounting workflows effectively.</p>
+                    <p class="cons">Cons: No native CRM—requires third-party tools, adding complexity. Integration costs can escalate unpredictably. Limited standalone CRM capabilities. Best suited for accounting-first firms, not broad CRM needs.</p>
+                </div>
+            </div>
+            <div class="crm-card">
+                <h2>
+                    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-7 17.07L12 12l7 7.07A10 10 0 0012 2z"/></svg>
+                    Zendesk Sell
+                </h2>
+                <p class="price">Price: From $19/agent/month</p>
+                <button class="toggle-details">View Details</button>
+                <div class="details">
+                    <p class="pros">Pros: Mobile-friendly design suits remote or field teams. Strong Zendesk support integration enhances customer service. Affordable entry price fits small budgets. Simplifies sales tracking and follow-ups with ease.</p>
+                    <p class="cons">Cons: Inconsistent customer support delays issue resolution. Limited advanced features (e.g., no deep analytics). Not suited for complex workflows or large teams. Customization options are minimal, restricting flexibility.</p>
+                </div>
+            </div>
+        </div>
+        <div class="cta">
+            <p>Ready to find the perfect CRM for your business? <a href="mailto:sales@skunkworks.africa">Contact us at sales@skunkworks.africa</a> to get started!</p>
+        </div>
+        <div class="footer">
+            <p>Powered by <a href="https://www.skunkworksdigital.co.za" target="_blank">Skunkworks Digital</a></p>
+        </div>
+    </div>
+    <a href="https://wa.me/27686493591" target="_blank" class="whatsapp-chat" title="Chat with us on WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 2a10 10 0 00-10 10c0 2.5 1 4.8 2.6 6.5L2 22l3.6-2.6A10 10 0 0012 22a10 10 0 000-20zm0 18a8 8 0 01-4.5-1.4l-.3-.2-2.1 1.5 1.5-2.1-.2-.3A8 8 0 114 12a8 8 0 018 8zm4-6.5c-.2-.1-.5-.2-.8-.3-.3-.1-.6-.2-.9-.4-.3-.2-.5-.4-.7-.7-.2-.3-.3-.6-.3-.9 0-.3.1-.6.2-.9.1-.3.3-.5.5-.7.2-.2.5-.3.8-.3.3 0 .6.1.8.3.2.2.4.5.6.8.2.3.3.6.3.9 0 .3-.1.6-.3.9-.2.3-.4.5-.6.7-.2.2-.4.3-.6.3z"/>
+        </svg>
+    </a>
+    <script>
+        document.querySelectorAll('.toggle-details').forEach(button => {
+            button.addEventListener('click', () => {
+                const details = button.nextElementSibling;
+                details.classList.toggle('show');
+            });
+        });
+    </script>
+</body>
+</html>
