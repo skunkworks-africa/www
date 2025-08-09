@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Asset & CMMS Comparison — Interactive Catalog</title>
+  <meta name="description" content="Compare Fiix, Infraspeak, UpKeep, eWorkOrders, Ezo, AssetTiger, ManageEngine AssetExplorer, Snipe‑IT, and Dynamics 365 Asset Management. Filter by price, usability, setup, integration, PT language support, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { --ring: 0 0 0 3px rgba(59,130,246,0.35); }
+    html { scroll-behavior: smooth }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif }
+    /* Motion safety */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+    }
+    /* Card animation */
+    .reveal { opacity: 0; transform: translateY(12px); transition: all .5s ease }
+    .reveal.show { opacity: 1; transform: translateY(0) }
+    .glow:focus { outline: none; box-shadow: var(--ring) }
+    .chip { display:inline-flex; align-items:center; gap:.375rem; padding:.25rem .5rem; border-radius:9999px; font-size:.75rem }
+    .badge { border:1px solid rgb(203 213 225); color:rgb(51 65 85); background: rgb(248 250 252) }
+    .badge.green { border-color: rgb(187 247 208); color: rgb(22 101 52); background: rgb(240 253 244) }
+    .badge.amber { border-color: rgb(253 230 138); color: rgb(146 64 14); background: rgb(255 251 235) }
+    .badge.red { border-color: rgb(254 202 202); color: rgb(153 27 27); background: rgb(254 242 242) }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100">
+  <!-- Header -->
+  <header class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-500 opacity-90 dark:opacity-70"></div>
+    <svg class="absolute bottom-0 left-0 right-0 w-full h-24 md:h-32" preserveAspectRatio="none" viewBox="0 0 1440 320" aria-hidden="true">
+      <path fill="white" fill-opacity="0.2" d="M0,96L40,112C80,128,160,160,240,149.3C320,139,400,85,480,74.7C560,64,640,96,720,133.3C800,171,880,213,960,202.7C1040,192,1120,128,1200,112C1280,96,1360,128,1400,144L1440,160L1440,320L0,320Z"></path>
+    </svg>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <h1 class="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white tracking-tight">Asset & CMMS Comparison Catalog</h1>
+        <button id="darkToggle" class="glow self-start sm:self-auto rounded-full px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-sm font-semibold">Toggle Dark</button>
+      </div>
+      <p class="mt-3 max-w-3xl text-white/90 text-sm sm:text-base">Explore and compare Fiix, Infraspeak, UpKeep, eWorkOrders, Ezo, AssetTiger, ManageEngine AssetExplorer, Snipe‑IT, and Dynamics 365. Filter by price, usability, setup, integration, Portuguese support, and more.</p>
+      <div class="mt-4 flex flex-wrap items-center gap-2">
+        <span class="chip badge green">Editor’s Picks</span>
+        <span class="chip badge">Mobile-first</span>
+        <span class="chip badge">Predictive Maintenance</span>
+        <span class="chip badge">Open Source</span>
+        <span class="chip badge">Microsoft Stack</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Controls -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+    <div class="rounded-2xl bg-white shadow-xl ring-1 ring-black/5 p-4 md:p-6 dark:bg-slate-800">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div>
+          <label class="block text-sm font-medium mb-1">Search</label>
+          <input id="search" placeholder="Search name, notes…" class="w-full glow rounded-xl border border-slate-300/70 bg-white px-3 py-2 text-sm dark:bg-slate-900 dark:border-slate-700" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Sort by</label>
+          <select id="sort" class="w-full glow rounded-xl border border-slate-300/70 bg-white px-3 py-2 text-sm dark:bg-slate-900 dark:border-slate-700">
+            <option value="recommended">Recommended first</option>
+            <option value="price">Lowest starting price</option>
+            <option value="easeUser">Ease (End User)</option>
+            <option value="easeIT">Ease (IT)</option>
+            <option value="setup">Easiest setup</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Portuguese Support</label>
+          <select id="pt" class="w-full glow rounded-xl border border-slate-300/70 bg-white px-3 py-2 text-sm dark:bg-slate-900 dark:border-slate-700">
+            <option value="any">Any</option>
+            <option value="yes">Native/Full</option>
+            <option value="partial">Partial</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Show Only</label>
+          <select id="only" class="w-full glow rounded-xl border border-slate-300/70 bg-white px-3 py-2 text-sm dark:bg-slate-900 dark:border-slate-700">
+            <option value="all">All</option>
+            <option value="recommended">Editor’s Picks</option>
+            <option value="mobile">Mobile-first</option>
+            <option value="open">Open Source</option>
+            <option value="ms">Microsoft Stack</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 text-xs">
+        <div>
+          <label class="block mb-1">Setup Difficulty</label>
+          <select id="setupFilter" class="w-full glow rounded-xl border border-slate-300/70 bg-white px-3 py-2 dark:bg-slate-900 dark:border-slate-700">
+            <option value="any">Any</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+        <div>
+          <label class="block mb-1">Integration Ease</label>
+          <select id="integrationFilter" class="w-full glow rounded-xl border border-slate-300/70 bg-white px-3 py-2 dark:bg-slate-900 dark:border-slate-700">
+            <option value="any">Any</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+            <option value="very-high">Very High</option>
+          </select>
+        </div>
+        <div>
+          <label class="block mb-1">Training Required</label>
+          <select id="trainingFilter" class="w-full glow rounded-xl border border-slate-300/70 bg-white px-3 py-2 dark:bg-slate-900 dark:border-slate-700">
+            <option value="any">Any</option>
+            <option value="none">None</option>
+            <option value="light">Light</option>
+            <option value="formal">Formal</option>
+          </select>
+        </div>
+        <div>
+          <label class="block mb-1">Max Budget (Starting)</label>
+          <select id="budget" class="w-full glow rounded-xl border border-slate-300/70 bg-white px-3 py-2 dark:bg-slate-900 dark:border-slate-700">
+            <option value="any">Any</option>
+            <option value="25">≤ $25 / user / mo</option>
+            <option value="50">≤ $50 / user / mo</option>
+            <option value="100">≤ $100 / user / mo</option>
+            <option value="flat">Flat / Free</option>
+          </select>
+        </div>
+        <div class="col-span-2 md:col-span-2 lg:col-span-2">
+          <label class="block mb-1">Show Fields</label>
+          <div class="flex gap-2 flex-wrap">
+            <label class="inline-flex items-center gap-1 text-[11px]"><input type="checkbox" class="fieldToggle" data-field="maxAssets" checked> Max Assets</label>
+            <label class="inline-flex items-center gap-1 text-[11px]"><input type="checkbox" class="fieldToggle" data-field="estCost" checked> Est. Yearly Cost</label>
+            <label class="inline-flex items-center gap-1 text-[11px]"><input type="checkbox" class="fieldToggle" data-field="easeUser" checked> Ease (User)</label>
+            <label class="inline-flex items-center gap-1 text-[11px]"><input type="checkbox" class="fieldToggle" data-field="easeIT" checked> Ease (IT)</label>
+          </div>
+        </div>
+        <div class="col-span-2 md:col-span-1 flex items-end justify-start md:justify-end">
+          <button id="reset" class="glow inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900">
+            <span>Reset</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editor’s picks banner -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+    <div class="rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      <div>
+        <h2 class="text-base md:text-lg font-bold">Editor’s Picks</h2>
+        <p class="text-white/90 text-xs md:text-sm">Based on usability, integration potential, and time-to-value.</p>
+      </div>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <span class="chip badge green">Fiix</span>
+        <span class="chip badge green">UpKeep</span>
+        <span class="chip badge green">Dynamics 365 Asset Management</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cards -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+    <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+    <p id="empty" class="hidden text-center text-sm text-slate-500 my-10">No results match your filters. Try adjusting your criteria.</p>
+  </main>
+
+  <!-- Footer -->
+  <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-12 text-sm text-slate-500">
+    <p>Notes: Prices are indicative (August 2025) and can vary by region and vendor negotiation. Always confirm with the vendor before purchasing.</p>
+  </footer>
+
+  <!-- Detail Modal -->
+  <div id="modal" class="fixed inset-0 hidden items-center justify-center bg-black/60 p-4 z-50">
+    <div class="max-w-2xl w-full rounded-2xl bg-white dark:bg-slate-800 p-6 shadow-2xl">
+      <div class="flex items-start justify-between gap-4">
+        <h3 id="modalTitle" class="text-xl font-bold"></h3>
+        <button id="closeModal" class="glow rounded-full px-3 py-1 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600">Close</button>
+      </div>
+      <div id="modalBody" class="mt-4 text-sm space-y-3"></div>
+    </div>
+  </div>
+
+  <script>
+    const $ = (sel, el=document) => el.querySelector(sel);
+    const $$ = (sel, el=document) => [...el.querySelectorAll(sel)];
+
+    const data = [
+      { name: 'Fiix', website: 'https://www.fiixsoftware.com/', reviews: { g2: 'https://www.g2.com/products/fiix/reviews', capterra: 'https://www.capterra.com/p/74916/Fiix/' }, startingPrice: 45, priceText: '$45 / user / month', notes: 'Predictive maintenance, strong analytics, modern UI.', pt: 'partial', maxAssets: 'No hard limit; plan-dependent performance', estCost: '~$5,400/year (10 users)', easeUser: 5, easeIT: 3, setup: 'medium', integration: 'high', training: 'light', tags: ['predictive','mobile'], recommended: true },
+      { name: 'Infraspeak', website: 'https://infraspeak.com/', reviews: { g2: 'https://www.g2.com/products/infraspeak/reviews', capterra: 'https://www.capterra.com/p/155179/Infraspeak/' }, startingPrice: null, priceText: 'Quote only', notes: 'Robust facilities platform, IoT-centric, highly customizable.', pt: 'yes', maxAssets: 'No stated limit', estCost: '~$25k+/year (estimate, 10 users)', easeUser: 4, easeIT: 5, setup: 'hard', integration: 'high', training: 'formal', tags: ['facility','iot'], recommended: false },
+      { name: 'UpKeep', website: 'https://www.upkeep.com/', reviews: { g2: 'https://www.g2.com/products/upkeep/reviews', capterra: 'https://www.capterra.com/p/147621/UpKeep/' }, startingPrice: 20, priceText: '$20 / user / month', notes: 'Mobile-first CMMS, great for field teams and quick rollout.', pt: 'partial', maxAssets: 'No official limit; feature limits by tier', estCost: '~$2,400/year (10 users)', easeUser: 5, easeIT: 3, setup: 'easy', integration: 'medium', training: 'none', tags: ['mobile'], recommended: true },
+      { name: 'eWorkOrders', website: 'https://www.eworkorders.com/', reviews: { g2: 'https://www.g2.com/products/eworkorders/reviews', capterra: 'https://www.capterra.com/p/156615/eWorkOrders-CMMS/' }, startingPrice: 35, priceText: '$35–$120 / user / mo or $380 / mo flat', notes: 'Compliance-focused CMMS with strong audit trails.', pt: 'no', maxAssets: 'No fixed limit', estCost: '~$4k–12k/year', easeUser: 3, easeIT: 4, setup: 'medium', integration: 'high', training: 'medium', tags: ['compliance'], recommended: false },
+      { name: 'Ezo (EZOfficeInventory)', website: 'https://ezo.io/ezo-cmms/', reviews: { g2: 'https://www.g2.com/products/ezofficeinventory/reviews', capterra: 'https://www.capterra.com/p/158152/EZOfficeInventory/' }, startingPrice: 21, priceText: '~$21–$65 / user / month', notes: 'RFID, QR, and barcode tracking, multi-location.', pt: 'partial', maxAssets: 'Plan-dependent', estCost: '~$2,500–7,800/year', easeUser: 4, easeIT: 3, setup: 'easy', integration: 'medium', training: 'light', tags: ['rfid','inventory'], recommended: false },
+      { name: 'AssetTiger', website: 'https://www.myassettag.com/asset-tiger', reviews: { g2: 'https://www.g2.com/products/assettiger/reviews', capterra: 'https://www.capterra.com/p/145337/AssetTiger/' }, startingPrice: 0, priceText: 'Free up to 250 assets; then $120/year', notes: 'Budget-friendly cloud asset tracking; basic integrations.', pt: 'no', maxAssets: 'Free 250; paid up to 250k', estCost: '~$400/year (10k assets)', easeUser: 3, easeIT: 2, setup: 'easy', integration: 'low', training: 'none', tags: ['budget'], recommended: false },
+      { name: 'ManageEngine AssetExplorer', website: 'https://www.manageengine.com/products/asset-explorer/', reviews: { g2: 'https://www.g2.com/products/manageengine-assetexplorer/reviews', capterra: 'https://www.capterra.com/p/171221/AssetExplorer/' }, startingPrice: 955, priceText: '$955 / year (250 assets) or $795 one-time', notes: 'ITAM focus with AD and ServiceDesk integration.', pt: 'partial', maxAssets: 'Up to 10k (tiered pricing)', estCost: '$955–12k/year', easeUser: 3, easeIT: 5, setup: 'medium', integration: 'high', training: 'medium', tags: ['itam'], recommended: false },
+      { name: 'Snipe‑IT', website: 'https://snipeitapp.com/', reviews: { g2: 'https://www.g2.com/products/snipe-it/reviews', capterra: 'https://www.capterra.com/p/145832/Snipe-IT/' }, startingPrice: 0, priceText: 'Free (open source); paid support optional', notes: 'Self-hosted control; developer-friendly.', pt: 'partial', maxAssets: 'Unlimited (server-dependent)', estCost: '$0–3k/year (infra & support)', easeUser: 3, easeIT: 5, setup: 'hard', integration: 'high', training: 'formal', tags: ['open'], recommended: false },
+      { name: 'Dynamics 365 Asset Management', website: 'https://dynamics.microsoft.com/', reviews: { g2: 'https://www.g2.com/products/microsoft-dynamics-365-supply-chain-management/reviews', capterra: 'https://www.capterra.com/p/176251/Microsoft-Dynamics-365/' }, startingPrice: null, priceText: 'Quote only (via Microsoft CSP)', notes: 'Deep Microsoft 365/ERP integration; enterprise-grade.', pt: 'yes', maxAssets: 'No asset limit', estCost: '~$4k–15k/year (license dependent)', easeUser: 4, easeIT: 5, setup: 'medium', integration: 'very-high', training: 'formal', tags: ['ms'], recommended: true }
+    ];
+
+    const tagMap = {
+      recommended: (d) => d.recommended,
+      mobile: (d) => d.tags?.includes('mobile'),
+      open: (d) => d.tags?.includes('open'),
+      ms: (d) => d.tags?.includes('ms')
+    };
+
+    const icons = {
+      link: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4"><path fill="currentColor" d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3ZM5 5h5v2H7v10h10v-3h2v5H5V5Z"/></svg>',
+      star: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4"><path fill="currentColor" d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>'
+    };
+
+    const grid = $('#grid');
+    const empty = $('#empty');
+
+    function renderCards(items) {
+      grid.innerHTML = '';
+      items.forEach((d, i) => {
+        const price = d.priceText;
+        const kpis = [
+          { label: 'PT Support', val: d.pt === 'yes' ? 'Native' : d.pt === 'partial' ? 'Partial' : 'No' },
+          { label: 'Ease (User)', val: d.easeUser + '/5' },
+          { label: 'Ease (IT)', val: d.easeIT + '/5' },
+          { label: 'Setup', val: d.setup.charAt(0).toUpperCase() + d.setup.slice(1) }
+        ];
+
+        const card = document.createElement('article');
+        card.className = 'reveal flex flex-col rounded-2xl bg-white dark:bg-slate-800 shadow-lg ring-1 ring-black/5 overflow-hidden';
+        card.innerHTML = `
+          <div class="p-5 flex flex-col h-full">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="text-lg font-bold">${d.name}</h3>
+              ${d.recommended ? `<span class="chip badge green">${icons.star} Pick</span>`: ''}
+            </div>
+            <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">${d.notes}</p>
+            <div class="mt-3 text-sm font-semibold">${price}</div>
+            <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+              ${kpis.map(k => `<div class="chip badge"><span class="text-slate-500">${k.label}:</span> <strong>${k.val}</strong></div>`).join('')}
+            </div>
+            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+              <span class="chip badge">Max Assets: <strong>${d.maxAssets}</strong></span>
+              <span class="chip badge">Est. Yearly: <strong>${d.estCost}</strong></span>
+            </div>
+            <div class="mt-4 flex gap-2 items-center flex-wrap mt-auto">
+              <a href="${d.website}" target="_blank" rel="noopener" class="glow inline-flex items-center gap-2 px-3 py-2 text-sm rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900">${icons.link} Website</a>
+              <button class="glow inline-flex items-center gap-2 px-3 py-2 text-sm rounded-xl border border-slate-300 dark:border-slate-600" data-detail="${i}">Details</button>
+              <a href="${d.reviews.g2}" target="_blank" class="text-sm underline decoration-dotted">G2</a>
+              <a href="${d.reviews.capterra}" target="_blank" class="text-sm underline decoration-dotted">Capterra</a>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      // reveal animation
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show') })
+      },{threshold:.2});
+      $$('.reveal').forEach(el=>io.observe(el));
+
+      empty.classList.toggle('hidden', items.length !== 0);
+    }
+
+    function applyFilters() {
+      const q = $('#search').value.trim().toLowerCase();
+      const sort = $('#sort').value;
+      const pt = $('#pt').value;
+      const only = $('#only').value;
+      const setup = $('#setupFilter').value;
+      const integration = $('#integrationFilter').value;
+      const training = $('#trainingFilter').value;
+      const budget = $('#budget').value;
+
+      let items = data.filter(d => {
+        const matchesQ = !q || d.name.toLowerCase().includes(q) || d.notes.toLowerCase().includes(q);
+        const matchesPt = pt==='any' || (pt==='yes' && d.pt==='yes') || (pt==='partial' && d.pt==='partial') || (pt==='no' && d.pt==='no');
+        const matchesOnly = only==='all' || (tagMap[only] && tagMap[only](d)) || (only==='recommended' && d.recommended);
+        const matchesSetup = setup==='any' || d.setup===setup;
+        const matchesIntegration = integration==='any' || d.integration===integration;
+        const matchesTraining = training==='any' || d.training===training;
+        const matchesBudget = (function(){
+          if (budget==='any') return true;
+          if (budget==='flat') return d.startingPrice===0 || d.priceText.includes('Free') || d.priceText.includes('flat');
+          const sp = typeof d.startingPrice==='number' ? d.startingPrice : Infinity;
+          return sp <= Number(budget);
+        })();
+        return matchesQ && matchesPt && matchesOnly && matchesSetup && matchesIntegration && matchesTraining && matchesBudget;
+      });
+
+      // sort
+      items.sort((a,b)=>{
+        if (sort==='recommended') return (b.recommended?1:0) - (a.recommended?1:0);
+        if (sort==='price') {
+          const pa = typeof a.startingPrice==='number' ? a.startingPrice : Infinity;
+          const pb = typeof b.startingPrice==='number' ? b.startingPrice : Infinity;
+          return pa - pb;
+        }
+        if (sort==='easeUser') return b.easeUser - a.easeUser;
+        if (sort==='easeIT') return b.easeIT - a.easeIT;
+        if (sort==='setup') {
+          const rank = { easy: 3, medium: 2, hard: 1 };
+          return (rank[b.setup]||0) - (rank[a.setup]||0);
+        }
+        return 0;
+      });
+
+      renderCards(items);
+    }
+
+    // Modal logic
+    function openDetail(d) {
+      $('#modalTitle').textContent = d.name;
+      const html = `
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div>
+            <div class="text-slate-500">Starting Price</div>
+            <div class="font-semibold">${d.priceText}</div>
+          </div>
+          <div>
+            <div class="text-slate-500">Portuguese</div>
+            <div class="font-semibold">${d.pt==='yes'?'Native':d.pt==='partial'?'Partial':'No'}</div>
+          </div>
+          <div>
+            <div class="text-slate-500">Max Assets</div>
+            <div class="font-semibold">${d.maxAssets}</div>
+          </div>
+          <div>
+            <div class="text-slate-500">Estimated Yearly</div>
+            <div class="font-semibold">${d.estCost}</div>
+          </div>
+        </div>
+        <hr class="my-3 border-slate-200 dark:border-slate-700"/>
+        <div class="grid sm:grid-cols-3 gap-3 text-sm">
+          <div class="chip badge"><span>Ease (User):</span> <strong>${d.easeUser}/5</strong></div>
+          <div class="chip badge"><span>Ease (IT):</span> <strong>${d.easeIT}/5</strong></div>
+          <div class="chip badge"><span>Setup:</span> <strong>${d.setup}</strong></div>
+          <div class="chip badge"><span>Integration:</span> <strong>${d.integration}</strong></div>
+          <div class="chip badge"><span>Training:</span> <strong>${d.training}</strong></div>
+        </div>
+        <p class="mt-3 text-sm">${d.notes}</p>
+        <div class="mt-4 flex gap-3 flex-wrap">
+          <a class="underline" href="${d.website}" target="_blank">Official site</a>
+          <a class="underline" href="${d.reviews.g2}" target="_blank">G2 reviews</a>
+          <a class="underline" href="${d.reviews.capterra}" target="_blank">Capterra reviews</a>
+        </div>
+      `;
+      $('#modalBody').innerHTML = html;
+      $('#modal').classList.remove('hidden');
+      $('#modal').classList.add('flex');
+    }
+
+    // wire up controls
+    ['search','sort','pt','only','setupFilter','integrationFilter','trainingFilter','budget'].forEach(id=>{
+      $('#'+id).addEventListener('input', applyFilters);
+      $('#'+id).addEventListener('change', applyFilters);
+    });
+
+    $('#reset').addEventListener('click', () => {
+      $('#search').value = '';
+      $('#sort').value = 'recommended';
+      $('#pt').value = 'any';
+      $('#only').value = 'all';
+      $('#setupFilter').value = 'any';
+      $('#integrationFilter').value = 'any';
+      $('#trainingFilter').value = 'any';
+      $('#budget').value = 'any';
+      applyFilters();
+    });
+
+    $('#darkToggle').addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+
+    $('#grid').addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-detail]');
+      if (!btn) return;
+      const idx = Number(btn.getAttribute('data-detail'));
+      openDetail(data[idx]);
+    });
+
+    $('#closeModal').addEventListener('click', ()=>{
+      $('#modal').classList.add('hidden');
+      $('#modal').classList.remove('flex');
+    });
+
+    // initial render
+    applyFilters();
+  </script>
+</body>
+</html>
