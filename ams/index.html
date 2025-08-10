@@ -50,7 +50,6 @@
       </div>
     </div>
   </header>
-
   <!-- Controls -->
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
     <div class="rounded-2xl bg-white shadow-xl ring-1 ring-black/5 p-4 md:p-6 dark:bg-slate-800">
@@ -89,7 +88,6 @@
           </select>
         </div>
       </div>
-
       <div class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 text-xs">
         <div>
           <label class="block mb-1">Setup Difficulty</label>
@@ -146,7 +144,6 @@
       </div>
     </div>
   </section>
-
   <!-- Editor’s picks banner -->
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
     <div class="rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
@@ -161,18 +158,15 @@
       </div>
     </div>
   </section>
-
   <!-- Cards -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
     <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6"></div>
     <p id="empty" class="hidden text-center text-sm text-slate-500 my-10">No results match your filters. Try adjusting your criteria.</p>
   </main>
-
   <!-- Footer -->
   <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-12 text-sm text-slate-500">
     <p>Notes: Prices are indicative (August 2025) and can vary by region and vendor negotiation. Always confirm with the vendor before purchasing.</p>
   </footer>
-
   <!-- Detail Modal -->
   <div id="modal" class="fixed inset-0 hidden items-center justify-center bg-black/60 p-4 z-50">
     <div class="max-w-2xl w-full rounded-2xl bg-white dark:bg-slate-800 p-6 shadow-2xl">
@@ -183,11 +177,9 @@
       <div id="modalBody" class="mt-4 text-sm space-y-3"></div>
     </div>
   </div>
-
   <script>
     const $ = (sel, el=document) => el.querySelector(sel);
     const $$ = (sel, el=document) => [...el.querySelectorAll(sel)];
-
     const data = [
       { name: 'Fiix', website: 'https://www.fiixsoftware.com/', reviews: { g2: 'https://www.g2.com/products/fiix/reviews', capterra: 'https://www.capterra.com/p/74916/Fiix/' }, startingPrice: 45, priceText: '$45 / user / month', notes: 'Predictive maintenance, strong analytics, modern UI.', pt: 'partial', maxAssets: 'No hard limit; plan-dependent performance', estCost: '~$5,400/year (10 users)', easeUser: 5, easeIT: 3, setup: 'medium', integration: 'high', training: 'light', tags: ['predictive','mobile'], recommended: true },
       { name: 'Infraspeak', website: 'https://infraspeak.com/', reviews: { g2: 'https://www.g2.com/products/infraspeak/reviews', capterra: 'https://www.capterra.com/p/155179/Infraspeak/' }, startingPrice: null, priceText: 'Quote only', notes: 'Robust facilities platform, IoT-centric, highly customizable.', pt: 'yes', maxAssets: 'No stated limit', estCost: '~$25k+/year (estimate, 10 users)', easeUser: 4, easeIT: 5, setup: 'hard', integration: 'high', training: 'formal', tags: ['facility','iot'], recommended: false },
@@ -199,22 +191,18 @@
       { name: 'Snipe-IT', website: 'https://snipeitapp.com/', reviews: { g2: 'https://www.g2.com/products/snipe-it/reviews', capterra: 'https://www.capterra.com/p/145832/Snipe-IT/' }, startingPrice: 0, priceText: 'Free (open source); paid support optional', notes: 'Self-hosted control; developer-friendly.', pt: 'partial', maxAssets: 'Unlimited (server-dependent)', estCost: '$0–3k/year (infra & support)', easeUser: 3, easeIT: 5, setup: 'hard', integration: 'high', training: 'formal', tags: ['open'], recommended: false },
       { name: 'Dynamics 365 Asset Management', website: 'https://dynamics.microsoft.com/', reviews: { g2: 'https://www.g2.com/products/microsoft-dynamics-365-supply-chain-management/reviews', capterra: 'https://www.capterra.com/p/176251/Microsoft-Dynamics-365/' }, startingPrice: null, priceText: 'Quote only (via Microsoft CSP)', notes: 'Deep Microsoft 365/ERP integration; enterprise-grade.', pt: 'yes', maxAssets: 'No asset limit', estCost: '~$4k–15k/year (license dependent)', easeUser: 4, easeIT: 5, setup: 'medium', integration: 'very-high', training: 'formal', tags: ['ms'], recommended: true }
     ];
-
     const tagMap = {
       recommended: (d) => d.recommended,
       mobile: (d) => d.tags?.includes('mobile'),
       open: (d) => d.tags?.includes('open'),
       ms: (d) => d.tags?.includes('ms')
     };
-
     const icons = {
       link: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4"><path fill="currentColor" d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3ZM5 5h5v2H7v10h10v-3h2v5H5V5Z"/></svg>',
       star: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4"><path fill="currentColor" d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>'
     };
-
     const grid = $('#grid');
     const empty = $('#empty');
-
     function renderCards(items) {
       grid.innerHTML = '';
       items.forEach((d, i) => {
@@ -225,7 +213,6 @@
           { label: 'Ease (IT)', val: d.easeIT + '/5' },
           { label: 'Setup', val: d.setup.charAt(0).toUpperCase() + d.setup.slice(1) }
         ];
-
         const card = document.createElement('article');
         card.className = 'reveal flex flex-col rounded-2xl bg-white dark:bg-slate-800 shadow-lg ring-1 ring-black/5 overflow-hidden';
         card.innerHTML = `
@@ -253,16 +240,13 @@
         `;
         grid.appendChild(card);
       });
-
       // reveal animation
       const io = new IntersectionObserver((entries)=>{
         entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show') })
       },{threshold:.2});
       $$('.reveal').forEach(el=>io.observe(el));
-
       empty.classList.toggle('hidden', items.length !== 0);
     }
-
     function applyFilters() {
       const q = $('#search').value.trim().toLowerCase();
       const sort = $('#sort').value;
@@ -272,7 +256,6 @@
       const integration = $('#integrationFilter').value;
       const training = $('#trainingFilter').value;
       const budget = $('#budget').value;
-
       let items = data.filter(d => {
         const matchesQ = !q || d.name.toLowerCase().includes(q) || d.notes.toLowerCase().includes(q);
         const matchesPt = pt==='any' || (pt==='yes' && d.pt==='yes') || (pt==='partial' && d.pt==='partial') || (pt==='no' && d.pt==='no');
@@ -288,7 +271,6 @@
         })();
         return matchesQ && matchesPt && matchesOnly && matchesSetup && matchesIntegration && matchesTraining && matchesBudget;
       });
-
       // sort
       items.sort((a,b)=>{
         if (sort==='recommended') return (b.recommended?1:0) - (a.recommended?1:0);
@@ -305,10 +287,8 @@
         }
         return 0;
       });
-
       renderCards(items);
     }
-
     // Modal logic
     function openDetail(d) {
       $('#modalTitle').textContent = d.name;
@@ -350,13 +330,11 @@
       $('#modal').classList.remove('hidden');
       $('#modal').classList.add('flex');
     }
-
     // wire up controls
     ['search','sort','pt','only','setupFilter','integrationFilter','trainingFilter','budget'].forEach(id=>{
       $('#'+id).addEventListener('input', applyFilters);
       $('#'+id).addEventListener('change', applyFilters);
     });
-
     $('#reset').addEventListener('click', () => {
       $('#search').value = '';
       $('#sort').value = 'recommended';
@@ -368,23 +346,19 @@
       $('#budget').value = 'any';
       applyFilters();
     });
-
     $('#darkToggle').addEventListener('click', () => {
       document.documentElement.classList.toggle('dark');
     });
-
     $('#grid').addEventListener('click', (e) => {
       const btn = e.target.closest('[data-detail]');
       if (!btn) return;
       const idx = Number(btn.getAttribute('data-detail'));
       openDetail(data[idx]);
     });
-
     $('#closeModal').addEventListener('click', ()=>{
       $('#modal').classList.add('hidden');
       $('#modal').classList.remove('flex');
     });
-
     // initial render
     applyFilters();
   </script>
