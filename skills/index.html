@@ -1,683 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Skunkworks • Interactive Skills Matrix</title>
-  <meta name="description" content="Skunkworks capabilities matrix with tiered support levels, maintenance/repair, specialist assignments, and deep links. Parallax multi-section layout with smooth motion and strong contrast." />
-  <style>
-    /* ================== Reset & Base ================== */
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{height:100%}
-    html{scroll-behavior:smooth}
-    :root{
-      /* Light theme with higher contrast */
-      --bg:#0a0f1c;               /* Page background (deep navy) */
-      --surface:#0e1626;          /* Cards/Modals */
-      --surface-2:#0b1322;        /* Alt surface */
-      --ink:#eaf1ff;              /* Primary text */
-      --ink-dim:#a9b7d6;          /* Secondary text */
-      --brand:#5ab2ff;            /* Primary brand (sky) */
-      --brand-2:#00e5c8;          /* Accent (teal) */
-      --ok:#20d67a;               /* Success */
-      --warn:#f59e0b;             /* Warning */
-      --border:rgba(255,255,255,.08); /* Hairline */
-      --shadow:0 18px 50px rgba(0,0,0,.35);
-      --radius-xl:18px; --radius-lg:14px; --radius:12px; --radius-sm:8px;
-      --speed:260ms;
-      --glass:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
-    }
-    @media (prefers-color-scheme: light){
-      :root{ --bg:#f5f7fc; --surface:#ffffff; --surface-2:#eef2fb; --ink:#0b1020; --ink-dim:#4b556d; --border:#dde3f0; --shadow:0 18px 50px rgba(15,23,42,.16); }
-    }
-    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--ink);background:var(--bg);letter-spacing:.2px;-webkit-font-smoothing:antialiased;}
-    a{color:var(--brand-2);text-decoration:none}
-    a:hover{text-decoration:underline}
-
-    /* ================== Parallax Shell ================== */
-    .px-stage{position:relative;min-height:100vh;overflow-x:hidden;perspective:1px;transform-style:preserve-3d}
-    .px-layer{position:absolute;inset:0;transform-origin:center top}
-    .px-back{transform:translateZ(-.5px) scale(1.5);opacity:.6;pointer-events:none}
-    .px-mid{transform:translateZ(-.25px) scale(1.25);opacity:.7;pointer-events:none}
-    .px-fore{transform:translateZ(0)}
-    @media (prefers-reduced-motion: reduce){.px-stage{perspective:none}.px-layer{transform:none}}
-
-    /* ===== Decorative gradients and particles ===== */
-    .grad{background:
-      radial-gradient(800px 800px at 10% 10%, rgba(90,178,255,.25), transparent 60%),
-      radial-gradient(700px 700px at 85% 20%, rgba(0,229,200,.18), transparent 60%),
-      radial-gradient(900px 900px at 70% 85%, rgba(90,178,255,.12), transparent 70%)}
-    .particles{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.15) 1px, transparent 1px);background-size:24px 24px;mask-image:linear-gradient(180deg, rgba(0,0,0,.3), rgba(0,0,0,1))}
-
-    /* ================== Layout ================== */
-    .max{max-width:1280px;margin:0 auto;padding:24px 18px}
-    header{position:sticky;top:0;z-index:50;background:var(--glass);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--border)}
-    .brand{display:flex;align-items:center;gap:14px;padding:12px 0}
-    .logo{width:46px;height:46px;border-radius:14px;background:conic-gradient(from 210deg,var(--brand),var(--brand-2));box-shadow:0 8px 16px rgba(0,229,200,.25),inset 0 0 14px rgba(255,255,255,.22)}
-    h1{margin:0;font-size:clamp(1.3rem,2vw+1rem,1.8rem);letter-spacing:.3px}
-
-    .toolbar{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;margin:10px 0 6px}
-    .search{display:flex;gap:10px}
-    .search input{flex:1;background:var(--surface);color:var(--ink);border:1px solid var(--border);padding:12px 14px;border-radius:12px;outline:none;transition:border var(--speed),box-shadow var(--speed)}
-    .search input:focus{border-color:var(--brand);box-shadow:0 0 0 4px rgba(90,178,255,.18)}
-    .icon-btn{min-width:40px;height:40px;display:grid;place-items:center;border-radius:12px;border:1px solid var(--border);background:var(--surface-2);cursor:pointer;transition:transform var(--speed),background var(--speed)}
-    .icon-btn:hover{transform:translateY(-1px);background:var(--surface)}
-    .kpi{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-    .pill{background:var(--surface);color:var(--ink-dim);padding:10px 12px;border-radius:999px;border:1px solid var(--border)}
-
-    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0}
-    .tab{padding:10px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--border);cursor:pointer;transition:transform var(--speed),box-shadow var(--speed),background var(--speed)}
-    .tab.active{background:linear-gradient(180deg,rgba(90,178,255,.18),rgba(0,0,0,0));box-shadow:var(--shadow)}
-    .tab:focus-visible{outline:3px solid rgba(90,178,255,.35)}
-
-    /* ===== Sections ===== */
-    .hero{padding:80px 0 40px}
-    .hero h2{font-size:clamp(1.6rem,1.4rem + 2vw,2.4rem);margin:10px 0 0}
-    .hero p{margin:8px 0 0;color:var(--ink-dim)}
-
-    .section{position:relative;padding:48px 0}
-    .section .max{position:relative}
-
-    /* ================== Grid & Flip Cards ================== */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:18px}
-
-    .card{perspective:1200px}
-    .flip{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform var(--speed)}
-    .card.is-flipped .flip{transform:rotateY(180deg)}
-
-    .face{position:relative;min-height:240px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xl);padding:14px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
-    .front{backface-visibility:hidden}
-    .back{position:absolute;inset:0;padding:16px;backface-visibility:hidden;transform:rotateY(180deg)}
-
-    .vendor-header{display:flex;gap:12px;align-items:center}
-    .vendor-logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(180deg,rgba(90,178,255,.2),rgba(0,0,0,0));color:var(--ink);display:grid;place-items:center;border:1px solid var(--border);font-weight:700}
-    .vendor-name{font-weight:700;letter-spacing:.2px}
-    .vendor-links{margin-left:auto;display:flex;gap:8px}
-
-    .levels{display:flex;gap:8px;flex-wrap:wrap}
-    .badge{padding:7px 10px;border-radius:10px;border:1px solid var(--border);background:rgba(90,178,255,.08);color:var(--ink);font-size:.9rem}
-    .badge.ok{border-color:rgba(32,214,122,.35);box-shadow:inset 0 0 0 1px rgba(32,214,122,.12)}
-    .badge.warn{border-color:rgba(245,158,11,.35);box-shadow:inset 0 0 0 1px rgba(245,158,11,.12)}
-
-    .chips{display:flex;gap:8px;flex-wrap:wrap}
-    .chip{background:rgba(0,229,200,.1);color:var(--ink);padding:7px 10px;border-radius:999px;border:1px solid var(--border);cursor:pointer}
-    .chip:focus-visible{outline:3px solid rgba(90,178,255,.35)}
-
-    .foot{margin-top:auto;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-    .cta{background:linear-gradient(180deg,var(--brand),#2b8dff);color:#001221;padding:10px 12px;border-radius:12px;border:0;cursor:pointer;box-shadow:0 10px 24px rgba(90,178,255,.35);font-weight:700}
-    .cta:hover{filter:brightness(1.06)}
-    .cta:focus-visible{outline:3px solid rgba(90,178,255,.45)}
-
-    /* ================== Modal ================== */
-    .modal{position:fixed;inset:0;display:none;place-items:center;background:rgba(1,4,12,.5);backdrop-filter:blur(8px);z-index:100}
-    .modal.open{display:grid}
-    .modal-card{width:min(980px,92vw);max-height:86vh;overflow:auto;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow);animation:zoom .28s ease both}
-    @keyframes zoom{from{transform:scale(.97);opacity:0}to{transform:scale(1);opacity:1}}
-    .modal-header{display:flex;align-items:center;gap:10px;position:sticky;top:0;background:linear-gradient(180deg,var(--surface),rgba(0,0,0,0));padding-bottom:10px;border-bottom:1px solid var(--border);z-index:1}
-    .modal-title{font-weight:700}
-    .close{margin-left:auto;min-width:38px;height:38px;display:grid;place-items:center;border-radius:10px;border:1px solid var(--border);cursor:pointer;background:var(--surface-2)}
-
-    .people{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:12px}
-    .person{display:flex;gap:12px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:12px}
-    .avatar{width:52px;height:52px;border-radius:12px;background:linear-gradient(180deg,rgba(90,178,255,.2),rgba(0,0,0,0));display:grid;place-items:center;border:1px solid var(--border);color:var(--ink)}
-    .links{display:flex;gap:10px;margin-top:6px;flex-wrap:wrap}
-    .links a{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid var(--border);border-radius:10px;background:var(--surface)}
-
-    /* Tooltip */
-    .tooltip{position:relative}
-    .tooltip .tip{position:absolute;bottom:130%;left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--border);padding:8px 10px;border-radius:8px;font-size:.9rem;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity var(--speed),transform var(--speed)}
-    .tooltip:hover .tip{opacity:1;transform:translate(-50%,-6px)}
-
-    /* Entrance reveal */
-    .reveal{opacity:0;transform:translateY(8px);transition:opacity .6s ease,transform .6s ease}
-    .reveal.show{opacity:1;transform:none}
-
-    /* Utilities */
-    .center{display:grid;place-items:center}
-    .muted{color:var(--ink-dim)}
-
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      .flip,.reveal,.cta,.icon-btn,.tab{transition:none}
-      html{scroll-behavior:auto}
-      .px-layer{transform:none}
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Skunkworks • Interactive Skills Matrix</title>
+<meta name="description" content="Skunkworks capabilities matrix with tiered support levels, maintenance/repair, specialist assignments, and deep links." />
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+:root{--bg:#0b1220;--surface:#101726;--surface-2:#0e172a;--ink:#e8eef8;--ink-dim:#b5c0d6;--brand:#0a63ff;--brand-2:#06b6d4;--ok:#0ea75a;--warn:#b45309;--border:#223048;--shadow:0 18px 40px rgba(2,6,23,.35);--radius-xl:18px;--radius-lg:14px;--radius:12px;--radius-sm:8px;--speed:260ms}
+@media (prefers-color-scheme: light){:root{--bg:#f6f8fc;--surface:#ffffff;--surface-2:#f0f3fa;--ink:#0b1020;--ink-dim:#384152;--border:#dde3f0;--shadow:0 12px 30px rgba(15,23,42,.12)}}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--ink);background:var(--bg);letter-spacing:.2px;-webkit-font-smoothing:antialiased;line-height:1.45}
+a{color:var(--brand-2);text-decoration:none}
+a:hover{text-decoration:underline}
+.parallax{position:relative;min-height:52vh;display:grid;place-items:center;overflow:hidden}
+.px-layer{position:absolute;inset:-10%;background:radial-gradient(1200px 600px at 20% 20%,rgba(6,182,212,.18),transparent 60%),radial-gradient(900px 500px at 80% 70%,rgba(10,99,255,.16),transparent 60%);transform:translateZ(0)}
+.px-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:60px 60px;mix-blend-mode:overlay;opacity:.4}
+.hero{position:relative;z-index:1;text-align:center;padding:48px 18px}
+.hero h1{margin:0;font-size:clamp(1.6rem,2.2vw+1rem,2.2rem);letter-spacing:.3px}
+.hero p{margin:.5rem auto 0;max-width:64ch;color:var(--ink-dim)}
+header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(11,18,32,.85),rgba(11,18,32,.6));backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--border)}
+@media (prefers-color-scheme: light){header{background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,255,255,.78))}}
+.max{max-width:1280px;margin:0 auto;padding:20px 18px}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{width:42px;height:42px;border-radius:12px;background:conic-gradient(from 210deg,var(--brand),var(--brand-2));box-shadow:0 8px 16px rgba(10,99,255,.25),inset 0 0 14px rgba(255,255,255,.18)}
+.toolbar{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;margin:10px 0 6px}
+.search{display:flex;gap:10px}
+.search input{flex:1;background:var(--surface);color:var(--ink);border:1px solid var(--border);padding:12px 14px;border-radius:12px;outline:none;transition:border var(--speed),box-shadow var(--speed)}
+.search input:focus{border-color:var(--brand);box-shadow:0 0 0 4px rgba(10,99,255,.15)}
+.icon-btn{min-width:40px;height:40px;display:grid;place-items:center;border-radius:12px;border:1px solid var(--border);background:var(--surface-2);cursor:pointer;transition:transform var(--speed),background var(--speed)}
+.icon-btn:hover{transform:translateY(-1px);background:var(--surface)}
+.kpi{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.pill{background:var(--surface);color:var(--ink-dim);padding:10px 12px;border-radius:999px;border:1px solid var(--border)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0}
+.tab{padding:10px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--border);cursor:pointer;transition:transform var(--speed),box-shadow var(--speed),background var(--speed)}
+.tab.active{background:linear-gradient(180deg,#ffffff0d,transparent);box-shadow:var(--shadow)}
+.tab:focus-visible{outline:3px solid rgba(10,99,255,.4)}
+.section{padding:28px 0}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px;margin-top:18px}
+@media (max-width:1024px){.grid{grid-template-columns:repeat(8,minmax(0,1fr))}}
+@media (max-width:720px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.card{grid-column:span 4;perspective:1200px}
+@media (max-width:1024px){.card{grid-column:span 4}}
+@media (max-width:720px){.card{grid-column:span 4}}
+.flip{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform var(--speed)}
+.card.is-flipped .flip{transform:rotateY(180deg)}
+.face{position:relative;min-height:260px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xl);padding:14px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
+.front{backface-visibility:hidden}
+.back{position:absolute;inset:0;padding:16px;backface-visibility:hidden;transform:rotateY(180deg)}
+.vendor-header{display:flex;gap:12px;align-items:center}
+.vendor-logo{width:42px;height:42px;border-radius:10px;background:linear-gradient(180deg,#e9efff26,#d6eeff1a);color:#0b1020;display:grid;place-items:center;border:1px solid var(--border);font-weight:700}
+.vendor-name{font-weight:700;letter-spacing:.2px}
+.vendor-links{margin-left:auto;display:flex;gap:8px}
+.levels{display:flex;gap:8px;flex-wrap:wrap}
+.badge{padding:7px 10px;border-radius:10px;border:1px solid var(--border);background:#0a122c;color:#e8eef8;font-size:.9rem}
+@media (prefers-color-scheme: light){.badge{background:#f6f9ff;color:#0b1020}}
+.badge.ok{border-color:rgba(14,167,90,.35);box-shadow:inset 0 0 0 1px rgba(14,167,90,.12)}
+.badge.warn{border-color:rgba(180,83,9,.35);box-shadow:inset 0 0 0 1px rgba(180,83,9,.12)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:#0a122c;color:#e8eef8;padding:7px 10px;border-radius:999px;border:1px solid var(--border);cursor:pointer}
+@media (prefers-color-scheme: light){.chip{background:#eef3ff;color:#0b1020}}
+.chip:focus-visible{outline:3px solid rgba(10,99,255,.4)}
+.foot{margin-top:auto;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.cta{background:linear-gradient(180deg,var(--brand),#084edb);color:#fff;padding:10px 12px;border-radius:12px;border:0;cursor:pointer;box-shadow:0 10px 24px rgba(10,99,255,.35)}
+.cta:hover{filter:brightness(1.05)}
+.cta:focus-visible{outline:3px solid rgba(10,99,255,.45)}
+.modal{position:fixed;inset:0;display:none;place-items:center;background:rgba(2,6,23,.4);backdrop-filter:blur(6px);z-index:100}
+.modal.open{display:grid}
+.modal-card{width:min(980px,92vw);max-height:86vh;overflow:auto;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow);animation:zoom .3s ease both}
+@keyframes zoom{from{transform:scale(.97);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-header{display:flex;align-items:center;gap:10px;position:sticky;top:0;background:linear-gradient(180deg,var(--surface),rgba(255,255,255,.04));padding-bottom:10px;border-bottom:1px solid var(--border);z-index:1}
+.modal-title{font-weight:700}
+.close{margin-left:auto;width:38px;height:38px;display:grid;place-items:center;border-radius:10px;border:1px solid var(--border);cursor:pointer;background:var(--surface-2)}
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:12px}
+.person{display:flex;gap:12px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:12px}
+.avatar{width:52px;height:52px;border-radius:12px;background:linear-gradient(180deg,#e9efff26,#d6eeff1a);display:grid;place-items:center;border:1px solid var(--border);color:#0b1020}
+.links{display:flex;gap:10px;margin-top:6px;flex-wrap:wrap}
+.links a{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid var(--border);border-radius:10px;background:var(--surface)}
+.tooltip{position:relative}
+.tooltip .tip{position:absolute;bottom:130%;left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--border);padding:8px 10px;border-radius:8px;font-size:.9rem;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity var(--speed),transform var(--speed)}
+.tooltip:hover .tip{opacity:1;transform:translate(-50%,-6px)}
+.reveal{opacity:0;transform:translateY(8px);transition:opacity .6s ease,transform .6s ease}
+.reveal.show{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.flip,.reveal,.cta,.icon-btn,.tab{transition:none}.px-layer,.px-grid{display:none}}
+.section-alt{background:linear-gradient(180deg,transparent,rgba(8,14,32,.6) 40%,transparent)}
+.vendor-assigned {
+  color: var(--ink-dim);
+  font-size: .95rem;
+}
+.vendor-tip {
+  color: var(--ink-dim);
+  font-size: .92rem;
+}
+</style>
 </head>
 <body>
-  <!-- Parallax Stage: BACKGROUND LAYERS -->
-  <div class="px-stage" aria-hidden="true">
-    <div class="px-layer px-back grad"></div>
-    <div class="px-layer px-mid particles"></div>
-  </div>
-
-  <!-- Foreground content -->
-  <header>
-    <div class="max">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <h1>Skunkworks Skills Matrix</h1>
-          <div class="muted">Tiered support, maintenance & repair • Specialist assignments • Live links</div>
-        </div>
-      </div>
-      <div class="toolbar">
-        <div class="search" role="search">
-          <input id="q" placeholder="Search vendor, tech or specialist (e.g., Cisco, Asterisk, Python, Raydo)…" aria-label="Search" />
-          <button id="clear" class="icon-btn" title="Clear search" aria-label="Clear search">✕</button>
-        </div>
-        <div class="kpi" aria-live="polite">
-          <div class="pill" id="kpi-vendors">Vendors: 0</div>
-          <div class="pill" id="kpi-people">Specialists: 0</div>
-          <div class="pill">v3.0 • Parallax + motion</div>
-        </div>
-      </div>
-      <nav class="tabs" id="tabs" aria-label="Categories"></nav>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero section px-fore" id="top">
-    <div class="max">
-      <h2>Capability coverage across vendors, disciplines & tiers</h2>
-      <p class="muted">Use the search to filter by vendor, skill or specialist. Click on a name for a profile, or open a vendor to see assigned experts and service levels.</p>
-    </div>
-  </section>
-
-  <!-- MATRIX SECTION -->
-  <main class="section px-fore">
-    <div class="max">
-      <section id="cards" class="grid" aria-live="polite"></section>
-    </div>
-  </main>
-
-  <!-- TEAM SECTION (auto‑populated when opening a vendor/person) -->
-  <section class="section px-fore center">
-    <div class="max">
-      <div class="muted">Tip: Flip a card for a quick service snapshot • Open assignment for full details</div>
-    </div>
-  </section>
-
-  <!-- Vendor / Technology Modal -->
-  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal-card">
-      <div class="modal-header">
-        <div class="vendor-logo" id="modal-logo" aria-hidden="true">🔧</div>
-        <div class="modal-title" id="modal-title">Details</div>
-        <button class="close" id="modal-close" title="Close" aria-label="Close modal">✕</button>
-      </div>
-      <div id="modal-body"></div>
-    </div>
-  </div>
-
-  <footer class="section px-fore">
-    <div class="max" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between">
-      <span class="muted">© <span id="year"></span> Skunkworks (Pty) Ltd • Built for responsiveness, accessibility and smooth motion.</span>
-      <a class="pill" href="#top" aria-label="Back to top">▲ Back to top</a>
-    </div>
-  </footer>
-
-  <script>
-  (function(){
-    /* ======================================================
-       DATA LAYER — Edit this object to customize assignments
-       ====================================================== */
-    var PEOPLE = {
-      raydo: {
-        id: 'raydo',
-        name: 'Raydo Matthee',
-        title: 'Founder & CTO • IBM/Microsoft/Google Specialist',
-        skills: ['IBM','Google','Microsoft','Asterisk','Cloud Architecture','Governance & Security'],
-        email: 'raydo@skunkworks.africa',
-        links: {
-          linkedin: 'https://www.linkedin.com/in/raydomatthee',
-          github: 'https://github.com/Skunkworks-Africa',
-          website: 'https://www.skunkworks.africa',
-          cv: '#',
-          firebase: 'https://console.firebase.google.com/'
-        }
-      },
-      cloud_arch: {
-        id: 'cloud_arch', name: 'Cloud Architect (Skunkworks)', title: 'AWS/Azure/GCP Architect',
-        skills: ['AWS','Google','Microsoft','DevOps','Security','SRE'],
-        links: { linkedin:'#', github:'#', website:'#', cv:'#', firebase:'#' }
-      },
-      sec_eng: {
-        id: 'sec_eng', name: 'Security Engineer (Skunkworks)', title: 'Palo Alto • Check Point • ISO 27001',
-        skills: ['Palo Alto','Checkpoint','Cisco','ISO 27001','OWASP'],
-        links: { linkedin:'#', github:'#', website:'#', cv:'#', firebase:'#' }
-      },
-      net_eng: {
-        id: 'net_eng', name: 'Network Engineer (Skunkworks)', title: 'Cisco • HPE • Huawei • Ubiquiti',
-        skills: ['Cisco','HPE','Huawei','Ubiquiti','Avaya'],
-        links: { linkedin:'#', github:'#', website:'#', cv:'#', firebase:'#' }
-      },
-      dev_full: {
-        id: 'dev_full', name: 'Full‑Stack Developer', title: 'Java • Python • Node.js • .NET • Go',
-        skills: ['Java','Python','JavaScript','Node.js','.NET','Go','SQL','Bash','PHP','C#','HTML/CSS'],
-        links: { linkedin:'#', github:'https://github.com/Skunkworks-Africa', website:'#', cv:'#', firebase:'https://console.firebase.google.com/' }
-      },
-      data_storage: {
-        id: 'data_storage', name: 'Data & Storage Specialist', title: 'NetApp • Pure Storage • Dell/EMC • Lenovo',
-        skills: ['NetApp','Pure Storage','Dell/EMC','Lenovo','HPE'],
-        links: { linkedin:'#', github:'#', website:'#', cv:'#', firebase:'#' }
-      },
-      telephony: {
-        id: 'telephony', name: 'Telephony Engineer', title: 'Asterisk • Avaya • SIP • SBC',
-        skills: ['Asterisk','Avaya','SIP','VoIP'],
-        links: { linkedin:'#', github:'#', website:'#', cv:'#', firebase:'#' }
-      },
-      biz_apps: {
-        id: 'biz_apps', name: 'Business Apps Consultant', title: 'Salesforce • SAP • Oracle • Sage • Xero',
-        skills: ['Salesforce','SAP','Oracle','Sage','Xero'],
-        links: { linkedin:'#', github:'#', website:'#', cv:'#', firebase:'#' }
-      },
-      cam_sys: {
-        id: 'cam_sys', name: 'CCTV & Physical Security', title: 'Hikvision • NVR • Access Control',
-        skills: ['Hikvision','CCTV','Networking'],
-        links: { linkedin:'#', github:'#', website:'#', cv:'#', firebase:'#' }
-      }
-    };
-
-    // Categories → Vendors/Technologies
-    var CATALOG = {
-      'Cloud & Platform': [
-        vendor('IBM', ['raydo','cloud_arch'], {l1:true,l2:true,l3:true,maintenance:true,repair:true},
-          {site:'https://www.ibm.com', docs:'https://www.ibm.com/docs/en'}),
-        vendor('Google', ['raydo','cloud_arch'], {l1:true,l2:true,l3:true,maintenance:true,repair:true},
-          {site:'https://cloud.google.com', docs:'https://cloud.google.com/docs'}),
-        vendor('Microsoft', ['raydo','cloud_arch'], {l1:true,l2:true,l3:true,maintenance:true,repair:true},
-          {site:'https://azure.microsoft.com', docs:'https://learn.microsoft.com/azure'}),
-        vendor('AWS', ['cloud_arch'], {l1:true,l2:true,l3:true,maintenance:true,repair:true},
-          {site:'https://aws.amazon.com', docs:'https://docs.aws.amazon.com'}),
-        vendor('GitHub', ['dev_full','raydo'], {l1:true,l2:true,l3:true,maintenance:true,repair:true},
-          {site:'https://github.com', docs:'https://docs.github.com'}),
-        vendor('Red Hat', ['cloud_arch','raydo'], {l1:true,l2:true,l3:true,maintenance:true,repair:true},
-          {site:'https://www.redhat.com', docs:'https://access.redhat.com/documentation/'})
-      ],
-      'Security & Networking': [
-        vendor('Cisco', ['net_eng','sec_eng'], {l1:true,l2:true,l3:true,maintenance:true,repair:true},
-          {site:'https://www.cisco.com', docs:'https://www.cisco.com/c/en/us/support/index.html'}),
-        vendor('Palo Alto', ['sec_eng'], {l1:true,l2:true,l3:true,maintenance:true,repair:true},
-          {site:'https://www.paloaltonetworks.com', docs:'https://docs.paloaltonetworks.com'}),
-        vendor('Checkpoint', ['sec_eng'], {l1:true,l2:true,l3:true,maintenance:true,repair:true},
-          {site:'https://www.checkpoint.com', docs:'https://support.checkpoint.com'}),
-        vendor('Ubiquiti', ['net_eng'], {l1:true,l2:true,l3:true,maintenance:true,repair:true},
-          {site:'https://ui.com', docs:'https://help.ui.com'}),
-        vendor('Huawei', ['net_eng','sec_eng'], {l1:true,l2:true,l3:true,maintenance:true,repair:true},
-          {site:'https://www.huawei.com', docs:'https://support.huawei.com'}),
-        vendor('Avaya', ['telephony','net_eng'], {l1:true,l2:true,l3:true,maintenance:true,repair:true},
-          {site:'https://www.avaya.com', docs:'https://support.avaya.com'})
-      ],
-      'Software Development': [
-        vendor('Coding (Java/HTML/Python/JavaScript/Go/SQL/Node.js/Bash/PHP/.NET/C#)', ['dev_full','raydo'], {l1:true,l2:true,l3:true,maintenance:true,repair:true},
-          {site:'https://www.skunkworks.africa', docs:'https://github.com/Skunkworks-Africa'})
-      ],
-      'Data & Storage': [
-        vendor('Dell / EMC', ['data_storage'], {l1:true,l2:true,l3:true,maintenance:true,repair:true}, {site:'https://www.dell.com', docs:'https://www.dell.com/support/home'}),
-        vendor('NetApp', ['data_storage'], {l1:true,l2:true,l3:true,maintenance:true,repair:true}, {site:'https://www.netapp.com', docs:'https://docs.netapp.com'}),
-        vendor('Pure Storage', ['data_storage'], {l1:true,l2:true,l3:true,maintenance:true,repair:true}, {site:'https://www.purestorage.com', docs:'https://support.purestorage.com'}),
-        vendor('Lenovo', ['data_storage'], {l1:true,l2:true,l3:true,maintenance:true,repair:true}, {site:'https://www.lenovo.com', docs:'https://support.lenovo.com'}),
-        vendor('HPE', ['data_storage','net_eng'], {l1:true,l2:true,l3:true,maintenance:true,repair:true}, {site:'https://www.hpe.com', docs:'https://support.hpe.com'})
-      ],
-      'Telephony & Collaboration': [
-        vendor('Asterisk', ['telephony','raydo'], {l1:true,l2:true,l3:true,maintenance:true,repair:true}, {site:'https://www.asterisk.org', docs:'https://docs.asterisk.org'})
-      ],
-      'Business Apps & ERP': [
-        vendor('Salesforce', ['biz_apps'], {l1:true,l2:true,l3:true,maintenance:true,repair:true}, {site:'https://salesforce.com', docs:'https://help.salesforce.com'}),
-        vendor('SAP', ['biz_apps'], {l1:true,l2:true,l3:true,maintenance:true,repair:true}, {site:'https://www.sap.com', docs:'https://help.sap.com'}),
-        vendor('Oracle', ['biz_apps'], {l1:true,l2:true,l3:true,maintenance:true,repair:true}, {site:'https://www.oracle.com', docs:'https://docs.oracle.com'}),
-        vendor('Sage', ['biz_apps'], {l1:true,l2:true,l3:true,maintenance:true,repair:true}, {site:'https://www.sage.com', docs:'https://support.sage.com'}),
-        vendor('Xero', ['biz_apps'], {l1:true,l2:true,l3:true,maintenance:true,repair:true}, {site:'https://www.xero.com', docs:'https://central.xero.com'})
-      ],
-      'Compliance & Governance': [
-        vendor('OWASP / ISO / ICASA Compliance', ['sec_eng','raydo'], {l1:true,l2:true,l3:true,maintenance:true,repair:true},
-          {site:'https://owasp.org', docs:'https://www.iso.org/standards-catalogue.html'})
-      ],
-      'CCTV & Physical Security': [
-        vendor('Hikvision', ['cam_sys','net_eng'], {l1:true,l2:true,l3:true,maintenance:true,repair:true}, {site:'https://www.hikvision.com', docs:'https://www.hikvision.com/support/'})
-      ]
-    };
-
-    function vendor(name, peopleIds, levels, links){
-      return { name: name, peopleIds: peopleIds, levels: levels, links: links };
-    }
-
-    /* ===================== RENDER UI ===================== */
-    var tabsEl = document.getElementById('tabs');
-    var cardsEl = document.getElementById('cards');
-    var searchEl = document.getElementById('q');
-    var clearEl = document.getElementById('clear');
-    var kpiVendors = document.getElementById('kpi-vendors');
-    var kpiPeople = document.getElementById('kpi-people');
-
-    var activeCategory = Object.keys(CATALOG)[0];
-
-    function renderTabs(){
-      tabsEl.innerHTML = '';
-      Object.keys(CATALOG).forEach(function(cat){
-        var b = document.createElement('button');
-        b.className = 'tab' + (cat===activeCategory ? ' active' : '');
-        b.textContent = cat;
-        b.addEventListener('click', function(){ activeCategory = cat; renderCards(); reveal(); window.location.hash = '#'+encodeURIComponent(cat.toLowerCase().replace(/\s+/g,'-')); });
-        tabsEl.appendChild(b);
-      });
-    }
-
-    function levelBadge(label, ok){
-      if(typeof ok === 'undefined') ok = true;
-      var span = document.createElement('span');
-      span.className = 'badge ' + (ok? 'ok': 'warn');
-      span.textContent = label;
-      return span;
-    }
-
-    function personChip(pid){
-      var p = PEOPLE[pid];
-      var btn = document.createElement('button');
-      btn.className = 'chip tooltip';
-      btn.innerHTML = p.name + '<span class="tip">' + (p.title||'') + '</span>';
-      btn.addEventListener('click', function(){ openPersonModal(p); });
-      return btn;
-    }
-
-    function renderCards(){
-      var q = (searchEl.value||'').trim().toLowerCase();
-      cardsEl.innerHTML = '';
-
-      var vendors = CATALOG[activeCategory].filter(function(v){
-        var people = v.peopleIds.map(function(id){ return PEOPLE[id]; });
-        var text = [v.name].concat(people.map(function(p){return p.name;})).concat(people.map(function(p){return (p.skills||[]).join(' ');})).join(' ').toLowerCase();
-        return text.indexOf(q) !== -1;
-      });
-
-      vendors.forEach(function(v){ cardsEl.appendChild(cardFor(v)); });
-
-      // KPIs
-      var vendorCount = Object.values(CATALOG).reduce(function(sum, arr){return sum + arr.length;}, 0);
-      var peopleSet = {};
-      Object.keys(CATALOG).forEach(function(k){ CATALOG[k].forEach(function(v){ v.peopleIds.forEach(function(pid){ peopleSet[pid]=1; }); }); });
-      var uniquePeople = Object.keys(peopleSet).length;
-      kpiVendors.textContent = 'Vendors: ' + vendorCount;
-      kpiPeople.textContent = 'Specialists: ' + uniquePeople;
-    }
-
-    function cardFor(v){
-      var wrap = document.createElement('article');
-      wrap.className = 'card reveal';
-      wrap.tabIndex = 0; // focusable for keyboard flip
-
-      var flip = document.createElement('div');
-      flip.className = 'flip';
-
-      // FRONT
-      var front = document.createElement('div');
-      front.className = 'face front';
-
-      var head = document.createElement('div');
-      head.className = 'vendor-header';
-
-      var logo = document.createElement('div');
-      logo.className = 'vendor-logo';
-      logo.textContent = v.name.substring(0,2).toUpperCase();
-
-      var title = document.createElement('div');
-      title.innerHTML = '<div class="vendor-name">' + v.name + '</div><div class="muted" style="font-size:.95rem">Assigned specialists • ' + v.peopleIds.length + '</div>';
-
-      var links = document.createElement('div');
-      links.className = 'vendor-links';
-      links.appendChild(iconLink('🌐', v.links.site || '#', 'Official site'));
-      if(v.links.docs) links.appendChild(iconLink('📚', v.links.docs, 'Documentation'));
-
-      head.appendChild(logo); head.appendChild(title); head.appendChild(links);
-
-      var levels = document.createElement('div');
-      levels.className = 'levels';
-      levels.appendChild(levelBadge('1st Line', v.levels.l1));
-      levels.appendChild(levelBadge('2nd Line', v.levels.l2));
-      levels.appendChild(levelBadge('3rd Line', v.levels.l3));
-      levels.appendChild(levelBadge('Maintenance', v.levels.maintenance));
-      levels.appendChild(levelBadge('Repair/Fix', v.levels.repair));
-
-      var chips = document.createElement('div');
-      chips.className = 'chips';
-      v.peopleIds.forEach(function(pid){ chips.appendChild(personChip(pid)); });
-
-      var foot = document.createElement('div');
-      foot.className = 'foot';
-
-      var flipBtn = document.createElement('button');
-      flipBtn.className = 'cta';
-      flipBtn.textContent = 'Quick view: Service coverage';
-      flipBtn.addEventListener('click', function(){ wrap.classList.toggle('is-flipped'); });
-
-      var viewBtn = document.createElement('button');
-      viewBtn.className = 'cta';
-      viewBtn.textContent = 'Open assignment';
-      viewBtn.addEventListener('click', function(){ openVendorModal(v); });
-
-      var small = document.createElement('div');
-      small.className = 'muted';
-      small.style.fontSize = '.92rem';
-      small.textContent = 'Tip: click names for specialist profiles';
-
-      foot.appendChild(flipBtn); foot.appendChild(viewBtn); foot.appendChild(small);
-
-      front.appendChild(head); front.appendChild(levels); front.appendChild(chips); front.appendChild(foot);
-
-      // BACK
-      var back = document.createElement('div');
-      back.className = 'face back';
-
-      var backHead = document.createElement('div');
-      backHead.className = 'vendor-header';
-
-      var backLogo = document.createElement('div');
-      backLogo.className = 'vendor-logo';
-      backLogo.textContent = v.name.substring(0,2).toUpperCase();
-
-      var backTitle = document.createElement('div');
-      backTitle.innerHTML = '<div class="vendor-name">' + v.name + '</div><div class="muted" style="font-size:.95rem">Service coverage snapshot</div>';
-
-      backHead.appendChild(backLogo); backHead.appendChild(backTitle);
-
-      var backLevels = document.createElement('div');
-      backLevels.className = 'levels';
-      backLevels.innerHTML =
-        badgeHTML('1st Line', v.levels.l1) +
-        badgeHTML('2nd Line', v.levels.l2) +
-        badgeHTML('3rd Line', v.levels.l3) +
-        badgeHTML('Maintenance', v.levels.maintenance) +
-        badgeHTML('Repair/Fix', v.levels.repair);
-
-      var backBtns = document.createElement('div');
-      backBtns.style.display = 'flex'; backBtns.style.gap = '8px'; backBtns.style.flexWrap = 'wrap';
-
-      var backBtn = document.createElement('button');
-      backBtn.className = 'cta'; backBtn.textContent = 'Back';
-      backBtn.addEventListener('click', function(){ wrap.classList.toggle('is-flipped'); });
-
-      var openBtn = document.createElement('button');
-      openBtn.className = 'cta'; openBtn.textContent = 'Open assignment';
-      openBtn.addEventListener('click', function(){ openVendorModal(v); });
-
-      backBtns.appendChild(backBtn); backBtns.appendChild(openBtn);
-
-      back.appendChild(backHead); back.appendChild(backLevels); back.appendChild(backBtns);
-
-      flip.appendChild(front); flip.appendChild(back);
-      wrap.appendChild(flip);
-      return wrap;
-    }
-
-    function iconLink(label, href, title){
-      var a = document.createElement('a');
-      a.className = 'icon-btn';
-      a.href = href; a.target = '_blank'; a.rel = 'noopener';
-      a.title = title; a.textContent = label; return a;
-    }
-
-    /* ===================== MODALS ===================== */
-    var modal = document.getElementById('modal');
-    var modalBody = document.getElementById('modal-body');
-    var modalTitle = document.getElementById('modal-title');
-    var modalLogo = document.getElementById('modal-logo');
-    var modalClose = document.getElementById('modal-close');
-
-    function openVendorModal(v){
-      modalTitle.textContent = v.name + ' • Assignment';
-      modalLogo.textContent = v.name.substring(0,2).toUpperCase();
-
-      var people = v.peopleIds.map(function(id){ return PEOPLE[id]; });
-      modalBody.innerHTML = '';
-
-      var capTitle = document.createElement('div');
-      capTitle.style.marginTop = '12px'; capTitle.className = 'muted';
-      capTitle.textContent = 'Capabilities & Service Levels';
-
-      var capLevels = document.createElement('div');
-      capLevels.className = 'levels'; capLevels.style.marginTop = '8px';
-      capLevels.innerHTML =
-        badgeHTML('1st Line', v.levels.l1) +
-        badgeHTML('2nd Line', v.levels.l2) +
-        badgeHTML('3rd Line', v.levels.l3) +
-        badgeHTML('Maintenance', v.levels.maintenance) +
-        badgeHTML('Repair/Fix', v.levels.repair);
-
-      var divider = document.createElement('div');
-      divider.style.margin = '14px 0'; divider.style.borderTop = '1px solid var(--border)';
-
-      var h3 = document.createElement('h3');
-      h3.style.margin = '10px 0 6px'; h3.textContent = 'Assigned Specialists';
-
-      var list = document.createElement('div');
-      list.className = 'people';
-      people.forEach(function(p){ list.appendChild(personCard(p)); });
-
-      modalBody.appendChild(capTitle);
-      modalBody.appendChild(capLevels);
-      modalBody.appendChild(divider);
-      modalBody.appendChild(h3);
-      modalBody.appendChild(list);
-
-      openModal();
-    }
-
-    function openPersonModal(p){
-      modalTitle.textContent = p.name + ' • Profile';
-      modalLogo.textContent = p.name.substring(0,2).toUpperCase();
-      modalBody.innerHTML = '';
-      modalBody.appendChild(personCard(p));
-      openModal();
-    }
-
-    function badgeHTML(label, ok){
-      return '<span class="badge ' + (ok? 'ok':'warn') + '">' + label + '</span>';
-    }
-
-    function personCard(p){
-      var div = document.createElement('div');
-      div.className = 'person';
-
-      var avatar = document.createElement('div');
-      avatar.className = 'avatar'; avatar.textContent = '👤';
-
-      var right = document.createElement('div');
-      var titleHTML =
-        '<div style="font-weight:700;">' + p.name + '</div>' +
-        '<div class="muted">' + (p.title||'') + '</div>' +
-        '<div style="margin-top:6px;font-size:.95rem;">Core skills: ' + ((p.skills||[]).join(', ')) + '</div>';
-      right.innerHTML = titleHTML;
-
-      var links = document.createElement('div'); links.className = 'links';
-      var pl = p.links || {};
-
-      function addLink(cond, href, label){
-        if(cond && href){
-          var a = document.createElement('a'); a.href = href; a.target = '_blank'; a.rel = 'noopener'; a.textContent = label; links.appendChild(a);
-        }
-      }
-      addLink(!!pl.linkedin, pl.linkedin, '🔗 LinkedIn');
-      addLink(!!pl.github, pl.github, '🐙 GitHub');
-      addLink(!!pl.firebase, pl.firebase, '🔥 Firebase');
-      addLink(!!pl.website, pl.website, '🌍 Website');
-      addLink(!!pl.cv, pl.cv, '📄 CV / Resume');
-
-      if(p.email){ var em = document.createElement('a'); em.href = 'mailto:' + p.email; em.textContent = '✉️ Email'; links.appendChild(em); }
-
-      right.appendChild(links);
-      div.appendChild(avatar); div.appendChild(right);
-      return div;
-    }
-
-    function openModal(){ modal.classList.add('open'); document.body.style.overflow='hidden'; }
-    function closeModal(){ modal.classList.remove('open'); document.body.style.overflow=''; }
-    modalClose.addEventListener('click', closeModal);
-    modal.addEventListener('click', function(e){ if(e.target===modal) closeModal(); });
-    document.addEventListener('keydown', function(e){ if(e.key==='Escape' && modal.classList.contains('open')) closeModal(); });
-
-    /* ===================== Search & Reveal ===================== */
-    searchEl.addEventListener('input', function(){ renderCards(); reveal(); });
-    clearEl.addEventListener('click', function(){ searchEl.value=''; renderCards(); reveal(); searchEl.focus(); });
-
-    function reveal(){
-      var obs = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('show'); });
-      }, { threshold: .18 });
-      var items = document.querySelectorAll('.reveal');
-      for(var i=0;i<items.length;i++){ obs.observe(items[i]); }
-    }
-
-    // ===================== Simple Test Harness =====================
-    function runTests(){
-      var results = [];
-      function push(name, pass, note){ results.push({name:name, pass:!!pass, note:note||''}); }
-
-      try {
-        var totalVendors = Object.values(CATALOG).reduce(function(sum, arr){return sum + arr.length;}, 0); // expected 26
-        push('Vendor count is 26', totalVendors === 26, 'Found ' + totalVendors);
-      } catch (e) { push('Vendor count readable', false, e.message); }
-
-      try {
-        renderCards();
-        var rendered = cardsEl.children.length;
-        var expected = CATALOG[activeCategory].length;
-        push('Cards render for active category', rendered === expected, 'Rendered ' + rendered + ' / Expected ' + expected);
-      } catch (e) { push('Cards render without error', false, e.message); }
-
-      try {
-        var firstCard = cardsEl.querySelector('.card');
-        if(firstCard){
-          firstCard.classList.toggle('is-flipped');
-          var flipped = firstCard.classList.contains('is-flipped');
-          push('Flip interaction toggles class', flipped === true);
-          firstCard.classList.toggle('is-flipped');
-        } else { push('Flip interaction — card present', false, 'No cards to flip'); }
-      } catch (e) { push('Flip interaction runs', false, e.message); }
-
-      console.group('%cSkunkworks Skills Matrix • Tests','color: #5ab2ff; font-weight:700');
-      for(var i=0;i<results.length;i++){
-        var r = results[i];
-        var status = r.pass ? 'PASS' : 'FAIL';
-        var color = r.pass ? 'color: #20d67a' : 'color: #ef4444';
-        console.log('%c' + status + '%c ' + r.name + (r.note? ' - ' + r.note : ''), color, 'color: inherit');
-      }
-      console.groupEnd();
-
-      var failing = 0; for(var j=0;j<results.length;j++){ if(!results[j].pass) failing++; }
-      var pill = document.createElement('div');
-      pill.className = 'pill';
-      pill.textContent = failing ? ('Tests: ' + (results.length - failing) + '/' + results.length + ' passing') : 'Tests: all passing';
-      document.querySelector('.kpi').appendChild(pill);
-    }
-
-    // Init
-    renderTabs();
-    renderCards();
-    reveal();
-    runTests();
-    document.getElementById('year').textContent = new Date().getFullYear();
-  })();
-  </script>
+<section class="parallax" aria-hidden="true">
+<div class="px-layer" id="px-a"></div>
+<div class="px-grid"></div>
+<div class="hero">
+<div class="max">
+<h1>Skunkworks Skills Matrix</h1>
+<p>Tiered support, maintenance and repair, specialist assignments and live links across vendors and technologies.</p>
+</div>
+</div>
+</section>
+<header>
+<div class="max">
+<div class="brand">
+<div class="logo" aria-hidden="true"></div>
+<div>
+<h1 style="margin:0;font-size:1.3rem">Skunkworks Skills Matrix</h1>
+<div style="font-size:.95rem;color:var(--ink-dim)">Tiered support, maintenance & repair • Specialist assignments • Live links</div>
+</div>
+</div>
+<div class="toolbar">
+<div class="search">
+<input id="q" placeholder="Search vendor, tech or specialist (e.g., Cisco, Asterisk, Python, Raydo)…" />
+<button id="clear" class="icon-btn" title="Clear search">✕</button>
+</div>
+<div class="kpi">
+<div class="pill" id="kpi-vendors">Vendors: 0</div>
+<div class="pill" id="kpi-people">Specialists: 0</div>
+<div class="pill" id="kpi-tests">Tests: 0</div>
+</div>
+</div>
+<div class="tabs" id="tabs"></div>
+</div>
+</header>
+<main class="max section section-alt">
+<section id="cards" class="grid" aria-live="polite"></section>
+</main>
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+<div class="modal-card">
+<div class="modal-header">
+<div class="vendor-logo" id="modal-logo">🔧</div>
+<div class="modal-title" id="modal-title">Details</div>
+<button class="close" id="modal-close" title="Close">✕</button>
+</div>
+<div id="modal-body"></div>
+</div>
+</div>
+<script>
+(function(){
+var PEOPLE={raydo:{id:"raydo",name:"Raydo Matthee",title:"Founder & CTO • IBM/Microsoft/Google Specialist",skills:["IBM","Google","Microsoft","Asterisk","Cloud Architecture","Governance & Security"],email:"raydo@skunkworks.africa",links:{linkedin:"https://www.linkedin.com/in/raydomatthee",github:"https://github.com/Skunkworks-Africa",website:"https://www.skunkworks.africa",cv:"#",firebase:"https://console.firebase.google.com/"}},cloud_arch:{id:"cloud_arch",name:"Cloud Architect (Skunkworks)",title:"AWS/Azure/GCP Architect",skills:["AWS","Google","Microsoft","DevOps","Security","SRE"],links:{linkedin:"#",github:"#",website:"#",cv:"#",firebase:"#"}},sec_eng:{id:"sec_eng",name:"Security Engineer (Skunkworks)",title:"Palo Alto • Check Point • ISO 27001",skills:["Palo Alto","Checkpoint","Cisco","ISO 27001","OWASP"],links:{linkedin:"#",github:"#",website:"#",cv:"#",firebase:"#"}},net_eng:{id:"net_eng",name:"Network Engineer (Skunkworks)",title:"Cisco • HPE • Huawei • Ubiquiti",skills:["Cisco","HPE","Huawei","Ubiquiti","Avaya"],links:{linkedin:"#",github:"#",website:"#",cv:"#",firebase:"#"}},dev_full:{id:"dev_full",name:"Full‑Stack Developer",title:"Java • Python • Node.js • .NET • Go",skills:["Java","Python","JavaScript","Node.js",".NET","Go","SQL","Bash","PHP","C#","HTML/CSS"],links:{linkedin:"#",github:"https://github.com/Skunkworks-Africa",website:"#",cv:"#",firebase:"https://console.firebase.google.com/"}},data_storage:{id:"data_storage",name:"Data & Storage Specialist",title:"NetApp • Pure Storage • Dell/EMC • Lenovo",skills:["NetApp","Pure Storage","Dell/EMC","Lenovo","HPE"],links:{linkedin:"#",github:"#",website:"#",cv:"#",firebase:"#"}},telephony:{id:"telephony",name:"Telephony Engineer",title:"Asterisk • Avaya • SIP • SBC",skills:["Asterisk","Avaya","SIP","VoIP"],links:{linkedin:"#",github:"#",website:"#",cv:"#",firebase:"#"}},biz_apps:{id:"biz_apps",name:"Business Apps Consultant",title:"Salesforce • SAP • Oracle • Sage • Xero",skills:["Salesforce","SAP","Oracle","Sage","Xero"],links:{linkedin:"#",github:"#",website:"#",cv:"#",firebase:"#"}},cam_sys:{id:"cam_sys",name:"CCTV & Physical Security",title:"Hikvision • NVR • Access Control",skills:["Hikvision","CCTV","Networking"],links:{linkedin:"#",github:"#",website:"#",cv:"#",firebase:"#"}}};
+function vendor(n,p,l,ln){return{name:n,peopleIds:p,levels:l,links:ln}}
+var CATALOG={"Cloud & Platform":[vendor("IBM",["raydo","cloud_arch"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://www.ibm.com",docs:"https://www.ibm.com/docs/en"}),vendor("Google",["raydo","cloud_arch"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://cloud.google.com",docs:"https://cloud.google.com/docs"}),vendor("Microsoft",["raydo","cloud_arch"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://azure.microsoft.com",docs:"https://learn.microsoft.com/azure"}),vendor("AWS",["cloud_arch"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://aws.amazon.com",docs:"https://docs.aws.amazon.com"}),vendor("GitHub",["dev_full","raydo"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://github.com",docs:"https://docs.github.com"}),vendor("Red Hat",["cloud_arch","raydo"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://www.redhat.com",docs:"https://access.redhat.com/documentation/"})],"Security & Networking":[vendor("Cisco",["net_eng","sec_eng"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://www.cisco.com",docs:"https://www.cisco.com/c/en/us/support/index.html"}),vendor("Palo Alto",["sec_eng"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://www.paloaltonetworks.com",docs:"https://docs.paloaltonetworks.com"}),vendor("Checkpoint",["sec_eng"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://www.checkpoint.com",docs:"https://support.checkpoint.com"}),vendor("Ubiquiti",["net_eng"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://ui.com",docs:"https://help.ui.com"}),vendor("Huawei",["net_eng","sec_eng"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://www.huawei.com",docs:"https://support.huawei.com"}),vendor("Avaya",["telephony","net_eng"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://www.avaya.com",docs:"https://support.avaya.com"})],"Software Development":[vendor("Coding (Java/HTML/Python/JavaScript/Go/SQL/Node.js/Bash/PHP/.NET/C#)",["dev_full","raydo"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://www.skunkworks.africa",docs:"https://github.com/Skunkworks-Africa"})],"Data & Storage":[vendor("Dell / EMC",["data_storage"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://www.dell.com",docs:"https://www.dell.com/support/home"}),vendor("NetApp",["data_storage"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://www.netapp.com",docs:"https://docs.netapp.com"}),vendor("Pure Storage",["data_storage"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://www.purestorage.com",docs:"https://support.purestorage.com"}),vendor("Lenovo",["data_storage"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://www.lenovo.com",docs:"https://support.lenovo.com"}),vendor("HPE",["data_storage","net_eng"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://www.hpe.com",docs:"https://support.hpe.com"})],"Telephony & Collaboration":[vendor("Asterisk",["telephony","raydo"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://www.asterisk.org",docs:"https://docs.asterisk.org"})],"Business Apps & ERP":[vendor("Salesforce",["biz_apps"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://salesforce.com",docs:"https://help.salesforce.com"}),vendor("SAP",["biz_apps"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://www.sap.com",docs:"https://help.sap.com"}),vendor("Oracle",["biz_apps"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://www.oracle.com",docs:"https://docs.oracle.com"}),vendor("Sage",["biz_apps"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://www.sage.com",docs:"https://support.sage.com"}),vendor("Xero",["biz_apps"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://www.xero.com",docs:"https://central.xero.com"})],"Compliance & Governance":[vendor("OWASP / ISO / ICASA Compliance",["sec_eng","raydo"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://owasp.org",docs:"https://www.iso.org/standards-catalogue.html"})],"CCTV & Physical Security":[vendor("Hikvision",["cam_sys","net_eng"],{l1:true,l2:true,l3:true,maintenance:true,repair:true},{site:"https://www.hikvision.com",docs:"https://www.hikvision.com/support/"})]};
+var tabsEl=document.getElementById("tabs");
+var cardsEl=document.getElementById("cards");
+var searchEl=document.getElementById("q");
+function renderCards() {
+  var q = (searchEl.value || "").trim().toLowerCase();
+  cardsEl.innerHTML = "";
+  var vendors = CATALOG[activeCategory].filter(function (v) {
+	var people = v.peopleIds.map(function (id) {
+	  return PEOPLE[id];
+	});
+	var text = [v.name]
+	  .concat(people.map(function (p) { return p.name; }))
+	  .concat(people.map(function (p) { return (p.skills || []).join(" "); }))
+	  .join(" ")
+	  .toLowerCase();
+	return text.indexOf(q) !== -1;
+  });
+  vendors.forEach(function (v) {
+	cardsEl.appendChild(cardFor(v));
+  });
+  var vendorCount = Object.values(CATALOG).reduce(function (acc, arr) { return acc + arr.length; }, 0);
+  var peopleSet = {};
+  Object.values(CATALOG).forEach(function (arr) {
+	arr.forEach(function (v) {
+	  v.peopleIds.forEach(function (pid) { peopleSet[pid] = true; });
+	});
+  });
+  var peopleCount = Object.keys(peopleSet).length;
+  kpiVendors.textContent = "Vendors: " + vendorCount;
+  kpiPeople.textContent = "Specialists: " + peopleCount;
+
+  // Event delegation for card actions (flip/view)
+  cardsEl.onclick = function (e) {
+	var btn = e.target.closest("button.cta");
+	if (!btn) return;
+	var card = e.target.closest(".card");
+	if (!card) return;
+	if (btn.textContent.indexOf("Quick view") !== -1) {
+	  card.classList.toggle("is-flipped");
+	} else if (btn.textContent.indexOf("Open assignment") !== -1) {
+	  // Find the vendor by traversing DOM or storing a data attribute
+	  var idx = Array.prototype.indexOf.call(cardsEl.children, card);
+	  var vendor = vendors[idx];
+	  if (vendor) openVendorModal(vendor);
+	}
+  };
+}
+function cardFor(v) {
+  var wrap = document.createElement("article");
+  wrap.className = "card reveal";
+  wrap.tabIndex = 0;
+
+  var flip = document.createElement("div");
+  flip.className = "flip";
+
+  var front = createCardFront(v, wrap);
+  var back = createCardBack(v);
+
+  flip.appendChild(front);
+  flip.appendChild(back);
+  wrap.appendChild(flip);
+
+  return wrap;
+}
+
+function createCardFront(v, wrap) {
+  var front = document.createElement("div");
+  front.className = "face front";
+
+  var head = document.createElement("div");
+  head.className = "vendor-header";
+
+  var logo = document.createElement("div");
+  logo.className = "vendor-logo";
+  logo.textContent = v.name.substring(0, 2).toUpperCase();
+
+  var title = document.createElement("div");
+  title.innerHTML =
+	'<div class="vendor-name">' +
+	v.name +
+	'</div><div style="color:var(--ink-dim); font-size:.95rem">Assigned specialists • ' +
+	v.peopleIds.length +
+	"</div>";
+
+  var links = document.createElement("div");
+  links.className = "vendor-links";
+  links.appendChild(iconLink("🌐", v.links.site || "#", "Official site"));
+  if (v.links.docs)
+	links.appendChild(iconLink("📚", v.links.docs, "Documentation"));
+
+  head.appendChild(logo);
+  head.appendChild(title);
+  head.appendChild(links);
+
+  var levels = document.createElement("div");
+  levels.className = "levels";
+  levels.appendChild(levelBadge("1st Line", v.levels.l1));
+  levels.appendChild(levelBadge("2nd Line", v.levels.l2));
+  levels.appendChild(levelBadge("3rd Line", v.levels.l3));
+  levels.appendChild(levelBadge("Maintenance", v.levels.maintenance));
+  levels.appendChild(levelBadge("Repair/Fix", v.levels.repair));
+
+  var chips = document.createElement("div");
+  chips.className = "chips";
+  v.peopleIds.forEach(function (pid) {
+	chips.appendChild(personChip(pid));
+  });
+
+  var foot = document.createElement("div");
+  foot.className = "foot";
+
+  var flipBtn = document.createElement("button");
+  flipBtn.className = "cta";
+  flipBtn.textContent = "Quick view: Service coverage";
+  flipBtn.addEventListener("click", function () {
+	wrap.classList.toggle("is-flipped");
+  });
+
+  var viewBtn = document.createElement("button");
+  viewBtn.className = "cta";
+  viewBtn.textContent = "Open assignment";
+  viewBtn.addEventListener("click", function () {
+	openVendorModal(v);
+  });
+
+  var small = document.createElement("div");
+  small.style.color = "var(--ink-dim)";
+  small.style.fontSize = ".92rem";
+  small.textContent = "Tip: click names for specialist profiles";
+
+  foot.appendChild(flipBtn);
+  foot.appendChild(viewBtn);
+  foot.appendChild(small);
+
+  front.appendChild(head);
+  front.appendChild(levels);
+  front.appendChild(chips);
+  front.appendChild(foot);
+
+  return front;
+}
+
+function createCardBack(v) {
+  var back = document.createElement("div");
+  back.className = "face back";
+  // You can add more details for the back of the card here if needed
+  back.textContent = "Service coverage details coming soon.";
+  return back;
+}
+})(); // <-- Add this line to close the IIFE
+</script>
 </body>
 </html>
