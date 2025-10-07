@@ -33,7 +33,7 @@
     "carbon-components-react": "^8.57.0",
     "express": "^4.19.2",
     "git-all": "^0.0.3",
-    "nodemailer": "^6.9.13"
+    "nodemailer": "^7.0.7"
   },
   "devDependencies": {
     "jekyll": "^3.0.0-beta1"
