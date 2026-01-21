@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skunkworks (Pty) Ltd | Company Profile</title>
+
+  <meta name="description" content="Skunkworks (Pty) Ltd – Enterprise IT Solutions, Cloud, Security, AI, Training and Managed Services."/>
+  <meta name="author" content="Skunkworks (Pty) Ltd"/>
+
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #2563eb;
+      --muted: #64748b;
+      --bg: #f8fafc;
+      --card: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--primary);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 24px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      border-bottom: 3px solid var(--accent);
+      padding-bottom: 24px;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      letter-spacing: -0.5px;
+    }
+
+    header p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .badge {
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    section {
+      margin-bottom: 36px;
+    }
+
+    section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .meta div {
+      background: #f1f5f9;
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid #e2e8f0;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+      .card {
+        box-shadow: none;
+        border: 1px solid #e5e7eb;
+      }
+      header {
+        border-bottom-width: 2px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <div>
+        <h1>Skunkworks (Pty) Ltd</h1>
+        <p>Enterprise IT Solutions • Cloud • Security • AI • Training • Managed Services</p>
+      </div>
+      <div class="badge">
+        Established 2020<br/>
+        South Africa
+      </div>
+    </header>
+
+    <!-- COMPANY OVERVIEW -->
+    <section>
+      <h2>Company Overview</h2>
+      <div class="card">
+        <p>
+          Skunkworks (Pty) Ltd is a South African–based technology consulting, systems integration, 
+          and training company delivering enterprise-grade ICT solutions to public and private sector clients.
+          We specialize in cloud and hybrid infrastructure, cybersecurity, AI-driven automation,
+          custom software development, and vendor-authorized technical training.
+        </p>
+        <p>
+          Our approach combines deep technical expertise with practical business alignment, enabling
+          clients to modernize systems, secure digital assets, and scale operations efficiently.
+        </p>
+      </div>
+    </section>
+
+    <!-- CORE SERVICES -->
+    <section>
+      <h2>Core Services</h2>
+      <div class="grid">
+        <div class="card">
+          <ul>
+            <li>Enterprise IT Architecture & Consulting</li>
+            <li>Cloud & Hybrid Infrastructure (Azure, IBM, AWS, GCP)</li>
+            <li>Cybersecurity & Zero Trust Design</li>
+            <li>AI & Automation Solutions</li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul>
+            <li>Custom Software & API Integration</li>
+            <li>Managed IT Services (MSP)</li>
+            <li>Vendor-Authorized Technical Training</li>
+            <li>eLearning Platforms & Lab Environments</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUE ADDS -->
+    <section>
+      <h2>Specializations & Value Add</h2>
+      <div class="card">
+        <ul>
+          <li>Cloud migration and modernization strategies</li>
+          <li>Security architecture, compliance alignment, and risk mitigation</li>
+          <li>AI-enabled business process automation</li>
+          <li>Turnkey training delivery with hands-on labs</li>
+          <li>Power continuity planning aligned to ICT workloads</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section>
+      <h2>Technology Partners & Vendors</h2>
+      <div class="card">
+        <p>
+          Skunkworks maintains active partnerships and reseller relationships with leading global technology vendors, including:
+        </p>
+        <ul>
+          <li>IBM • Microsoft • Google Cloud • AWS • Red Hat</li>
+          <li>Oracle • SAP • Cisco • Palo Alto Networks</li>
+          <li>Check Point • Sophos • Lenovo • HPE • Dell</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- COMPANY DETAILS -->
+    <section>
+      <h2>Company Information</h2>
+      <div class="meta">
+        <div><strong>Legal Name:</strong><br/>Skunkworks (Pty) Ltd</div>
+        <div><strong>Registration No:</strong><br/>2020/257218/07</div>
+        <div><strong>VAT No:</strong><br/>9654778191</div>
+        <div><strong>D-U-N-S:</strong><br/>654693452</div>
+        <div><strong>Address:</strong><br/>26 Second Avenue, Germiston<br/>Gauteng, 1401<br/>South Africa</div>
+        <div><strong>Website:</strong><br/>www.skunkworks.africa</div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section>
+      <h2>Primary Contact</h2>
+      <div class="card">
+        <p>
+          <strong>Raydo Matthee</strong><br/>
+          Founder & Chief Technology Officer
+        </p>
+        <p>
+          Email: raydo@skunkworks.africa<br/>
+          Phone: +27 83 380 7950
+        </p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div>
+        © 2025 Skunkworks (Pty) Ltd. All rights reserved.
+      </div>
+      <div>
+        Confidential Company Profile
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
