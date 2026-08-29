@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "canonicalHosts": {
+    "corporate": "https://www.skunkworks.africa",
+    "store": "https://store.skunkworks.africa",
+    "academy": "https://www.skunkworksacademy.com"
+  },
+  "rules": [
+    "Corporate identity, services, solutions and company content belong on www.skunkworks.africa.",
+    "Product, collection, cart, account and checkout routes belong on store.skunkworks.africa.",
+    "Training catalogues, labs, credentials and learner services belong on www.skunkworksacademy.com or its governed Academy subdomains.",
+    "Do not duplicate product detail pages on the corporate site.",
+    "Do not duplicate Academy course detail pages on the corporate site.",
+    "All commerce CTAs from www must resolve to store.skunkworks.africa.",
+    "All learning CTAs from www must resolve to www.skunkworksacademy.com or a canonical Academy property.",
+    "Every indexable www page must emit a self-referencing canonical URL.",
+    "Navigation order is Solutions, Services, Store, Academy, Company.",
+    "Mobile navigation must expose the same primary destinations as desktop navigation."
+  ],
+  "primaryNavigation": [
+    {"label":"Solutions","url":"/#solutions","surface":"corporate"},
+    {"label":"Services","url":"/#services","surface":"corporate"},
+    {"label":"Store","url":"https://store.skunkworks.africa/","surface":"store"},
+    {"label":"Academy","url":"https://www.skunkworksacademy.com/","surface":"academy"},
+    {"label":"Company","url":"/#company","surface":"corporate"}
+  ],
+  "commerceRoutes": [
+    {"label":"Microsoft 365","url":"https://store.skunkworks.africa/collections/microsoft-365-reseller-south-africa"},
+    {"label":"Microsoft 365 Licensing","url":"https://store.skunkworks.africa/collections/microsoft-365-licensing-south-africa"},
+    {"label":"Software","url":"https://store.skunkworks.africa/collections/software"},
+    {"label":"AI & Automation","url":"https://store.skunkworks.africa/collections/ai-and-automation-solutions"},
+    {"label":"Cybersecurity","url":"https://store.skunkworks.africa/collections/cybersecurity-solutions"},
+    {"label":"Business Solutions","url":"https://store.skunkworks.africa/collections/business-solutions"},
+    {"label":"Education Solutions","url":"https://store.skunkworks.africa/collections/education-solutions"},
+    {"label":"CompTIA","url":"https://store.skunkworks.africa/collections/comptia-certification-training"}
+  ]
+}
