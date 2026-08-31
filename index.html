@@ -15,6 +15,7 @@
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/adaptive-shell.css">
+  <link rel="stylesheet" href="/hero-chat.css">
   <link rel="stylesheet" href="/assets/skunkworks-global-footer.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Skunkworks Africa","url":"https://www.skunkworks.africa/","sameAs":["https://www.skunkworksacademy.com/","https://store.skunkworks.africa/"]}</script>
 </head>
@@ -22,7 +23,7 @@
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="site-header" data-header aria-label="Global header">
     <div class="shell header-inner">
-      <a class="brand" href="/" aria-label="Skunkworks Africa home"><img class="brand-mark" src="https://raw.githubusercontent.com/skunkworks-africa/www/refs/heads/main/assets/favicon-black.ico" alt="" width="34" height="34" aria-hidden="true"><span><strong>Skunkworks</strong><small>Africa</small></span></a>
+      <a class="brand" href="/" aria-label="Skunkworks Africa home"><img class="brand-mark" src="/assets/logo-white.svg" alt="" width="34" height="34" aria-hidden="true"><span><strong>Skunkworks</strong><small>Africa</small></span></a>
       <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="#solutions">Solutions</a><a href="#services">Services</a><a href="#commerce">Store</a><a href="https://www.skunkworksacademy.com/">Academy</a><a href="#company">Company</a>
       </nav>
@@ -49,6 +50,19 @@
         <div class="actions"><a class="button button-primary" href="#solutions">Explore solutions</a><a class="button button-secondary" href="https://store.skunkworks.africa/">Browse the store</a></div>
       </div>
       <aside class="hero-panel" aria-label="Platform routes"><p class="eyebrow">Canonical routes</p><a href="https://store.skunkworks.africa/"><strong>Store</strong><span>Products, licensing and commerce →</span></a><a href="https://www.skunkworksacademy.com/"><strong>Academy</strong><span>Training, labs and certification →</span></a><a href="#contact"><strong>Solutions</strong><span>Projects, consulting and managed services →</span></a></aside>
+      <section class="hero-assistant" aria-label="Skunkworks assistant">
+        <div class="hero-assistant__label"><strong>Ask Skunkworks</strong><span>Products · solutions · training</span></div>
+        <form class="hero-assistant__form" data-hero-assistant-form>
+          <label class="sr-only" for="hero-assistant-input">Tell Skunkworks what you need</label>
+          <input class="hero-assistant__input" id="hero-assistant-input" name="q" type="search" autocomplete="off" placeholder="What do you need help with? e.g. Microsoft 365 licensing, zero trust, AI training…" data-hero-assistant-input>
+          <button class="hero-assistant__submit" type="submit">Ask →</button>
+        </form>
+        <div class="hero-assistant__chips" aria-label="Suggested prompts">
+          <button class="hero-assistant__chip" type="button" data-assistant-prompt="Microsoft 365 licensing">Microsoft 365 licensing</button>
+          <button class="hero-assistant__chip" type="button" data-assistant-prompt="AI and automation solutions">AI & automation</button>
+          <button class="hero-assistant__chip" type="button" data-assistant-prompt="cybersecurity training and certification">Security training</button>
+        </div>
+      </section>
     </section>
 
     <section class="section shell" id="solutions"><div class="section-heading"><p class="eyebrow">Solutions</p><h2>Route every technology requirement to the right capability.</h2><p>Structured like the Academy gateway: clear destinations, concise descriptions and direct next actions.</p></div>
