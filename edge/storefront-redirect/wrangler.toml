@@ -1,0 +1,7 @@
+name = "skunkworks-storefront-redirect"
+main = "worker.mjs"
+compatibility_date = "2026-09-01"
+
+# Deploy only after skunkworks.africa is proxied through the selected edge
+# provider. Route assignment is intentionally kept out of source control so
+# account and zone identifiers are never committed.
