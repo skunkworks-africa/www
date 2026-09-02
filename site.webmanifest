@@ -1,0 +1,24 @@
+{
+  "name": "Skunkworks Africa",
+  "short_name": "Skunkworks",
+  "description": "Technology, cloud, AI, cybersecurity, commerce and training across Africa.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "icons": [
+    {
+      "src": "/assets/favicon-black.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/favicon-black_350px.png",
+      "sizes": "350x350",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
