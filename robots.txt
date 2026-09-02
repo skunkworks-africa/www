@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Allow: /assets/favicon-black.ico
+Allow: /assets/favicon-black.png
+Allow: /assets/favicon-black_350px.png
+Allow: /favicon.svg
+Allow: /site.webmanifest
 
 Sitemap: https://www.skunkworks.africa/sitemap.xml
