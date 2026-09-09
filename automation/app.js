@@ -25,7 +25,7 @@
       minMargin: config.defaultMinMargin,
       campaignOwner: 'Commercial',
       salesOwner: 'Sales',
-      marketingOwner: 'Maria / Marketing',
+      marketingOwner: 'Marketing',
       productUrl: '',
       campaignName: 'dell-5490-september',
       commercialApproved: false,
