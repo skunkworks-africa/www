@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Sales Automation Control Centre | Skunkworks Africa</title>
+  <meta name="description" content="Skunkworks Africa internal product-launch, sales-channel and campaign workflow control centre.">
+  <link rel="canonical" href="https://www.skunkworks.africa/automation/">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/adaptive-shell.css">
+  <link rel="stylesheet" href="/assets/skunkworks-global-footer.css">
+  <link rel="stylesheet" href="/automation/automation.css">
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" data-header aria-label="Global header">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="Skunkworks Africa home">
+        <img class="brand-mark" src="/assets/logo-white.svg" alt="" width="34" height="34" aria-hidden="true">
+        <span><strong>Skunkworks</strong><small>Africa</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="/#solutions">Solutions</a>
+        <a href="/#services">Services</a>
+        <a href="https://store.skunkworks.africa/">Store</a>
+        <a href="https://www.skunkworksacademy.com/">Academy</a>
+        <a href="/#company">Company</a>
+      </nav>
+      <div class="header-actions">
+        <a class="utility-link" href="/automation/" aria-current="page">Automation</a>
+        <a class="button button-primary button-small" href="https://store.skunkworks.africa/">Shop</a>
+        <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu" data-menu-button>
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+      <nav class="shell" aria-label="Mobile navigation">
+        <a href="/#solutions">Solutions</a>
+        <a href="/#services">Services</a>
+        <a href="https://store.skunkworks.africa/">Store</a>
+        <a href="https://www.skunkworksacademy.com/">Academy</a>
+        <a href="/#company">Company</a>
+        <a href="/automation/" aria-current="page">Automation control centre</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="automation-main">
+    <section class="automation-hero shell" aria-labelledby="automation-title">
+      <div>
+        <p class="eyebrow">Business automation · Sales operations</p>
+        <h1 id="automation-title">Sales Automation Control Centre</h1>
+        <p class="lead">One governed workflow from supplier product intake to commercial approval, Shopify publication, omnichannel distribution, lead handling, fulfilment and performance review.</p>
+      </div>
+      <aside class="automation-note" aria-label="Data handling note">
+        <strong>Browser-local prototype</strong>
+        <p>Campaign state is stored only in this browser. Do not enter customer personal data, credentials, API keys or confidential supplier information.</p>
+      </aside>
+    </section>
+
+    <section class="shell automation-toolbar" aria-label="Workflow controls">
+      <div>
+        <span class="status-dot" aria-hidden="true"></span>
+        <strong id="save-state">Saved locally</strong>
+        <span id="last-saved" class="muted">Not yet changed</span>
+      </div>
+      <div class="toolbar-actions">
+        <button class="button button-secondary button-small" type="button" id="export-json">Export JSON</button>
+        <button class="button button-secondary button-small" type="button" id="export-csv">Export channel CSV</button>
+        <button class="button button-secondary button-small" type="button" id="reset-workflow">Reset</button>
+      </div>
+    </section>
+
+    <section class="shell kpi-grid" aria-label="Workflow summary">
+      <article class="kpi-card"><span>Workflow completion</span><strong id="kpi-progress">0%</strong><small id="kpi-stage">Stage 1 of 8</small></article>
+      <article class="kpi-card"><span>Gross margin</span><strong id="kpi-margin">—</strong><small id="kpi-margin-value">Enter supplier cost</small></article>
+      <article class="kpi-card"><span>Channels live</span><strong id="kpi-live">0</strong><small id="kpi-required">0 required</small></article>
+      <article class="kpi-card"><span>Launch blockers</span><strong id="kpi-blockers">0</strong><small>Resolve before scaling spend</small></article>
+    </section>
+
+    <section class="shell automation-layout">
+      <div class="automation-primary">
+        <section class="workflow-panel" aria-labelledby="campaign-heading">
+          <div class="panel-heading">
+            <div><p class="eyebrow">Campaign master record</p><h2 id="campaign-heading">Product & commercial controls</h2></div>
+            <span class="badge" id="tier-badge">Tier B</span>
+          </div>
+
+          <form id="campaign-form" class="campaign-form">
+            <div class="field-grid">
+              <label>SKU<input name="sku" autocomplete="off" required></label>
+              <label>Product title<input name="title" autocomplete="off" required></label>
+              <label>Product tier
+                <select name="tier">
+                  <option value="A">Tier A — publish broadly</option>
+                  <option value="B">Tier B — controlled channels</option>
+                  <option value="C">Tier C — sales-assisted</option>
+                </select>
+              </label>
+              <label>Quantity available<input name="stock" type="number" min="0" step="1"></label>
+              <label>Supplier cost (ZAR, excl. VAT)<input name="cost" type="number" min="0" step="0.01" inputmode="decimal"></label>
+              <label>Selling price (ZAR, incl. VAT)<input name="price" type="number" min="0" step="0.01" inputmode="decimal"></label>
+              <label>Minimum gross margin %<input name="minMargin" type="number" min="0" max="100" step="0.1"></label>
+              <label>Campaign owner<input name="campaignOwner" autocomplete="off"></label>
+              <label>Sales owner<input name="salesOwner" autocomplete="off"></label>
+              <label>Marketing owner<input name="marketingOwner" autocomplete="off"></label>
+              <label class="field-span-2">Canonical Shopify product URL<input name="productUrl" type="url" placeholder="https://store.skunkworks.africa/products/..."></label>
+              <label class="field-span-2">Campaign name<input name="campaignName" autocomplete="off" placeholder="dell-5490-september"></label>
+            </div>
+
+            <div class="approval-grid">
+              <label class="check-card"><input name="commercialApproved" type="checkbox"><span><strong>Commercial approved</strong><small>Cost, VAT, margin and discount approved.</small></span></label>
+              <label class="check-card"><input name="stockVerified" type="checkbox"><span><strong>Stock verified</strong><small>Physical availability and quantity confirmed.</small></span></label>
+              <label class="check-card"><input name="warrantyVerified" type="checkbox"><span><strong>Warranty verified</strong><small>Condition, warranty and returns wording confirmed.</small></span></label>
+              <label class="check-card"><input name="storeLive" type="checkbox"><span><strong>Shopify listing live</strong><small>Product page and checkout path verified.</small></span></label>
+              <label class="check-card"><input name="fulfilmentReady" type="checkbox"><span><strong>Fulfilment ready</strong><small>Picking, delivery and order hand-off are ready.</small></span></label>
+              <label class="check-card"><input name="reportingReady" type="checkbox"><span><strong>Reporting ready</strong><small>UTM, channel and weekly KPI capture configured.</small></span></label>
+            </div>
+          </form>
+        </section>
+
+        <section class="workflow-panel" aria-labelledby="stages-heading">
+          <div class="panel-heading"><div><p class="eyebrow">Automated gating</p><h2 id="stages-heading">8-stage launch workflow</h2></div></div>
+          <ol class="stage-list" id="stage-list"></ol>
+        </section>
+
+        <section class="workflow-panel" aria-labelledby="channels-heading">
+          <div class="panel-heading">
+            <div><p class="eyebrow">Omnichannel distribution</p><h2 id="channels-heading">Channel deployment matrix</h2></div>
+            <div class="panel-actions">
+              <button class="text-button" type="button" id="plan-recommended">Plan recommended</button>
+              <button class="text-button" type="button" id="clear-channels">Clear statuses</button>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="channel-table">
+              <thead><tr><th>Channel</th><th>Role</th><th>Requirement</th><th>Status</th><th>URL / evidence</th><th>Note</th></tr></thead>
+              <tbody id="channel-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="workflow-panel" aria-labelledby="utm-heading">
+          <div class="panel-heading"><div><p class="eyebrow">Attribution</p><h2 id="utm-heading">Campaign URL builder</h2></div></div>
+          <div class="utm-grid">
+            <label>Source<input id="utm-source" value="facebook"></label>
+            <label>Medium<input id="utm-medium" value="paid-social"></label>
+            <label>Content<input id="utm-content" placeholder="creative-a"></label>
+            <label class="field-span-2">Generated URL<textarea id="utm-output" rows="3" readonly></textarea></label>
+            <button class="button button-secondary button-small" type="button" id="copy-utm">Copy URL</button>
+          </div>
+        </section>
+
+        <section class="workflow-panel" aria-labelledby="metrics-heading">
+          <div class="panel-heading"><div><p class="eyebrow">Weekly operating review</p><h2 id="metrics-heading">Performance scorecard</h2></div></div>
+          <div class="metrics-grid">
+            <label>Ad spend (ZAR)<input data-metric="spend" type="number" min="0" step="0.01"></label>
+            <label>Leads<input data-metric="leads" type="number" min="0" step="1"></label>
+            <label>Quotes<input data-metric="quotes" type="number" min="0" step="1"></label>
+            <label>Orders<input data-metric="orders" type="number" min="0" step="1"></label>
+            <label>Revenue (ZAR)<input data-metric="revenue" type="number" min="0" step="0.01"></label>
+            <label>Gross profit (ZAR)<input data-metric="grossProfit" type="number" step="0.01"></label>
+          </div>
+          <div class="derived-grid">
+            <div><span>CPL</span><strong id="metric-cpl">—</strong></div>
+            <div><span>Lead → quote</span><strong id="metric-l2q">—</strong></div>
+            <div><span>Quote → order</span><strong id="metric-q2o">—</strong></div>
+            <div><span>ROAS</span><strong id="metric-roas">—</strong></div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="automation-sidebar" aria-label="Action queue and operating policy">
+        <section class="side-panel">
+          <p class="eyebrow">Next best actions</p>
+          <h2>Action queue</h2>
+          <ol class="action-list" id="action-list"></ol>
+        </section>
+
+        <section class="side-panel">
+          <p class="eyebrow">Sales handling</p>
+          <h2>Lead policy</h2>
+          <label>High-intent response target
+            <select id="lead-sla">
+              <option value="15">15 minutes</option>
+              <option value="30">30 minutes</option>
+              <option value="60">60 minutes</option>
+              <option value="240">4 hours</option>
+            </select>
+          </label>
+          <p class="muted small">Recommended operating target for inbound WhatsApp, quote and product enquiries during staffed business hours. Adjust to your actual team coverage.</p>
+        </section>
+
+        <section class="side-panel">
+          <p class="eyebrow">Governance</p>
+          <h2>Source-of-truth rules</h2>
+          <ul class="compact-list">
+            <li>Shopify owns product, price, stock and checkout.</li>
+            <li>Every external channel links back to the canonical store URL where practical.</li>
+            <li>Channel fees must be included in profitability decisions.</li>
+            <li>Tier C offers use assisted sales rather than uncontrolled marketplace publication.</li>
+            <li>No paid scaling while required launch blockers remain.</li>
+          </ul>
+        </section>
+
+        <section class="side-panel">
+          <p class="eyebrow">System boundary</p>
+          <h2>Prototype vs production</h2>
+          <p class="muted small">This page automates workflow logic and evidence tracking in-browser. Production write-back to Shopify, Google, Meta, WhatsApp, Dynamics, Business Central or marketplaces requires authenticated server-side integrations and audit logging.</p>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <div data-skunkworks-footer-mount></div>
+  <script src="/automation/config.js"></script>
+  <script src="/site.js" defer></script>
+  <script src="/automation/app.js" defer></script>
+  <script src="/assets/skunkworks-global-footer.js" defer></script>
+</body>
+</html>
