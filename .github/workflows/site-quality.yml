@@ -22,6 +22,8 @@ jobs:
       - name: Check JavaScript syntax
         run: |
           node --check site.js
+          node --check automation/config.js
+          node --check automation/app.js
           node --check edge/storefront-redirect/worker.mjs
           node --check edge/storefront-redirect/worker.test.mjs
       - name: Validate structure, design and canonical rules
