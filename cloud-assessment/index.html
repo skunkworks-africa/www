@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Microsoft 365 & Google Workspace Assessment | Skunkworks Africa</title>
+  <meta name="description" content="Tell Skunkworks Africa about your users, email, applications, migration, security and support requirements so we can size and price Microsoft 365 or Google Workspace.">
+  <link rel="canonical" href="https://www.skunkworks.africa/cloud-assessment/">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/adaptive-shell.css">
+  <link rel="stylesheet" href="/assets/skunkworks-global-footer.css">
+  <link rel="stylesheet" href="/cloud-assessment/assessment.css">
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" data-header aria-label="Global header">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="Skunkworks Africa home"><img class="brand-mark" src="/assets/logo-white.svg" alt="" width="34" height="34" aria-hidden="true"><span><strong>Skunkworks</strong><small>Africa</small></span></a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="/#solutions">Solutions</a><a href="/#services">Services</a><a href="https://store.skunkworks.africa/">Store</a><a href="https://www.skunkworksacademy.com/">Academy</a><a href="/#company">Company</a>
+      </nav>
+      <div class="header-actions">
+        <a class="utility-link" href="/cloud-assessment/" aria-current="page">Cloud assessment</a>
+        <a class="button button-primary button-small" href="https://store.skunkworks.africa/">Shop</a>
+        <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu" data-menu-button><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+      <nav class="shell" aria-label="Mobile navigation">
+        <a href="/#solutions">Solutions</a><a href="/#services">Services</a><a href="https://store.skunkworks.africa/">Store</a><a href="https://www.skunkworksacademy.com/">Academy</a><a href="/#company">Company</a><a href="/cloud-assessment/" aria-current="page">Cloud assessment</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="assessment-hero shell">
+      <p class="eyebrow">Cloud productivity sizing</p>
+      <h1>Microsoft 365 & Google Workspace information-gathering form</h1>
+      <p class="lead">Complete this assessment so Skunkworks Africa can identify the right licensing mix, migration scope, security requirements and implementation effort for your organisation.</p>
+      <div class="assessment-note"><strong>Typical completion time:</strong> 5–10 minutes. You do not need to know exact licence names.</div>
+    </section>
+
+    <form class="assessment shell" id="cloud-assessment-form">
+      <section class="form-section" aria-labelledby="org-heading">
+        <div class="section-number">01</div><div>
+        <h2 id="org-heading">Organisation & contact</h2>
+        <div class="field-grid">
+          <label>Company / organisation name<input name="company" required autocomplete="organization"></label>
+          <label>Country<select name="country" required><option value="">Select country</option><option>South Africa</option><option>Botswana</option><option>Cameroon</option><option>Gabon</option><option>Malawi</option><option>Namibia</option><option>Nigeria</option><option>Portugal</option><option>Rwanda</option><option>Uganda</option><option>United States</option><option>Other</option></select></label>
+          <label>Primary contact<input name="contactName" required autocomplete="name"></label>
+          <label>Business email<input name="email" type="email" required autocomplete="email"></label>
+          <label>Telephone / WhatsApp<input name="phone" autocomplete="tel"></label>
+          <label>Preferred contact method<select name="contactMethod"><option>Email</option><option>Telephone</option><option>WhatsApp</option><option>Microsoft Teams</option><option>Google Meet</option></select></label>
+        </div></div>
+      </section>
+
+      <section class="form-section" aria-labelledby="platform-heading">
+        <div class="section-number">02</div><div>
+        <h2 id="platform-heading">Current platform & objective</h2>
+        <div class="field-grid">
+          <label>What are you evaluating?<select name="targetPlatform" required><option value="">Select</option><option>Microsoft 365</option><option>Google Workspace</option><option>Both — compare options</option><option>Not sure — advise me</option></select></label>
+          <label>Current environment<select name="currentPlatform"><option>No business email / new company</option><option>Microsoft 365</option><option>Google Workspace</option><option>Hosted Exchange</option><option>cPanel / IMAP / POP email</option><option>On-premises Exchange</option><option>Mixed environment</option><option>Other</option></select></label>
+          <label>Primary requirement<select name="primaryRequirement"><option>New tenant / workspace setup</option><option>Renew or optimise licences</option><option>Migration to Microsoft 365</option><option>Migration to Google Workspace</option><option>Security / compliance uplift</option><option>Consolidate multiple tenants or domains</option><option>Cost optimisation</option></select></label>
+          <label>Desired go-live timeframe<select name="timeline"><option>Immediately / urgent</option><option>Within 2 weeks</option><option>Within 30 days</option><option>1–3 months</option><option>3+ months / planning</option></select></label>
+        </div></div>
+      </section>
+
+      <section class="form-section" aria-labelledby="users-heading">
+        <div class="section-number">03</div><div>
+        <h2 id="users-heading">Users & licence personas</h2>
+        <p class="helper">Split users by what they actually need. This is the most important input for licence sizing.</p>
+        <div class="field-grid numeric-grid">
+          <label>Total users<input name="totalUsers" type="number" min="1" required inputmode="numeric"></label>
+          <label>Full desktop Office / productivity apps<input name="fullAppsUsers" type="number" min="0" value="0" inputmode="numeric"><small>Word, Excel, PowerPoint, Outlook or equivalent desktop apps.</small></label>
+          <label>Email + web/mobile apps only<input name="emailOnlyUsers" type="number" min="0" value="0" inputmode="numeric"><small>Users who do not need installed desktop apps.</small></label>
+          <label>Frontline / shared / kiosk users<input name="frontlineUsers" type="number" min="0" value="0" inputmode="numeric"></label>
+          <label>Users needing advanced security / device management<input name="securityUsers" type="number" min="0" value="0" inputmode="numeric"></label>
+          <label>Shared mailboxes / generic addresses<input name="sharedMailboxes" type="number" min="0" value="0" inputmode="numeric"></label>
+        </div>
+        <div id="persona-warning" class="inline-warning" role="status" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="form-section" aria-labelledby="services-heading">
+        <div class="section-number">04</div><div>
+        <h2 id="services-heading">Services required</h2>
+        <div class="choice-grid">
+          <label><input type="checkbox" name="services" value="Business email"> Business email</label>
+          <label><input type="checkbox" name="services" value="Desktop productivity apps"> Desktop productivity apps</label>
+          <label><input type="checkbox" name="services" value="Cloud file storage"> Cloud file storage</label>
+          <label><input type="checkbox" name="services" value="Teams / Meet"> Teams / Meet</label>
+          <label><input type="checkbox" name="services" value="SharePoint / shared intranet"> SharePoint / shared intranet</label>
+          <label><input type="checkbox" name="services" value="Endpoint / device management"> Endpoint / device management</label>
+          <label><input type="checkbox" name="services" value="Email security / anti-phishing"> Email security / anti-phishing</label>
+          <label><input type="checkbox" name="services" value="Identity / MFA / Conditional Access"> Identity / MFA / Conditional Access</label>
+          <label><input type="checkbox" name="services" value="Data retention / eDiscovery"> Data retention / eDiscovery</label>
+          <label><input type="checkbox" name="services" value="Copilot / Gemini AI"> Copilot / Gemini AI</label>
+        </div></div>
+      </section>
+
+      <section class="form-section" aria-labelledby="migration-heading">
+        <div class="section-number">05</div><div>
+        <h2 id="migration-heading">Domains, data & migration</h2>
+        <div class="field-grid">
+          <label>Primary email domain<input name="domain" placeholder="example.com"></label>
+          <label>Number of domains<input name="domainCount" type="number" min="0" value="1"></label>
+          <label>Approx. email data to migrate<select name="mailData"><option>None / new environment</option><option>Under 50 GB total</option><option>50–250 GB</option><option>250 GB–1 TB</option><option>Over 1 TB</option><option>Unknown</option></select></label>
+          <label>Approx. files / shared-drive data<select name="fileData"><option>None</option><option>Under 100 GB</option><option>100–500 GB</option><option>500 GB–2 TB</option><option>Over 2 TB</option><option>Unknown</option></select></label>
+          <label>Source system for email/data<input name="sourceSystem" placeholder="e.g. Google Workspace, cPanel, Exchange 2019"></label>
+          <label>Existing tenant/workspace administrator access?<select name="adminAccess"><option>Yes</option><option>No</option><option>Not sure</option></select></label>
+        </div></div>
+      </section>
+
+      <section class="form-section" aria-labelledby="security-heading">
+        <div class="section-number">06</div><div>
+        <h2 id="security-heading">Security, devices & compliance</h2>
+        <div class="field-grid">
+          <label>Company-owned devices<select name="managedDevices"><option>None / BYOD only</option><option>1–10</option><option>11–50</option><option>51–250</option><option>250+</option></select></label>
+          <label>Device platforms<select name="devicePlatforms"><option>Mostly Windows</option><option>Windows + macOS</option><option>Mobile only</option><option>Mixed Windows/macOS/iOS/Android</option><option>Other</option></select></label>
+          <label>Regulatory / compliance requirements<input name="compliance" placeholder="e.g. POPIA, GDPR, PCI DSS, banking policy"></label>
+          <label>MFA already enabled?<select name="mfa"><option>Yes — all users</option><option>Some users</option><option>No</option><option>Not sure</option></select></label>
+        </div></div>
+      </section>
+
+      <section class="form-section" aria-labelledby="support-heading">
+        <div class="section-number">07</div><div>
+        <h2 id="support-heading">Implementation & support</h2>
+        <div class="choice-grid">
+          <label><input type="checkbox" name="support" value="Tenant/workspace setup"> Tenant/workspace setup</label>
+          <label><input type="checkbox" name="support" value="Domain and DNS configuration"> Domain and DNS configuration</label>
+          <label><input type="checkbox" name="support" value="Email/data migration"> Email/data migration</label>
+          <label><input type="checkbox" name="support" value="Security baseline configuration"> Security baseline configuration</label>
+          <label><input type="checkbox" name="support" value="User onboarding"> User onboarding</label>
+          <label><input type="checkbox" name="support" value="Managed support"> Ongoing managed support</label>
+          <label><input type="checkbox" name="support" value="End-user training"> End-user training</label>
+          <label><input type="checkbox" name="support" value="Administrator training"> Administrator training</label>
+        </div>
+        <label class="full-width">Anything else we should know?<textarea name="notes" rows="5" placeholder="Business requirements, existing issues, special users, branch offices, migration constraints, budget guidance, etc."></textarea></label>
+        </div>
+      </section>
+
+      <section class="form-section consent-section" aria-labelledby="consent-heading">
+        <div class="section-number">08</div><div>
+        <h2 id="consent-heading">Review & send</h2>
+        <label class="consent"><input type="checkbox" name="consent" required> I consent to Skunkworks Africa using this information to prepare licensing, migration and service recommendations and to contact me about this request.</label>
+        <p class="helper">Do not include passwords, MFA codes, API keys, recovery codes or other secrets in this form.</p>
+        <div class="actions">
+          <button class="button button-primary" type="button" id="preview-assessment">Preview assessment</button>
+          <button class="button button-secondary" type="submit">Send to Skunkworks</button>
+        </div>
+        <div id="assessment-output" class="assessment-output" hidden>
+          <h3>Assessment summary</h3>
+          <pre id="assessment-summary"></pre>
+          <div class="actions"><button class="button button-secondary" type="button" id="copy-summary">Copy summary</button><button class="button button-secondary" type="button" id="download-summary">Download summary</button></div>
+        </div>
+        </div>
+      </section>
+    </form>
+  </main>
+
+  <div data-skunkworks-footer-mount></div>
+  <script src="/site.js" defer></script>
+  <script src="/cloud-assessment/assessment.js" defer></script>
+  <script src="/assets/skunkworks-global-footer.js" defer></script>
+</body>
+</html>

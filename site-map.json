@@ -18,20 +18,72 @@
     "Mobile navigation must expose the same primary destinations as desktop navigation."
   ],
   "primaryNavigation": [
-    {"label":"Solutions","url":"/#solutions","surface":"corporate"},
-    {"label":"Services","url":"/#services","surface":"corporate"},
-    {"label":"Store","url":"https://store.skunkworks.africa/","surface":"store"},
-    {"label":"Academy","url":"https://www.skunkworksacademy.com/","surface":"academy"},
-    {"label":"Company","url":"/#company","surface":"corporate"}
+    {
+      "label": "Solutions",
+      "url": "/#solutions",
+      "surface": "corporate"
+    },
+    {
+      "label": "Services",
+      "url": "/#services",
+      "surface": "corporate"
+    },
+    {
+      "label": "Store",
+      "url": "https://store.skunkworks.africa/",
+      "surface": "store"
+    },
+    {
+      "label": "Academy",
+      "url": "https://www.skunkworksacademy.com/",
+      "surface": "academy"
+    },
+    {
+      "label": "Company",
+      "url": "/#company",
+      "surface": "corporate"
+    }
   ],
   "commerceRoutes": [
-    {"label":"Microsoft 365","url":"https://store.skunkworks.africa/collections/microsoft-365-reseller-south-africa"},
-    {"label":"Microsoft 365 Licensing","url":"https://store.skunkworks.africa/collections/microsoft-365-licensing-south-africa"},
-    {"label":"Software","url":"https://store.skunkworks.africa/collections/software"},
-    {"label":"AI & Automation","url":"https://store.skunkworks.africa/collections/ai-and-automation-solutions"},
-    {"label":"Cybersecurity","url":"https://store.skunkworks.africa/collections/cybersecurity-solutions"},
-    {"label":"Business Solutions","url":"https://store.skunkworks.africa/collections/business-solutions"},
-    {"label":"Education Solutions","url":"https://store.skunkworks.africa/collections/education-solutions"},
-    {"label":"CompTIA","url":"https://store.skunkworks.africa/collections/comptia-certification-training"}
+    {
+      "label": "Microsoft 365",
+      "url": "https://store.skunkworks.africa/collections/microsoft-365-reseller-south-africa"
+    },
+    {
+      "label": "Microsoft 365 Licensing",
+      "url": "https://store.skunkworks.africa/collections/microsoft-365-licensing-south-africa"
+    },
+    {
+      "label": "Software",
+      "url": "https://store.skunkworks.africa/collections/software"
+    },
+    {
+      "label": "AI & Automation",
+      "url": "https://store.skunkworks.africa/collections/ai-and-automation-solutions"
+    },
+    {
+      "label": "Cybersecurity",
+      "url": "https://store.skunkworks.africa/collections/cybersecurity-solutions"
+    },
+    {
+      "label": "Business Solutions",
+      "url": "https://store.skunkworks.africa/collections/business-solutions"
+    },
+    {
+      "label": "Education Solutions",
+      "url": "https://store.skunkworks.africa/collections/education-solutions"
+    },
+    {
+      "label": "CompTIA",
+      "url": "https://store.skunkworks.africa/collections/comptia-certification-training"
+    }
+  ],
+  "assistedSalesRoutes": [
+    {
+      "label": "Microsoft 365 & Google Workspace Assessment",
+      "url": "/cloud-assessment/",
+      "surface": "corporate",
+      "purpose": "Tenant/workspace sizing, licensing personas, migration scope and service discovery"
+    }
   ]
 }
