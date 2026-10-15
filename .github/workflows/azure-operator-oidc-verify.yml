@@ -1,0 +1,24 @@
+name: Verify Azure Operator OIDC (read-only)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    environment: azure-operator-production
+    steps:
+      - name: Authenticate with Azure using GitHub OIDC
+        uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_DEPLOY_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - name: Verify Function App access (read-only)
+        env:
+          RG: rg-skunkworks-automation-prod
+          APP: ${{ vars.AZURE_OPERATOR_FUNCTION_APP }}
+        run: |
+          az account show --query '{subscription:id,tenant:tenantId,state:state}' --output table
+          az resource show --resource-group "$RG" --resource-type Microsoft.Web/sites --name "$APP" --query '{name:name,id:id,location:location}' --output table
