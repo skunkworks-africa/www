@@ -15,6 +15,8 @@ jobs:
           node-version: '22'
       - name: Check API source syntax
         run: node --check edge/azure-operator-gateway/src/functions/inventory.js
+      - name: Check MCP source syntax
+        run: node --check edge/azure-operator-gateway/src/functions/mcp.js
       - name: Azure login via federated identity
         uses: azure/login@v2
         with:
@@ -43,3 +45,14 @@ jobs:
           app-name: ${{ vars.AZURE_OPERATOR_FUNCTION_APP }}
           package: edge/azure-operator-gateway
           remote-build: true
+      - name: Smoke test MCP without an access token
+        shell: bash
+        run: |
+          set -euo pipefail
+          HOST=$(az functionapp show --name "${{ vars.AZURE_OPERATOR_FUNCTION_APP }}" --resource-group rg-skunkworks-automation-prod --query defaultHostName -o tsv)
+          test -n "$HOST"
+          echo "Testing /api/mcp unauthenticated rejection (no tokens logged)"
+          RESPONSE=$(curl -sS --max-time 30 -o /tmp/mcp-response.json -w '%{http_code}' -X POST "https://$HOST/api/mcp" -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}')
+          test "$RESPONSE" = "401" || { echo "Unexpected status $RESPONSE"; cat /tmp/mcp-response.json; exit 1; }
+          grep -q 'Bearer access token required' /tmp/mcp-response.json
+          echo 'MCP unauthenticated rejection passed'
