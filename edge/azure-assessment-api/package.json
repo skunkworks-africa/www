@@ -4,5 +4,12 @@
   "type": "module",
   "dependencies": {
     "@azure/functions": "^4.7.0"
+  },
+  "main": "src/functions/*.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "func start"
   }
 }
