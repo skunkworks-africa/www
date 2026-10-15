@@ -1,0 +1,8 @@
+{
+  "name": "skunkworks-azure-assessment",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@azure/functions": "^4.7.0"
+  }
+}
