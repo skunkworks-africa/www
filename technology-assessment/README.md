@@ -1,6 +1,12 @@
 # Business Technology & Expenditure Assessment
 Public form: `/technology-assessment/`.
 
+## Hosting policy: no Netlify
+- GitHub Pages hosts the corporate site using `.github/workflows/static.yml`.
+- Cloudflare Workers handles only the secure `/api/technology-assessment` endpoint, after configuration.
+- Netlify must not be used for builds, previews, hosting, form collection, or email delivery.
+- The Netlify checks currently visible in GitHub originate from an existing external Netlify GitHub integration, not this repository's GitHub Actions workflows. To stop those checks, disconnect the repository from the Netlify project or remove Netlify's repository access in GitHub organization settings. This requires an administrator; editing repository files cannot revoke the external integration.
+
 ## Deployment limitation
 This website is hosted by **GitHub Pages**, which is static. The new form sends a POST to `/api/technology-assessment`; GitHub Pages alone **cannot** execute this endpoint. Until the Worker route below is configured, the form correctly shows an error rather than claiming an email was sent.
 
