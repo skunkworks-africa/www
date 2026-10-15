@@ -5,6 +5,7 @@ const worker=readFileSync('edge/technology-assessment-worker/worker.js','utf8');
 new vm.Script(js);new vm.SourceTextModule(worker);
 for(const required of ['company','contactName','email','accuracy','privacyConsent','payments','add-payment','submit-assessment']) assert.match(html,new RegExp(required));
 assert.match(html,/technology-assessment\/assessment\.js/);
+for(const name of ['companySmartphones','companyTablets','mobileHotspots','byodDevices','mobileSims','mobileCarriers','mobilePlatforms','mobileFunding','mobileContractTypes','mobileRenewals90','mobileManagement','mobileSecurity','mobileMonthlySpend','mobileSpendCurrency','mobileNotes']) {assert.match(html,new RegExp('name="'+name+'"'));assert.match(worker,new RegExp("'"+name+"'"));}
 assert.match(js,/fetch\('\/api\/technology-assessment'/);
 assert.match(worker,/sales@skunkworks\.africa/);
 let calls=0;const originalFetch=globalThis.fetch;
