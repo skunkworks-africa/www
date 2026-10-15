@@ -5,14 +5,14 @@ function respond(res,status,data,origin){res.setHeader('Cache-Control','no-store
 export default async function handler(req,res){
  const origin=req.headers.origin;
  if(origin&&!ORIGINS.has(origin))return respond(res,403,{ok:false,error:'Invalid origin'},origin);
- if(req.method==='OPTIONS')return respond(res,204,{},origin);
+ if(req.method==='OPTIONS'){res.setHeader('Access-Control-Allow-Origin',ORIGINS.has(origin)?origin:'');res.setHeader('Access-Control-Allow-Methods','POST, OPTIONS');res.setHeader('Access-Control-Allow-Headers','Content-Type');res.setHeader('Vary','Origin');return res.status(204).end();}
  if(req.method!=='POST')return respond(res,405,{ok:false,error:'Method not allowed'},origin);
  if(!origin||!ORIGINS.has(origin))return respond(res,403,{ok:false,error:'Origin required'},origin);
  if(!String(req.headers['content-type']||'').startsWith('application/json'))return respond(res,415,{ok:false,error:'JSON required'},origin);
  if(Number(req.headers['content-length']||0)>100000)return respond(res,413,{ok:false,error:'Payload too large'},origin);
- const body=typeof req.body==='string'?JSON.parse(req.body):req.body;
+ let body;try{body=typeof req.body==='string'?JSON.parse(req.body):req.body;}catch{return respond(res,400,{ok:false,error:'Malformed JSON'},origin)}
  if(!body||typeof body!=='object'||typeof body.fields!=='object'||!Array.isArray(body.payments)||body.payments.length>150)return respond(res,400,{ok:false,error:'Invalid assessment'},origin);
- if(body.websiteTrap)return respond(res,200,{ok:true,reference:'RECEIVED'},origin); // bot honeypot
+ if(body.websiteTrap)return respond(res,400,{ok:false,error:'Invalid submission'},origin);
  const f=body.fields;
  if(!f.accuracy||!f.privacyConsent||!CLEAN(f.company).trim()||!CLEAN(f.contactName).trim()||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(CLEAN(f.email)))return respond(res,400,{ok:false,error:'Missing required fields'},origin);
  if(!process.env.RESEND_API_KEY||!process.env.MAIL_FROM||!process.env.TURNSTILE_SECRET_KEY)return respond(res,503,{ok:false,error:'Email handler not configured'},origin);
