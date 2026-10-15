@@ -1,5 +1,8 @@
 # Azure infrastructure (review before execution)
 
+> **DEPLOYMENT BLOCKED:** The current Bicep uses legacy Linux Consumption Y1. Do not deploy until revised for Flex Consumption, compiled, subscription-validated, and cost-reviewed. See [VALIDATION-AND-COST-REVIEW.md](./VALIDATION-AND-COST-REVIEW.md).
+
+
 This Bicep template is **not deployed**. It provisions a Linux Azure Functions Consumption (Y1) plan, Function App with system-assigned managed identity, StorageV2 LRS, Log Analytics (30-day retention), and workspace-linked Application Insights.
 
 ## Pre-deployment checks
