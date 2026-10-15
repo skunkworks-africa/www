@@ -13,17 +13,33 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Install API dependencies
-        working-directory: edge/azure-operator-gateway
-        run: npm install --no-audit --no-fund
+      - name: Check API source syntax
+        run: node --check edge/azure-operator-gateway/src/functions/inventory.js
       - name: Azure login via federated identity
         uses: azure/login@v2
         with:
           client-id: ${{ vars.AZURE_DEPLOY_CLIENT_ID }}
           tenant-id: ${{ vars.AZURE_TENANT_ID }}
           subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - name: Verify target app and required security configuration
+        env:
+          APP: ${{ vars.AZURE_OPERATOR_FUNCTION_APP }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          RG='rg-skunkworks-automation-prod'
+          [[ "$APP" == 'func-skunkworks-operator-prod' ]] || { echo 'Unexpected Function App target'; exit 1; }
+          APP_ID=$(az functionapp show --name "$APP" --resource-group "$RG" --query id -o tsv)
+          [[ "$APP_ID" == "/subscriptions/${{ vars.AZURE_SUBSCRIPTION_ID }}/resourceGroups/$RG/providers/Microsoft.Web/sites/$APP" ]] || { echo 'Unexpected Azure resource identifier'; exit 1; }
+          az functionapp show --name "$APP" --resource-group "$RG" --query '{name:name,kind:kind,location:location}' -o json
+          SETTINGS=$(az functionapp config appsettings list --name "$APP" --resource-group "$RG" --query '[].name' -o tsv)
+          for KEY in AZURE_CLIENT_ID AZURE_SUBSCRIPTION_ID AZURE_RESOURCE_GROUP AZURE_OPERATOR_API_AUDIENCE AZURE_OPERATOR_ALLOWED_USER_OIDS; do
+            grep -Fxq "$KEY" <<< "$SETTINGS" || { echo "Missing required app setting: $KEY"; exit 1; }
+          done
+          echo 'Required setting names present (values deliberately not printed).'
       - name: Deploy via Azure Functions Action
         uses: Azure/functions-action@v1
         with:
           app-name: ${{ vars.AZURE_OPERATOR_FUNCTION_APP }}
           package: edge/azure-operator-gateway
+          remote-build: true
