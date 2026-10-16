@@ -5,6 +5,9 @@ import { createRemoteJWKSet, jwtVerify } from 'jose';
 const tenant = '338a8916-80d9-467c-a94a-7f61d04ef7d5';
 const jwks = createRemoteJWKSet(new URL('https://login.microsoftonline.com/' + tenant + '/discovery/v2.0/keys'));
 const credential = new DefaultAzureCredential({ managedIdentityClientId: process.env.AZURE_CLIENT_ID });
+const resourceUrl = 'https://func-skunkworks-operator-prod-c0c0gzc2asgmfpa4.southafricanorth-01.azurewebsites.net/api/mcp';
+const metadataUrl = 'https://func-skunkworks-operator-prod-c0c0gzc2asgmfpa4.southafricanorth-01.azurewebsites.net/api/.well-known/oauth-protected-resource';
+const challenge = 'Bearer resource_metadata="' + metadataUrl + '", scope="Azure.Read"';
 const json = (status, body) => ({ status, jsonBody: body, headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff', 'Content-Type': 'application/json' } });
 const error = (id, code, message) => ({ jsonrpc: '2.0', id, error: { code, message } });
 const result = (id, data) => ({ jsonrpc: '2.0', id, result: data });
@@ -47,7 +50,11 @@ export async function mcpHandler(request, context) {
   if (request.method === 'GET') return json(405, { error: 'Only JSON-RPC POST supported' });
   if (request.method !== 'POST') return json(405, { error: 'Method not allowed' });
   const auth = await authorize(request);
-  if (auth.status !== 200) return json(auth.status, { error: auth.message });
+  if (auth.status !== 200) {
+    const response = json(auth.status, { error: auth.message });
+    if (auth.status === 401) response.headers['WWW-Authenticate'] = challenge;
+    return response;
+  }
   const contentType = request.headers.get('content-type') || '';
   if (!contentType.toLowerCase().includes('application/json')) return json(415, { error: 'Content-Type must be application/json' });
   let data;
@@ -73,3 +80,15 @@ export async function mcpHandler(request, context) {
   return json(200, error(id, -32601, 'Method not found'));
 }
 app.http('operator-mcp', { methods: ['GET', 'POST'], authLevel: 'anonymous', route: 'mcp', handler: mcpHandler });
+
+// Azure Functions uses the default /api route prefix. For standards-compliant
+// root /.well-known discovery, add an HTTPS fronting proxy rewrite before ChatGPT connection.
+export function protectedResourceMetadata(_request) {
+  return json(200, {
+    resource: resourceUrl,
+    authorization_servers: ['https://login.microsoftonline.com/' + tenant + '/v2.0'],
+    scopes_supported: ['Azure.Read'],
+    bearer_methods_supported: ['header']
+  });
+}
+app.http('operator-oauth-resource', { methods: ['GET'], authLevel: 'anonymous', route: '.well-known/oauth-protected-resource', handler: protectedResourceMetadata });
