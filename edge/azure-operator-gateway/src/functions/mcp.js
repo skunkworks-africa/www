@@ -90,3 +90,6 @@ export function protectedResourceMetadata(_request) {
   });
 }
 app.http('operator-oauth-resource', { methods: ['GET'], authLevel: 'anonymous', route: '.well-known/oauth-protected-resource', handler: protectedResourceMetadata });
+
+// RFC 9728 path-specific discovery for the /api/mcp protected resource.
+app.http('operator-oauth-resource-path', { methods: ['GET'], authLevel: 'anonymous', route: '.well-known/oauth-protected-resource/api/mcp', handler: protectedResourceMetadata });
