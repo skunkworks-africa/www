@@ -56,3 +56,11 @@ jobs:
           test "$RESPONSE" = "401" || { echo "Unexpected status $RESPONSE"; cat /tmp/mcp-response.json; exit 1; }
           echo 'HTTP 401 confirmed; rejecting unauthenticated MCP calls.'
           echo 'MCP unauthenticated rejection passed'
+      - name: Verify OAuth protected-resource discovery
+        shell: bash
+        run: |
+          set -euo pipefail
+          HOST=$(az functionapp show --name "${{ vars.AZURE_OPERATOR_FUNCTION_APP }}" --resource-group rg-skunkworks-automation-prod --query defaultHostName -o tsv)
+          curl --fail --silent --show-error --max-time 30 "https://$HOST/api/.well-known/oauth-protected-resource" -o /tmp/resource.json
+          node -e "const m=require('/tmp/resource.json'); if(!m.resource?.endsWith('/api/mcp') || !m.authorization_servers?.length || !m.scopes_supported?.includes('Azure.Read'))process.exit(1)"
+          echo 'OAuth protected-resource discovery passed at /api/.well-known/oauth-protected-resource'
