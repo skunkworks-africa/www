@@ -52,8 +52,19 @@ jobs:
           HOST=$(az functionapp show --name "${{ vars.AZURE_OPERATOR_FUNCTION_APP }}" --resource-group rg-skunkworks-automation-prod --query defaultHostName -o tsv)
           test -n "$HOST"
           echo "Testing /api/mcp unauthenticated rejection (no tokens logged)"
-          RESPONSE=$(curl -sS --max-time 30 -o /tmp/mcp-response.json -w '%{http_code}' -X POST "https://$HOST/api/mcp" -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}')
-          test "$RESPONSE" = "401" || { echo "Unexpected status $RESPONSE"; cat /tmp/mcp-response.json; exit 1; }
+          set +e
+          RESPONSE=$(curl -sS --connect-timeout 10 --max-time 30 --output /tmp/mcp-response.json --write-out '%{http_code}' -X POST "https://$HOST/api/mcp" -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}')
+          CURL_EXIT=$?
+          set -e
+          echo "MCP status: ${RESPONSE:-unknown}; curl exit: $CURL_EXIT"
+          if [[ "$CURL_EXIT" -ne 0 ]]; then echo "MCP transport failure; inspect runtime and Function App host logs."; exit 1; fi
+          if [[ "$RESPONSE" != "401" ]]; then
+            echo "MCP expected HTTP 401, got $RESPONSE"
+            echo "Response body (truncated):"
+            head -c 500 /tmp/mcp-response.json | tr -cd '[:print:]\n'
+            echo
+            exit 1
+          fi
           echo 'HTTP 401 confirmed; rejecting unauthenticated MCP calls.'
           echo 'MCP unauthenticated rejection passed'
       - name: Verify OAuth protected-resource discovery
