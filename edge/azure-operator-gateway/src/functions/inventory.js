@@ -33,4 +33,4 @@ export async function inventory(req,ctx){
   return json(200,{subscriptionId:sub,resourceGroup:rg,kind:target,items:(target==='resource-group'?[body]:body.value||[]).map(x=>({id:x.id,name:x.name,type:x.type,location:x.location,resourceGroup:x.resourceGroup})),nextLinkAvailable:Boolean(body.nextLink)});
  }catch(e){ctx.error('Inventory execution error '+e.name);return json(502,{error:'Azure inventory unavailable'})}
 }
-app.http('operator-inventory',{methods:['GET'],authLevel:'anonymous',route:'operator/inventory',handler:inventory});
+app.http('operator-inventory',{methods:['GET'],authLevel:'anonymous',route:'api/operator/inventory',handler:inventory});

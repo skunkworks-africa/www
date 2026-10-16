@@ -6,7 +6,7 @@ const tenant = '338a8916-80d9-467c-a94a-7f61d04ef7d5';
 const jwks = createRemoteJWKSet(new URL('https://login.microsoftonline.com/' + tenant + '/discovery/v2.0/keys'));
 const credential = new DefaultAzureCredential({ managedIdentityClientId: process.env.AZURE_CLIENT_ID });
 const resourceUrl = 'https://func-skunkworks-operator-prod-c0c0gzc2asgmfpa4.southafricanorth-01.azurewebsites.net/api/mcp';
-const metadataUrl = 'https://func-skunkworks-operator-prod-c0c0gzc2asgmfpa4.southafricanorth-01.azurewebsites.net/api/.well-known/oauth-protected-resource';
+const metadataUrl = 'https://func-skunkworks-operator-prod-c0c0gzc2asgmfpa4.southafricanorth-01.azurewebsites.net/.well-known/oauth-protected-resource';
 const challenge = 'Bearer resource_metadata="' + metadataUrl + '", scope="Azure.Read"';
 const json = (status, body) => ({ status, jsonBody: body, headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff', 'Content-Type': 'application/json' } });
 const error = (id, code, message) => ({ jsonrpc: '2.0', id, error: { code, message } });
@@ -79,10 +79,8 @@ export async function mcpHandler(request, context) {
   }
   return json(200, error(id, -32601, 'Method not found'));
 }
-app.http('operator-mcp', { methods: ['GET', 'POST'], authLevel: 'anonymous', route: 'mcp', handler: mcpHandler });
+app.http('operator-mcp', { methods: ['GET', 'POST'], authLevel: 'anonymous', route: 'api/mcp', handler: mcpHandler });
 
-// Azure Functions uses the default /api route prefix. For standards-compliant
-// root /.well-known discovery, add an HTTPS fronting proxy rewrite before ChatGPT connection.
 export function protectedResourceMetadata(_request) {
   return json(200, {
     resource: resourceUrl,
@@ -92,3 +90,6 @@ export function protectedResourceMetadata(_request) {
   });
 }
 app.http('operator-oauth-resource', { methods: ['GET'], authLevel: 'anonymous', route: '.well-known/oauth-protected-resource', handler: protectedResourceMetadata });
+
+// RFC 9728 path-specific discovery for the /api/mcp protected resource.
+app.http('operator-oauth-resource-path', { methods: ['GET'], authLevel: 'anonymous', route: '.well-known/oauth-protected-resource/api/mcp', handler: protectedResourceMetadata });
