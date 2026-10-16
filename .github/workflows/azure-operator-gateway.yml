@@ -62,5 +62,11 @@ jobs:
           set -euo pipefail
           HOST=$(az functionapp show --name "${{ vars.AZURE_OPERATOR_FUNCTION_APP }}" --resource-group rg-skunkworks-automation-prod --query defaultHostName -o tsv)
           curl --fail --silent --show-error --max-time 30 "https://$HOST/.well-known/oauth-protected-resource" -o /tmp/resource.json
-          node -e "const m=require('/tmp/resource.json'); if(!m.resource?.endsWith('/api/mcp') || !m.authorization_servers?.length || !m.scopes_supported?.includes('Azure.Read'))process.exit(1)"
+          node -e "const m=require('/tmp/resource.json'); if(!m.resource?.endsWith('/api/mcp') || !m.authorization_servers?.includes('https://login.microsoftonline.com/338a8916-80d9-467c-a94a-7f61d04ef7d5/v2.0') || !m.scopes_supported?.includes('api://d5cff578-a135-4fc9-b884-45677ec05b1c/Azure.Read'))process.exit(1)"
+          curl --fail --silent --show-error --max-time 30 "https://$HOST/.well-known/oauth-protected-resource/api/mcp" -o /tmp/resource-path.json
+          node -e "const m=require('/tmp/resource-path.json'); if(!m.resource?.endsWith('/api/mcp'))process.exit(1)"
+          CODE=$(curl -sS --max-time 30 -D /tmp/challenge-headers.txt -o /dev/null -w '%{http_code}' -X POST "https://$HOST/api/mcp" -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}')
+          test "$CODE" = "401"
+          grep -iq '^www-authenticate: Bearer ' /tmp/challenge-headers.txt
+          grep -Fq 'resource_metadata=' /tmp/challenge-headers.txt
           echo 'OAuth protected-resource discovery passed at /.well-known/oauth-protected-resource'
