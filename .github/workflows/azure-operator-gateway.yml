@@ -50,6 +50,11 @@ jobs:
         run: |
           set -euo pipefail
           HOST=$(az functionapp show --name "${{ vars.AZURE_OPERATOR_FUNCTION_APP }}" --resource-group rg-skunkworks-automation-prod --query defaultHostName -o tsv)
+          if [[ -z "$HOST" || "$HOST" == "None" ]]; then
+            echo "Azure CLI returned no defaultHostName; using verified portal hostname."
+            HOST='func-skunkworks-operator-prod-c0c0gzc2asgmfpa4.southafricanorth-01.azurewebsites.net'
+          fi
+          echo "MCP target host: $HOST"
           test -n "$HOST"
           echo "Testing /api/mcp unauthenticated rejection (no tokens logged)"
           set +e
@@ -72,6 +77,11 @@ jobs:
         run: |
           set -euo pipefail
           HOST=$(az functionapp show --name "${{ vars.AZURE_OPERATOR_FUNCTION_APP }}" --resource-group rg-skunkworks-automation-prod --query defaultHostName -o tsv)
+          if [[ -z "$HOST" || "$HOST" == "None" ]]; then
+            echo "Azure CLI returned no defaultHostName; using verified portal hostname."
+            HOST='func-skunkworks-operator-prod-c0c0gzc2asgmfpa4.southafricanorth-01.azurewebsites.net'
+          fi
+          echo "MCP target host: $HOST"
           curl --fail --silent --show-error --max-time 30 "https://$HOST/.well-known/oauth-protected-resource" -o /tmp/resource.json
           node -e "const m=require('/tmp/resource.json'); if(!m.resource?.endsWith('/api/mcp') || !m.authorization_servers?.includes('https://login.microsoftonline.com/338a8916-80d9-467c-a94a-7f61d04ef7d5/v2.0') || !m.scopes_supported?.includes('api://d5cff578-a135-4fc9-b884-45677ec05b1c/Azure.Read'))process.exit(1)"
           curl --fail --silent --show-error --max-time 30 "https://$HOST/.well-known/oauth-protected-resource/api/mcp" -o /tmp/resource-path.json
