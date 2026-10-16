@@ -7,7 +7,8 @@ const jwks = createRemoteJWKSet(new URL('https://login.microsoftonline.com/' + t
 const credential = new DefaultAzureCredential({ managedIdentityClientId: process.env.AZURE_CLIENT_ID });
 const resourceUrl = 'https://func-skunkworks-operator-prod-c0c0gzc2asgmfpa4.southafricanorth-01.azurewebsites.net/api/mcp';
 const metadataUrl = 'https://func-skunkworks-operator-prod-c0c0gzc2asgmfpa4.southafricanorth-01.azurewebsites.net/.well-known/oauth-protected-resource';
-const challenge = 'Bearer resource_metadata="' + metadataUrl + '", scope="Azure.Read"';
+const readScope = 'api://d5cff578-a135-4fc9-b884-45677ec05b1c/Azure.Read';
+const challenge = 'Bearer resource_metadata="' + metadataUrl + '", scope="' + readScope + '"';
 const json = (status, body) => ({ status, jsonBody: body, headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff', 'Content-Type': 'application/json' } });
 const error = (id, code, message) => ({ jsonrpc: '2.0', id, error: { code, message } });
 const result = (id, data) => ({ jsonrpc: '2.0', id, result: data });
@@ -85,7 +86,7 @@ export function protectedResourceMetadata(_request) {
   return json(200, {
     resource: resourceUrl,
     authorization_servers: ['https://login.microsoftonline.com/' + tenant + '/v2.0'],
-    scopes_supported: ['Azure.Read'],
+    scopes_supported: [readScope],
     bearer_methods_supported: ['header']
   });
 }
