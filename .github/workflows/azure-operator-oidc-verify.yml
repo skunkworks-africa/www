@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: azure-operator-production
     steps:
+      - uses: actions/checkout@v4
       - name: Authenticate with Azure using GitHub OIDC
         uses: azure/login@v2
         with:
@@ -22,3 +23,8 @@ jobs:
         run: |
           az account show --query '{subscription:id,tenant:tenantId,state:state}' --output table
           az resource show --resource-group "$RG" --resource-type Microsoft.Web/sites --name "$APP" --query '{name:name,id:id,location:location}' --output table
+      - name: Inspect runtime identity and RBAC without changing resources
+        env:
+          AZURE_SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+          AZURE_TENANT_ID: ${{ vars.AZURE_TENANT_ID }}
+        run: bash edge/azure-operator-gateway/scripts/verify-permissions.sh

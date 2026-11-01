@@ -42,14 +42,17 @@ prior approvals. Never trust a client-supplied status, score, actor or approval 
 
 ## Target architecture
 
-Public www/resellers entry -> authenticated applicant Power Pages portal (preferred custom
-host partners.skunkworks.africa) -> Dataverse Reseller Application -> private SharePoint KYC
-library -> Power Automate review and approvals -> Dynamics Account/Contact activation.
+Public www/resellers entry -> dedicated authenticated Azure Functions applicant API ->
+Dataverse Reseller Application -> private SharePoint KYC library -> review and approvals ->
+Dynamics Account/Contact activation. Azure Functions is the selected backend; no Netlify.
+The existing Azure Functions MCP project now has a separately authenticated reseller operator
+endpoint; see edge/azure-operator-gateway/RESELLER-MCP.md. Applicant API/upload services remain
+to be implemented. partners.skunkworks.africa is a proposed frontend host, not a provisioned domain.
 
 Use applicant identity and record-scoped permissions. An applicant sees only their own
 application and evidence requests. Public GitHub Pages must not carry Graph credentials,
-Power Automate signed webhook URLs, KYC documents or application data. If a custom Azure
-API is selected instead of Power Pages, build and test authentication, authorisation,
+Power Automate signed webhook URLs, KYC documents or application data. For the selected Azure Functions
+API, build and test authentication, authorisation,
 anti-abuse, bounded payloads, idempotency and private upload handling before connection.
 Do not expose a generic Graph or SharePoint proxy.
 

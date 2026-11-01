@@ -16,3 +16,7 @@ jobs:
       - run: node --check resellers/app.mjs
       - run: node --test resellers/test.mjs
       - run: node scripts/validate-site.mjs
+      - name: Install Azure Functions dependencies
+        run: npm ci --ignore-scripts --prefix edge/azure-operator-gateway
+      - name: Test reseller MCP authentication and workflow adapters
+        run: npm test --prefix edge/azure-operator-gateway

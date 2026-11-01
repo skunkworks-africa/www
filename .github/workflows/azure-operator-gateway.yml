@@ -17,6 +17,11 @@ jobs:
         run: node --check edge/azure-operator-gateway/src/functions/inventory.js
       - name: Check MCP source syntax
         run: node --check edge/azure-operator-gateway/src/functions/mcp.js
+      - name: Install and test gateway
+        run: |
+          npm ci --ignore-scripts --prefix edge/azure-operator-gateway
+          npm test --prefix edge/azure-operator-gateway
+          node --check edge/azure-operator-gateway/src/functions/reseller-mcp.js
       - name: Azure login via federated identity
         uses: azure/login@v2
         with:
