@@ -1,0 +1,13 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {checklist, approvalOutcome} from './model.mjs';
+const base = {owners:['owner','raydo'],principals:['raydo','maria'],version:2,evidenceComplete:true,agreementSigned:true,decisions:['owner','raydo','maria'].map(actorId=>({actorId,decision:'approve',version:2}))};
+test('all distinct owners and both named principals must approve',()=>assert.equal(approvalOutcome(base),'approved'));
+test('missing Maria cannot activate',()=>assert.equal(approvalOutcome({...base,decisions:base.decisions.slice(0,2)}),'pending'));
+test('owner lookup failure blocks approval',()=>assert.equal(approvalOutcome({...base,owners:[]}), 'blocked'));
+test('stale decisions do not count',()=>assert.equal(approvalOutcome({...base,version:3}),'pending'));
+test('rejection prevents activation',()=>assert.equal(approvalOutcome({...base,decisions:[{actorId:'maria',version:2,decision:'reject'}]}),'rejected'));
+test('unauthorised actor cannot replace approvers',()=>assert.equal(approvalOutcome({...base,decisions:[{actorId:'outsider',version:2,decision:'approve'}]}),'pending'));
+test('documents and agreement required',()=>{assert.equal(approvalOutcome({...base,evidenceComplete:false}),'blocked');assert.equal(approvalOutcome({...base,agreementSigned:false}),'blocked')});
+test('ambiguous principals and duplicate votes block',()=>{assert.equal(approvalOutcome({...base,principals:['raydo','raydo']}),'blocked');assert.equal(approvalOutcome({...base,decisions:[...base.decisions,base.decisions[0]]}),'blocked')});
+test('conditional evidence for sole trader, credit and international business',()=>{const c=checklist({businessType:'soleTrader',country:'Botswana',paymentTerms:'credit'});assert.equal(c.length,5);assert.match(c[0],/proprietor/)});
