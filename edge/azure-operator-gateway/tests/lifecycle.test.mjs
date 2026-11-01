@@ -1,0 +1,13 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {submission,owned,activationReady} from '../src/reseller/lifecycle.mjs';
+const a='11111111-1111-4111-8111-111111111111',b='22222222-2222-4222-8222-222222222222';
+const input={company:'Example',country:'ZA',businessType:'company',contactName:'A',email:'a@example.com',noticeVersion:'1',accepted:true};
+test('client cannot set approval state',()=>assert.throws(()=>submission({...input,stage:'approved'},'1')));
+test('requires current notice',()=>assert.throws(()=>submission(input,'2')));
+test('rejects another applicant and tenant',()=>{assert.throws(()=>owned({tenant:a,applicant:a},{tenant:b,oid:a}));assert.throws(()=>owned({tenant:a,applicant:a},{tenant:a,oid:b}));});
+const record=()=>({stage:'pending_approval',agreementSigned:true,version:2,requiredApprovers:[a,b],approvals:[a,b].map(actor=>({actor,version:2,decision:'approve'})),evidence:[{scan:'clean',review:'accepted',applicationVersion:2,sha256:'hash',blobVersion:'v2',scannedVersion:'v2'}]});
+test('all distinct approvers permit activation',()=>assert.deepEqual(activationReady(record(),{complete:true,owners:[a]},[a,b]),[a,b]));
+test('changed evidence blocks activation',()=>{const r=record();r.evidence[0].blobVersion='v3';assert.throws(()=>activationReady(r,{complete:true,owners:[a]},[a,b]));});
+test('old approvals block activation',()=>{const r=record();r.approvals[0].version=1;assert.throws(()=>activationReady(r,{complete:true,owners:[a]},[a,b]));});
+test('partial owner lookup blocks activation',()=>assert.throws(()=>activationReady(record(),{complete:false,owners:[a]},[a,b])));

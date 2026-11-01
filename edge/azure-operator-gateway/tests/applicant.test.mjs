@@ -1,0 +1,11 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {applicantHandler} from '../src/reseller/applicant.mjs';
+const id='11111111-1111-4111-8111-111111111111';
+const env={RESELLER_INTAKE_ENABLED:'true',RESELLER_PRIVACY_VERSION:'1',RESELLER_APPLICANT_TENANT_ID:id,RESELLER_APPLICANT_CLIENT_ID:id,RESELLER_APPLICANT_AUDIENCE:'api'};
+const claims={tid:id,azp:id,oid:id,scp:'Reseller.Apply'};
+const request=(token='x')=>({method:'GET',params:{id},headers:new Headers({authorization:'Bearer '+token})});
+test('disabled intake makes no external calls',async()=>{const h=applicantHandler({env:{},verify:()=>assert.fail(),repository:{}});assert.equal((await h(request())).status,503);});
+test('invalid token cannot read status',async()=>{const h=applicantHandler({env,verify:()=>{throw Error();},repository:{get:()=>assert.fail()}});assert.equal((await h(request())).status,401);});
+test('status hides another applicants record',async()=>{const h=applicantHandler({env,verify:async()=>claims,repository:{get:async()=>({tenant:id,applicant:'other'})}});assert.equal((await h(request())).status,404);});
+test('status reveals only public fields',async()=>{const h=applicantHandler({env,verify:async()=>claims,repository:{get:async()=>({tenant:id,applicant:id,id,stage:'submitted',version:1,reference:'ref',digest:'private'})}});assert.deepEqual((await h(request())).jsonBody,{id,stage:'submitted',version:1,reference:'ref'});});
