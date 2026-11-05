@@ -72,7 +72,7 @@ async function start() {
     const controller=new AbortController();
     const timeout=setTimeout(()=>controller.abort(),20000);
     try {
-      const response=await fetch(c.apiBaseUrl+path,{
+      const response=await fetch(new URL(path,c.apiBaseUrl).href,{
         ...options,redirect:'error',signal:controller.signal,
         headers:{Authorization:'Bearer '+token,Accept:'application/json',...options.headers}
       });
