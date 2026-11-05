@@ -16,7 +16,7 @@ export function portalConfigured(c) {
     const a=new URL(c.authority),u=new URL(c.apiBaseUrl);
     if(a.protocol!=='https:'||a.username||a.password||a.search||a.hash||a.port)return false;
     const workforce=a.hostname==='login.microsoftonline.com'&&a.pathname.replace(/\/$/,'')==='/'+c.tenantId;
-    const external=/^[a-z0-9-]+\.ciamlogin\.com$/.test(a.hostname)&&a.pathname.replace(/\/$/,'')==='/'+c.tenantId;
+    const external=/^[a-z0-9-]+\.ciamlogin\.com$/.test(a.hostname)&&['','/'+c.tenantId].includes(a.pathname.replace(/\/$/,''));
     if(!workforce&&!external)return false;
     if(u.protocol!=='https:'||u.username||u.password||u.search||u.hash||u.port||u.pathname!=='/')return false;
     if(!(/^[-a-z0-9]+\.azurewebsites\.net$/.test(u.hostname)||u.hostname==='api.skunkworks.africa'))return false;
