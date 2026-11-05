@@ -85,7 +85,7 @@ Goal: identify Training & Certification and reach Skunkworks Academy without mis
 
 ### Mobile visitor
 
-Goal: open the burger menu, understand the five primary destinations and complete the same routing tasks at 375px width.
+Goal: open the burger menu, understand the four primary destinations (Solutions, Services, Academy, Skunkworks) and complete the same routing tasks at 375px width.
 
 ### Keyboard-only visitor
 
