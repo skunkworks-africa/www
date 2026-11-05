@@ -61,7 +61,17 @@ if(invalid.length) failures.push(`Non-monochrome explicit colors found: ${invali
 const requiredHosts=['https://www.skunkworks.africa','https://store.skunkworks.africa','https://www.skunkworksacademy.com'];
 for(const host of requiredHosts){if(!Object.values(siteMap.canonicalHosts||{}).includes(host)) failures.push(`Missing canonical host rule: ${host}`)}
 const labels=(siteMap.primaryNavigation||[]).map(i=>i.label).join('|');
-if(labels!=='Solutions|Services|Store|Academy|Company') failures.push('Primary navigation order does not match canonical rule.');
+if(labels!=='Solutions|Services|Academy|Skunkworks') failures.push('Primary navigation order does not match canonical rule.');
+const desktopNav = html.match(/<nav class="desktop-nav"[^>]*>([\s\S]*?)<\/nav>/)?.[1] || '';
+const mobileNav = html.match(/<nav class="shell" aria-label="Mobile navigation">([\s\S]*?)<\/nav>/)?.[1] || '';
+const navLabels = markup => [...markup.matchAll(/<a\s+href="[^"]+"[^>]*>([^<]+)<\/a>/g)].map(m => m[1]);
+for (const [name, markup] of [['desktop', desktopNav], ['mobile', mobileNav]]) {
+  const allLabels = navLabels(markup);
+  const actual = allLabels.slice(0, siteMap.primaryNavigation.length).join('|');
+  if (actual !== labels) failures.push(`${name} navigation does not match site map: ${actual}`);
+  if (allLabels.some(label => ['Store','Software','Company'].includes(label))) failures.push(`${name} navigation contains retired labels.`);
+}
+if (!html.includes('<a href="#company">Skunkworks</a>')) failures.push('Missing Skunkworks About link.');
 
 if(failures.length){console.error('Site validation failed:');for(const f of failures) console.error(`- ${f}`);process.exit(1)}
 console.log('Site validation passed.');
