@@ -1,6 +1,7 @@
 import {createHash} from 'node:crypto';
 import {submission,owned} from './lifecycle.mjs';
 import {uuid,WorkflowError} from './core.mjs';
+import {applicantIssuerConfig} from './auth.mjs';
 export function applicantHandler({env,verify,repository,now=()=>new Date().toISOString()}) {
   return async request=>{
     const response=(status,jsonBody)=>({status,jsonBody,headers:{'Cache-Control':'no-store','Content-Type':'application/json'}});
@@ -9,7 +10,7 @@ export function applicantHandler({env,verify,repository,now=()=>new Date().toISO
       const token=/^Bearer ([^\s]+)$/.exec(request.headers.get('authorization')||'')?.[1];
       if(!token)return response(401,{error:'Authentication required'});
       let claims;
-      try {claims=await verify(token,{tenant:env.RESELLER_APPLICANT_TENANT_ID,audience:env.RESELLER_APPLICANT_AUDIENCE});}catch{return response(401,{error:'Invalid access token'});}
+      try {claims=await verify(token,applicantIssuerConfig(env));}catch{return response(401,{error:'Invalid access token'});}
       if(claims.tid!==env.RESELLER_APPLICANT_TENANT_ID||claims.azp!==env.RESELLER_APPLICANT_CLIENT_ID||!uuid.test(claims.oid||'')||!String(claims.scp).split(' ').includes('Reseller.Apply'))return response(403,{error:'Applicant access required'});
       const actor={tenant:claims.tid,oid:claims.oid};
       if(request.method==='GET') {
