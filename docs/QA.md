@@ -8,7 +8,9 @@ Run:
 
 ```bash
 node --check site.js
+node --check theme-init.js
 node scripts/validate-site.mjs
+node scripts/validate-theme.mjs
 ```
 
 The validator checks required files, canonical hosts, primary navigation order, responsive-menu hooks, reduced-motion support, keyboard focus styling, absence of persistent sidebar navigation, and the strict black/white explicit colour contract.
@@ -38,6 +40,8 @@ The validator checks required files, canonical hosts, primary navigation order, 
 6. Resize from mobile to desktop while menu is open; verify the mobile menu resets.
 7. Use both light and dark OS/browser preferences; verify black/white inversion.
 8. Enable reduced motion; verify transitions effectively stop.
+9. On reseller, technology, cloud and automation forms, switch among Light, Dark and Use system setting. Check field backgrounds and foregrounds, native select popup options, disabled controls and button contrast.
+10. In both light and dark OS modes, select the opposite site theme, reload and confirm the choice persists, dropdowns stay readable and focus remains visible. Test desktop and mobile.
 
 ## Cross-domain route tasks
 
