@@ -14,7 +14,7 @@
     "All commerce CTAs from www must resolve to store.skunkworks.africa.",
     "All learning CTAs from www must resolve to www.skunkworksacademy.com or a canonical Academy property.",
     "Every indexable www page must emit a self-referencing canonical URL.",
-    "Navigation order is Solutions, Services, Store, Academy, Company.",
+    "Navigation order is Solutions, Services, Academy, Skunkworks. Store access remains available through Shop and commerce CTAs.",
     "Mobile navigation must expose the same primary destinations as desktop navigation."
   ],
   "primaryNavigation": [
@@ -29,17 +29,12 @@
       "surface": "corporate"
     },
     {
-      "label": "Store",
-      "url": "https://store.skunkworks.africa/",
-      "surface": "store"
-    },
-    {
       "label": "Academy",
       "url": "https://www.skunkworksacademy.com/",
       "surface": "academy"
     },
     {
-      "label": "Company",
+      "label": "Skunkworks",
       "url": "/#company",
       "surface": "corporate"
     }
@@ -52,10 +47,6 @@
     {
       "label": "Microsoft 365 Licensing",
       "url": "https://store.skunkworks.africa/collections/microsoft-365-licensing-south-africa"
-    },
-    {
-      "label": "Software",
-      "url": "https://store.skunkworks.africa/collections/software"
     },
     {
       "label": "AI & Automation",
