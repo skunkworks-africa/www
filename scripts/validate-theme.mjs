@@ -18,6 +18,7 @@ assert.match(cloud, /background:var\(--bg\);color:var\(--fg\)/, 'Cloud fields mu
 assert.doesNotMatch(automation, /:root\{color-scheme:dark\}/, 'Automation cannot override manual light with OS dark');
 for (const page of ['index.html', 'resellers/index.html', 'technology-assessment/index.html', 'cloud-assessment/index.html', 'automation/index.html']) {
   const html = read(page);
+  assert.match(html, /brand-mark--on-dark[\\s\\S]*brand-mark--on-light/, page + ' must include paired inverse logo assets');
   const init = html.indexOf('<script src="/theme-init.js"></script>');
   assert.ok(init > 0 && init < html.indexOf('rel="stylesheet"'), page + ' must load theme preference before CSS');
 }
