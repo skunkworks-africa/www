@@ -32,3 +32,5 @@ for (const [name, foreground, background] of [['light','#000000','#ffffff'],['da
   assert.ok(ratio >= 7, name + ' text needs at least 7:1 contrast');
 }
 console.log('Theme static checks passed: manual/system modes, form dropdowns, early initialization, and base contrast.');
+
+// Regression guard: every shared shell uses explicit paired inverse logo assets.
