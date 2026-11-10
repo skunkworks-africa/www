@@ -10,7 +10,7 @@
 
 ## Navigation contract
 
-Primary order is always: **Solutions → Services → Store → Academy → Company**.
+Primary order is always: **Solutions → Services → Academy → Skunkworks**. The **Skunkworks** link points to the About/Company section at `/#company`. The Store remains accessible through the **Shop** button and other commerce CTAs, rather than a primary navigation item. The Software collection is not featured in the homepage commerce quick-links.
 
 Desktop and mobile expose the same primary destinations. The mobile implementation may change presentation but not information architecture.
 

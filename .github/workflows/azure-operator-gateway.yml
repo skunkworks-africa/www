@@ -1,0 +1,98 @@
+name: Deploy Azure Operator Gateway (manual)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  deploy:
+    environment: azure-operator-production
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check API source syntax
+        run: node --check edge/azure-operator-gateway/src/functions/inventory.js
+      - name: Check MCP source syntax
+        run: node --check edge/azure-operator-gateway/src/functions/mcp.js
+      - name: Install and test gateway
+        run: |
+          npm ci --ignore-scripts --prefix edge/azure-operator-gateway
+          npm test --prefix edge/azure-operator-gateway
+          node --check edge/azure-operator-gateway/src/functions/reseller-mcp.js
+      - name: Azure login via federated identity
+        uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_DEPLOY_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - name: Verify target app and required security configuration
+        env:
+          APP: ${{ vars.AZURE_OPERATOR_FUNCTION_APP }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          RG='rg-skunkworks-automation-prod'
+          [[ "$APP" == 'func-skunkworks-operator-prod' ]] || { echo 'Unexpected Function App target'; exit 1; }
+          APP_ID=$(az functionapp show --name "$APP" --resource-group "$RG" --query id -o tsv)
+          [[ "$APP_ID" == "/subscriptions/${{ vars.AZURE_SUBSCRIPTION_ID }}/resourceGroups/$RG/providers/Microsoft.Web/sites/$APP" ]] || { echo 'Unexpected Azure resource identifier'; exit 1; }
+          az functionapp show --name "$APP" --resource-group "$RG" --query '{name:name,kind:kind,location:location}' -o json
+          SETTINGS=$(az functionapp config appsettings list --name "$APP" --resource-group "$RG" --query '[].name' -o tsv)
+          for KEY in AZURE_CLIENT_ID AZURE_SUBSCRIPTION_ID AZURE_RESOURCE_GROUP AZURE_OPERATOR_API_AUDIENCE AZURE_OPERATOR_ALLOWED_USER_OIDS; do
+            grep -Fxq "$KEY" <<< "$SETTINGS" || { echo "Missing required app setting: $KEY"; exit 1; }
+          done
+          echo 'Required setting names present (values deliberately not printed).'
+      - name: Deploy via Azure Functions Action
+        uses: Azure/functions-action@v1
+        with:
+          app-name: ${{ vars.AZURE_OPERATOR_FUNCTION_APP }}
+          package: edge/azure-operator-gateway
+          remote-build: true
+      - name: Smoke test MCP without an access token
+        shell: bash
+        run: |
+          set -euo pipefail
+          HOST=$(az functionapp show --name "${{ vars.AZURE_OPERATOR_FUNCTION_APP }}" --resource-group rg-skunkworks-automation-prod --query defaultHostName -o tsv)
+          if [[ -z "$HOST" || "$HOST" == "None" ]]; then
+            echo "Azure CLI returned no defaultHostName; using verified portal hostname."
+            HOST='func-skunkworks-operator-prod-c0c0gzc2asgmfpa4.southafricanorth-01.azurewebsites.net'
+          fi
+          echo "MCP target host: $HOST"
+          test -n "$HOST"
+          echo "Testing /api/mcp unauthenticated rejection (no tokens logged)"
+          set +e
+          RESPONSE=$(curl -sS --connect-timeout 10 --max-time 30 --output /tmp/mcp-response.json --write-out '%{http_code}' -X POST "https://$HOST/api/mcp" -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}')
+          CURL_EXIT=$?
+          set -e
+          echo "MCP status: ${RESPONSE:-unknown}; curl exit: $CURL_EXIT"
+          if [[ "$CURL_EXIT" -ne 0 ]]; then echo "MCP transport failure; inspect runtime and Function App host logs."; exit 1; fi
+          if [[ "$RESPONSE" != "401" ]]; then
+            echo "MCP expected HTTP 401, got $RESPONSE"
+            echo "Response body (truncated):"
+            head -c 500 /tmp/mcp-response.json | tr -cd '[:print:]\n'
+            echo
+            exit 1
+          fi
+          echo 'HTTP 401 confirmed; rejecting unauthenticated MCP calls.'
+          echo 'MCP unauthenticated rejection passed'
+      - name: Verify OAuth protected-resource discovery
+        shell: bash
+        run: |
+          set -euo pipefail
+          HOST=$(az functionapp show --name "${{ vars.AZURE_OPERATOR_FUNCTION_APP }}" --resource-group rg-skunkworks-automation-prod --query defaultHostName -o tsv)
+          if [[ -z "$HOST" || "$HOST" == "None" ]]; then
+            echo "Azure CLI returned no defaultHostName; using verified portal hostname."
+            HOST='func-skunkworks-operator-prod-c0c0gzc2asgmfpa4.southafricanorth-01.azurewebsites.net'
+          fi
+          echo "MCP target host: $HOST"
+          curl --fail --silent --show-error --max-time 30 "https://$HOST/.well-known/oauth-protected-resource" -o /tmp/resource.json
+          node -e "const m=require('/tmp/resource.json'); if(!m.resource?.endsWith('/api/mcp') || !m.authorization_servers?.includes('https://login.microsoftonline.com/338a8916-80d9-467c-a94a-7f61d04ef7d5/v2.0') || !m.scopes_supported?.includes('api://d5cff578-a135-4fc9-b884-45677ec05b1c/Azure.Read'))process.exit(1)"
+          curl --fail --silent --show-error --max-time 30 "https://$HOST/.well-known/oauth-protected-resource/api/mcp" -o /tmp/resource-path.json
+          node -e "const m=require('/tmp/resource-path.json'); if(!m.resource?.endsWith('/api/mcp'))process.exit(1)"
+          CODE=$(curl -sS --max-time 30 -D /tmp/challenge-headers.txt -o /dev/null -w '%{http_code}' -X POST "https://$HOST/api/mcp" -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}')
+          test "$CODE" = "401"
+          grep -iq '^www-authenticate: Bearer ' /tmp/challenge-headers.txt
+          grep -Fq 'resource_metadata=' /tmp/challenge-headers.txt
+          echo 'OAuth protected-resource discovery passed at /.well-known/oauth-protected-resource'
