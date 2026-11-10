@@ -1,0 +1,21 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {checklist, approvalOutcome} from './model.mjs';
+import {applicationPayload} from './submission.mjs';
+import {portalConfigured} from './portal-config.mjs';
+const base = {owners:['owner','raydo'],principals:['raydo','maria'],version:2,evidenceComplete:true,agreementSigned:true,decisions:['owner','raydo','maria'].map(actorId=>({actorId,decision:'approve',version:2}))};
+test('all distinct owners and both named principals must approve',()=>assert.equal(approvalOutcome(base),'approved'));
+test('missing Maria cannot activate',()=>assert.equal(approvalOutcome({...base,decisions:base.decisions.slice(0,2)}),'pending'));
+test('owner lookup failure blocks approval',()=>assert.equal(approvalOutcome({...base,owners:[]}), 'blocked'));
+test('stale decisions do not count',()=>assert.equal(approvalOutcome({...base,version:3}),'pending'));
+test('rejection prevents activation',()=>assert.equal(approvalOutcome({...base,decisions:[{actorId:'maria',version:2,decision:'reject'}]}),'rejected'));
+test('unauthorised actor cannot replace approvers',()=>assert.equal(approvalOutcome({...base,decisions:[{actorId:'outsider',version:2,decision:'approve'}]}),'pending'));
+test('documents and agreement required',()=>{assert.equal(approvalOutcome({...base,evidenceComplete:false}),'blocked');assert.equal(approvalOutcome({...base,agreementSigned:false}),'blocked')});
+test('ambiguous principals and duplicate votes block',()=>{assert.equal(approvalOutcome({...base,principals:['raydo','raydo']}),'blocked');assert.equal(approvalOutcome({...base,decisions:[...base.decisions,base.decisions[0]]}),'blocked')});
+test('conditional evidence for sole trader, credit and international business',()=>{const c=checklist({businessType:'soleTrader',country:'Botswana',paymentTerms:'credit'});assert.equal(c.length,5);assert.match(c[0],/proprietor/)});
+
+const fake={company:'Demo',country:'za',businessType:'soleTrader',registration:'',city:'Gaborone',website:'',contactName:'Sample',email:'sample@example.com',phone:'+267 71234567',focus:'training',paymentTerms:'prepaid',source:'referral',authority:'on',acknowledgement:'on'};
+test('browser input maps to API contract without approval fields',()=>{const data=applicationPayload(fake,'2026-11');assert.equal(data.country,'ZA');assert.equal(data.businessType,'sole_trader');assert.equal(data.accepted,true);assert.equal(data.stage,undefined);assert.equal(data.noticeVersion,'2026-11');});
+test('browser input rejects missing declarations, registration and country codes',()=>{for(const changes of [{acknowledgement:''},{authority:''},{country:'South Africa'},{businessType:'company',registration:''}])assert.throws(()=>applicationPayload({...fake,...changes},'2026-11'));});
+const enabled={enabled:true,tenantId:'11111111-1111-4111-8111-111111111111',clientId:'22222222-2222-4222-8222-222222222222',authority:'https://example.ciamlogin.com/11111111-1111-4111-8111-111111111111',apiBaseUrl:'https://func-skunkworks-reseller-staging.azurewebsites.net/',apiScope:'api://33333333-3333-4333-8333-333333333333/Reseller.Apply',privacyVersion:'2026-11'};
+test('public applicant portal remains disabled until an exact trusted configuration is supplied',()=>{assert.equal(portalConfigured({...enabled,enabled:false}),false);assert.equal(portalConfigured(enabled),true);for(const c of [{authority:'https://evil.test'},{apiBaseUrl:'https://evil.test/'},{apiBaseUrl:'http://func-skunkworks-reseller-staging.azurewebsites.net/'},{apiScope:'https://graph.microsoft.com/.default'}])assert.equal(portalConfigured({...enabled,...c}),false);});

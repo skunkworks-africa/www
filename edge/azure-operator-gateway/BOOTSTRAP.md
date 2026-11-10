@@ -17,7 +17,7 @@ This preflight checks that the **Microsoft Azure Sponsorship** subscription `9f1
 4. Assign **Reader** to the Function App's managed identity at a dedicated resource-group scope. Reader cannot deploy resources. A separate GitHub OIDC deployment principal should receive narrowly scoped deployment permissions.
 5. Create a **GitHub Actions environment** `azure-operator-production`, require reviewers, and set environment variables `AZURE_DEPLOY_CLIENT_ID`, `AZURE_TENANT_ID`, `AZURE_SUBSCRIPTION_ID`, `AZURE_OPERATOR_FUNCTION_APP`. Add a Microsoft Entra federated identity for GitHub repository `skunkworks-africa/www`, subject `repo:skunkworks-africa/www:environment:azure-operator-production`, audience `api://AzureADTokenExchange`. This is a trusted-issuer binding, not the website's SPA redirect.
 6. Set the Function App configuration `AZURE_OPERATOR_API_AUDIENCE` to the actual registered API token audience and `AZURE_OPERATOR_ALLOWED_USER_OIDS` to a verified operator user object ID in the resource tenant.
-7. Complete security testing and an MCP protocol adapter. **The current inventory gateway is REST-only and does not connect ChatGPT to Azure.**
+7. The gateway now includes /api/mcp and OAuth resource discovery; see VERIFICATION-2026-11-01.md. Complete authorised security/interoperability testing and configure the ChatGPT connector separately.
 
 ## Stop conditions
 
