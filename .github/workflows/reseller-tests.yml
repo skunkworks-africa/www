@@ -13,7 +13,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Check Azure preflight script shell syntax
+        run: bash -n edge/azure-operator-gateway/scripts/reseller-staging-preflight.sh
       - run: node --check resellers/app.mjs
+      - name: Build applicant frontend and validate browser bundle
+        run: |
+          npm install --prefix scripts/reseller-ui --no-audit --no-fund
+          npm run build --prefix scripts/reseller-ui
+          node --check resellers/applicant-portal.js
       - run: node --test resellers/test.mjs
       - run: node scripts/validate-site.mjs
       - name: Install Azure Functions dependencies

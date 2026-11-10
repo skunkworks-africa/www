@@ -18,7 +18,7 @@ export function applicantStore({origin,team,getToken,fetcher=fetch}) {
   return {get,async submit({actor,key,digest,data,acceptedAt}) {
     const hex=createHash('sha256').update(actor.tenant+':'+actor.oid+':'+key).digest('hex').slice(0,32);
     const id=[hex.slice(0,8),hex.slice(8,12),hex.slice(12,16),hex.slice(16,20),hex.slice(20)].join('-');
-    const payload={sw_resellerapplicationid:id,sw_reference:'SW-'+id,sw_stage:'submitted',sw_version:1,sw_applicanttenant:actor.tenant,sw_applicantoid:actor.oid,sw_submissionhash:digest,sw_company:data.company,sw_country:data.country,sw_businesstype:data.businessType,sw_contactname:data.contactName,sw_email:data.email,sw_noticeversion:data.noticeVersion,sw_acceptedat:acceptedAt,'ownerid@odata.bind':'/teams('+team+')'};
+    const payload={sw_resellerapplicationid:id,sw_reference:'SW-'+id,sw_stage:'submitted',sw_version:1,sw_applicanttenant:actor.tenant,sw_applicantoid:actor.oid,sw_submissionhash:digest,sw_company:data.company,sw_country:data.country,sw_businesstype:data.businessType,sw_registration:data.registration||null,sw_city:data.city,sw_website:data.website||null,sw_contactname:data.contactName,sw_email:data.email,sw_phone:data.phone,sw_productfocus:data.focus,sw_paymentpreference:data.paymentTerms,sw_leadsource:data.source||null,sw_noticeversion:data.noticeVersion,sw_acceptedat:acceptedAt,'ownerid@odata.bind':'/teams('+team+')'};
     const r=await request(base+'('+id+')',{method:'PATCH',headers:{'If-None-Match':'*'},body:JSON.stringify(payload)});
     if(!r.ok&&r.status!==412)throw new WorkflowError('Submission unavailable');
     const record=await get(id);
