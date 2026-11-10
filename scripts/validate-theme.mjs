@@ -13,6 +13,7 @@ assert.match(main, /:root\[data-theme='dark'\]\{color-scheme:dark;/, 'Manual dar
 assert.match(main, /:root:not\(\[data-theme='light'\]\)/, 'Manual light must override device dark preference');
 assert.match(main, /select option,select optgroup\{background:var\(--bg\);color:var\(--fg\)/, 'Dropdown options must use theme foreground and background');
 assert.match(shell, /:root\[data-theme='dark'\]\{--shell-bg:#ffffff;/, 'Shared shell must respond to manual dark selection');
+assert.match(main, /html \.site-header \.brand \.brand-mark--on-light,html \.site-footer \.brand \.brand-mark--on-light\{display:none\}/, 'Default inverse-logo hiding rule must override the shared shell display rule');
 assert.match(reseller, /background:var\(--bg\);color:var\(--fg\)/, 'Reseller fields must use shared colours');
 assert.match(cloud, /background:var\(--bg\);color:var\(--fg\)/, 'Cloud fields must use shared colours');
 assert.doesNotMatch(automation, /:root\{color-scheme:dark\}/, 'Automation cannot override manual light with OS dark');
