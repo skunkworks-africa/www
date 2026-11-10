@@ -10,7 +10,10 @@ const files = [
   'automation/index.html',
   'automation/automation.css',
   'automation/config.js',
-  'automation/app.js'
+  'automation/app.js',
+  'resellers/index.html',
+  'cloud-assessment/index.html',
+  'adaptive-shell.css'
 ];
 const failures = [];
 for (const file of files) if (!fs.existsSync(file)) failures.push(`Missing required file: ${file}`);
@@ -22,6 +25,9 @@ const automationHtml = fs.existsSync('automation/index.html') ? fs.readFileSync(
 const automationCss = fs.existsSync('automation/automation.css') ? fs.readFileSync('automation/automation.css','utf8') : '';
 const automationJs = fs.existsSync('automation/app.js') ? fs.readFileSync('automation/app.js','utf8') : '';
 const automationConfig = fs.existsSync('automation/config.js') ? fs.readFileSync('automation/config.js','utf8') : '';
+const resellerHtml = fs.existsSync('resellers/index.html') ? fs.readFileSync('resellers/index.html','utf8') : '';
+const cloudHtml = fs.existsSync('cloud-assessment/index.html') ? fs.readFileSync('cloud-assessment/index.html','utf8') : '';
+const shellCss = fs.existsSync('adaptive-shell.css') ? fs.readFileSync('adaptive-shell.css','utf8') : '';
 const siteMap = fs.existsSync('site-map.json') ? JSON.parse(fs.readFileSync('site-map.json','utf8')) : {};
 
 const requireText=(source,text,msg)=>{if(!source.includes(text)) failures.push(msg)};
@@ -72,6 +78,19 @@ for (const [name, markup] of [['desktop', desktopNav], ['mobile', mobileNav]]) {
   if (allLabels.some(label => ['Store','Software','Company'].includes(label))) failures.push(`${name} navigation contains retired labels.`);
 }
 if (!html.includes('<a href="#company">Skunkworks</a>')) failures.push('Missing Skunkworks About link.');
+for (const [page, markup] of [['resellers', resellerHtml], ['cloud assessment', cloudHtml], ['automation', automationHtml]]) {
+  const desktop = markup.match(/<nav class="desktop-nav"[^>]*>([\s\S]*?)<\/nav>/)?.[1] || '';
+  const mobile = markup.match(/<nav class="shell" aria-label="Mobile navigation">([\s\S]*?)<\/nav>/)?.[1] || '';
+  for (const [kind, nav] of [['desktop', desktop], ['mobile', mobile]]) {
+    const actual = navLabels(nav).slice(0, siteMap.primaryNavigation.length).join('|');
+    if (actual !== labels) failures.push(`${page} ${kind} navigation does not match canonical rule: ${actual}`);
+  }
+  if (!markup.includes('brand-mark--on-dark') || !markup.includes('brand-mark--on-light')) failures.push(`${page} must include both inverse logo assets.`);
+}
+if (!shellCss.includes('brand-mark--on-dark{display:none}') || !shellCss.includes('brand-mark--on-light{display:block}')) failures.push('Inverse logo switching is not defined for dark shell mode.');
+const resellerFormClose = resellerHtml.indexOf('</form>');
+const portalControls = resellerHtml.indexOf('<section id="portal-controls"');
+if (resellerFormClose < 0 || portalControls < resellerFormClose) failures.push('Reseller sign-in controls must remain outside the hidden application form.');
 
 if(failures.length){console.error('Site validation failed:');for(const f of failures) console.error(`- ${f}`);process.exit(1)}
 console.log('Site validation passed.');
