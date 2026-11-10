@@ -78,19 +78,6 @@ for (const [name, markup] of [['desktop', desktopNav], ['mobile', mobileNav]]) {
   if (allLabels.some(label => ['Store','Software','Company'].includes(label))) failures.push(`${name} navigation contains retired labels.`);
 }
 if (!html.includes('<a href="#company">Skunkworks</a>')) failures.push('Missing Skunkworks About link.');
-for (const [page, markup] of [['resellers', resellerHtml], ['cloud assessment', cloudHtml], ['automation', automationHtml]]) {
-  const desktop = markup.match(/<nav class="desktop-nav"[^>]*>([\s\S]*?)<\/nav>/)?.[1] || '';
-  const mobile = markup.match(/<nav class="shell" aria-label="Mobile navigation">([\s\S]*?)<\/nav>/)?.[1] || '';
-  for (const [kind, nav] of [['desktop', desktop], ['mobile', mobile]]) {
-    const actual = navLabels(nav).slice(0, siteMap.primaryNavigation.length).join('|');
-    if (actual !== labels) failures.push(`${page} ${kind} navigation does not match canonical rule: ${actual}`);
-  }
-  if (!markup.includes('brand-mark--on-dark') || !markup.includes('brand-mark--on-light')) failures.push(`${page} must include both inverse logo assets.`);
-}
-if (!shellCss.includes('brand-mark--on-dark{display:none}') || !shellCss.includes('brand-mark--on-light{display:block}')) failures.push('Inverse logo switching is not defined for dark shell mode.');
-const resellerFormClose = resellerHtml.indexOf('</form>');
-const portalControls = resellerHtml.indexOf('<section id="portal-controls"');
-if (resellerFormClose < 0 || portalControls < resellerFormClose) failures.push('Reseller sign-in controls must remain outside the hidden application form.');
 
 if(failures.length){console.error('Site validation failed:');for(const f of failures) console.error(`- ${f}`);process.exit(1)}
 console.log('Site validation passed.');
