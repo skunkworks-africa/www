@@ -1,0 +1,61 @@
+name: Reseller staging deployment
+on:
+  workflow_dispatch:
+    inputs:
+      revision:
+        description: Full reviewed commit SHA (use a previous successful SHA for rollback)
+        required: true
+permissions:
+  contents: read
+  id-token: write
+concurrency:
+  group: reseller-staging
+  cancel-in-progress: false
+jobs:
+  deploy:
+    environment: reseller-staging
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate revision
+        env:
+          REVISION: ${{ inputs.revision }}
+        run: '[[ "$REVISION" =~ ^[0-9a-f]{40}$ ]]'
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.revision }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --ignore-scripts --prefix edge/azure-operator-gateway
+      - run: npm test --prefix edge/azure-operator-gateway
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - name: Verify isolated staging target and closed intake
+        env:
+          APP: ${{ vars.RESELLER_FUNCTION_APP }}
+          GROUP: ${{ vars.RESELLER_RESOURCE_GROUP }}
+        run: |
+          set -euo pipefail
+          [[ "$APP" == 'func-skunkworks-reseller-staging' ]]
+          [[ -n "$GROUP" ]]
+          az functionapp show -g "$GROUP" -n "$APP" --query '{name:name,httpsOnly:httpsOnly}'
+          CLOSED=$(az functionapp config appsettings list -g "$GROUP" -n "$APP" --query "[?name=='RESELLER_INTAKE_ENABLED'].value | [0]" -o tsv)
+          [[ "$CLOSED" != 'true' ]]
+      - uses: Azure/functions-action@v1
+        with:
+          app-name: ${{ vars.RESELLER_FUNCTION_APP }}
+          package: edge/azure-operator-gateway
+          remote-build: true
+      - name: Verify closed intake
+        env:
+          APP: ${{ vars.RESELLER_FUNCTION_APP }}
+          GROUP: ${{ vars.RESELLER_RESOURCE_GROUP }}
+        run: |
+          set -euo pipefail
+          HOST=$(az functionapp show -g "$GROUP" -n "$APP" --query defaultHostName -o tsv)
+          [[ "$HOST" == *.azurewebsites.net ]]
+          CODE=$(curl --silent --show-error --max-time 30 -o /dev/null -w '%{http_code}' -X POST "https://$HOST/api/reseller/applications")
+          [[ "$CODE" == 503 ]]
