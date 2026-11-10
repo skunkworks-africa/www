@@ -1,7 +1,7 @@
 // Public SPA configuration. Client and tenant IDs are not secrets.
 // The redirect URL must exactly match a registered SPA redirect URI, including the slash.
 export const authConfig = {
-  clientId: "ba35b11d-fba6-4a3f-8333-35a49747a59f", // Registered Microsoft Entra Application (client) ID
-  tenantId: "972e8de4-e365-43a3-99ec-c86a0cc249e8",
+  clientId: "d5cff578-a135-4fc9-b884-45677ec05b1c", // Skunkworks Azure Operator application
+  tenantId: "338a8916-80d9-467c-a94a-7f61d04ef7d5",
   redirectPath: "/auth/"
 };
