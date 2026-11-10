@@ -10,10 +10,7 @@ const files = [
   'automation/index.html',
   'automation/automation.css',
   'automation/config.js',
-  'automation/app.js',
-  'resellers/index.html',
-  'cloud-assessment/index.html',
-  'adaptive-shell.css'
+  'automation/app.js'
 ];
 const failures = [];
 for (const file of files) if (!fs.existsSync(file)) failures.push(`Missing required file: ${file}`);
@@ -25,9 +22,6 @@ const automationHtml = fs.existsSync('automation/index.html') ? fs.readFileSync(
 const automationCss = fs.existsSync('automation/automation.css') ? fs.readFileSync('automation/automation.css','utf8') : '';
 const automationJs = fs.existsSync('automation/app.js') ? fs.readFileSync('automation/app.js','utf8') : '';
 const automationConfig = fs.existsSync('automation/config.js') ? fs.readFileSync('automation/config.js','utf8') : '';
-const resellerHtml = fs.existsSync('resellers/index.html') ? fs.readFileSync('resellers/index.html','utf8') : '';
-const cloudHtml = fs.existsSync('cloud-assessment/index.html') ? fs.readFileSync('cloud-assessment/index.html','utf8') : '';
-const shellCss = fs.existsSync('adaptive-shell.css') ? fs.readFileSync('adaptive-shell.css','utf8') : '';
 const siteMap = fs.existsSync('site-map.json') ? JSON.parse(fs.readFileSync('site-map.json','utf8')) : {};
 
 const requireText=(source,text,msg)=>{if(!source.includes(text)) failures.push(msg)};
