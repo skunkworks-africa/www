@@ -22,11 +22,16 @@ jobs:
       - name: Check JavaScript syntax
         run: |
           node --check site.js
+          node --check theme-init.js
           node --check automation/config.js
           node --check automation/app.js
           node --check edge/storefront-redirect/worker.mjs
           node --check edge/storefront-redirect/worker.test.mjs
+          node --check scripts/validate-site.mjs
+          node --check scripts/validate-theme.mjs
       - name: Validate structure, design and canonical rules
-        run: node scripts/validate-site.mjs
+        run: |
+          node scripts/validate-site.mjs
+          node scripts/validate-theme.mjs
       - name: Validate storefront redirects
         run: node edge/storefront-redirect/worker.test.mjs
