@@ -1,12 +1,30 @@
 import {WorkflowError,uuid} from './core.mjs';
 const fail=(message,status=400)=>{throw new WorkflowError(message,status);};
 export function submission(input,noticeVersion) {
-  const keys=['company','country','businessType','contactName','email','noticeVersion','accepted'];
-  if(!input||Array.isArray(input)||Object.keys(input).some(k=>!keys.includes(k)))fail('Invalid submission');
-  for(const k of ['company','contactName','email'])if(typeof input[k]!=='string'||!input[k].trim()||input[k].length>200||/[\x00-\x1f]/.test(input[k]))fail('Invalid '+k);
-  if(!/^[A-Z]{2}$/.test(input.country)||!['company','sole_trader'].includes(input.businessType)||!/^\S+@\S+\.\S+$/.test(input.email))fail('Invalid business details');
-  if(!noticeVersion||input.noticeVersion!==noticeVersion||input.accepted!==true)fail('Current privacy notice acceptance required');
-  return Object.fromEntries(keys.map(k=>[k,typeof input[k]==='string'?input[k].trim():input[k]]));
+  const lengths={company:160,country:2,businessType:16,registration:80,city:100,website:300,contactName:120,email:254,phone:40,focus:32,paymentTerms:16,source:32,noticeVersion:80};
+  const required=['company','country','businessType','city','contactName','email','phone','focus','paymentTerms','noticeVersion'];
+  if(!input||typeof input!=='object'||Array.isArray(input)||Object.keys(input).some(k=>!(k in lengths)&&k!=='accepted'))fail('Invalid submission');
+  const data={};
+  for(const [key,max] of Object.entries(lengths)) {
+    const value=input[key];
+    if(value===undefined||value===null||value==='') {
+      if(required.includes(key))fail('Invalid '+key);
+      data[key]='';
+      continue;
+    }
+    if(typeof value!=='string'||!value.trim()||value.length>max||/[\x00-\x1f\x7f]/.test(value))fail('Invalid '+key);
+    data[key]=value.trim();
+  }
+  if(!/^[A-Z]{2}$/.test(data.country)||!['company','sole_trader'].includes(data.businessType)||!/^\S+@\S+\.\S+$/.test(data.email))fail('Invalid business details');
+  if(data.businessType==='company'&&!data.registration)fail('Company registration required');
+  if(!/^[+0-9().\s-]{7,40}$/.test(data.phone)||!/[0-9]{6}/.test(data.phone.replace(/\D/g,'')))fail('Invalid phone');
+  if(!['licensing','hardware','training','services','mixed'].includes(data.focus)||!['prepaid','credit'].includes(data.paymentTerms)||!['','referral','facebook','website','sales','other'].includes(data.source))fail('Invalid reseller preferences');
+  if(data.website) {
+    let url;try{url=new URL(data.website);}catch{fail('Invalid website');}
+    if(url.protocol!=='https:'||url.username||url.password||!url.hostname.includes('.'))fail('Invalid website');
+  }
+  if(!noticeVersion||data.noticeVersion!==noticeVersion||input.accepted!==true)fail('Current privacy notice acceptance required');
+  return {...data,accepted:true};
 }
 export function owned(record,actor) {
   if(!record||record.tenant!==actor.tenant||record.applicant!==actor.oid)fail('Application not found',404);
@@ -18,7 +36,7 @@ export function activationReady(record,roster,principals) {
   if(principals.length!==2||new Set(principals).size!==2||principals.some(o=>!uuid.test(o)))fail('Named approvers unavailable',503);
   const required=[...new Set([...roster.owners,...principals])].sort();
   if(record.stage!=='pending_approval'||!record.agreementSigned||!record.evidence?.length)fail('Application not ready',409);
-  if(record.evidence.some(e=>e.scan!=='clean'||e.review!=='accepted'||e.applicationVersion!==record.version||!e.sha256||e.scannedVersion!==e.blobVersion))fail('Evidence not verified',409);
+  if(record.evidence.some(e=>e.scan!=='clean'||e.review!=='accepted'||e.applicationVersion!==record.version||!e.sha256||typeof e.blobVersion!=='string'||!e.blobVersion||typeof e.scannedVersion!=='string'||!e.scannedVersion||e.scannedVersion!==e.blobVersion))fail('Evidence not verified',409);
   if(JSON.stringify(required)!==JSON.stringify([...(record.requiredApprovers||[])].sort()))fail('Approval roster changed',409);
   for(const id of required) {
     const decisions=record.approvals.filter(a=>a.actor===id&&a.version===record.version);

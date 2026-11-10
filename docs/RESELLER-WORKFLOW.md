@@ -1,6 +1,6 @@
 # Reseller applications and KYC implementation
 
-Status: reviewed implementation foundation; NOT a deployed intake or approval service.
+Status: feature-gated applicant frontend/API implementation; NOT a deployed intake or approval service.
 The `/resellers/` page is an explicit, browser-memory-only preview. It makes no submission,
 upload, analytics or storage calls. Do not enable collection until the release checks pass.
 
@@ -42,12 +42,11 @@ prior approvals. Never trust a client-supplied status, score, actor or approval 
 
 ## Target architecture
 
-Public www/resellers entry -> dedicated authenticated Azure Functions applicant API ->
+Public www/resellers entry -> feature-gated MSAL applicant UI -> dedicated authenticated Azure Functions applicant API ->
 Dataverse Reseller Application -> private SharePoint KYC library -> review and approvals ->
 Dynamics Account/Contact activation. Azure Functions is the selected backend; no Netlify.
 The existing Azure Functions MCP project now has a separately authenticated reseller operator
-endpoint; see edge/azure-operator-gateway/RESELLER-MCP.md. Applicant API/upload services remain
-to be implemented. partners.skunkworks.africa is a proposed frontend host, not a provisioned domain.
+endpoint; see edge/azure-operator-gateway/RESELLER-MCP.md. Applicant submit/status API code is implemented but the intake is OFF; live tenant authentication, Dataverse provisioning and private uploads remain unverified or unimplemented. partners.skunkworks.africa is a proposed frontend host, not a provisioned domain. See docs/RESELLER-ACTIVATION.md for the current release gate.
 
 Use applicant identity and record-scoped permissions. An applicant sees only their own
 application and evidence requests. Public GitHub Pages must not carry Graph credentials,
