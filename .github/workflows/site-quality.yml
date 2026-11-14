@@ -22,6 +22,9 @@ jobs:
       - name: Check JavaScript syntax
         run: |
           node --check site.js
+          node --check team.js
+          node --check team-members.mjs
+          node --check scripts/validate-team.mjs
           node --check automation/config.js
           node --check automation/app.js
           node --check edge/storefront-redirect/worker.mjs
@@ -32,5 +35,6 @@ jobs:
         run: |
           node scripts/validate-site.mjs
           node scripts/validate-theme.mjs
+          node scripts/validate-team.mjs
       - name: Validate storefront redirects
         run: node edge/storefront-redirect/worker.test.mjs
