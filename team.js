@@ -66,7 +66,9 @@ import { members } from './team-members.mjs';
   };
 
   const route = () => {
-    const hash = decodeURIComponent(location.hash.slice(1));
+    let hash;
+    try { hash = decodeURIComponent(location.hash.slice(1)); }
+    catch { hash = 'company/invalid'; }
     const isProfile = hash.startsWith('company/');
     const member = isProfile ? members.find(item => hash === 'company/' + item.slug) : null;
     sections.forEach(section => { section.hidden = isProfile; });
