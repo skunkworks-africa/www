@@ -11,10 +11,7 @@ Update `team-members.mjs`. Each record has an immutable slug, display name, appr
 Profiles below were seeded from publicly available professional and company listings. **The team owner should confirm that each person is currently affiliated, agrees to appear publicly, and approves their title and biography before merge.** The skill chips describe role-aligned focus areas; they are not independently verified certifications.
 
 - **Raydo Matthee:** [Public professional profile](https://za.linkedin.com/in/raydo-matthee) and existing Skunkworks company leadership information.
-- **Bradley Nel:** [Published Skunkworks Academy listing](https://www.signalhire.com/profiles/bradley-nel/211666053) (Solutions Architect).
-- **Dan Opiyo:** [Skunkworks team listing](https://contactout.com/company/Skunkworks-Pty-Ltd-82893) (Lead Course Facilitator).
 - **Isabel Alvim Swart:** [Skunkworks Academy company listing](https://www.signalhire.com/companies/skunkworks-pty-ltd) (Training Coordinator).
-- **Jolandi Van Heerden:** [Skunkworks team listing](https://contactout.com/company/Skunkworks-Pty-Ltd-82893) (Executive Assistant to the CEO).
 - **MJ Adão-Dercksen:** [Skunkworks Academy company publication](https://za.linkedin.com/company/skunkworksacademy) (Training Coordinator, Portugal).
 
 These sources do not prove that job titles are still current. Do not import other people from third-party directory snapshots without review.

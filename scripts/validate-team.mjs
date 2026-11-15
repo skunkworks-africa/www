@@ -5,7 +5,7 @@ import { members } from '../team-members.mjs';
 const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const script = readFileSync(new URL('../team.js', import.meta.url), 'utf8');
 const css = readFileSync(new URL('../team.css', import.meta.url), 'utf8');
-assert.ok(members.length >= 4, 'Show several team members');
+assert.ok(members.length >= 3, 'Show several team members');
 assert.match(html, /id="team"/, 'Team directory must have a shareable section anchor');
 assert.match(html, /id="contact"/, 'Existing contact anchor must remain');
 assert.ok(html.indexOf('id="team"') < html.indexOf('id="contact"'), 'Place directory before contact');
@@ -35,4 +35,7 @@ for (const member of members) {
   }
 }
 assert.ok(slugs.has('raydo-matthee'), 'Required Raydo route is missing');
+for (const removedSlug of ['bradley-nel', 'dan-opiyo', 'jolandi-van-heerden']) {
+  assert.ok(!slugs.has(removedSlug), 'Removed member must not be publicly listed: ' + removedSlug);
+}
 console.log('Team directory checks passed: ' + members.length + ' profiles, routes and profile detail.');
