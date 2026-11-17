@@ -1,36 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
   <title id="title">Skunkworks Africa — Smart technology. Real possibilities.</title>
-  <desc id="desc">Branded social sharing image for Skunkworks Africa.</desc>
+  <desc id="desc">Corporate black and white social sharing image for Skunkworks Africa.</desc>
   <defs>
-    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#1e6bd0" stop-opacity=".92"/>
-      <stop offset="1" stop-color="#f24208" stop-opacity=".9"/>
+    <linearGradient id="black-panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#202020"/>
+      <stop offset="1" stop-color="#000000"/>
     </linearGradient>
-    <radialGradient id="orb" cx="0.12" cy="0.18" r="0.95">
-      <stop offset="0" stop-color="#1e6bd0" stop-opacity=".32"/>
-      <stop offset=".6" stop-color="#03033a" stop-opacity="0"/>
-    </radialGradient>
   </defs>
-  <rect width="1200" height="630" fill="#03033a"/>
-  <rect width="1200" height="630" fill="url(#orb)"/>
-  <path d="M760 0h440v630H840c75-96 112-194 112-294C952 213 886 101 760 0Z" fill="url(#glow)" opacity=".16"/>
-  <path d="M0 534c202-88 345-101 501-45 126 45 241 81 391 51 104-21 203-65 308-144v234H0Z" fill="#000" opacity=".22"/>
-  <path d="M0 0h18v630H0Z" fill="#f24208"/>
-  <path d="M18 0h6v630h-6Z" fill="#1e6bd0"/>
+  <rect width="1200" height="630" fill="#000"/>
+  <path d="M760 0h440v630H820c92-103 137-205 137-306C957 204 890 96 760 0Z" fill="#202020"/>
+  <path d="M0 530c215-80 362-91 514-38 145 50 260 77 391 48 103-23 199-68 295-143v233H0Z" fill="url(#black-panel)"/>
+  <path d="M0 0h12v630H0Z" fill="#fff"/>
   <g transform="translate(92 98)">
-    <rect x="-20" y="-20" width="118" height="118" rx="22" fill="#fff" opacity=".08"/>
-    <image x="0" y="0" width="78" height="78" preserveAspectRatio="xMidYMid meet" href="https://www.skunkworks.africa/assets/logo-white.svg" xlink:href="https://www.skunkworks.africa/assets/logo-white.svg"/>
+    <rect x="-20" y="-20" width="118" height="118" rx="22" fill="#fff" opacity=".12"/>
+    <image x="0" y="0" width="78" height="78" preserveAspectRatio="xMidYMid meet" href="https://raw.githubusercontent.com/skunkworks-africa/www/feat/social-sharing-image/assets/logo-white.svg" xlink:href="https://raw.githubusercontent.com/skunkworks-africa/www/feat/social-sharing-image/assets/logo-white.svg"/>
     <text x="0" y="138" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="4">SKUNKWORKS AFRICA</text>
   </g>
   <g transform="translate(92 310)">
-    <rect x="0" y="0" width="88" height="7" rx="3.5" fill="#f24208"/>
+    <rect x="0" y="0" width="88" height="7" rx="3.5" fill="#fff"/>
     <text x="0" y="84" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="700">Smart technology.</text>
     <text x="0" y="151" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="700">Real possibilities.</text>
-    <text x="0" y="210" fill="#fff" opacity=".82" font-family="Arial, Helvetica, sans-serif" font-size="22" letter-spacing="1.5">Technology capability, commerce and learning.</text>
+    <text x="0" y="210" fill="#fff" opacity=".78" font-family="Arial, Helvetica, sans-serif" font-size="22" letter-spacing="1.5">Technology capability, commerce and learning.</text>
   </g>
   <g transform="translate(935 522)">
     <rect width="174" height="44" rx="22" fill="#fff"/>
-    <circle cx="24" cy="22" r="7" fill="#f24208"/>
+    <circle cx="24" cy="22" r="7" fill="#000"/>
     <text x="42" y="29" fill="#000" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">SKUNKWORKS.AFRICA</text>
   </g>
 </svg>
