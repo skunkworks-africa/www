@@ -71,6 +71,12 @@ test('multiple unequal hosts are calculated separately', () => {
   assert.equal(result.licensedCoreUnits, 160);
 });
 
+test('an empty host with no Windows Server workload is not charged for an OS licence', () => {
+  assert.throws(() => physical('standard', [host({ windowsVms: 0, physicalWorkload: false })]), /no Windows Server VM/);
+  const physicalOse = physical('standard', [host({ windowsVms: 0, physicalWorkload: true })]);
+  assert.equal(physicalOse.licensedCoreUnits, 24);
+});
+
 test('virtual-core licensing requires eligible licensing rights', () => {
   assert.throws(() => virtual('standard', [host()], false), /qualifying subscription/);
 });
