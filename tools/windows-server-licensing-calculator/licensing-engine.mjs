@@ -55,6 +55,9 @@ export function calculateEstimate(configuration) {
     const windowsVms = integer(host.windowsVms, 'Windows Server VMs', model === 'virtual' ? 1 : 0, limits.windowsVms);
     const virtualCoresPerVm = integer(host.virtualCoresPerVm ?? 8, 'Virtual cores per VM', 1, limits.virtualCoresPerVm);
     const physicalWorkload = Boolean(host.physicalWorkload);
+    if (model === 'physical' && windowsVms === 0 && !physicalWorkload) {
+      throw new RangeError(name + ': no Windows Server VM or physical Windows Server workload was selected.');
+    }
 
     const actualCores = processors * coresPerProcessor;
     const physicalMinimum = Math.max(16, processors * Math.max(8, coresPerProcessor));
