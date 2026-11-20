@@ -81,6 +81,12 @@
       "url": "/licensing/",
       "surface": "corporate",
       "purpose": "Microsoft 365 and Google Workspace guidance, reference pricing and quote requests"
+    },
+    {
+      "label": "Windows Server Core Licensing Calculator",
+      "url": "/tools/windows-server-licensing-calculator/",
+      "surface": "corporate",
+      "purpose": "Windows Server 2025 physical and virtual core sizing, multi-host licence packs and quote requests"
     }
   ]
 }
