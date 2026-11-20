@@ -118,7 +118,7 @@ export function toCsv(estimate) {
   const quote = value => {
     let valueText = String(value ?? '');
     // Prevent spreadsheet applications from evaluating untrusted labels as formulas.
-    if (/^[\\s\\x00-\\x1f]*[=+@-]/.test(valueText)) valueText = "'" + valueText;
+    if (/^[\s\x00-\x1f]*[=+@-]/.test(valueText)) valueText = "'" + valueText;
     return '"' + valueText.replaceAll('"', '""') + '"';
   };
   const header = ['Server', 'Edition', 'Model', 'Processors', 'Cores / processor',
