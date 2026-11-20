@@ -115,7 +115,12 @@ export function calculateEstimate(configuration) {
 }
 
 export function toCsv(estimate) {
-  const quote = value => '"' + String(value ?? '').replaceAll('"', '""') + '"';
+  const quote = value => {
+    let valueText = String(value ?? '');
+    // Prevent spreadsheet applications from evaluating untrusted labels as formulas.
+    if (/^[\\s\\x00-\\x1f]*[=+@-]/.test(valueText)) valueText = "'" + valueText;
+    return '"' + valueText.replaceAll('"', '""') + '"';
+  };
   const header = ['Server', 'Edition', 'Model', 'Processors', 'Cores / processor',
     'Windows VMs', 'Layers', 'Minimum cores', 'Core licences to purchase', '16-core packs', '2-core packs'];
   const lines = estimate.hosts.map(h => [
