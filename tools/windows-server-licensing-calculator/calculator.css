@@ -43,7 +43,7 @@
 .calc-inline-check input{width:19px;height:19px;min-width:19px;margin:0;accent-color:var(--sk-action,var(--fg))}
 .calc-inline-actions{margin-top:26px}
 .calc-error{margin:18px 0 0;padding:14px 16px;border-left:4px solid var(--sk-danger,#a11b1b);background:var(--sk-surface,var(--soft));color:var(--sk-text,var(--fg));font-weight:650}
-.calc-results{position:sticky;top:calc(var(--header) + 18px);padding:clamp(20px,2.8vw,30px);box-shadow:var(--sk-shadow,var(--shadow))}
+.calc-print-header{display:none}.calc-results{position:sticky;top:calc(var(--header) + 18px);padding:clamp(20px,2.8vw,30px);box-shadow:var(--sk-shadow,var(--shadow))}
 .calc-results h3{font-size:1.6rem;line-height:1.15}
 .calc-metric{display:grid;gap:4px;padding:20px 0;border-bottom:1px solid var(--sk-border,var(--line))}
 .calc-metric strong{font-size:clamp(2.8rem,4.2vw,4rem);line-height:1;font-weight:830;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
