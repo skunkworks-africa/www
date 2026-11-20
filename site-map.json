@@ -75,6 +75,12 @@
       "url": "/cloud-assessment/",
       "surface": "corporate",
       "purpose": "Tenant/workspace sizing, licensing personas, migration scope and service discovery"
+    },
+    {
+      "label": "Business software licensing guide",
+      "url": "/licensing/",
+      "surface": "corporate",
+      "purpose": "Microsoft 365 and Google Workspace guidance, reference pricing and quote requests"
     }
   ]
 }
