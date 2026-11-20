@@ -32,7 +32,7 @@
 .calc-host{padding:20px;background:var(--sk-bg,var(--bg));border:1px solid var(--sk-border,var(--line));border-radius:var(--sk-radius,12px)}
 .calc-host-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
 .calc-host-header h4{font-size:1rem;margin:0;overflow-wrap:anywhere}
-.calc-remove{padding:6px 8px;border:0;border-radius:6px;background:transparent;color:var(--sk-danger,#a11b1b);font:700 .87rem inherit;cursor:pointer;text-decoration:underline}
+.calc-remove{padding:6px 8px;border:0;border-radius:6px;background:transparent;color:var(--sk-danger,#a11b1b);font-weight:700;font-size:.87rem;font-family:inherit;cursor:pointer;text-decoration:underline}
 .calc-input-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
 .calc-field{min-width:0;display:grid;gap:7px;font-size:.85rem;font-weight:700}
 .calc-field-wide{grid-column:1/-1}
