@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <!-- Optional GTM container ID is intentionally blank until privacy-approved configuration. -->
+  <meta name="skw-gtm-id" content="">
+  <meta name="theme-color" content="#ffffff">
+  <script src="/theme-init.js"></script>
+  <title>Windows Server 2025 Core Licensing Calculator | Skunkworks Africa</title>
+  <meta name="description" content="Free Windows Server 2025 core licensing calculator. Estimate Standard and Datacenter core licences, VM stacking, multi-server requirements and 2-core or 16-core packs.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://www.skunkworks.africa/tools/windows-server-licensing-calculator/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Skunkworks Africa">
+  <meta property="og:locale" content="en_ZA">
+  <meta property="og:title" content="Windows Server 2025 Core Licensing Calculator | Skunkworks Africa">
+  <meta property="og:description" content="Calculate Windows Server Standard and Datacenter physical core licensing, VM stacking and licence packs for one or more servers.">
+  <meta property="og:url" content="https://www.skunkworks.africa/tools/windows-server-licensing-calculator/">
+  <meta property="og:image" content="https://www.skunkworks.africa/assets/social-preview.png">
+  <meta property="og:image:alt" content="Skunkworks Africa enterprise technology solutions">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/favicon-black.ico" sizes="any">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/adaptive-shell.css">
+  <link rel="stylesheet" href="https://brand.skunkworks.africa/tokens.css">
+  <link rel="stylesheet" href="/assets/skunkworks-global-footer.css">
+  <link rel="stylesheet" href="/tools/windows-server-licensing-calculator/calculator.css">
+  <script type="application/ld+json">
+  [
+    {"@context":"https://schema.org","@type":"SoftwareApplication",
+     "name":"Skunkworks Windows Server 2025 Core Licensing Calculator",
+     "applicationCategory":"BusinessApplication","operatingSystem":"Web",
+     "url":"https://www.skunkworks.africa/tools/windows-server-licensing-calculator/",
+     "description":"Free Windows Server 2025 physical and virtual core licensing estimator for Standard and Datacenter editions.",
+     "offers":{"@type":"Offer","price":"0","priceCurrency":"ZAR"},
+     "publisher":{"@type":"Organization","name":"Skunkworks Africa","url":"https://www.skunkworks.africa/"}},
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Skunkworks Africa","item":"https://www.skunkworks.africa/"},
+      {"@type":"ListItem","position":2,"name":"Licensing","item":"https://www.skunkworks.africa/licensing/"},
+      {"@type":"ListItem","position":3,"name":"Windows Server Licensing Calculator","item":"https://www.skunkworks.africa/tools/windows-server-licensing-calculator/"}]}
+  ]
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" data-header aria-label="Global header">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="Skunkworks Africa home">
+        <img class="brand-mark brand-mark--on-dark" src="/assets/logo-white.svg" alt="" width="34" height="34" aria-hidden="true">
+        <img class="brand-mark brand-mark--on-light" src="/assets/logo-black.svg" alt="" width="34" height="34" aria-hidden="true">
+        <span><strong>Skunkworks</strong><small>Africa</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="/#solutions">Solutions</a>
+        <a href="/#services">Services</a>
+        <a href="https://www.skunkworksacademy.com/">Academy</a>
+        <a href="/#company">Skunkworks</a>
+      </nav>
+      <div class="header-actions">
+        <a class="button button-primary button-small" href="https://store.skunkworks.africa/">Shop</a>
+        <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu" data-menu-button><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+      <nav class="shell" aria-label="Mobile navigation">
+        <a href="/#solutions">Solutions</a><a href="/#services">Services</a>
+        <a href="https://www.skunkworksacademy.com/">Academy</a><a href="/#company">Skunkworks</a>
+        <a href="/licensing/">Licensing guide</a><a href="https://store.skunkworks.africa/">Shop</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <div class="shell calc-breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/licensing/">Licensing</a><span aria-hidden="true">/</span><span>Windows Server calculator</span></div>
+    <section class="shell calc-hero" aria-labelledby="page-title">
+      <p class="eyebrow">Skunkworks tools / Microsoft Windows Server 2025</p>
+      <h1 id="page-title">Windows Server <span class="calc-emphasis">Core Licensing Calculator</span></h1>
+      <p class="calc-lead">Size Standard or Datacenter core licensing for physical servers and Windows Server virtual machines. Explore stacking, estimate licence-pack requirements and prepare a configuration for your sales team.</p>
+      <div class="calc-hero-actions">
+        <a class="button button-primary" href="#calculator">Calculate licences</a>
+        <a class="button button-secondary" href="#licensing-guide">Understand the rules</a>
+      </div>
+      <p class="calc-subtext">Free to use · No account required · Local calculations · Last rules review: 20 November 2026</p>
+    </section>
+    <section class="shell calc-workspace" id="calculator" aria-labelledby="calculator-title">
+      <div class="calc-workspace-top">
+        <div><p class="eyebrow">Configure your environment</p><h2 id="calculator-title">Core licensing estimate</h2></div>
+        <button class="button button-secondary button-small" id="reset-calculator" type="button">Reset configuration</button>
+      </div>
+      <form id="calculator-form" novalidate>
+        <div class="calc-grid">
+          <div class="calc-config">
+            <fieldset class="calc-choice">
+              <legend>1. Choose your Windows Server edition</legend>
+              <div class="calc-radio-row">
+                <label class="calc-option"><input type="radio" name="edition" value="standard" checked><span><strong>Standard</strong><small>Typically lower-density workloads</small></span></label>
+                <label class="calc-option"><input type="radio" name="edition" value="datacenter"><span><strong>Datacenter</strong><small>Highly virtualised environments</small></span></label>
+              </div>
+            </fieldset>
+            <fieldset class="calc-choice">
+              <legend>2. Choose your licensing model</legend>
+              <div class="calc-radio-row">
+                <label class="calc-option"><input type="radio" name="model" value="physical" checked><span><strong>Physical cores</strong><small>Full physical host coverage</small></span></label>
+                <label class="calc-option"><input type="radio" name="model" value="virtual"><span><strong>Virtual cores / VM</strong><small>Qualifying subscription or Software Assurance only</small></span></label>
+              </div>
+              <div class="calc-eligibility" id="virtual-eligibility" hidden>
+                <label class="calc-inline-check"><input type="checkbox" id="eligible-license"><span>I confirm our organisation has a qualifying subscription or active Software Assurance.</span></label>
+                <p class="calc-help">Virtual-core licensing grants rights per licensed VM. It does not grant unlimited virtualisation rights or cover Windows Server running in the host's physical operating system.</p>
+              </div>
+            </fieldset>
+            <div class="calc-servers-heading">
+              <div><h3>3. Server configuration</h3><p>Add servers individually for different processor, core and VM counts.</p></div>
+              <button class="button button-secondary button-small" type="button" id="add-server">+ Add server</button>
+            </div>
+            <div id="server-list" class="calc-server-list"></div>
+            <div class="calc-inline-actions">
+              <button class="button button-primary" type="submit" id="calculate-button">Calculate licences</button>
+              <span class="calc-help">Results also update as you type.</span>
+            </div>
+            <p id="calculator-error" role="alert" class="calc-error" hidden></p>
+          </div>
+          <aside class="calc-results" id="results" aria-labelledby="results-title">
+            <div class="calc-print-header"><img src="/assets/logo-black.svg" alt="Skunkworks Africa" width="42" height="42"><span>Skunkworks Africa<br>Windows Server 2025 Licensing Estimate</span></div>
+            <p class="eyebrow">Your estimated requirements</p><h3 id="results-title">Licensing summary</h3>
+            <div class="calc-metric"><strong id="licensed-cores">—</strong><span>Core licence units to purchase*</span></div>
+            <dl class="calc-kpi-grid">
+              <div><dt>Physical servers</dt><dd id="result-hosts">—</dd></div>
+              <div><dt>Edition</dt><dd id="result-edition">—</dd></div>
+              <div><dt>16-core packs</dt><dd id="result-sixteen">—</dd></div>
+              <div><dt>2-core packs</dt><dd id="result-two">—</dd></div>
+            </dl>
+            <p class="calc-help" id="result-description" aria-live="polite">Enter your environment to see estimated requirements.</p>
+            <div class="calc-report-actions">
+              <button type="button" class="button button-primary" id="export-csv" disabled>Download CSV</button>
+              <button type="button" class="button button-secondary" id="print-report" disabled>Print / save PDF</button>
+              <button type="button" class="button button-secondary" id="copy-results" disabled>Copy summary</button>
+              <a class="button button-secondary" id="request-quote" href="mailto:sales@skunkworks.africa?subject=Windows%20Server%202025%20licensing%20quote">Request a quote</a>
+            </div>
+            <p class="calc-results-disclaimer">* The number of core licence units is an estimate, not a formal quote. Product-specific SKUs, CALs and agreement eligibility require confirmation.</p>
+          </aside>
+        </div>
+        <div class="calc-breakdown" id="breakdown" hidden>
+          <div class="calc-breakdown-heading"><div><p class="eyebrow">Calculation breakdown</p><h3>Server-by-server results</h3></div><span id="rules-version"></span></div>
+          <div class="calc-table-scroll"><table><caption>Physical and virtual core licensing estimate for each configured server</caption>
+            <thead><tr><th scope="col">Server</th><th scope="col">Minimum core requirement</th><th scope="col">Layers</th><th scope="col">Core units</th><th scope="col">16-core packs</th><th scope="col">2-core packs</th></tr></thead>
+            <tbody id="server-results"></tbody>
+          </table></div>
+          <p class="calc-help" id="customer-minimum-note"></p>
+          <div class="calc-edition-comparison" id="edition-comparison"></div>
+        </div>
+      </form>
+    </section>
+    <section class="shell calc-explainer" id="licensing-guide">
+      <p class="eyebrow">Windows Server licensing explained</p>
+      <h2>How Windows Server core licensing works</h2>
+      <div class="calc-explainer-grid">
+        <article><span class="calc-number">01</span><h3>Count physical cores</h3><p>Licensing by physical cores covers every physical processor core, subject to a minimum of eight core licences per processor and sixteen per server.</p></article>
+        <article><span class="calc-number">02</span><h3>Account for virtualisation</h3><p>Standard grants two operating system environments per full core-licensing layer. Datacenter grants unlimited virtualisation rights on a fully licensed physical server.</p></article>
+        <article><span class="calc-number">03</span><h3>Select licence packs</h3><p>Microsoft documents core licences in two-core and sixteen-core packs. An estimator can combine pack sizes; exact product eligibility and purchasing terms must be verified.</p></article>
+      </div>
+      <h3>Frequently asked licensing questions</h3>
+      <div class="calc-faq">
+        <details><summary>Do hyperthreaded or logical processors count as physical cores?</summary><p>No. Physical-core licensing is based on physical processor cores, not simultaneous multithreading threads.</p></details>
+        <details><summary>How do I license more than two Windows Server VMs on Standard?</summary><p>Under physical-core licensing, each additional set of two Windows Server operating system environments requires a full additional licensing layer across the server's cores. A physical host OS used solely to host and manage the VMs may have an additional permitted use right.</p></details>
+        <details><summary>Can I license Windows Server by individual virtual machine?</summary><p>For qualifying subscriptions or licences with active Software Assurance, Microsoft allows per-VM licensing. Each licensed VM needs at least eight core licences, with at least sixteen core licences per customer. Separate rights apply to any physical operating system.</p></details>
+        <details><summary>Are Windows Server Client Access Licences included?</summary><p>No. Windows Server CALs, Remote Desktop Services CALs and other access rights must be assessed separately according to actual users, devices and the Product Terms.</p></details>
+        <details><summary>Does this calculator cover clusters, failover, Azure Arc or special licensing programmes?</summary><p>No. Advanced deployment rights depend on the agreement, workload mobility, Software Assurance, hardware allocation and programme. Request a technical licensing assessment for these cases.</p></details>
+      </div>
+      <p class="calc-source">Official sources: <a href="https://www.microsoft.com/licensing/guidance/Windows-Server-2025" rel="noopener noreferrer">Microsoft Windows Server 2025 licensing guidance</a> and <a href="https://www.microsoft.com/licensing/terms/" rel="noopener noreferrer">Microsoft Product Terms</a>. In the event of a conflict, the applicable agreement and Product Terms control.</p>
+    </section>
+    <section class="shell calc-sales-cta">
+      <div><p class="eyebrow">Skunkworks Infrastructure & Licensing</p><h2>Turn your estimate into an actionable licence plan.</h2><p>Ask for a Microsoft licensing quote, cost comparison, virtualisation assessment or migration plan. Our consultants can review server counts, VM mobility, CALs and procurement requirements.</p></div>
+      <div class="calc-hero-actions"><a class="button button-primary" href="mailto:sales@skunkworks.africa?subject=Windows%20Server%20licensing%20consultation">Speak to licensing sales</a><a class="button button-secondary" href="/licensing/">Explore licensing services</a></div>
+    </section>
+  </main>
+  <template id="server-template">
+    <section class="calc-host" data-host>
+      <div class="calc-host-header"><h4 data-host-heading>Server</h4><button class="calc-remove" type="button" data-remove-host>Remove</button></div>
+      <div class="calc-input-grid">
+        <label class="calc-field calc-field-wide"><span>Server label</span><input type="text" data-field="name" maxlength="80" autocomplete="off" value="Server 1"></label>
+        <label class="calc-field"><span>Physical processors</span><input type="number" data-field="processors" min="1" max="64" step="1" required value="2"></label>
+        <label class="calc-field"><span>Physical cores / processor</span><input type="number" data-field="coresPerProcessor" min="1" max="256" step="1" required value="12"></label>
+        <label class="calc-field"><span>Windows Server guest VMs</span><input type="number" data-field="windowsVms" min="0" max="2000" step="1" required value="4"></label>
+        <label class="calc-field" data-virtual-field hidden><span>Virtual cores / VM</span><input type="number" data-field="virtualCoresPerVm" min="1" max="512" step="1" required value="8"></label>
+        <label class="calc-inline-check calc-field-wide" data-workload-field><input type="checkbox" data-field="physicalWorkload"><span>Host's physical Windows Server OS also runs workloads beyond managing VMs</span></label>
+      </div>
+    </section>
+  </template>
+  <div class="calc-consent" id="analytics-consent" hidden role="region" aria-label="Analytics consent"><p>Help us improve this tool with optional usage analytics. Essential calculations work without tracking.</p><div><button type="button" class="button button-primary button-small" data-consent-accept>Allow analytics</button><button type="button" class="button button-secondary button-small" data-consent-reject>Essential only</button></div></div>
+  <dialog id="analytics-dialog" aria-labelledby="analytics-dialog-title" class="calc-dialog"><h2 id="analytics-dialog-title">Analytics preferences</h2><p>Optional Google analytics tags only load after consent. No licence configuration or contact details are sent to analytics.</p><div class="calc-hero-actions"><button type="button" class="button button-primary" data-consent-accept>Allow analytics</button><button type="button" class="button button-secondary" data-consent-reject>Essential only</button><button type="button" class="button button-secondary" id="close-preferences">Close</button></div></dialog>
+  <div data-skunkworks-footer-mount></div>
+  <div class="calc-privacy-link shell"><button type="button" id="analytics-preferences">Analytics preferences</button><span>© Skunkworks Africa · Independent estimator; not affiliated with Microsoft's licensing authority.</span></div>
+  <script src="/site.js" defer></script>
+  <script src="/assets/skunkworks-global-footer.js" defer></script>
+  <script type="module" src="/tools/windows-server-licensing-calculator/calculator.mjs"></script>
+</body>
+</html>
