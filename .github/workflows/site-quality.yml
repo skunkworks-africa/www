@@ -22,14 +22,26 @@ jobs:
       - name: Check JavaScript syntax
         run: |
           node --check site.js
-          node --check theme-init.js
+          node --check team.js
+          node --check team-members.mjs
+          node --check scripts/validate-team.mjs
           node --check automation/config.js
           node --check automation/app.js
           node --check edge/storefront-redirect/worker.mjs
           node --check edge/storefront-redirect/worker.test.mjs
+          node --check scripts/validate-site.mjs
+          node --check scripts/validate-theme.mjs
+          node --check scripts/validate-windows-server-calculator.mjs
+          node --check tools/windows-server-licensing-calculator/licensing-engine.mjs
+          node --check tools/windows-server-licensing-calculator/calculator.mjs
+          node --check tools/windows-server-licensing-calculator/analytics.mjs
       - name: Validate structure, design and canonical rules
         run: |
           node scripts/validate-site.mjs
           node scripts/validate-theme.mjs
+          node scripts/validate-team.mjs
+          node scripts/validate-windows-server-calculator.mjs
+      - name: Test Windows Server licensing engine
+        run: node --test tools/windows-server-licensing-calculator/licensing-engine.test.mjs
       - name: Validate storefront redirects
         run: node edge/storefront-redirect/worker.test.mjs

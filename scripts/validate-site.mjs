@@ -4,6 +4,9 @@ const files = [
   'index.html',
   'styles.css',
   'site.js',
+  'assets/brand-navigation.css',
+  'assets/brand-navigation-tokens.css',
+  'assets/brand-navigation.js',
   'site-map.json',
   'sitemap.xml',
   'robots.txt',
@@ -26,14 +29,18 @@ const siteMap = fs.existsSync('site-map.json') ? JSON.parse(fs.readFileSync('sit
 
 const requireText=(source,text,msg)=>{if(!source.includes(text)) failures.push(msg)};
 requireText(html,'rel="canonical" href="https://www.skunkworks.africa/"','Missing canonical URL.');
-requireText(html,'data-menu-button','Missing burger menu control.');
-requireText(html,'data-mobile-menu','Missing mobile navigation container.');
+requireText(html,'data-sk-open="sk-navigation"','Missing burger menu control.');
+requireText(html,'id="sk-navigation"','Missing mobile navigation dialog.');
+requireText(html,'data-sk-open="sk-search"','Missing global search.');
+requireText(html,'data-sk-theme','Missing theme control.');
 requireText(html,'https://store.skunkworks.africa/','Missing canonical Shopify store link.');
 requireText(html,'https://www.skunkworksacademy.com/','Missing Academy ecosystem link.');
 requireText(css,'@media(prefers-color-scheme:dark)','Missing browser dark-mode inversion.');
 requireText(css,'@media(prefers-reduced-motion:reduce)','Missing reduced-motion handling.');
 requireText(css,':focus-visible','Missing visible keyboard focus style.');
-requireText(js,"event.key === 'Escape'",'Mobile menu must close on Escape.');
+const navJs = fs.readFileSync('assets/brand-navigation.js','utf8');
+requireText(navJs,'showModal()','Navigation must use a native modal dialog.');
+requireText(navJs,'trigger?.focus()','Navigation must restore focus.');
 if (/class=["'][^"']*sidebar/i.test(html) || /\.sidebar\b/.test(css)) failures.push('Persistent left sidebar navigation is forbidden.');
 
 requireText(automationHtml,'rel="canonical" href="https://www.skunkworks.africa/automation/"','Automation page is missing its canonical URL.');
@@ -62,8 +69,8 @@ const requiredHosts=['https://www.skunkworks.africa','https://store.skunkworks.a
 for(const host of requiredHosts){if(!Object.values(siteMap.canonicalHosts||{}).includes(host)) failures.push(`Missing canonical host rule: ${host}`)}
 const labels=(siteMap.primaryNavigation||[]).map(i=>i.label).join('|');
 if(labels!=='Solutions|Services|Academy|Skunkworks') failures.push('Primary navigation order does not match canonical rule.');
-const desktopNav = html.match(/<nav class="desktop-nav"[^>]*>([\s\S]*?)<\/nav>/)?.[1] || '';
-const mobileNav = html.match(/<nav class="shell" aria-label="Mobile navigation">([\s\S]*?)<\/nav>/)?.[1] || '';
+const desktopNav = html.match(/<nav class="sk-top-links"[^>]*>([\s\S]*?)<\/nav>/)?.[1] || '';
+const mobileNav = html.match(/<nav aria-label="Mobile navigation">([\s\S]*?)<\/nav>/)?.[1] || '';
 const navLabels = markup => [...markup.matchAll(/<a\s+href="[^"]+"[^>]*>([^<]+)<\/a>/g)].map(m => m[1]);
 for (const [name, markup] of [['desktop', desktopNav], ['mobile', mobileNav]]) {
   const allLabels = navLabels(markup);
@@ -71,7 +78,7 @@ for (const [name, markup] of [['desktop', desktopNav], ['mobile', mobileNav]]) {
   if (actual !== labels) failures.push(`${name} navigation does not match site map: ${actual}`);
   if (allLabels.some(label => ['Store','Software','Company'].includes(label))) failures.push(`${name} navigation contains retired labels.`);
 }
-if (!html.includes('<a href="#company">Skunkworks</a>')) failures.push('Missing Skunkworks About link.');
+if (!html.includes('<a href="/#company">Skunkworks</a>')) failures.push('Missing Skunkworks About link.');
 
 if(failures.length){console.error('Site validation failed:');for(const f of failures) console.error(`- ${f}`);process.exit(1)}
 console.log('Site validation passed.');
