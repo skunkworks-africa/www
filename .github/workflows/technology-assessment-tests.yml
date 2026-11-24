@@ -10,6 +10,8 @@ on:
     paths:
       - 'technology-assessment/**'
       - 'edge/technology-assessment-worker/**'
+permissions:
+  contents: read
 jobs:
   test:
     runs-on: ubuntu-latest
