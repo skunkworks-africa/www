@@ -91,9 +91,6 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
   .stage-number{width:36px;height:36px}
   .stage-status{grid-column:2}
 }
-@media(prefers-color-scheme:dark){
-  :root{color-scheme:dark}
-}
 @media(prefers-reduced-motion:reduce){
   *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
