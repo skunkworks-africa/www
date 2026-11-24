@@ -1,0 +1,44 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+
+const base = 'tools/windows-server-licensing-calculator/';
+const read = path => fs.readFileSync(path, 'utf8');
+const html = read(base + 'index.html');
+const css = read(base + 'calculator.css');
+const app = read(base + 'calculator.mjs');
+const engine = read(base + 'licensing-engine.mjs');
+const analytics = read(base + 'analytics.mjs');
+const sitemap = read('sitemap.xml');
+const hub = read('licensing/index.html');
+const siteMap = JSON.parse(read('site-map.json'));
+const canonical = 'https://www.skunkworks.africa/tools/windows-server-licensing-calculator/';
+
+assert.ok(html.includes('<link rel="canonical" href="' + canonical + '">'), 'Canonical URL is required.');
+assert.ok(sitemap.includes('<loc>' + canonical + '</loc>'), 'URL must exist in sitemap.');
+assert.ok(hub.includes('href="/tools/windows-server-licensing-calculator/"'), 'Licensing hub must link to calculator.');
+assert.ok(siteMap.assistedSalesRoutes.some(route => route.url === '/tools/windows-server-licensing-calculator/'), 'Sales route must be registered.');
+assert.ok(html.includes('<script src="/theme-init.js"></script>'), 'Early theme initialisation is required.');
+assert.ok(html.includes('https://brand.skunkworks.africa/tokens.css'), 'Use the canonical Skunkworks Design System tokens.');
+for (const url of ['/styles.css','/adaptive-shell.css','/assets/skunkworks-global-footer.css','/site.js','/assets/skunkworks-global-footer.js']) {
+  assert.ok(html.includes(url), 'Shared corporate shell missing ' + url);
+}
+assert.ok(html.includes('data-menu-button') && html.includes('data-mobile-menu'), 'Responsive header must use existing site behavior.');
+assert.match(html, /name="description"/, 'Missing description.');
+assert.match(html, /property="og:image"/, 'Missing social preview.');
+assert.match(html, /name="twitter:card"/, 'Missing social card.');
+assert.match(html, /"@type":"SoftwareApplication"/, 'Missing app structured data.');
+assert.match(html, /"@type":"BreadcrumbList"/, 'Missing breadcrumb structured data.');
+const jsonLd = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1];
+assert.ok(jsonLd, 'Missing JSON-LD content.');
+assert.ok(Array.isArray(JSON.parse(jsonLd)), 'Structured data must parse as JSON.');
+assert.ok(html.includes('id="calculator-error" role="alert"'), 'Accessible calculation error missing.');
+assert.ok(html.includes('id="server-template"'), 'Dynamic multiple-server inputs missing.');
+assert.match(css, /@media\(max-width:620px\)/, 'Mobile viewport styles missing.');
+assert.match(css, /@media print/, 'Print styles missing.');
+assert.match(css, /:focus-visible/, 'Keyboard focus styles missing.');
+assert.match(app, /toCsv\(currentEstimate\)/, 'CSV export must use the validated engine.');
+assert.match(app, /window\.print\(\)/, 'Print/PDF control missing.');
+assert.match(engine, /customerMinimumTopUp/, '16-core customer minimum must be implemented.');
+assert.match(analytics, /decision !== 'allow'/, 'Consent gate must precede optional tracking.');
+assert.doesNotMatch(html + css + app + engine + analytics, /hewlett[\s-]*packard|hpe[\s.-]/i, 'External vendor assets or references detected.');
+console.log('Windows Server calculator static validation passed: brand, SEO, accessibility hooks, sitemap, consent and integration.');
