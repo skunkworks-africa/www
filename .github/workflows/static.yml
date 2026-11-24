@@ -26,7 +26,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -51,6 +51,18 @@ jobs:
           path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
+        continue-on-error: true
+        uses: actions/deploy-pages@v5
+        with:
+          artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+      # Artifact visibility and Pages deployment can fail transiently. Retry only
+      # deployment so the existing upload is reused and no duplicate is created.
+      - name: Pause before one deployment retry
+        if: ${{ !cancelled() && steps.deployment.outcome == 'failure' }}
+        run: sleep 10
+      - name: Retry GitHub Pages deployment once
+        id: deployment_retry
+        if: ${{ !cancelled() && steps.deployment.outcome == 'failure' }}
         uses: actions/deploy-pages@v5
         with:
           artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
