@@ -1,0 +1,17 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {submission,owned,activationReady} from '../src/reseller/lifecycle.mjs';
+const a='11111111-1111-4111-8111-111111111111',b='22222222-2222-4222-8222-222222222222';
+const input={company:'Example',country:'ZA',businessType:'company',registration:'2020/123456/07',city:'Johannesburg',website:'https://example.com',contactName:'A',email:'a@example.com',phone:'+27 83 123 4567',focus:'licensing',paymentTerms:'prepaid',source:'referral',noticeVersion:'1',accepted:true};
+test('client cannot set approval state',()=>assert.throws(()=>submission({...input,stage:'approved'},'1')));
+test('requires current notice',()=>assert.throws(()=>submission(input,'2')));
+test('rejects another applicant and tenant',()=>{assert.throws(()=>owned({tenant:a,applicant:a},{tenant:b,oid:a}));assert.throws(()=>owned({tenant:a,applicant:a},{tenant:a,oid:b}));});
+test('valid reseller submission retains all operational fields',()=>{const r=submission(input,'1');assert.equal(r.city,'Johannesburg');assert.equal(r.phone,'+27 83 123 4567');assert.equal(r.focus,'licensing');assert.equal(r.website,'https://example.com');});
+test('company registration mandatory; sole trader permitted without one',()=>{assert.throws(()=>submission({...input,registration:''},'1'),/Company registration/);assert.equal(submission({...input,businessType:'sole_trader',registration:''},'1').registration,'');});
+test('invalid ISO country, website, phone and unexpected client-owned state rejected',()=>{for(const changes of [{country:'South Africa'},{website:'http://example.com'},{website:'https://user:password@example.com'},{phone:'invalid'},{focus:'admin'},{paymentTerms:'approved'},{stage:'active'}])assert.throws(()=>submission({...input,...changes},'1'));});
+test('no multiline/control character or oversize applicant fields',()=>{for(const changes of [{company:'A'.repeat(161)},{company:'Company'+String.fromCharCode(10)+'Newline'},{email:'e'.repeat(255)+'@example.com'},{city:'X'.repeat(101)}])assert.throws(()=>submission({...input,...changes},'1'));});
+const record=()=>({stage:'pending_approval',agreementSigned:true,version:2,requiredApprovers:[a,b],approvals:[a,b].map(actor=>({actor,version:2,decision:'approve'})),evidence:[{scan:'clean',review:'accepted',applicationVersion:2,sha256:'hash',blobVersion:'v2',scannedVersion:'v2'}]});
+test('all distinct approvers permit activation',()=>assert.deepEqual(activationReady(record(),{complete:true,owners:[a]},[a,b]),[a,b]));
+test('changed or missing evidence versions block activation',()=>{for(const changes of [{blobVersion:'v3'},{blobVersion:''},{scannedVersion:''},{blobVersion:null,scannedVersion:null}]){const r=record();Object.assign(r.evidence[0],changes);assert.throws(()=>activationReady(r,{complete:true,owners:[a]},[a,b]));}});
+test('old approvals block activation',()=>{const r=record();r.approvals[0].version=1;assert.throws(()=>activationReady(r,{complete:true,owners:[a]},[a,b]));});
+test('partial owner lookup blocks activation',()=>assert.throws(()=>activationReady(record(),{complete:false,owners:[a]},[a,b])));

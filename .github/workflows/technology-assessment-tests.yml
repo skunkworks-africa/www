@@ -1,0 +1,21 @@
+name: Technology assessment tests
+on:
+  pull_request:
+    paths:
+      - 'technology-assessment/**'
+      - 'edge/technology-assessment-worker/**'
+      - '.github/workflows/technology-assessment-tests.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'technology-assessment/**'
+      - 'edge/technology-assessment-worker/**'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --experimental-vm-modules technology-assessment/test.mjs

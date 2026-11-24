@@ -1,0 +1,43 @@
+name: Reseller Azure + Microsoft security preflight
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+concurrency:
+  group: reseller-preflight
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    environment: reseller-staging
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fail closed if staging identity has not been configured
+        env:
+          AZURE_CLIENT_ID: ${{ vars.AZURE_CLIENT_ID }}
+          AZURE_TENANT_ID: ${{ vars.AZURE_TENANT_ID }}
+          AZURE_SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+          RESELLER_RESOURCE_GROUP: ${{ vars.RESELLER_RESOURCE_GROUP }}
+          RESELLER_FUNCTION_APP: ${{ vars.RESELLER_FUNCTION_APP }}
+          RESELLER_STORAGE_ACCOUNT: ${{ vars.RESELLER_STORAGE_ACCOUNT }}
+        run: |
+          set -euo pipefail
+          for item in AZURE_CLIENT_ID AZURE_TENANT_ID AZURE_SUBSCRIPTION_ID RESELLER_RESOURCE_GROUP RESELLER_FUNCTION_APP RESELLER_STORAGE_ACCOUNT; do
+            [[ -n "${!item:-}" ]] || { echo "::error::Missing staging environment variable $item"; exit 1; }
+          done
+          [[ "$RESELLER_FUNCTION_APP" == 'func-skunkworks-reseller-staging' ]]
+      - name: Authenticate GitHub Actions with Microsoft Entra OIDC
+        uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - name: Verify isolated infrastructure, no changes
+        env:
+          AZURE_TENANT_ID: ${{ vars.AZURE_TENANT_ID }}
+          AZURE_SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+          RESELLER_RESOURCE_GROUP: ${{ vars.RESELLER_RESOURCE_GROUP }}
+          RESELLER_FUNCTION_APP: ${{ vars.RESELLER_FUNCTION_APP }}
+          RESELLER_STORAGE_ACCOUNT: ${{ vars.RESELLER_STORAGE_ACCOUNT }}
+        run: bash edge/azure-operator-gateway/scripts/reseller-staging-preflight.sh
