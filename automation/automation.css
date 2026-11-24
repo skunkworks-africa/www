@@ -91,6 +91,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
   .stage-number{width:36px;height:36px}
   .stage-status{grid-column:2}
 }
+/* Shared styles.css controls system and manual colour scheme selection. */
 @media(prefers-reduced-motion:reduce){
   *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
