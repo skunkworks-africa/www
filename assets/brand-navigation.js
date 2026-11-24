@@ -4,7 +4,7 @@
  const closeDropdowns=(except)=>dropdowns.forEach(d=>{if(d!==except)d.open=false;});
  dropdowns.forEach(d=>d.addEventListener('toggle',()=>{if(d.open)closeDropdowns(d);}));
  document.addEventListener('click',e=>{dropdowns.forEach(d=>{if(!d.contains(e.target))d.open=false;});});
- const openDialog=(id,trigger)=>{const d=document.getElementById(id);if(!d||d.open)return;closeDropdowns();d.showModal();d.addEventListener('close',()=>trigger?.focus(),{once:true});d.querySelector('input, button')?.focus();};
+ const openDialog=(id,trigger)=>{const d=document.getElementById(id);if(!d||d.open)return;closeDropdowns();d.showModal();d.addEventListener('close',()=>trigger?.focus(),{once:true});(d.querySelector('input') || d.querySelector('button'))?.focus();};
  header.querySelectorAll('[data-sk-open]').forEach(b=>b.addEventListener('click',()=>openDialog(b.dataset.skOpen,b)));
  document.querySelectorAll('.sk-nav-dialog').forEach(d=>{d.querySelector('[data-sk-close]').addEventListener('click',()=>d.close());d.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>d.close()));});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'){const active=dropdowns.find(d=>d.open);if(active){closeDropdowns();active.querySelector('summary').focus();}}if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'&&!document.querySelector('dialog[open]')){e.preventDefault();openDialog('sk-search',header.querySelector('[data-sk-open="sk-search"]'));}});
