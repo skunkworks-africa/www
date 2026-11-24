@@ -36,7 +36,7 @@ jobs:
           node-version: '22'
       - name: Build Microsoft Entra reseller portal
         run: |
-          npm ci --prefix scripts/reseller-ui --no-audit --no-fund
+          npm install --prefix scripts/reseller-ui --no-audit --no-fund
           npm run build --prefix scripts/reseller-ui
           test -s resellers/applicant-portal.js
           rm -rf scripts/reseller-ui/node_modules
@@ -62,7 +62,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment_retry.outputs.page_url || steps.deployment.outputs.page_url }}
     steps:
       - name: Wait for Pages artifact metadata
         env:
@@ -79,6 +79,17 @@ jobs:
           exit 1
       - name: Deploy to GitHub Pages
         id: deployment
+        continue-on-error: true
+        uses: actions/deploy-pages@v5
+        with:
+          artifact_name: ${{ needs.build.outputs.artifact_name }}
+      # Retry only deployment so the existing upload is reused.
+      - name: Pause before one deployment retry
+        if: ${{ !cancelled() && steps.deployment.outcome == 'failure' }}
+        run: sleep 10
+      - name: Retry GitHub Pages deployment once
+        id: deployment_retry
+        if: ${{ !cancelled() && steps.deployment.outcome == 'failure' }}
         uses: actions/deploy-pages@v5
         with:
           artifact_name: ${{ needs.build.outputs.artifact_name }}
