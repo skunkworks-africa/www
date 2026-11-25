@@ -1,7 +1,10 @@
 import assert from 'node:assert/strict';
+import { mkdir } from 'node:fs/promises';
 import { chromium } from 'playwright';
 
 const base = process.env.LICENSING_TEST_URL || 'http://127.0.0.1:4173';
+const screenshotDir = process.env.LICENSING_SCREENSHOT_DIR;
+if (screenshotDir) await mkdir(screenshotDir, { recursive: true });
 const paths = ['/licensing/', '/licensing/microsoft-365/', '/licensing/google-workspace/'];
 const browser = await chromium.launch({ headless: true });
 try {
@@ -37,6 +40,10 @@ try {
           assert.equal(logos.length, 1, label + ' one visible brand mark');
           assert.equal(logos[0].src, '/assets/logo-' + (colorScheme === 'light' ? 'black' : 'white') + '.svg', label + ' themed brand mark');
           assert.ok(logos[0].width >= 32 && logos[0].height >= 32, label + ' minimum brand mark size');
+          if (screenshotDir && (width === 320 || width === 1440)) {
+            const pageName = path.split('/').filter(Boolean).join('-');
+            await page.screenshot({ path: `${screenshotDir}/${pageName}-${colorScheme}-${width}.png`, fullPage: true });
+          }
 
           const search = page.getByRole('button', { name: 'Search Skunkworks', exact: true });
           await search.click();
