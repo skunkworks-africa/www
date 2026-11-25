@@ -100,5 +100,23 @@
       "surface": "corporate",
       "purpose": "Scope Dynamics ERP skills, Microsoft and Google licensing, optional implementation and a discovery call"
     }
+  ],
+  "accountNavigation": [
+    {
+      "label": "Employee / Microsoft 365",
+      "url": "https://myapps.microsoft.com/"
+    },
+    {
+      "label": "Customer Portal",
+      "url": "/account/customer/"
+    },
+    {
+      "label": "Partner Portal",
+      "url": "/account/partner/"
+    },
+    {
+      "label": "Academy Portal",
+      "url": "https://portal.skunkworksacademy.com/"
+    }
   ]
 }
