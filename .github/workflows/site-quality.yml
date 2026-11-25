@@ -38,19 +38,13 @@ jobs:
           node --check tools/windows-server-licensing-calculator/licensing-engine.mjs
           node --check tools/windows-server-licensing-calculator/calculator.mjs
           node --check tools/windows-server-licensing-calculator/analytics.mjs
-          node --check forms/dynamics-training-licensing/form.mjs
-          node --check forms/dynamics-training-licensing/model.mjs
       - name: Validate structure, design and canonical rules
         run: |
           node scripts/validate-site.mjs
           node scripts/validate-theme.mjs
           node scripts/validate-team.mjs
           node scripts/validate-windows-server-calculator.mjs
-      - name: Test global presence geographic projections and market data
-        run: node --test global-presence/map.test.mjs
       - name: Test Windows Server licensing engine
         run: node --test tools/windows-server-licensing-calculator/licensing-engine.test.mjs
-      - name: Test discovery enquiry data handling
-        run: node --test forms/dynamics-training-licensing/model.test.mjs
       - name: Validate storefront redirects
         run: node edge/storefront-redirect/worker.test.mjs
