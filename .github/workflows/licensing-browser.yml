@@ -1,0 +1,48 @@
+name: Licensing browser checks
+on:
+  pull_request:
+    paths:
+      - 'licensing/**'
+      - 'assets/brand-navigation*'
+      - 'assets/skunkworks-global-footer*'
+      - 'vendor/skunkworks/**'
+      - 'styles.css'
+      - 'theme-init.js'
+      - 'scripts/test-licensing-browser.mjs'
+      - '.github/workflows/licensing-browser.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'licensing/**'
+      - 'assets/brand-navigation*'
+      - 'assets/skunkworks-global-footer*'
+      - 'vendor/skunkworks/**'
+      - 'styles.css'
+      - 'theme-init.js'
+      - 'scripts/test-licensing-browser.mjs'
+      - '.github/workflows/licensing-browser.yml'
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install pinned browser test dependency
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Verify responsive licensing journey
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/licensing-http.log 2>&1 &
+          server=$!
+          trap 'kill "$server" 2>/dev/null || true' EXIT
+          for attempt in $(seq 1 20); do
+            if curl --fail --silent http://127.0.0.1:4173/licensing/ > /dev/null; then break; fi
+            sleep 1
+          done
+          node scripts/test-licensing-browser.mjs
