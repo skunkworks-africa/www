@@ -39,3 +39,7 @@ Desktop and mobile expose the same primary destinations. The mobile implementati
 ## Shopify route policy
 
 All public links should resolve to `store.skunkworks.africa` even when Shopify exposes connected `myshopify.com` hostnames. The primary connected store domain is the public commerce authority.
+
+## My Skunkworks account navigation
+
+All canonical-header pages expose Employee / Microsoft 365, Customer Portal, Partner Portal and Academy Portal in the same order, including mobile and search. Customer and partner links resolve to first-party gateway pages under `/account/`. These are public informational pages, not authentication endpoints. `account/portal-config.mjs` is fail-closed until each approved Power Pages custom domain is bound, authenticated and independently validated. Do not store credentials or business records in this public repository. Power Pages source and activation instructions belong in `skunkworks-africa/portal`.
