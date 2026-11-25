@@ -80,6 +80,34 @@ for (const [name, markup] of [['desktop', desktopNav], ['mobile', mobileNav]]) {
 }
 if (!html.includes('<a href="/#company">Skunkworks</a>')) failures.push('Missing Skunkworks About link.');
 
+
+// My Skunkworks: verify the same four destinations on all canonical-header pages.
+const portalLinks = "<a href=\"https://myapps.microsoft.com/\">Employee / Microsoft 365</a><a href=\"/account/customer/\">Customer Portal</a><a href=\"/account/partner/\">Partner Portal</a><a href=\"https://portal.skunkworksacademy.com/\">Academy Portal</a>";
+for (const file of ['index.html','global-presence/index.html','forms/index.html','forms/dynamics-training-licensing/index.html']) {
+  const page=fs.readFileSync(file,'utf8');
+  requireText(page,'aria-label="My Skunkworks accounts and portals"','Account label missing: '+file);
+  const account=page.match(/<details class="sk-dropdown sk-account">[\s\S]*?<div class="sk-dropdown-panel">([\s\S]*?)<\/div>/)?.[1];
+  if(account!==portalLinks)failures.push('Account links differ: '+file);
+  for(const label of ['Mobile navigation','Search results']){
+    const nav=page.match(new RegExp('<nav aria-label="'+label+'">([\\s\\S]*?)<\\/nav>'))?.[1]||'';
+    requireText(nav,portalLinks,'Portal destinations missing from '+label+': '+file);
+  }
+}
+for(const kind of ['customer','partner']){
+  const page=fs.readFileSync('account/'+kind+'/index.html','utf8');
+  requireText(page,'data-portal="'+kind+'"','Missing portal identifier: '+kind);
+  requireText(page,'data-launch hidden','Portal must fail closed without JavaScript: '+kind);
+  requireText(page,'noindex,follow','Portal gateway must not be indexed: '+kind);
+  requireText(page,'/account/launch.mjs','Missing portal launch script: '+kind);
+}
+const {verifiedDestination}=await import('../account/portal-config.mjs');
+for(const kind of ['customer','partner']){
+  const expected='https://'+kind+'.skunkworks.africa/';
+  if(verifiedDestination(kind,expected)!==expected)failures.push('Valid portal destination rejected: '+kind);
+  for(const bad of ['http://'+kind+'.skunkworks.africa/','https://evil.example/','https://'+kind+'.skunkworks.africa.evil.example/','https://attacker@'+kind+'.skunkworks.africa/','https://'+kind+'.skunkworks.africa/?next=evil','https://'+kind+'.skunkworks.africa/#evil','https://'+kind+'.skunkworks.africa/other'])if(verifiedDestination(kind,bad)!==null)failures.push('Invalid portal destination accepted');
+}
+if(verifiedDestination('unknown','https://customer.skunkworks.africa/')!==null)failures.push('Unknown portal accepted');
+
 if(failures.length){console.error('Site validation failed:');for(const f of failures) console.error(`- ${f}`);process.exit(1)}
 console.log('Site validation passed.');
 console.log(`Validated ${files.length} required files, canonical routing, responsive navigation, sales automation controls and monochrome design rules.`);
