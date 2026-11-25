@@ -13,7 +13,25 @@ node scripts/validate-site.mjs
 node scripts/validate-theme.mjs
 ```
 
-The validator checks required files, canonical hosts, primary navigation order, responsive-menu hooks, reduced-motion support, keyboard focus styling, absence of persistent sidebar navigation, and the strict black/white explicit colour contract.
+The validators check required files, canonical hosts, primary navigation order, responsive-menu hooks, reduced-motion support, keyboard focus styling and absence of persistent sidebar navigation. They retain the existing monochrome checks for legacy styles and check semantic/group token usage and native components on the three migrated licensing pages. Static checks do not establish visual conformance.
+
+## Licensing design-system acceptance
+
+This acceptance scope covers `/licensing/`, `/licensing/microsoft-365/` and `/licensing/google-workspace/`. Use [brand.skunkworks.africa](https://brand.skunkworks.africa/) and the [design contract](./CANONICAL-NAVIGATION.md#design-contract) as the reference. Other corporate pages and Shopify are separate reviews.
+
+The [licensing browser workflow](../.github/workflows/licensing-browser.yml) installs its pinned test dependency and browser, serves the repository and runs `scripts/test-licensing-browser.mjs`. To run the script locally, use the same dependency setup, start the static server and set `LICENSING_TEST_URL` if it differs from `http://127.0.0.1:4173`.
+
+Validate all three routes in light and dark modes at 320px, 375px, 768px, 1024px and 1440px, including the following:
+
+- The canvas, text, cards, notices and tables use the semantic theme roles; the hero retains the approved navy background with readable text and blue/white actions.
+- The header fits without page-wide horizontal scrolling. Icon targets remain at least 44px in each dimension and the navigation logo remains at least 32px high, including at 320px.
+- Keyboard focus is visible with 3px outlines in navigation and page controls. Search and navigation dialogs close with Escape and return focus to their trigger; account and ecosystem menus remain usable.
+- The theme switch works against either device preference and the selected theme persists after reload. Reduced-motion settings are respected.
+- Platform cards and calls to action wrap without clipping. FAQ summaries open and close with keyboard input.
+- Each reference-price table has a caption and a labelled, keyboard-focusable scroll region. At narrow widths, overflow remains inside that region and keyboard scrolling reveals the columns.
+- Canonical metadata, platform links, vendor reference-price wording and sales enquiry destinations remain intact.
+
+Record browser results separately from human user-test results. Passing these checks covers the licensing journey and does not certify the remaining site.
 
 ## Responsive acceptance matrix
 
@@ -24,7 +42,8 @@ The validator checks required files, canonical hosts, primary navigation order, 
 | 390px | Hero and cards remain readable without clipping |
 | 430px | Mobile menu exposes all canonical routes |
 | 768px | Tablet content remains single-column where necessary |
-| 820px | Mobile/desktop navigation breakpoint behaves deterministically |
+| 820px | Legacy mobile/desktop navigation breakpoint behaves deterministically |
+| 900px / 901px | Shared brand navigation changes between mobile and desktop without clipping |
 | 1024px | Desktop navigation and two-column content remain balanced |
 | 1280px | Full route-card grid and footer hierarchy visible |
 | 1440px | Content remains constrained to canonical shell width |
@@ -38,7 +57,7 @@ The validator checks required files, canonical hosts, primary navigation order, 
 4. Verify focus is visible while tabbing through header, cards, CTA and footer.
 5. Verify body scrolling is locked while mobile navigation is open.
 6. Resize from mobile to desktop while menu is open; verify the mobile menu resets.
-7. Use both light and dark OS/browser preferences; verify black/white inversion.
+7. Use both light and dark OS/browser preferences; verify semantic colour roles on migrated pages and black/white inversion on legacy pages.
 8. Enable reduced motion; verify transitions effectively stop.
 9. On reseller, technology, cloud and automation forms, switch among Light, Dark and Use system setting. Check field backgrounds and foregrounds, native select popup options, disabled controls and button contrast.
 10. In both light and dark OS modes, select the opposite site theme, reload and confirm the choice persists, dropdowns stay readable and focus remains visible. Test desktop and mobile.
