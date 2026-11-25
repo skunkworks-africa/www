@@ -12,8 +12,7 @@ on:
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
-  pages: write
-  id-token: write
+  actions: read
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -22,18 +21,19 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
+    outputs:
+      artifact_name: ${{ steps.artifact-name.outputs.name }}
+    permissions:
+      contents: read
+      pages: read
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+        uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
         with:
-          node-version: '22'
+          node-version: '24'
       - name: Build Microsoft Entra reseller portal
         run: |
           npm install --prefix scripts/reseller-ui --no-audit --no-fund
@@ -41,12 +41,55 @@ jobs:
           test -s resellers/applicant-portal.js
           rm -rf scripts/reseller-ui/node_modules
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6.0.0
+      - name: Select artifact name
+        id: artifact-name
+        run: echo "name=github-pages-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" >> "$GITHUB_OUTPUT"
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5.0.0
         with:
+          # Re-running a job must not create ambiguous, identically named artifacts.
+          name: ${{ steps.artifact-name.outputs.name }}
           # Upload entire repository
           path: '.'
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment_retry.outputs.page_url || steps.deployment.outputs.page_url }}
+    steps:
+      - name: Wait for Pages artifact metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT_NAME: ${{ needs.build.outputs.artifact_name }}
+        run: |
+          for attempt in $(seq 1 12); do
+            if gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts" --paginate --jq '.artifacts[] | select(.expired == false) | .name' | grep -Fx "$ARTIFACT_NAME"; then
+              exit 0
+            fi
+            sleep 10
+          done
+          echo '::error::Pages artifact metadata did not become available'
+          exit 1
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v5
+        continue-on-error: true
+        uses: actions/deploy-pages@v5.0.1
+        with:
+          artifact_name: ${{ needs.build.outputs.artifact_name }}
+      # Retry only deployment so the existing upload is reused.
+      - name: Pause before one deployment retry
+        if: ${{ !cancelled() && steps.deployment.outcome == 'failure' }}
+        run: sleep 10
+      - name: Retry GitHub Pages deployment once
+        id: deployment_retry
+        if: ${{ !cancelled() && steps.deployment.outcome == 'failure' }}
+        uses: actions/deploy-pages@v5.0.1
+        with:
+          artifact_name: ${{ needs.build.outputs.artifact_name }}
