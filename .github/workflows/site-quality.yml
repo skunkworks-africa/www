@@ -22,6 +22,9 @@ jobs:
       - name: Check JavaScript syntax
         run: |
           node --check site.js
+          node --check global-presence/presence.mjs
+          node --check global-presence/map-math.mjs
+          node --check global-presence/markets.mjs
           node --check team.js
           node --check team-members.mjs
           node --check scripts/validate-team.mjs
