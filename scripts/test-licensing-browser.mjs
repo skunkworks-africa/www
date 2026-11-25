@@ -38,7 +38,7 @@ try {
             .filter(el => el.getClientRects().length)
             .map(el => ({ src: el.getAttribute('src'), width: el.getBoundingClientRect().width, height: el.getBoundingClientRect().height })));
           assert.equal(logos.length, 1, label + ' one visible brand mark');
-          assert.equal(logos[0].src, '/assets/logo-' + (colorScheme === 'light' ? 'black' : 'white') + '.svg', label + ' themed brand mark');
+          assert.equal(logos[0].src, '/assets/logo-' + (colorScheme === 'light' ? 'black' : 'white') + '-header.png', label + ' themed brand mark');
           assert.ok(logos[0].width >= 32 && logos[0].height >= 32, label + ' minimum brand mark size');
           if (screenshotDir && (width === 320 || width === 1440)) {
             const pageName = path.split('/').filter(Boolean).join('-');
