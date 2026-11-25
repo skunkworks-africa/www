@@ -124,7 +124,8 @@ if(verifiedDestination('unknown','https://customer.skunkworks.africa/')!==null)f
    for(const m of page.matchAll(/aria-(?:controls|labelledby)="([^"]+)"/g)) for(const id of m[1].split(/\s+/)) if(!ids.includes(id)) failures.push('Missing licensing ARIA target: '+file+' '+id);
    if (file!=='licensing/index.html') {
      requireText(page,'class="lic-table-wrap sk-table-wrap" role="region"','Licensing comparison needs a labelled scroll region: '+file);
-     requireText(page,'tabindex="0"','Licensing comparison must be keyboard-scrollable: '+file);
+     const tableRegion = page.match(/<div\b[^>]*class="lic-table-wrap sk-table-wrap"[^>]*>/)?.[0] || '';
+     requireText(tableRegion,'tabindex="0"','Licensing comparison must be keyboard-scrollable: '+file);
      requireText(page,'<caption>','Licensing comparison table needs a caption: '+file);
    }
  }

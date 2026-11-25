@@ -25,6 +25,19 @@ try {
           assert.equal(await page.locator('.lic-hero').evaluate(el => getComputedStyle(el).backgroundColor), 'rgb(3, 3, 58)', label + ' brand hero');
           assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), label + ' horizontal overflow');
 
+          const headerControls = await page.locator('.sk-global-header .sk-icon, .sk-global-header summary').evaluateAll(elements => elements
+            .filter(el => el.getClientRects().length)
+            .map(el => ({ name: el.getAttribute('aria-label') || el.textContent.trim(), width: el.getBoundingClientRect().width, height: el.getBoundingClientRect().height })));
+          for (const control of headerControls) {
+            assert.ok(control.width >= 44 && control.height >= 44, label + ' 44px target: ' + control.name);
+          }
+          const logos = await page.locator('.sk-global-brand img').evaluateAll(elements => elements
+            .filter(el => el.getClientRects().length)
+            .map(el => ({ src: el.getAttribute('src'), width: el.getBoundingClientRect().width, height: el.getBoundingClientRect().height })));
+          assert.equal(logos.length, 1, label + ' one visible brand mark');
+          assert.equal(logos[0].src, '/assets/logo-' + (colorScheme === 'light' ? 'black' : 'white') + '.svg', label + ' themed brand mark');
+          assert.ok(logos[0].width >= 32 && logos[0].height >= 32, label + ' minimum brand mark size');
+
           const search = page.getByRole('button', { name: 'Search Skunkworks', exact: true });
           await search.click();
           await page.locator('#sk-search').waitFor({ state: 'visible' });
@@ -33,6 +46,7 @@ try {
           await page.keyboard.press('Escape');
           await page.locator('#sk-search').waitFor({ state: 'hidden' });
           await page.waitForFunction(() => document.activeElement?.getAttribute('data-sk-open') === 'sk-search');
+          assert.equal(await search.evaluate(el => getComputedStyle(el).outlineWidth), '3px', label + ' keyboard focus ring');
 
           if (width <= 900) {
             const menu = page.getByRole('button', { name: 'Open navigation', exact: true });

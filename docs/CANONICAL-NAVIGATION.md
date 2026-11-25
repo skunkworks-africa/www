@@ -27,14 +27,26 @@ Desktop and mobile expose the same primary destinations. The mobile implementati
 
 ## Design contract
 
-- Exactly two primary visual colours: black and white.
-- Light browser preference: white canvas, black foreground.
-- Dark browser preference: black canvas, white foreground.
-- Muted surfaces, borders and secondary text use opacity derivatives only.
+The [Skunkworks Design System](https://brand.skunkworks.africa/) defines the canonical semantic roles, group palette, typography and component geometry. Apply updates by page or journey and validate both themes before changing existing mappings.
+
+- Migrated pages use semantic roles such as `--sk-bg`, `--sk-text`, `--sk-muted`, `--sk-border` and `--sk-focus` for their light/dark appearance.
+- Approved group palette tokens may be used for branded emphasis. The licensing hero uses ink navy, blue actions and an orange accent, with accessible foreground colours.
+- Legacy pages retain the existing black/white and opacity-derived mappings in `styles.css` and `adaptive-shell.css` until individually migrated. Do not assume these mappings are equivalent to the semantic tokens or change the independently pinned pilot token snapshot as part of a page migration.
 - Top navigation is the only global primary navigation; no persistent left-side navigation.
-- Mobile uses a burger-controlled dropdown navigation.
-- Focus states, reduced motion and responsive behaviour are mandatory.
-- Store and corporate surfaces should share typography, spacing, card geometry, header/footer rhythm and black/white inversion.
+- Mobile exposes the same destinations through a burger-controlled menu or native navigation dialog.
+- Migrated controls use visible 3px focus outlines, at least 44px icon targets and a navigation logo at least 32px high. Preserve these dimensions on narrow screens by adjusting layout rather than shrinking controls.
+- Focus restoration, reduced motion, light/dark contrast and responsive behaviour are mandatory.
+- Store and corporate surfaces should share typography, spacing, card geometry and header/footer rhythm; each surface requires validation before its migration is considered complete.
+
+### Licensing migration scope
+
+| Route | Implementation |
+| --- | --- |
+| `/licensing/` | Licensing overview and platform cards |
+| `/licensing/microsoft-365/` | Microsoft 365 guide and reference-price table |
+| `/licensing/google-workspace/` | Google Workspace guide and reference-price table |
+
+These three pages use the shared corporate navigation and footer, `assets/brand-navigation-tokens.css`, the native `vendor/skunkworks/components-1.0.0.css` components and scoped `licensing/licensing.css` styles. Preserve their canonical URLs, commercial content and quotation destinations when changing presentation. Linked assessment pages and the Windows Server calculator are separate migration work; this scope does not establish whole-site conformance.
 
 ## Shopify route policy
 
