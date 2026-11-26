@@ -22,7 +22,7 @@ assert.ok(html.includes('https://brand.skunkworks.africa/tokens.css'), 'Use the 
 for (const url of ['/styles.css','/adaptive-shell.css','/assets/skunkworks-global-footer.css','/site.js','/assets/skunkworks-global-footer.js']) {
   assert.ok(html.includes(url), 'Shared corporate shell missing ' + url);
 }
-assert.ok(html.includes('data-menu-button') && html.includes('data-mobile-menu'), 'Responsive header must use existing site behavior.');
+assert.ok(html.includes('data-sk-open="sk-navigation"') && html.includes('id="sk-navigation"') && html.includes('/assets/brand-navigation.js'), 'Responsive header must use the design-system navigation.');
 assert.match(html, /name="description"/, 'Missing description.');
 assert.match(html, /property="og:image"/, 'Missing social preview.');
 assert.match(html, /name="twitter:card"/, 'Missing social card.');

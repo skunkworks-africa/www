@@ -47,7 +47,7 @@ requireText(automationHtml,'rel="canonical" href="https://www.skunkworks.africa/
 requireText(automationHtml,'content="noindex,nofollow"','Automation page must remain noindex until authenticated production hosting exists.');
 requireText(automationHtml,'https://store.skunkworks.africa/','Automation page must preserve the canonical store authority.');
 requireText(automationHtml,'https://www.skunkworksacademy.com/','Automation page must preserve the Academy ecosystem route.');
-requireText(automationHtml,'data-menu-button','Automation page is missing the shared responsive header.');
+requireText(automationHtml,'data-sk-open="sk-navigation"','Automation page is missing the shared responsive header.');
 requireText(automationHtml,'/automation/app.js','Automation page is missing its workflow application script.');
 requireText(automationHtml,'/automation/config.js','Automation page is missing its workflow configuration.');
 requireText(automationJs,"localStorage",'Automation workflow must persist browser-local state.');
@@ -83,7 +83,7 @@ if (!html.includes('<a href="/#company">Skunkworks</a>')) failures.push('Missing
 
 // My Skunkworks: verify the same four destinations on all canonical-header pages.
 const portalLinks = "<a href=\"https://myapps.microsoft.com/\">Employee / Microsoft 365</a><a href=\"/account/customer/\">Customer Portal</a><a href=\"/account/partner/\">Partner Portal</a><a href=\"https://portal.skunkworksacademy.com/\">Academy Portal</a>";
-for (const file of ['index.html','global-presence/index.html','forms/index.html','forms/dynamics-training-licensing/index.html','licensing/index.html','licensing/microsoft-365/index.html','licensing/google-workspace/index.html']) {
+for (const file of ['index.html','global-presence/index.html','forms/index.html','forms/dynamics-training-licensing/index.html','licensing/index.html','licensing/microsoft-365/index.html','licensing/google-workspace/index.html','auth/index.html','automation/index.html','business-in-a-box/index.html','cloud-assessment/index.html','resellers/index.html','technology-assessment/index.html','tools/windows-server-licensing-calculator/index.html']) {
   const page=fs.readFileSync(file,'utf8');
   requireText(page,'aria-label="My Skunkworks accounts and portals"','Account label missing: '+file);
   const account=page.match(/<details class="sk-dropdown sk-account">[\s\S]*?<div class="sk-dropdown-panel">([\s\S]*?)<\/div>/)?.[1];
