@@ -4,6 +4,9 @@ const files = [
   'index.html',
   'styles.css',
   'site.js',
+  'assets/brand-navigation.css',
+  'assets/brand-navigation-tokens.css',
+  'assets/brand-navigation.js',
   'site-map.json',
   'sitemap.xml',
   'robots.txt',
@@ -26,21 +29,25 @@ const siteMap = fs.existsSync('site-map.json') ? JSON.parse(fs.readFileSync('sit
 
 const requireText=(source,text,msg)=>{if(!source.includes(text)) failures.push(msg)};
 requireText(html,'rel="canonical" href="https://www.skunkworks.africa/"','Missing canonical URL.');
-requireText(html,'data-menu-button','Missing burger menu control.');
-requireText(html,'data-mobile-menu','Missing mobile navigation container.');
+requireText(html,'data-sk-open="sk-navigation"','Missing burger menu control.');
+requireText(html,'id="sk-navigation"','Missing mobile navigation dialog.');
+requireText(html,'data-sk-open="sk-search"','Missing global search.');
+requireText(html,'data-sk-theme','Missing theme control.');
 requireText(html,'https://store.skunkworks.africa/','Missing canonical Shopify store link.');
 requireText(html,'https://www.skunkworksacademy.com/','Missing Academy ecosystem link.');
 requireText(css,'@media(prefers-color-scheme:dark)','Missing browser dark-mode inversion.');
 requireText(css,'@media(prefers-reduced-motion:reduce)','Missing reduced-motion handling.');
 requireText(css,':focus-visible','Missing visible keyboard focus style.');
-requireText(js,"event.key === 'Escape'",'Mobile menu must close on Escape.');
+const navJs = fs.readFileSync('assets/brand-navigation.js','utf8');
+requireText(navJs,'showModal()','Navigation must use a native modal dialog.');
+requireText(navJs,'trigger?.focus()','Navigation must restore focus.');
 if (/class=["'][^"']*sidebar/i.test(html) || /\.sidebar\b/.test(css)) failures.push('Persistent left sidebar navigation is forbidden.');
 
 requireText(automationHtml,'rel="canonical" href="https://www.skunkworks.africa/automation/"','Automation page is missing its canonical URL.');
 requireText(automationHtml,'content="noindex,nofollow"','Automation page must remain noindex until authenticated production hosting exists.');
 requireText(automationHtml,'https://store.skunkworks.africa/','Automation page must preserve the canonical store authority.');
 requireText(automationHtml,'https://www.skunkworksacademy.com/','Automation page must preserve the Academy ecosystem route.');
-requireText(automationHtml,'data-menu-button','Automation page is missing the shared responsive header.');
+requireText(automationHtml,'data-sk-open="sk-navigation"','Automation page is missing the shared responsive header.');
 requireText(automationHtml,'/automation/app.js','Automation page is missing its workflow application script.');
 requireText(automationHtml,'/automation/config.js','Automation page is missing its workflow configuration.');
 requireText(automationJs,"localStorage",'Automation workflow must persist browser-local state.');
@@ -62,8 +69,8 @@ const requiredHosts=['https://www.skunkworks.africa','https://store.skunkworks.a
 for(const host of requiredHosts){if(!Object.values(siteMap.canonicalHosts||{}).includes(host)) failures.push(`Missing canonical host rule: ${host}`)}
 const labels=(siteMap.primaryNavigation||[]).map(i=>i.label).join('|');
 if(labels!=='Solutions|Services|Academy|Skunkworks') failures.push('Primary navigation order does not match canonical rule.');
-const desktopNav = html.match(/<nav class="desktop-nav"[^>]*>([\s\S]*?)<\/nav>/)?.[1] || '';
-const mobileNav = html.match(/<nav class="shell" aria-label="Mobile navigation">([\s\S]*?)<\/nav>/)?.[1] || '';
+const desktopNav = html.match(/<nav class="sk-top-links"[^>]*>([\s\S]*?)<\/nav>/)?.[1] || '';
+const mobileNav = html.match(/<nav aria-label="Mobile navigation">([\s\S]*?)<\/nav>/)?.[1] || '';
 const navLabels = markup => [...markup.matchAll(/<a\s+href="[^"]+"[^>]*>([^<]+)<\/a>/g)].map(m => m[1]);
 for (const [name, markup] of [['desktop', desktopNav], ['mobile', mobileNav]]) {
   const allLabels = navLabels(markup);
@@ -71,7 +78,35 @@ for (const [name, markup] of [['desktop', desktopNav], ['mobile', mobileNav]]) {
   if (actual !== labels) failures.push(`${name} navigation does not match site map: ${actual}`);
   if (allLabels.some(label => ['Store','Software','Company'].includes(label))) failures.push(`${name} navigation contains retired labels.`);
 }
-if (!html.includes('<a href="#company">Skunkworks</a>')) failures.push('Missing Skunkworks About link.');
+if (!html.includes('<a href="/#company">Skunkworks</a>')) failures.push('Missing Skunkworks About link.');
+
+
+// My Skunkworks: verify the same four destinations on all canonical-header pages.
+const portalLinks = "<a href=\"https://myapps.microsoft.com/\">Employee / Microsoft 365</a><a href=\"/account/customer/\">Customer Portal</a><a href=\"/account/partner/\">Partner Portal</a><a href=\"https://portal.skunkworksacademy.com/\">Academy Portal</a>";
+for (const file of ['index.html','global-presence/index.html','forms/index.html','forms/dynamics-training-licensing/index.html']) {
+  const page=fs.readFileSync(file,'utf8');
+  requireText(page,'aria-label="My Skunkworks accounts and portals"','Account label missing: '+file);
+  const account=page.match(/<details class="sk-dropdown sk-account">[\s\S]*?<div class="sk-dropdown-panel">([\s\S]*?)<\/div>/)?.[1];
+  if(account!==portalLinks)failures.push('Account links differ: '+file);
+  for(const label of ['Mobile navigation','Search results']){
+    const nav=page.match(new RegExp('<nav aria-label="'+label+'">([\\s\\S]*?)<\\/nav>'))?.[1]||'';
+    requireText(nav,portalLinks,'Portal destinations missing from '+label+': '+file);
+  }
+}
+for(const kind of ['customer','partner']){
+  const page=fs.readFileSync('account/'+kind+'/index.html','utf8');
+  requireText(page,'data-portal="'+kind+'"','Missing portal identifier: '+kind);
+  requireText(page,'data-launch hidden','Portal must fail closed without JavaScript: '+kind);
+  requireText(page,'noindex,follow','Portal gateway must not be indexed: '+kind);
+  requireText(page,'/account/launch.mjs','Missing portal launch script: '+kind);
+}
+const {verifiedDestination}=await import('../account/portal-config.mjs');
+for(const kind of ['customer','partner']){
+  const expected='https://'+kind+'.skunkworks.africa/';
+  if(verifiedDestination(kind,expected)!==expected)failures.push('Valid portal destination rejected: '+kind);
+  for(const bad of ['http://'+kind+'.skunkworks.africa/','https://evil.example/','https://'+kind+'.skunkworks.africa.evil.example/','https://attacker@'+kind+'.skunkworks.africa/','https://'+kind+'.skunkworks.africa/?next=evil','https://'+kind+'.skunkworks.africa/#evil','https://'+kind+'.skunkworks.africa/other'])if(verifiedDestination(kind,bad)!==null)failures.push('Invalid portal destination accepted');
+}
+if(verifiedDestination('unknown','https://customer.skunkworks.africa/')!==null)failures.push('Unknown portal accepted');
 
 if(failures.length){console.error('Site validation failed:');for(const f of failures) console.error(`- ${f}`);process.exit(1)}
 console.log('Site validation passed.');
