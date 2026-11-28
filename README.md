@@ -63,20 +63,22 @@ The detailed routing policy lives in [`docs/CANONICAL-NAVIGATION.md`](./docs/CAN
 
 <div align="center">
 
-| ◐ Adaptive | ◻ Monochrome | ↔ Responsive | ◎ Accessible |
+| ◐ Adaptive | ◻ Brand tokens | ↔ Responsive | ◎ Accessible |
 |:---:|:---:|:---:|:---:|
-| Follows the visitor’s light or dark preference | Black, white and opacity-derived neutrals | Fluid cards, navigation and content hierarchy | Keyboard focus, reduced motion and semantic structure |
+| Follows the visitor’s light or dark preference | Semantic colours and the approved Skunkworks Group palette | Fluid cards, navigation and content hierarchy | Keyboard focus, reduced motion and semantic structure |
 
 </div>
 
-The corporate site and Shopify Horizon storefront share one visual contract:
+The [Skunkworks Design System](https://brand.skunkworks.africa/) is the authority for brand colours, typography and components. The corporate site is adopting it in stages:
 
-- **Light mode:** white canvas with black foreground.
-- **Dark mode:** black canvas with white foreground.
-- **Colour discipline:** no independent accent palette; muted text, borders and surfaces derive from the active foreground.
+- **Migrated licensing pages:** `/licensing/`, `/licensing/microsoft-365/` and `/licensing/google-workspace/` use semantic light/dark tokens from `assets/brand-navigation-tokens.css` and native components from `vendor/skunkworks/components-1.0.0.css`. Their heroes use the approved group navy, blue and orange tokens.
+- **Legacy compatibility:** unmigrated pages retain the black/white mappings in `styles.css` and `adaptive-shell.css`. These mappings are not interchangeable with the semantic tokens; review both themes when migrating a page. The separate pinned pilot token file remains independently versioned.
+- **Colour discipline:** use published semantic roles and approved group tokens, without introducing a page-specific palette.
 - **Navigation:** one global primary navigation with a burger-controlled mobile menu.
 - **Structure:** constrained content width, clear route hierarchy, responsive cards and a full ecosystem footer.
 - **Motion:** subtle interaction feedback with `prefers-reduced-motion` respected.
+
+This licensing update covers the three routes above. Other corporate pages and the Shopify theme require their own conformance review. See the [design contract](./docs/CANONICAL-NAVIGATION.md#design-contract) and [licensing acceptance checks](./docs/QA.md#licensing-design-system-acceptance) for scope and validation requirements.
 
 ## Repository map
 
@@ -114,7 +116,7 @@ node --check site.js
 node scripts/validate-site.mjs
 ```
 
-GitHub Actions runs the same quality checks on pull requests and pushes to `main`.
+GitHub Actions runs these quality checks on pull requests and pushes to `main`. Changes affecting the licensing journey also run the [licensing browser checks](./.github/workflows/licensing-browser.yml) for responsive layout, themes and keyboard interactions.
 
 ## Delivery pipeline
 

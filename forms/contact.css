@@ -1,0 +1,12 @@
+.contact-intake{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:start;scroll-margin-top:100px}
+.contact-intake h2{font-size:clamp(2.1rem,4vw,3.6rem)}
+.contact-intake-copy{max-width:56ch;margin-bottom:0;color:color-mix(in srgb,var(--bg) 82%,transparent)}
+.contact-intake-actions{display:grid;gap:14px;min-width:0}
+.contact-intake-actions .button{width:100%;gap:16px;text-align:center;white-space:normal}
+.contact-intake-actions p{margin:0;font-size:.9rem;color:color-mix(in srgb,var(--bg) 82%,transparent)}
+.contact-email{padding:8px 0;font-weight:700;text-underline-offset:.2em}
+.contact-assessments{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px 28px;border-top:1px solid color-mix(in srgb,var(--bg) 32%,transparent);padding-top:24px;font-size:.9rem}
+.contact-assessments a{padding-block:6px;text-underline-offset:.2em}
+.contact-intake :focus-visible{outline-color:var(--bg)}
+@media(max-width:820px){.contact-intake{grid-template-columns:minmax(0,1fr)}.contact-intake-actions{width:100%}}
+@media(max-width:420px){.contact-intake{padding:26px 22px}.contact-intake-actions .button{padding-inline:14px}}

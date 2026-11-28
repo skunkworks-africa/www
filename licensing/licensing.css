@@ -1,1 +1,172 @@
- .lic-hero{padding:90px 0 72px;border-bottom:1px solid var(--line)}.lic-hero h1{font-size:clamp(2.8rem,6.8vw,6rem);max-width:1000px}.lic-hero .lead{max-width:800px}.lic-section{padding:72px 0;border-bottom:1px solid var(--line)}.lic-section h2{font-size:clamp(2rem,4vw,3.6rem)}.lic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:32px}.lic-card{border:1px solid var(--line);border-radius:var(--radius);padding:26px;background:var(--soft)}.lic-card h3{font-size:1.4rem}.lic-card p,.lic-card li,.lic-note{color:var(--muted)}.lic-card a{font-weight:700}.lic-steps{counter-reset:step;list-style:none;padding:0}.lic-steps li{padding:17px 0;border-bottom:1px solid var(--line)}.lic-steps strong{display:block}.lic-table-wrap{overflow-x:auto;margin-top:28px}.lic-table{width:100%;border-collapse:collapse;min-width:600px;text-align:left}.lic-table th,.lic-table td{padding:16px;border-bottom:1px solid var(--line);vertical-align:top}.lic-table th{background:var(--soft)}.lic-price{font-size:1.3rem;font-weight:800;white-space:nowrap}.lic-faq details{border-bottom:1px solid var(--line);padding:18px 0}.lic-faq summary{font-weight:800;cursor:pointer}.lic-faq p{color:var(--muted)}.lic-cta{padding:32px;border:1px solid var(--line);border-radius:var(--radius);background:var(--soft)}.lic-cta h2{margin-bottom:12px}.lic-breadcrumb{font-size:.9rem;color:var(--muted);margin-bottom:32px}.lic-links{display:flex;flex-wrap:wrap;gap:18px;margin-top:24px}@media(max-width:800px){.lic-grid{grid-template-columns:1fr}.lic-hero{padding:64px 0 50px}.lic-section{padding:54px 0}}
+/* Licensing journey — corporate adaptation of Skunkworks Design System 1.0.0.
+   Semantic tokens: /assets/brand-navigation-tokens.css (system/light/dark).
+   Native components: /vendor/skunkworks/components-1.0.0.css.
+   Brand guidance: https://brand.skunkworks.africa/colour/ and /layout/.
+   Scoped to licensing pages; no changes to the corporate shell elsewhere. */
+.licensing-page {
+  --bg: var(--sk-bg);
+  --fg: var(--sk-text);
+  --muted: var(--sk-muted);
+  --line: var(--sk-border);
+  --soft: var(--sk-surface);
+  --radius: var(--sk-radius);
+  background: var(--sk-bg);
+  color: var(--sk-text);
+  font-family: var(--sk-font);
+}
+.licensing-page main { line-height: 1.6; }
+.licensing-page main :focus-visible,
+.licensing-page .skip-link:focus-visible { outline: 3px solid var(--sk-focus); outline-offset: 3px; }
+.licensing-page .sk-global-header a[aria-current],
+.licensing-page .sk-nav-dialog a[aria-current] { font-weight: 700; text-decoration: underline; text-underline-offset: .2em; }
+.licensing-page .lic-hero {
+  --sk-text: var(--sk-group-white);
+  --sk-muted: var(--sk-group-steel-gray);
+  --sk-action: var(--sk-group-skunk-blue);
+  --sk-on-action: var(--sk-group-white);
+  --sk-focus: var(--sk-group-white);
+  background: var(--sk-group-ink-navy);
+  color: var(--sk-text);
+  padding-block: var(--sk-space-8) var(--sk-space-16);
+  border-bottom: var(--sk-space-1) solid var(--sk-group-signal-orange);
+}
+.licensing-page .lic-hero .eyebrow,
+.licensing-page .lic-hero .lead { color: var(--sk-muted); }
+.licensing-page .lic-hero h1 {
+  color: var(--sk-text);
+  font-size: clamp(2.5rem,5vw,4.5rem);
+  line-height: 1.06;
+  letter-spacing: -.045em;
+  max-width: 19ch;
+  margin-bottom: var(--sk-space-6);
+}
+.licensing-page .lic-hero .lead { max-width: 68ch; }
+.licensing-page .lic-breadcrumb {
+  color: var(--sk-muted);
+  font-size: .875rem;
+  margin-bottom: var(--sk-space-8);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sk-space-2);
+}
+.licensing-page .lic-breadcrumb a { color: var(--sk-text); text-decoration: underline; text-underline-offset: .2em; }
+.licensing-page .eyebrow {
+  color: var(--sk-muted);
+  font-size: .75rem;
+  letter-spacing: .1em;
+  font-weight: 600;
+  margin-bottom: var(--sk-space-3);
+}
+.licensing-page .lic-section {
+  padding-block: var(--sk-space-16);
+  border-bottom: 1px solid var(--sk-border);
+  scroll-margin-top: calc(var(--header) + var(--sk-space-4));
+}
+.licensing-page .lic-section h2 {
+  font-size: clamp(2rem,4vw,3rem);
+  line-height: 1.12;
+  letter-spacing: -.035em;
+  margin-bottom: var(--sk-space-4);
+}
+.licensing-page .lic-section > p:not(.eyebrow),
+.licensing-page .lic-cta > p:not(.eyebrow) { max-width: 70ch; }
+.licensing-page .lic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(min(100%, 16rem),1fr));
+  gap: var(--sk-space-4);
+  margin-top: var(--sk-space-8);
+}
+.licensing-page .lic-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--sk-layer);
+  overflow-wrap: anywhere;
+}
+.licensing-page .lic-card h3 {
+  font-size: 1.375rem;
+  line-height: 1.25;
+  letter-spacing: -.025em;
+}
+.licensing-page .lic-card p { color: var(--sk-muted); margin-top: 0; }
+.licensing-page .lic-card a {
+  margin-top: auto;
+  padding-block: var(--sk-space-3);
+  min-height: 44px;
+  font-weight: 600;
+}
+.licensing-page .lic-section a:not(.sk-button) {
+  color: var(--sk-text);
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+.licensing-page .lic-section a:not(.sk-button):hover { text-decoration-thickness: 2px; }
+.licensing-page .actions { gap: var(--sk-space-3); margin-top: var(--sk-space-8); }
+.licensing-page .sk-button { max-width: 100%; white-space: normal; }
+.licensing-page .lic-hero .sk-button.secondary { border-color: var(--sk-text); }
+.licensing-page .lic-hero .sk-button:hover {
+  opacity: 1;
+  background: var(--sk-group-white);
+  color: var(--sk-group-ink-navy);
+  border-color: var(--sk-group-white);
+}
+.licensing-page .lic-note {
+  display: block;
+  color: var(--sk-muted);
+  border-left-color: var(--sk-group-skunk-blue);
+  margin-top: var(--sk-space-6);
+  overflow-wrap: anywhere;
+}
+.licensing-page .lic-steps {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: var(--sk-space-4) var(--sk-space-8);
+  padding: 0;
+  list-style: none;
+  margin: var(--sk-space-8) 0 0;
+}
+.licensing-page .lic-steps li {
+  padding-block: var(--sk-space-4);
+  border-top: 1px solid var(--sk-border);
+  min-width: 0;
+}
+.licensing-page .lic-steps strong { display: block; margin-bottom: var(--sk-space-2); }
+.licensing-page .lic-table-wrap { margin-top: var(--sk-space-6); max-width: 100%; }
+.licensing-page .lic-table { min-width: 36rem; }
+.licensing-page .lic-table tbody th { background: var(--sk-bg); }
+.licensing-page .lic-table td, .licensing-page .lic-table th { vertical-align: top; }
+.licensing-page .lic-price { font-size: 1.125rem; font-weight: 700; white-space: nowrap; }
+.licensing-page .lic-faq .sk-accordion summary { min-height: 48px; }
+.licensing-page .lic-faq .sk-accordion > div { padding-inline: var(--sk-space-4); }
+.licensing-page .lic-faq .sk-accordion p { margin: 0; color: var(--sk-muted); max-width: 70ch; }
+.licensing-page .lic-cta { padding: var(--sk-space-8); background: var(--sk-surface); }
+@media (max-width: 800px) {
+  .licensing-page .lic-section { padding-block: var(--sk-space-12); }
+  .licensing-page .lic-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 560px) {
+  .licensing-page .lic-hero { padding-block: var(--sk-space-6) var(--sk-space-12); }
+  .licensing-page .lic-section { padding-block: var(--sk-space-8); }
+  .licensing-page .lic-grid, .licensing-page .lic-steps { grid-template-columns: minmax(0,1fr); }
+  .licensing-page .lic-cta { padding: var(--sk-space-6); }
+  .licensing-page .actions { flex-direction: column; align-items: stretch; }
+  .licensing-page .sk-button { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .licensing-page * { scroll-behavior: auto !important; transition: none !important; }
+}
+
+/* Keep licensing navigation accessible despite the site's compact mobile header. */
+.licensing-page .sk-global-header :focus-visible,
+.licensing-page .sk-nav-dialog :focus-visible{outline:3px solid var(--sk-focus);outline-offset:3px}
+@media(max-width:420px){
+  .licensing-page .sk-global-header{padding:0 8px;gap:4px}
+  .licensing-page .sk-global-brand{gap:8px}
+  .licensing-page .sk-global-brand img{width:32px;height:32px}
+  .licensing-page .sk-global-header .sk-icon,
+  .licensing-page .sk-global-header .sk-dropdown summary{width:44px;min-width:44px;min-height:44px;padding:10px}
+}
+@media(max-width:360px){
+  .licensing-page .sk-global-brand>span{display:none}
+  .licensing-page .sk-global-header{gap:8px}
+}
