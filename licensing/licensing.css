@@ -155,18 +155,3 @@
 @media (prefers-reduced-motion: reduce) {
   .licensing-page * { scroll-behavior: auto !important; transition: none !important; }
 }
-
-/* Keep licensing navigation accessible despite the site's compact mobile header. */
-.licensing-page .sk-global-header :focus-visible,
-.licensing-page .sk-nav-dialog :focus-visible{outline:3px solid var(--sk-focus);outline-offset:3px}
-@media(max-width:420px){
-  .licensing-page .sk-global-header{padding:0 8px;gap:4px}
-  .licensing-page .sk-global-brand{gap:8px}
-  .licensing-page .sk-global-brand img{width:32px;height:32px}
-  .licensing-page .sk-global-header .sk-icon,
-  .licensing-page .sk-global-header .sk-dropdown summary{width:44px;min-width:44px;min-height:44px;padding:10px}
-}
-@media(max-width:360px){
-  .licensing-page .sk-global-brand>span{display:none}
-  .licensing-page .sk-global-header{gap:8px}
-}
