@@ -80,7 +80,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         continue-on-error: true
-        uses: actions/deploy-pages@v5.0.1
+        uses: actions/deploy-pages@v5
         with:
           artifact_name: ${{ needs.build.outputs.artifact_name }}
       # Retry only deployment so the existing upload is reused.
@@ -90,6 +90,6 @@ jobs:
       - name: Retry GitHub Pages deployment once
         id: deployment_retry
         if: ${{ !cancelled() && steps.deployment.outcome == 'failure' }}
-        uses: actions/deploy-pages@v5.0.1
+        uses: actions/deploy-pages@v5
         with:
           artifact_name: ${{ needs.build.outputs.artifact_name }}
