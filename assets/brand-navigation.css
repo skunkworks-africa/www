@@ -8,18 +8,18 @@ body:has(.sk-global-header){--header:72px}
 @media(prefers-color-scheme:dark){:root:not([data-theme=light]) .sk-light-logo{display:none}:root:not([data-theme=light]) .sk-dark-logo{display:block}}
 .sk-top-links,.sk-header-actions{display:flex;align-items:center;gap:16px;font-size:13px}.sk-top-links>a{white-space:nowrap;text-decoration:none}.sk-top-links>a:hover{text-decoration:underline}
 .sk-header-actions{margin-left:auto;gap:4px;height:100%}
-.sk-icon,.sk-dropdown summary{color:inherit;background:transparent;border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:10px 12px;gap:8px;white-space:nowrap}
-.sk-icon{width:44px;flex-shrink:0;font-size:26px;line-height:1}.sk-dropdown summary{list-style:none}.sk-dropdown summary::-webkit-details-marker{display:none}
+.sk-icon,.sk-dropdown summary{color:inherit;background:transparent;border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;min-height:44px;padding:10px 12px;gap:8px;white-space:nowrap}
+.sk-icon{width:44px;font-size:26px;line-height:1}.sk-dropdown summary{list-style:none}.sk-dropdown summary::-webkit-details-marker{display:none}
 .sk-icon:hover,.sk-dropdown summary:hover,.sk-dropdown-panel a:hover,.sk-nav-dialog nav a:hover{background:var(--sk-hover)}
 .sk-dropdown{position:relative}.sk-dropdown[open]>summary{background:var(--sk-surface)}
 .sk-dropdown-panel{position:absolute;top:100%;right:0;width:max-content;max-width:min(300px,85vw);min-width:200px;background:var(--sk-bg);border:1px solid var(--sk-border);box-shadow:0 8px 24px #0002;padding:8px;z-index:2}
 .sk-dropdown-panel a,.sk-nav-dialog nav a{display:block;padding:12px;text-decoration:none;white-space:normal}
-.sk-global-header :focus-visible,.sk-nav-dialog :focus-visible{outline:3px solid var(--sk-focus);outline-offset:3px}
+.sk-global-header :focus-visible,.sk-nav-dialog :focus-visible{outline:3px solid var(--sk-focus);outline-offset:2px}
 .sk-mobile-trigger{display:none}.sk-nav-dialog{background:var(--sk-bg);color:var(--sk-text);border:1px solid var(--sk-border);padding:16px;max-width:calc(100% - 32px);max-height:90dvh;overflow:auto;font-family:var(--sk-font)}
 .sk-nav-dialog::backdrop{background:#0008}.sk-drawer{position:fixed;inset:0 auto 0 0;margin:0;width:min(360px,calc(100% - 36px));height:100dvh;max-height:100dvh;border:0;border-right:1px solid var(--sk-border)}
 .sk-dialog-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}.sk-search-dialog{width:560px}.sk-search-dialog input{display:block;width:100%;padding:12px;border:1px solid var(--sk-control-border);background:var(--sk-bg);color:var(--sk-text)}.sk-nav-dialog [hidden]{display:none}
 @media(max-width:1120px){.sk-global-header{gap:12px}.sk-employee-label{display:none}}
-@media(max-width:900px){body:has(.sk-global-header){--header:64px}.sk-global-header{height:64px;padding:0 12px;gap:8px}.sk-top-links{display:none}.sk-mobile-trigger{display:flex}.sk-global-brand img{width:36px;height:36px}}
-@media(max-width:420px){.sk-global-header{padding:0 8px;gap:4px}.sk-global-brand{gap:10px}.sk-global-brand strong{font-size:13px}.sk-global-brand small{font-size:10px}.sk-header-actions{gap:0}.sk-global-header .sk-icon,.sk-global-header .sk-dropdown summary{width:44px;padding:10px}}
-/* Preserve the approved mark and touch targets when the full wordmark cannot fit. */
-@media(max-width:360px){.sk-global-brand>span{display:none}.sk-global-header{gap:8px}}
+@media(max-width:900px){body:has(.sk-global-header){--header:64px}.sk-global-header{height:64px;padding:0 12px;gap:8px}.sk-top-links{display:none}.sk-mobile-trigger{display:flex}.sk-global-brand img{width:32px;height:32px}}
+@media(max-width:420px){.sk-global-header{padding:0 6px;gap:2px}.sk-global-brand{gap:4px}.sk-global-brand img{width:32px;height:32px}.sk-global-brand strong{font-size:13px}.sk-global-brand small{font-size:10px}.sk-header-actions{gap:0}.sk-global-header .sk-icon,.sk-global-header .sk-dropdown summary{width:44px;min-width:44px;min-height:44px;flex-shrink:0;padding:7px}}
+
+@media(max-width:420px){.sk-global-brand span{display:none}}

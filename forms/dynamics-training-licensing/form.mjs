@@ -4,6 +4,7 @@ const form = document.getElementById('discovery-form');
 if (form) {
   const errors = document.getElementById('form-errors');
   const status = document.getElementById('form-status');
+  const deliveryStatus = document.getElementById('email-status');
   const review = document.getElementById('enquiry-review');
   const summary = document.getElementById('enquiry-summary');
   const needs = [...form.querySelectorAll('[name="needs"]')];
@@ -63,6 +64,7 @@ if (form) {
   const currentEnquiry = () => buildEnquiry(new FormData(form));
 
   function showReview() {
+    if (deliveryStatus) deliveryStatus.textContent = '';
     if (!validate()) return false;
     summary.textContent = buildSummary(currentEnquiry());
     review.hidden = false;
@@ -74,6 +76,7 @@ if (form) {
   function changed(event) {
     if (event.target.matches('[name="needs"]')) updateSections();
     if (event.target.matches('input, select, textarea')) {
+      if (deliveryStatus) deliveryStatus.textContent = '';
       event.target.removeAttribute('aria-invalid');
       if (event.target.name !== 'needs') event.target.setCustomValidity('');
       if (!review.hidden) {
