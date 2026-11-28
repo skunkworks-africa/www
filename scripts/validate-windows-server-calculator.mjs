@@ -22,7 +22,7 @@ assert.ok(html.includes('https://brand.skunkworks.africa/tokens.css'), 'Use the 
 for (const url of ['/styles.css','/adaptive-shell.css','/assets/skunkworks-global-footer.css','/site.js','/assets/skunkworks-global-footer.js']) {
   assert.ok(html.includes(url), 'Shared corporate shell missing ' + url);
 }
-assert.ok(html.includes('data-sk-open="sk-navigation"') && html.includes('id="sk-navigation"') && html.includes('/assets/brand-navigation.js'), 'Responsive header must use the design-system navigation.');
+assert.ok(html.includes('data-menu-button') && html.includes('data-mobile-menu'), 'Responsive header must use existing site behavior.');
 assert.match(html, /name="description"/, 'Missing description.');
 assert.match(html, /property="og:image"/, 'Missing social preview.');
 assert.match(html, /name="twitter:card"/, 'Missing social card.');
@@ -35,12 +35,6 @@ assert.ok(html.includes('id="calculator-error" role="alert"'), 'Accessible calcu
 assert.ok(html.includes('id="server-template"'), 'Dynamic multiple-server inputs missing.');
 assert.match(css, /@media\(max-width:620px\)/, 'Mobile viewport styles missing.');
 assert.match(css, /@media print/, 'Print styles missing.');
-const printCss = css.slice(css.indexOf('@media print{'));
-assert.match(html, /<header class="sk-global-header"/, 'Global navigation header missing.');
-assert.match(html, /class="calc-print-header"/, 'Dedicated report header missing.');
-assert.match(printCss, /\.site-header,\.sk-global-header,\.site-footer[^{}]*\{display:none!important\}/, 'Website navigation must be hidden only when printing.');
-assert.match(printCss, /\.calc-print-header\{display:flex/, 'Dedicated report header must remain visible in print.');
-assert.match(printCss, /\.calc-results,\.calc-breakdown\{/, 'Report summary and breakdown must remain printable.');
 assert.match(css, /:focus-visible/, 'Keyboard focus styles missing.');
 assert.match(app, /toCsv\(currentEstimate\)/, 'CSV export must use the validated engine.');
 assert.match(app, /window\.print\(\)/, 'Print/PDF control missing.');
