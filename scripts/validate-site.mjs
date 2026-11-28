@@ -47,7 +47,7 @@ requireText(automationHtml,'rel="canonical" href="https://www.skunkworks.africa/
 requireText(automationHtml,'content="noindex,nofollow"','Automation page must remain noindex until authenticated production hosting exists.');
 requireText(automationHtml,'https://store.skunkworks.africa/','Automation page must preserve the canonical store authority.');
 requireText(automationHtml,'https://www.skunkworksacademy.com/','Automation page must preserve the Academy ecosystem route.');
-requireText(automationHtml,'data-menu-button','Automation page is missing the shared responsive header.');
+requireText(automationHtml,'data-sk-open="sk-navigation"','Automation page is missing the shared responsive header.');
 requireText(automationHtml,'/automation/app.js','Automation page is missing its workflow application script.');
 requireText(automationHtml,'/automation/config.js','Automation page is missing its workflow configuration.');
 requireText(automationJs,"localStorage",'Automation workflow must persist browser-local state.');
@@ -79,6 +79,60 @@ for (const [name, markup] of [['desktop', desktopNav], ['mobile', mobileNav]]) {
   if (allLabels.some(label => ['Store','Software','Company'].includes(label))) failures.push(`${name} navigation contains retired labels.`);
 }
 if (!html.includes('<a href="/#company">Skunkworks</a>')) failures.push('Missing Skunkworks About link.');
+
+
+// My Skunkworks: verify the same four destinations on all canonical-header pages.
+const portalLinks = "<a href=\"https://myapps.microsoft.com/\">Employee / Microsoft 365</a><a href=\"/account/customer/\">Customer Portal</a><a href=\"/account/partner/\">Partner Portal</a><a href=\"https://portal.skunkworksacademy.com/\">Academy Portal</a>";
+for (const file of ['index.html','global-presence/index.html','forms/index.html','forms/dynamics-training-licensing/index.html','licensing/index.html','licensing/microsoft-365/index.html','licensing/google-workspace/index.html']) {
+  const page=fs.readFileSync(file,'utf8');
+  requireText(page,'aria-label="My Skunkworks accounts and portals"','Account label missing: '+file);
+  const account=page.match(/<details class="sk-dropdown sk-account">[\s\S]*?<div class="sk-dropdown-panel">([\s\S]*?)<\/div>/)?.[1];
+  if(account!==portalLinks)failures.push('Account links differ: '+file);
+  for(const label of ['Mobile navigation','Search results']){
+    const nav=page.match(new RegExp('<nav aria-label="'+label+'">([\\s\\S]*?)<\\/nav>'))?.[1]||'';
+    requireText(nav,portalLinks,'Portal destinations missing from '+label+': '+file);
+  }
+}
+for(const kind of ['customer','partner']){
+  const page=fs.readFileSync('account/'+kind+'/index.html','utf8');
+  requireText(page,'data-portal="'+kind+'"','Missing portal identifier: '+kind);
+  requireText(page,'data-launch hidden','Portal must fail closed without JavaScript: '+kind);
+  requireText(page,'noindex,follow','Portal gateway must not be indexed: '+kind);
+  requireText(page,'/account/launch.mjs','Missing portal launch script: '+kind);
+}
+const {verifiedDestination}=await import('../account/portal-config.mjs');
+for(const kind of ['customer','partner']){
+  const expected='https://'+kind+'.skunkworks.africa/';
+  if(verifiedDestination(kind,expected)!==expected)failures.push('Valid portal destination rejected: '+kind);
+  for(const bad of ['http://'+kind+'.skunkworks.africa/','https://evil.example/','https://'+kind+'.skunkworks.africa.evil.example/','https://attacker@'+kind+'.skunkworks.africa/','https://'+kind+'.skunkworks.africa/?next=evil','https://'+kind+'.skunkworks.africa/#evil','https://'+kind+'.skunkworks.africa/other'])if(verifiedDestination(kind,bad)!==null)failures.push('Invalid portal destination accepted');
+}
+if(verifiedDestination('unknown','https://customer.skunkworks.africa/')!==null)failures.push('Unknown portal accepted');
+
+
+ // Licensing uses the same corporate shell and the published native brand components.
+ for (const file of ['licensing/index.html','licensing/microsoft-365/index.html','licensing/google-workspace/index.html']) {
+   const page = fs.readFileSync(file,'utf8');
+   for (const marker of ['class="licensing-page"','/assets/brand-navigation-tokens.css','/assets/brand-navigation.css','/assets/brand-navigation.js','/vendor/skunkworks/components-1.0.0.css','data-sk-open="sk-navigation"','data-sk-open="sk-search"','data-sk-theme','aria-label="Breadcrumb"','class="sk-accordion"','data-skunkworks-footer-mount','/assets/skunkworks-global-footer.js','mailto:sales@skunkworks.africa','class="sk-button"']) {
+     requireText(page,marker,'Licensing brand component missing: '+file+' '+marker);
+   }
+   const early = page.indexOf('<script src="/theme-init.js"></script>');
+   if (early < 0 || early > page.indexOf('rel="stylesheet"')) failures.push('Licensing theme must initialize before CSS: '+file);
+   if (page.includes('data-menu-button') || page.includes('class="site-header"')) failures.push('Legacy header on licensing page: '+file);
+   if ((page.match(/<h1\b/g)||[]).length!==1) failures.push('Licensing must have one H1: '+file);
+   const ids = [...page.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);
+   if (new Set(ids).size!==ids.length) failures.push('Duplicate licensing ID: '+file);
+   for(const m of page.matchAll(/aria-(?:controls|labelledby)="([^"]+)"/g)) for(const id of m[1].split(/\s+/)) if(!ids.includes(id)) failures.push('Missing licensing ARIA target: '+file+' '+id);
+   if (file!=='licensing/index.html') {
+     requireText(page,'class="lic-table-wrap sk-table-wrap" role="region"','Licensing comparison needs a labelled scroll region: '+file);
+     const tableRegion = page.match(/<div\b[^>]*class="lic-table-wrap sk-table-wrap"[^>]*>/)?.[0] || '';
+     requireText(tableRegion,'tabindex="0"','Licensing comparison must be keyboard-scrollable: '+file);
+     requireText(page,'<caption>','Licensing comparison table needs a caption: '+file);
+   }
+ }
+ const licensingCss=fs.readFileSync('licensing/licensing.css','utf8');
+ for(const token of ['--sk-bg','--sk-text','--sk-border','--sk-focus','--sk-group-ink-navy','--sk-group-skunk-blue','--sk-group-signal-orange','--sk-space-16','--sk-radius']) requireText(licensingCss,'var('+token+')','Licensing CSS must use brand token '+token);
+ if(/#[0-9a-fA-F]{3,8}\b/.test(licensingCss)) failures.push('Licensing CSS contains raw colour values.');
+ requireText(licensingCss,'prefers-reduced-motion','Licensing must respect reduced motion.');
 
 if(failures.length){console.error('Site validation failed:');for(const f of failures) console.error(`- ${f}`);process.exit(1)}
 console.log('Site validation passed.');

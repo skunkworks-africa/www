@@ -1,0 +1,38 @@
+<!-- Draft policy: supply reviewed APIM named values, cost/tier selection and live
+     verification before using. Apply only to the dedicated IBM POST operation.
+     rate-limit-by-key and quota-by-key require a supporting APIM tier; they are
+     not supported on the Consumption tier. No public release is enabled here. -->
+<policies>
+  <inbound>
+    <base />
+    <cors allow-credentials="false" terminate-unmatched-request="true">
+      <allowed-origins>
+        <origin>{{ibm-allowed-origin}}</origin>
+      </allowed-origins>
+      <allowed-methods preflight-result-max-age="300">
+        <method>POST</method>
+      </allowed-methods>
+      <allowed-headers>
+        <header>Content-Type</header>
+        <header>Idempotency-Key</header>
+      </allowed-headers>
+    </cors>
+    <rate-limit-by-key calls="{{ibm-per-ip-calls-per-minute}}" renewal-period="60" counter-key="@(&quot;ibm-intake-ip-&quot; + context.Request.IpAddress)" />
+    <rate-limit-by-key calls="{{ibm-total-calls-per-minute}}" renewal-period="60" counter-key="ibm-intake-service" />
+    <quota-by-key calls="{{ibm-total-calls-per-day}}" renewal-period="86400" counter-key="ibm-intake-daily" />
+    <set-header name="Authorization" exists-action="delete" />
+    <authentication-managed-identity resource="{{ibm-backend-api-resource}}" ignore-error="false" />
+    <set-backend-service base-url="{{ibm-function-base-url}}" />
+    <rewrite-uri template="/api/forms/ibm/storage-protect" copy-unmatched-params="false" />
+  </inbound>
+  <backend>
+    <forward-request timeout="30" follow-redirects="false" />
+  </backend>
+  <outbound>
+    <base />
+    <set-header name="Cache-Control" exists-action="override"><value>no-store</value></set-header>
+  </outbound>
+  <on-error>
+    <base />
+  </on-error>
+</policies>
