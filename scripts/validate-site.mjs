@@ -47,7 +47,7 @@ requireText(automationHtml,'rel="canonical" href="https://www.skunkworks.africa/
 requireText(automationHtml,'content="noindex,nofollow"','Automation page must remain noindex until authenticated production hosting exists.');
 requireText(automationHtml,'https://store.skunkworks.africa/','Automation page must preserve the canonical store authority.');
 requireText(automationHtml,'https://www.skunkworksacademy.com/','Automation page must preserve the Academy ecosystem route.');
-requireText(automationHtml,'data-menu-button','Automation page is missing the shared responsive header.');
+requireText(automationHtml,'data-sk-open="sk-navigation"','Automation page is missing the shared responsive header.');
 requireText(automationHtml,'/automation/app.js','Automation page is missing its workflow application script.');
 requireText(automationHtml,'/automation/config.js','Automation page is missing its workflow configuration.');
 requireText(automationJs,"localStorage",'Automation workflow must persist browser-local state.');
